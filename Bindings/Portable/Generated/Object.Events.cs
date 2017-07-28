@@ -18,9 +18,9 @@ namespace Urho {
 namespace Urho {
         public partial struct SoundFinishedEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public SoundSource SoundSource => UrhoMap.get_SoundSource (handle, unchecked((int)1857968315) /* P_SOUNDSOURCE */);
-            public Sound Sound => UrhoMap.get_Sound (handle, unchecked((int)3605975168) /* P_SOUND */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public SoundSource SoundSource => UrhoMap.get_SoundSource (handle, unchecked((int)368456554) /* SoundSource (P_SOUNDSOURCE) */);
+            public Sound Sound => UrhoMap.get_Sound (handle, unchecked((int)3920519599) /* Sound (P_SOUND) */);
         } /* struct SoundFinishedEventArgs */
 
 } /* namespace */
@@ -28,8 +28,8 @@ namespace Urho {
 namespace Urho {
         public partial struct FrameStartedEventArgs {
             internal IntPtr handle;
-            public uint FrameNumber => UrhoMap.get_uint (handle, unchecked((int)2930600679) /* P_FRAMENUMBER */);
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
+            public uint FrameNumber => UrhoMap.get_uint (handle, unchecked((int)1441088918) /* FrameNumber (P_FRAMENUMBER) */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct FrameStartedEventArgs */
 
         public partial class Time {
@@ -38,7 +38,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FrameStartedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1579640094 /* E_BEGINFRAME */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)529677540) /* BeginFrame (E_BEGINFRAME) */);
                   return s;
              }
 
@@ -60,7 +60,7 @@ namespace Urho {
 namespace Urho {
         public partial struct UpdateEventArgs {
             internal IntPtr handle;
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct UpdateEventArgs */
 
         public partial class Engine {
@@ -69,7 +69,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 108866531 /* E_UPDATE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)915638697) /* Update (E_UPDATE) */);
                   return s;
              }
 
@@ -91,7 +91,7 @@ namespace Urho {
 namespace Urho {
         public partial struct PostUpdateEventArgs {
             internal IntPtr handle;
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct PostUpdateEventArgs */
 
         public partial class Engine {
@@ -100,7 +100,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PostUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3752721187 /* E_POSTUPDATE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2702758633) /* PostUpdate (E_POSTUPDATE) */);
                   return s;
              }
 
@@ -122,7 +122,7 @@ namespace Urho {
 namespace Urho {
         public partial struct RenderUpdateEventArgs {
             internal IntPtr handle;
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct RenderUpdateEventArgs */
 
         public partial class Engine {
@@ -131,7 +131,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new RenderUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4171474713 /* E_RENDERUPDATE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3851615199) /* RenderUpdate (E_RENDERUPDATE) */);
                   return s;
              }
 
@@ -153,7 +153,7 @@ namespace Urho {
 namespace Urho {
         public partial struct PostRenderUpdateEventArgs {
             internal IntPtr handle;
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct PostRenderUpdateEventArgs */
 
         public partial class Engine {
@@ -162,7 +162,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PostRenderUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1265210969 /* E_POSTRENDERUPDATE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)22439199) /* PostRenderUpdate (E_POSTRENDERUPDATE) */);
                   return s;
              }
 
@@ -192,7 +192,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FrameEndedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1274251308 /* E_ENDFRAME */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4264256242) /* EndFrame (E_ENDFRAME) */);
                   return s;
              }
 
@@ -214,7 +214,7 @@ namespace Urho {
 namespace Urho {
         public partial struct WorkItemCompletedEventArgs {
             internal IntPtr handle;
-            public WorkItem Item => UrhoMap.get_WorkItem (handle, unchecked((int)921799426) /* P_ITEM */);
+            public WorkItem Item => UrhoMap.get_WorkItem (handle, unchecked((int)1322237459) /* Item (P_ITEM) */);
         } /* struct WorkItemCompletedEventArgs */
 
         public partial class WorkQueue {
@@ -223,7 +223,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new WorkItemCompletedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3318800173 /* E_WORKITEMCOMPLETED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1507705319) /* WorkItemCompleted (E_WORKITEMCOMPLETED) */);
                   return s;
              }
 
@@ -245,8 +245,8 @@ namespace Urho {
 namespace Urho {
         public partial struct ConsoleCommandEventArgs {
             internal IntPtr handle;
-            public String Command => UrhoMap.get_String (handle, unchecked((int)971623580) /* P_COMMAND */);
-            public String Id => UrhoMap.get_String (handle, unchecked((int)2318151338) /* P_ID */);
+            public String Command => UrhoMap.get_String (handle, unchecked((int)1528149579) /* Command (P_COMMAND) */);
+            public String Id => UrhoMap.get_String (handle, unchecked((int)6887995) /* Id (P_ID) */);
         } /* struct ConsoleCommandEventArgs */
 
         public partial class UrhoConsole {
@@ -255,7 +255,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ConsoleCommandEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 798325358 /* E_CONSOLECOMMAND */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1402653748) /* ConsoleCommand (E_CONSOLECOMMAND) */);
                   return s;
              }
 
@@ -277,7 +277,7 @@ namespace Urho {
 namespace Urho {
         public partial struct BoneHierarchyCreatedEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
         } /* struct BoneHierarchyCreatedEventArgs */
 
         public partial class Node {
@@ -286,7 +286,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new BoneHierarchyCreatedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1604299473 /* E_BONEHIERARCHYCREATED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1724904343) /* BoneHierarchyCreated (E_BONEHIERARCHYCREATED) */);
                   return s;
              }
 
@@ -308,11 +308,11 @@ namespace Urho {
 namespace Urho {
         public partial struct AnimationTriggerEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public Animation Animation => UrhoMap.get_Animation (handle, unchecked((int)246588565) /* P_ANIMATION */);
-            public String Name => UrhoMap.get_String (handle, unchecked((int)373324314) /* P_NAME */);
-            public float Time => UrhoMap.get_float (handle, unchecked((int)827972252) /* P_TIME */);
-            public IntPtr Data => UrhoMap.get_IntPtr (handle, unchecked((int)1157846105) /* P_DATA */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public Animation Animation => UrhoMap.get_Animation (handle, unchecked((int)1554425540) /* Animation (P_ANIMATION) */);
+            public String Name => UrhoMap.get_String (handle, unchecked((int)773762347) /* Name (P_NAME) */);
+            public float Time => UrhoMap.get_float (handle, unchecked((int)1228410285) /* Time (P_TIME) */);
+            public IntPtr Data => UrhoMap.get_IntPtr (handle, unchecked((int)1558284138) /* Data (P_DATA) */);
         } /* struct AnimationTriggerEventArgs */
 
         public partial class Node {
@@ -321,7 +321,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AnimationTriggerEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 893439086 /* E_ANIMATIONTRIGGER */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3945634612) /* AnimationTrigger (E_ANIMATIONTRIGGER) */);
                   return s;
              }
 
@@ -343,10 +343,10 @@ namespace Urho {
 namespace Urho {
         public partial struct AnimationFinishedEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public Animation Animation => UrhoMap.get_Animation (handle, unchecked((int)246588565) /* P_ANIMATION */);
-            public String Name => UrhoMap.get_String (handle, unchecked((int)373324314) /* P_NAME */);
-            public bool Looped => UrhoMap.get_bool (handle, unchecked((int)65200626) /* P_LOOPED */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public Animation Animation => UrhoMap.get_Animation (handle, unchecked((int)1554425540) /* Animation (P_ANIMATION) */);
+            public String Name => UrhoMap.get_String (handle, unchecked((int)773762347) /* Name (P_NAME) */);
+            public bool Looped => UrhoMap.get_bool (handle, unchecked((int)842439811) /* Looped (P_LOOPED) */);
         } /* struct AnimationFinishedEventArgs */
 
 } /* namespace */
@@ -354,8 +354,8 @@ namespace Urho {
 namespace Urho {
         public partial struct ParticleEffectFinishedEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public ParticleEffect Effect => UrhoMap.get_ParticleEffect (handle, unchecked((int)1563615360) /* P_EFFECT */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public ParticleEffect Effect => UrhoMap.get_ParticleEffect (handle, unchecked((int)2340854545) /* Effect (P_EFFECT) */);
         } /* struct ParticleEffectFinishedEventArgs */
 
 } /* namespace */
@@ -363,7 +363,7 @@ namespace Urho {
 namespace Urho {
         public partial struct TerrainCreatedEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
         } /* struct TerrainCreatedEventArgs */
 
         public partial class Terrain {
@@ -372,7 +372,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TerrainCreatedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 676469357 /* E_TERRAINCREATED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1280797747) /* TerrainCreated (E_TERRAINCREATED) */);
                   return s;
              }
 
@@ -394,12 +394,12 @@ namespace Urho {
 namespace Urho {
         public partial struct ScreenModeEventArgs {
             internal IntPtr handle;
-            public int Width => UrhoMap.get_int (handle, unchecked((int)3340657143) /* P_WIDTH */);
-            public int Height => UrhoMap.get_int (handle, unchecked((int)3898685366) /* P_HEIGHT */);
-            public bool Fullscreen => UrhoMap.get_bool (handle, unchecked((int)1009772010) /* P_FULLSCREEN */);
-            public bool Borderless => UrhoMap.get_bool (handle, unchecked((int)1386118644) /* P_BORDERLESS */);
-            public bool Resizable => UrhoMap.get_bool (handle, unchecked((int)2271423132) /* P_RESIZABLE */);
-            public bool HighDPI => UrhoMap.get_bool (handle, unchecked((int)1694895852) /* P_HIGHDPI */);
+            public int Width => UrhoMap.get_int (handle, unchecked((int)3655201574) /* Width (P_WIDTH) */);
+            public int Height => UrhoMap.get_int (handle, unchecked((int)380957255) /* Height (P_HEIGHT) */);
+            public bool Fullscreen => UrhoMap.get_bool (handle, unchecked((int)1835757435) /* Fullscreen (P_FULLSCREEN) */);
+            public bool Borderless => UrhoMap.get_bool (handle, unchecked((int)2212104069) /* Borderless (P_BORDERLESS) */);
+            public bool Resizable => UrhoMap.get_bool (handle, unchecked((int)3579260107) /* Resizable (P_RESIZABLE) */);
+            public bool HighDPI => UrhoMap.get_bool (handle, unchecked((int)2251421851) /* HighDPI (P_HIGHDPI) */);
         } /* struct ScreenModeEventArgs */
 
 } /* namespace */
@@ -407,8 +407,8 @@ namespace Urho {
 namespace Urho {
         public partial struct WindowPosEventArgs {
             internal IntPtr handle;
-            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
         } /* struct WindowPosEventArgs */
 
 } /* namespace */
@@ -424,7 +424,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new RenderSurfaceUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 742966694 /* E_RENDERSURFACEUPDATE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)530312032) /* RenderSurfaceUpdate (E_RENDERSURFACEUPDATE) */);
                   return s;
              }
 
@@ -460,11 +460,11 @@ namespace Urho {
 namespace Urho {
         public partial struct BeginViewUpdateEventArgs {
             internal IntPtr handle;
-            public View View => UrhoMap.get_View (handle, unchecked((int)2388621876) /* P_VIEW */);
-            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)3485259788) /* P_TEXTURE */);
-            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)797318974) /* P_SURFACE */);
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)586873812) /* P_CAMERA */);
+            public View View => UrhoMap.get_View (handle, unchecked((int)2789059909) /* View (P_VIEW) */);
+            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)4041785787) /* Texture (P_TEXTURE) */);
+            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)1353844973) /* Surface (P_SURFACE) */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)1364112997) /* Camera (P_CAMERA) */);
         } /* struct BeginViewUpdateEventArgs */
 
         public partial class View {
@@ -473,7 +473,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new BeginViewUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 414448157 /* E_BEGINVIEWUPDATE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1204361687) /* BeginViewUpdate (E_BEGINVIEWUPDATE) */);
                   return s;
              }
 
@@ -495,11 +495,11 @@ namespace Urho {
 namespace Urho {
         public partial struct EndViewUpdateEventArgs {
             internal IntPtr handle;
-            public View View => UrhoMap.get_View (handle, unchecked((int)2388621876) /* P_VIEW */);
-            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)3485259788) /* P_TEXTURE */);
-            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)797318974) /* P_SURFACE */);
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)586873812) /* P_CAMERA */);
+            public View View => UrhoMap.get_View (handle, unchecked((int)2789059909) /* View (P_VIEW) */);
+            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)4041785787) /* Texture (P_TEXTURE) */);
+            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)1353844973) /* Surface (P_SURFACE) */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)1364112997) /* Camera (P_CAMERA) */);
         } /* struct EndViewUpdateEventArgs */
 
         public partial class View {
@@ -508,7 +508,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new EndViewUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 832628879 /* E_ENDVIEWUPDATE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3578578249) /* EndViewUpdate (E_ENDVIEWUPDATE) */);
                   return s;
              }
 
@@ -530,11 +530,11 @@ namespace Urho {
 namespace Urho {
         public partial struct BeginViewRenderEventArgs {
             internal IntPtr handle;
-            public View View => UrhoMap.get_View (handle, unchecked((int)2388621876) /* P_VIEW */);
-            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)3485259788) /* P_TEXTURE */);
-            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)797318974) /* P_SURFACE */);
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)586873812) /* P_CAMERA */);
+            public View View => UrhoMap.get_View (handle, unchecked((int)2789059909) /* View (P_VIEW) */);
+            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)4041785787) /* Texture (P_TEXTURE) */);
+            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)1353844973) /* Surface (P_SURFACE) */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)1364112997) /* Camera (P_CAMERA) */);
         } /* struct BeginViewRenderEventArgs */
 
         public partial class Renderer {
@@ -543,7 +543,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new BeginViewRenderEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3182826410 /* E_BEGINVIEWRENDER */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3972739940) /* BeginViewRender (E_BEGINVIEWRENDER) */);
                   return s;
              }
 
@@ -565,11 +565,11 @@ namespace Urho {
 namespace Urho {
         public partial struct ViewBuffersReadyEventArgs {
             internal IntPtr handle;
-            public View View => UrhoMap.get_View (handle, unchecked((int)2388621876) /* P_VIEW */);
-            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)3485259788) /* P_TEXTURE */);
-            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)797318974) /* P_SURFACE */);
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)586873812) /* P_CAMERA */);
+            public View View => UrhoMap.get_View (handle, unchecked((int)2789059909) /* View (P_VIEW) */);
+            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)4041785787) /* Texture (P_TEXTURE) */);
+            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)1353844973) /* Surface (P_SURFACE) */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)1364112997) /* Camera (P_CAMERA) */);
         } /* struct ViewBuffersReadyEventArgs */
 
 } /* namespace */
@@ -577,11 +577,11 @@ namespace Urho {
 namespace Urho {
         public partial struct ViewGlobalShaderParametersEventArgs {
             internal IntPtr handle;
-            public View View => UrhoMap.get_View (handle, unchecked((int)2388621876) /* P_VIEW */);
-            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)3485259788) /* P_TEXTURE */);
-            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)797318974) /* P_SURFACE */);
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)586873812) /* P_CAMERA */);
+            public View View => UrhoMap.get_View (handle, unchecked((int)2789059909) /* View (P_VIEW) */);
+            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)4041785787) /* Texture (P_TEXTURE) */);
+            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)1353844973) /* Surface (P_SURFACE) */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)1364112997) /* Camera (P_CAMERA) */);
         } /* struct ViewGlobalShaderParametersEventArgs */
 
 } /* namespace */
@@ -589,11 +589,11 @@ namespace Urho {
 namespace Urho {
         public partial struct EndViewRenderEventArgs {
             internal IntPtr handle;
-            public View View => UrhoMap.get_View (handle, unchecked((int)2388621876) /* P_VIEW */);
-            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)3485259788) /* P_TEXTURE */);
-            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)797318974) /* P_SURFACE */);
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)586873812) /* P_CAMERA */);
+            public View View => UrhoMap.get_View (handle, unchecked((int)2789059909) /* View (P_VIEW) */);
+            public Texture Texture => UrhoMap.get_Texture (handle, unchecked((int)4041785787) /* Texture (P_TEXTURE) */);
+            public RenderSurface Surface => UrhoMap.get_RenderSurface (handle, unchecked((int)1353844973) /* Surface (P_SURFACE) */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Camera Camera => UrhoMap.get_Camera (handle, unchecked((int)1364112997) /* Camera (P_CAMERA) */);
         } /* struct EndViewRenderEventArgs */
 
         public partial class Renderer {
@@ -602,7 +602,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new EndViewRenderEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3601007132 /* E_ENDVIEWRENDER */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2051989206) /* EndViewRender (E_ENDVIEWRENDER) */);
                   return s;
              }
 
@@ -624,7 +624,7 @@ namespace Urho {
 namespace Urho {
         public partial struct RenderPathEventEventArgs {
             internal IntPtr handle;
-            public String Name => UrhoMap.get_String (handle, unchecked((int)373324314) /* P_NAME */);
+            public String Name => UrhoMap.get_String (handle, unchecked((int)773762347) /* Name (P_NAME) */);
         } /* struct RenderPathEventEventArgs */
 
 } /* namespace */
@@ -646,8 +646,8 @@ namespace Urho {
 namespace Urho.IO {
         public partial struct LogMessageEventArgs {
             internal IntPtr handle;
-            public String Message => UrhoMap.get_String (handle, unchecked((int)1753705976) /* P_MESSAGE */);
-            public int Level => UrhoMap.get_int (handle, unchecked((int)715726165) /* P_LEVEL */);
+            public String Message => UrhoMap.get_String (handle, unchecked((int)2310231975) /* Message (P_MESSAGE) */);
+            public int Level => UrhoMap.get_int (handle, unchecked((int)1030270596) /* Level (P_LEVEL) */);
         } /* struct LogMessageEventArgs */
 
         public partial class Log {
@@ -656,7 +656,7 @@ namespace Urho.IO {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new LogMessageEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3173669053 /* E_LOGMESSAGE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2123706499) /* LogMessage (E_LOGMESSAGE) */);
                   return s;
              }
 
@@ -678,8 +678,8 @@ namespace Urho.IO {
 namespace Urho.IO {
         public partial struct AsyncExecFinishedEventArgs {
             internal IntPtr handle;
-            public uint RequestID => UrhoMap.get_uint (handle, unchecked((int)2702366011) /* P_REQUESTID */);
-            public int ExitCode => UrhoMap.get_int (handle, unchecked((int)3139167706) /* P_EXITCODE */);
+            public uint RequestID => UrhoMap.get_uint (handle, unchecked((int)4010202986) /* RequestID (P_REQUESTID) */);
+            public int ExitCode => UrhoMap.get_int (handle, unchecked((int)3466160107) /* ExitCode (P_EXITCODE) */);
         } /* struct AsyncExecFinishedEventArgs */
 
         public partial class FileSystem {
@@ -688,7 +688,7 @@ namespace Urho.IO {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AsyncExecFinishedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3061114341 /* E_ASYNCEXECFINISHED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1250019487) /* AsyncExecFinished (E_ASYNCEXECFINISHED) */);
                   return s;
              }
 
@@ -710,9 +710,9 @@ namespace Urho.IO {
 namespace Urho {
         public partial struct MouseButtonDownEventArgs {
             internal IntPtr handle;
-            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct MouseButtonDownEventArgs */
 
         public partial class Input {
@@ -721,7 +721,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseButtonDownEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 829098559 /* E_MOUSEBUTTONDOWN */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1619012089) /* MouseButtonDown (E_MOUSEBUTTONDOWN) */);
                   return s;
              }
 
@@ -743,9 +743,9 @@ namespace Urho {
 namespace Urho {
         public partial struct MouseButtonUpEventArgs {
             internal IntPtr handle;
-            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct MouseButtonUpEventArgs */
 
         public partial class Input {
@@ -754,7 +754,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseButtonUpEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2095363256 /* E_MOUSEBUTTONUP */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)546345330) /* MouseButtonUp (E_MOUSEBUTTONUP) */);
                   return s;
              }
 
@@ -776,12 +776,12 @@ namespace Urho {
 namespace Urho {
         public partial struct MouseMovedEventArgs {
             internal IntPtr handle;
-            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
-            public int DX => UrhoMap.get_int (handle, unchecked((int)2317823363) /* P_DX */);
-            public int DY => UrhoMap.get_int (handle, unchecked((int)2317823364) /* P_DY */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
+            public int DX => UrhoMap.get_int (handle, unchecked((int)6560020) /* DX (P_DX) */);
+            public int DY => UrhoMap.get_int (handle, unchecked((int)6560021) /* DY (P_DY) */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct MouseMovedEventArgs */
 
         public partial class Input {
@@ -790,7 +790,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseMovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2322793692 /* E_MOUSEMOVE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1089985430) /* MouseMove (E_MOUSEMOVE) */);
                   return s;
              }
 
@@ -812,9 +812,9 @@ namespace Urho {
 namespace Urho {
         public partial struct MouseWheelEventArgs {
             internal IntPtr handle;
-            public int Wheel => UrhoMap.get_int (handle, unchecked((int)2567347468) /* P_WHEEL */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
+            public int Wheel => UrhoMap.get_int (handle, unchecked((int)2881891899) /* Wheel (P_WHEEL) */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct MouseWheelEventArgs */
 
         public partial class Input {
@@ -823,7 +823,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseWheelEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1884761040 /* E_MOUSEWHEEL */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)834798486) /* MouseWheel (E_MOUSEWHEEL) */);
                   return s;
              }
 
@@ -845,11 +845,11 @@ namespace Urho {
 namespace Urho {
         public partial struct KeyDownEventArgs {
             internal IntPtr handle;
-            public Key Key =>(Key) UrhoMap.get_int (handle, unchecked((int)814128016) /* P_KEY */);
-            public int Scancode => UrhoMap.get_int (handle, unchecked((int)3416312249) /* P_SCANCODE */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
-            public bool Repeat => UrhoMap.get_bool (handle, unchecked((int)180983978) /* P_REPEAT */);
+            public Key Key =>(Key) UrhoMap.get_int (handle, unchecked((int)890606655) /* Key (P_KEY) */);
+            public int Scancode => UrhoMap.get_int (handle, unchecked((int)3743304650) /* Scancode (P_SCANCODE) */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
+            public bool Repeat => UrhoMap.get_bool (handle, unchecked((int)958223163) /* Repeat (P_REPEAT) */);
         } /* struct KeyDownEventArgs */
 
         public partial class Input {
@@ -858,7 +858,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new KeyDownEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2393850567 /* E_KEYDOWN */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3254146689) /* KeyDown (E_KEYDOWN) */);
                   return s;
              }
 
@@ -880,10 +880,10 @@ namespace Urho {
 namespace Urho {
         public partial struct KeyUpEventArgs {
             internal IntPtr handle;
-            public Key Key =>(Key) UrhoMap.get_int (handle, unchecked((int)814128016) /* P_KEY */);
-            public int Scancode => UrhoMap.get_int (handle, unchecked((int)3416312249) /* P_SCANCODE */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
+            public Key Key =>(Key) UrhoMap.get_int (handle, unchecked((int)890606655) /* Key (P_KEY) */);
+            public int Scancode => UrhoMap.get_int (handle, unchecked((int)3743304650) /* Scancode (P_SCANCODE) */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct KeyUpEventArgs */
 
         public partial class Input {
@@ -892,7 +892,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new KeyUpEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3027153216 /* E_KEYUP */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4211507706) /* KeyUp (E_KEYUP) */);
                   return s;
              }
 
@@ -914,9 +914,9 @@ namespace Urho {
 namespace Urho {
         public partial struct TextInputEventArgs {
             internal IntPtr handle;
-            public String Text => UrhoMap.get_String (handle, unchecked((int)795647836) /* P_TEXT */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
+            public String Text => UrhoMap.get_String (handle, unchecked((int)1196085869) /* Text (P_TEXT) */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct TextInputEventArgs */
 
         public partial class Input {
@@ -925,7 +925,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TextInputEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3369651779 /* E_TEXTINPUT */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2136843517) /* TextInput (E_TEXTINPUT) */);
                   return s;
              }
 
@@ -947,7 +947,7 @@ namespace Urho {
 namespace Urho {
         public partial struct JoystickConnectedEventArgs {
             internal IntPtr handle;
-            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)684442918) /* P_JOYSTICKID */);
+            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)1510428343) /* JoystickID (P_JOYSTICKID) */);
         } /* struct JoystickConnectedEventArgs */
 
         public partial class Input {
@@ -956,7 +956,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickConnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 76490611 /* E_JOYSTICKCONNECTED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2560363053) /* JoystickConnected (E_JOYSTICKCONNECTED) */);
                   return s;
              }
 
@@ -978,7 +978,7 @@ namespace Urho {
 namespace Urho {
         public partial struct JoystickDisconnectedEventArgs {
             internal IntPtr handle;
-            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)684442918) /* P_JOYSTICKID */);
+            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)1510428343) /* JoystickID (P_JOYSTICKID) */);
         } /* struct JoystickDisconnectedEventArgs */
 
         public partial class Input {
@@ -987,7 +987,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickDisconnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 698841649 /* E_JOYSTICKDISCONNECTED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)819446519) /* JoystickDisconnected (E_JOYSTICKDISCONNECTED) */);
                   return s;
              }
 
@@ -1009,8 +1009,8 @@ namespace Urho {
 namespace Urho {
         public partial struct JoystickButtonDownEventArgs {
             internal IntPtr handle;
-            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)684442918) /* P_JOYSTICKID */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
+            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)1510428343) /* JoystickID (P_JOYSTICKID) */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
         } /* struct JoystickButtonDownEventArgs */
 
         public partial class Input {
@@ -1019,7 +1019,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickButtonDownEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1154719306 /* E_JOYSTICKBUTTONDOWN */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2528733712) /* JoystickButtonDown (E_JOYSTICKBUTTONDOWN) */);
                   return s;
              }
 
@@ -1041,8 +1041,8 @@ namespace Urho {
 namespace Urho {
         public partial struct JoystickButtonUpEventArgs {
             internal IntPtr handle;
-            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)684442918) /* P_JOYSTICKID */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
+            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)1510428343) /* JoystickID (P_JOYSTICKID) */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
         } /* struct JoystickButtonUpEventArgs */
 
         public partial class Input {
@@ -1051,7 +1051,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickButtonUpEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1352621635 /* E_JOYSTICKBUTTONUP */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)109849865) /* JoystickButtonUp (E_JOYSTICKBUTTONUP) */);
                   return s;
              }
 
@@ -1073,9 +1073,9 @@ namespace Urho {
 namespace Urho {
         public partial struct JoystickAxisMoveEventArgs {
             internal IntPtr handle;
-            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)684442918) /* P_JOYSTICKID */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)3300344848) /* P_AXIS */);
-            public float Position => UrhoMap.get_float (handle, unchecked((int)1006264408) /* P_POSITION */);
+            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)1510428343) /* JoystickID (P_JOYSTICKID) */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_AXIS) */);
+            public float Position => UrhoMap.get_float (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
         } /* struct JoystickAxisMoveEventArgs */
 
         public partial class Input {
@@ -1084,7 +1084,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickAxisMoveEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2611698056 /* E_JOYSTICKAXISMOVE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1368926286) /* JoystickAxisMove (E_JOYSTICKAXISMOVE) */);
                   return s;
              }
 
@@ -1106,9 +1106,9 @@ namespace Urho {
 namespace Urho {
         public partial struct JoystickHatMoveEventArgs {
             internal IntPtr handle;
-            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)684442918) /* P_JOYSTICKID */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)789081100) /* P_HAT */);
-            public int Position => UrhoMap.get_int (handle, unchecked((int)1006264408) /* P_POSITION */);
+            public int JoystickID => UrhoMap.get_int (handle, unchecked((int)1510428343) /* JoystickID (P_JOYSTICKID) */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_HAT) */);
+            public int Position => UrhoMap.get_int (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
         } /* struct JoystickHatMoveEventArgs */
 
         public partial class Input {
@@ -1117,7 +1117,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickHatMoveEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3018803254 /* E_JOYSTICKHATMOVE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3808716784) /* JoystickHatMove (E_JOYSTICKHATMOVE) */);
                   return s;
              }
 
@@ -1139,10 +1139,10 @@ namespace Urho {
 namespace Urho {
         public partial struct TouchBeginEventArgs {
             internal IntPtr handle;
-            public int TouchID => UrhoMap.get_int (handle, unchecked((int)3293568779) /* P_TOUCHID */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
-            public float Pressure => UrhoMap.get_float (handle, unchecked((int)112097908) /* P_PRESSURE */);
+            public int TouchID => UrhoMap.get_int (handle, unchecked((int)3850094778) /* TouchID (P_TOUCHID) */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
+            public float Pressure => UrhoMap.get_float (handle, unchecked((int)439090309) /* Pressure (P_PRESSURE) */);
         } /* struct TouchBeginEventArgs */
 
         public partial class Input {
@@ -1151,7 +1151,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TouchBeginEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 211065316 /* E_TOUCHBEGIN */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3456070058) /* TouchBegin (E_TOUCHBEGIN) */);
                   return s;
              }
 
@@ -1173,9 +1173,9 @@ namespace Urho {
 namespace Urho {
         public partial struct TouchEndEventArgs {
             internal IntPtr handle;
-            public int TouchID => UrhoMap.get_int (handle, unchecked((int)3293568779) /* P_TOUCHID */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
+            public int TouchID => UrhoMap.get_int (handle, unchecked((int)3850094778) /* TouchID (P_TOUCHID) */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
         } /* struct TouchEndEventArgs */
 
         public partial class Input {
@@ -1184,7 +1184,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TouchEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2383040470 /* E_TOUCHEND */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1078078108) /* TouchEnd (E_TOUCHEND) */);
                   return s;
              }
 
@@ -1206,12 +1206,12 @@ namespace Urho {
 namespace Urho {
         public partial struct TouchMoveEventArgs {
             internal IntPtr handle;
-            public int TouchID => UrhoMap.get_int (handle, unchecked((int)3293568779) /* P_TOUCHID */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
-            public int DX => UrhoMap.get_int (handle, unchecked((int)2317823363) /* P_DX */);
-            public int DY => UrhoMap.get_int (handle, unchecked((int)2317823364) /* P_DY */);
-            public float Pressure => UrhoMap.get_float (handle, unchecked((int)112097908) /* P_PRESSURE */);
+            public int TouchID => UrhoMap.get_int (handle, unchecked((int)3850094778) /* TouchID (P_TOUCHID) */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
+            public int DX => UrhoMap.get_int (handle, unchecked((int)6560020) /* DX (P_DX) */);
+            public int DY => UrhoMap.get_int (handle, unchecked((int)6560021) /* DY (P_DY) */);
+            public float Pressure => UrhoMap.get_float (handle, unchecked((int)439090309) /* Pressure (P_PRESSURE) */);
         } /* struct TouchMoveEventArgs */
 
         public partial class Input {
@@ -1220,7 +1220,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TouchMoveEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3106291702 /* E_TOUCHMOVE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1873483440) /* TouchMove (E_TOUCHMOVE) */);
                   return s;
              }
 
@@ -1242,7 +1242,7 @@ namespace Urho {
 namespace Urho {
         public partial struct GestureRecordedEventArgs {
             internal IntPtr handle;
-            public uint GestureID => UrhoMap.get_uint (handle, unchecked((int)771579317) /* P_GESTUREID */);
+            public uint GestureID => UrhoMap.get_uint (handle, unchecked((int)2079416292) /* GestureID (P_GESTUREID) */);
         } /* struct GestureRecordedEventArgs */
 
         public partial class Input {
@@ -1251,7 +1251,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new GestureRecordedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2184659423 /* E_GESTURERECORDED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2974572953) /* GestureRecorded (E_GESTURERECORDED) */);
                   return s;
              }
 
@@ -1273,11 +1273,11 @@ namespace Urho {
 namespace Urho {
         public partial struct GestureInputEventArgs {
             internal IntPtr handle;
-            public uint GestureID => UrhoMap.get_uint (handle, unchecked((int)771579317) /* P_GESTUREID */);
-            public int CenterX => UrhoMap.get_int (handle, unchecked((int)3888534388) /* P_CENTERX */);
-            public int CenterY => UrhoMap.get_int (handle, unchecked((int)3888534389) /* P_CENTERY */);
-            public int NumFingers => UrhoMap.get_int (handle, unchecked((int)1923376691) /* P_NUMFINGERS */);
-            public float Error => UrhoMap.get_float (handle, unchecked((int)2854019705) /* P_ERROR */);
+            public uint GestureID => UrhoMap.get_uint (handle, unchecked((int)2079416292) /* GestureID (P_GESTUREID) */);
+            public int CenterX => UrhoMap.get_int (handle, unchecked((int)150093091) /* CenterX (P_CENTERX) */);
+            public int CenterY => UrhoMap.get_int (handle, unchecked((int)150093092) /* CenterY (P_CENTERY) */);
+            public int NumFingers => UrhoMap.get_int (handle, unchecked((int)2749362116) /* NumFingers (P_NUMFINGERS) */);
+            public float Error => UrhoMap.get_float (handle, unchecked((int)3168564136) /* Error (P_ERROR) */);
         } /* struct GestureInputEventArgs */
 
         public partial class Input {
@@ -1286,7 +1286,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new GestureInputEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3695739771 /* E_GESTUREINPUT */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3375880257) /* GestureInput (E_GESTUREINPUT) */);
                   return s;
              }
 
@@ -1308,11 +1308,11 @@ namespace Urho {
 namespace Urho {
         public partial struct MultiGestureEventArgs {
             internal IntPtr handle;
-            public int CenterX => UrhoMap.get_int (handle, unchecked((int)3888534388) /* P_CENTERX */);
-            public int CenterY => UrhoMap.get_int (handle, unchecked((int)3888534389) /* P_CENTERY */);
-            public int NumFingers => UrhoMap.get_int (handle, unchecked((int)1923376691) /* P_NUMFINGERS */);
-            public float DTheta => UrhoMap.get_float (handle, unchecked((int)1527928553) /* P_DTHETA */);
-            public float DDist => UrhoMap.get_float (handle, unchecked((int)3597045371) /* P_DDIST */);
+            public int CenterX => UrhoMap.get_int (handle, unchecked((int)150093091) /* CenterX (P_CENTERX) */);
+            public int CenterY => UrhoMap.get_int (handle, unchecked((int)150093092) /* CenterY (P_CENTERY) */);
+            public int NumFingers => UrhoMap.get_int (handle, unchecked((int)2749362116) /* NumFingers (P_NUMFINGERS) */);
+            public float DTheta => UrhoMap.get_float (handle, unchecked((int)2305167738) /* DTheta (P_DTHETA) */);
+            public float DDist => UrhoMap.get_float (handle, unchecked((int)3911589802) /* DDist (P_DDIST) */);
         } /* struct MultiGestureEventArgs */
 
         public partial class Input {
@@ -1321,7 +1321,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MultiGestureEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2739326730 /* E_MULTIGESTURE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2419467216) /* MultiGesture (E_MULTIGESTURE) */);
                   return s;
              }
 
@@ -1343,7 +1343,7 @@ namespace Urho {
 namespace Urho {
         public partial struct DropFileEventArgs {
             internal IntPtr handle;
-            public String FileName => UrhoMap.get_String (handle, unchecked((int)306467350) /* P_FILENAME */);
+            public String FileName => UrhoMap.get_String (handle, unchecked((int)633459751) /* FileName (P_FILENAME) */);
         } /* struct DropFileEventArgs */
 
         public partial class Input {
@@ -1352,7 +1352,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DropFileEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1917789957 /* E_DROPFILE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)612827595) /* DropFile (E_DROPFILE) */);
                   return s;
              }
 
@@ -1374,8 +1374,8 @@ namespace Urho {
 namespace Urho {
         public partial struct InputFocusEventArgs {
             internal IntPtr handle;
-            public bool Focus => UrhoMap.get_bool (handle, unchecked((int)1528293417) /* P_FOCUS */);
-            public bool Minimized => UrhoMap.get_bool (handle, unchecked((int)3528636503) /* P_MINIMIZED */);
+            public bool Focus => UrhoMap.get_bool (handle, unchecked((int)1842837848) /* Focus (P_FOCUS) */);
+            public bool Minimized => UrhoMap.get_bool (handle, unchecked((int)541506182) /* Minimized (P_MINIMIZED) */);
         } /* struct InputFocusEventArgs */
 
         public partial class Input {
@@ -1384,7 +1384,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new InputFocusEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1670039272 /* E_INPUTFOCUS */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)620076718) /* InputFocus (E_INPUTFOCUS) */);
                   return s;
              }
 
@@ -1406,7 +1406,7 @@ namespace Urho {
 namespace Urho {
         public partial struct MouseVisibleChangedEventArgs {
             internal IntPtr handle;
-            public bool Visible => UrhoMap.get_bool (handle, unchecked((int)2012888771) /* P_VISIBLE */);
+            public bool Visible => UrhoMap.get_bool (handle, unchecked((int)2569414770) /* Visible (P_VISIBLE) */);
         } /* struct MouseVisibleChangedEventArgs */
 
         public partial class Input {
@@ -1415,7 +1415,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseVisibleChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 572855757 /* E_MOUSEVISIBLECHANGED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)360201095) /* MouseVisibleChanged (E_MOUSEVISIBLECHANGED) */);
                   return s;
              }
 
@@ -1437,8 +1437,8 @@ namespace Urho {
 namespace Urho {
         public partial struct MouseModeChangedEventArgs {
             internal IntPtr handle;
-            public MouseMode Mode => UrhoMap.get_MouseMode (handle, unchecked((int)4002775090) /* P_MODE */);
-            public bool MouseLocked => UrhoMap.get_bool (handle, unchecked((int)680209600) /* P_MOUSELOCKED */);
+            public MouseMode Mode => UrhoMap.get_MouseMode (handle, unchecked((int)108245827) /* Mode (P_MODE) */);
+            public bool MouseLocked => UrhoMap.get_bool (handle, unchecked((int)3485665135) /* MouseLocked (P_MOUSELOCKED) */);
         } /* struct MouseModeChangedEventArgs */
 
         public partial class Input {
@@ -1447,7 +1447,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseModeChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 590751014 /* E_MOUSEMODECHANGED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3642946540) /* MouseModeChanged (E_MOUSEMODECHANGED) */);
                   return s;
              }
 
@@ -1477,7 +1477,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ExitRequestedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2448655126 /* E_EXITREQUESTED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)899637200) /* ExitRequested (E_EXITREQUESTED) */);
                   return s;
              }
 
@@ -1499,8 +1499,8 @@ namespace Urho {
 namespace Urho {
         public partial struct SDLRawInputEventArgs {
             internal IntPtr handle;
-            public IntPtr SDLEvent => UrhoMap.get_IntPtr (handle, unchecked((int)2709746830) /* P_SDLEVENT */);
-            public bool Consumed => UrhoMap.get_bool (handle, unchecked((int)1558656439) /* P_CONSUMED */);
+            public IntPtr SDLEvent => UrhoMap.get_IntPtr (handle, unchecked((int)3036739231) /* SDLEvent (P_SDLEVENT) */);
+            public bool Consumed => UrhoMap.get_bool (handle, unchecked((int)1885648840) /* Consumed (P_CONSUMED) */);
         } /* struct SDLRawInputEventArgs */
 
 } /* namespace */
@@ -1522,8 +1522,8 @@ namespace Urho {
 namespace Urho.Navigation {
         public partial struct NavigationMeshRebuiltEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public NavigationMesh Mesh => UrhoMap.get_NavigationMesh (handle, unchecked((int)3921144028) /* P_MESH */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public NavigationMesh Mesh => UrhoMap.get_NavigationMesh (handle, unchecked((int)26614765) /* Mesh (P_MESH) */);
         } /* struct NavigationMeshRebuiltEventArgs */
 
         public partial class NavigationMesh {
@@ -1532,7 +1532,7 @@ namespace Urho.Navigation {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NavigationMeshRebuiltEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 70749194 /* E_NAVIGATION_MESH_REBUILT */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1184056682) /* NavigationMeshRebuilt (E_NAVIGATION_MESH_REBUILT) */);
                   return s;
              }
 
@@ -1554,10 +1554,10 @@ namespace Urho.Navigation {
 namespace Urho.Navigation {
         public partial struct NavigationAreaRebuiltEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public NavigationMesh Mesh => UrhoMap.get_NavigationMesh (handle, unchecked((int)3921144028) /* P_MESH */);
-            public Vector3 BoundsMin => UrhoMap.get_Vector3 (handle, unchecked((int)1144925294) /* P_BOUNDSMIN */);
-            public Vector3 BoundsMax => UrhoMap.get_Vector3 (handle, unchecked((int)1144400512) /* P_BOUNDSMAX */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public NavigationMesh Mesh => UrhoMap.get_NavigationMesh (handle, unchecked((int)26614765) /* Mesh (P_MESH) */);
+            public Vector3 BoundsMin => UrhoMap.get_Vector3 (handle, unchecked((int)2452762269) /* BoundsMin (P_BOUNDSMIN) */);
+            public Vector3 BoundsMax => UrhoMap.get_Vector3 (handle, unchecked((int)2452237487) /* BoundsMax (P_BOUNDSMAX) */);
         } /* struct NavigationAreaRebuiltEventArgs */
 
         public partial class NavigationMesh {
@@ -1566,7 +1566,7 @@ namespace Urho.Navigation {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NavigationAreaRebuiltEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 607930666 /* E_NAVIGATION_AREA_REBUILT */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2012037194) /* NavigationAreaRebuilt (E_NAVIGATION_AREA_REBUILT) */);
                   return s;
              }
 
@@ -1588,11 +1588,11 @@ namespace Urho.Navigation {
 namespace Urho.Navigation {
         public partial struct CrowdAgentFormationEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)3726284516) /* P_CROWD_AGENT */);
-            public uint Index => UrhoMap.get_uint (handle, unchecked((int)4173611011) /* P_INDEX */);
-            public uint Size => UrhoMap.get_uint (handle, unchecked((int)48237840) /* P_SIZE */);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1006264408) /* P_POSITION */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
+            public uint Index => UrhoMap.get_uint (handle, unchecked((int)193188146) /* Index (P_INDEX) */);
+            public uint Size => UrhoMap.get_uint (handle, unchecked((int)448675873) /* Size (P_SIZE) */);
+            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
         } /* struct CrowdAgentFormationEventArgs */
 
 } /* namespace */
@@ -1600,11 +1600,11 @@ namespace Urho.Navigation {
 namespace Urho {
         public partial struct CrowdAgentNodeFormationEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)3726284516) /* P_CROWD_AGENT */);
-            public uint Index => UrhoMap.get_uint (handle, unchecked((int)4173611011) /* P_INDEX */);
-            public uint Size => UrhoMap.get_uint (handle, unchecked((int)48237840) /* P_SIZE */);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1006264408) /* P_POSITION */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
+            public uint Index => UrhoMap.get_uint (handle, unchecked((int)193188146) /* Index (P_INDEX) */);
+            public uint Size => UrhoMap.get_uint (handle, unchecked((int)448675873) /* Size (P_SIZE) */);
+            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
         } /* struct CrowdAgentNodeFormationEventArgs */
 
 } /* namespace */
@@ -1612,12 +1612,12 @@ namespace Urho {
 namespace Urho.Navigation {
         public partial struct CrowdAgentRepositionEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)3726284516) /* P_CROWD_AGENT */);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1006264408) /* P_POSITION */);
-            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2518413228) /* P_VELOCITY */);
-            public bool Arrived => UrhoMap.get_bool (handle, unchecked((int)1944710846) /* P_ARRIVED */);
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
+            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
+            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2845405629) /* Velocity (P_VELOCITY) */);
+            public bool Arrived => UrhoMap.get_bool (handle, unchecked((int)2501236845) /* Arrived (P_ARRIVED) */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct CrowdAgentRepositionEventArgs */
 
         public partial class CrowdManager {
@@ -1626,7 +1626,7 @@ namespace Urho.Navigation {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new CrowdAgentRepositionEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1303636130 /* E_CROWD_AGENT_REPOSITION */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3736902068) /* CrowdAgentReposition (E_CROWD_AGENT_REPOSITION) */);
                   return s;
              }
 
@@ -1648,12 +1648,12 @@ namespace Urho.Navigation {
 namespace Urho {
         public partial struct CrowdAgentNodeRepositionEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)3726284516) /* P_CROWD_AGENT */);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1006264408) /* P_POSITION */);
-            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2518413228) /* P_VELOCITY */);
-            public bool Arrived => UrhoMap.get_bool (handle, unchecked((int)1944710846) /* P_ARRIVED */);
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
+            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
+            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2845405629) /* Velocity (P_VELOCITY) */);
+            public bool Arrived => UrhoMap.get_bool (handle, unchecked((int)2501236845) /* Arrived (P_ARRIVED) */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct CrowdAgentNodeRepositionEventArgs */
 
 } /* namespace */
@@ -1661,12 +1661,12 @@ namespace Urho {
 namespace Urho.Navigation {
         public partial struct CrowdAgentFailureEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)3726284516) /* P_CROWD_AGENT */);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1006264408) /* P_POSITION */);
-            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2518413228) /* P_VELOCITY */);
-            public int CrowdAgentState => UrhoMap.get_int (handle, unchecked((int)743446) /* P_CROWD_AGENT_STATE */);
-            public int CrowdTargetState => UrhoMap.get_int (handle, unchecked((int)2530801124) /* P_CROWD_TARGET_STATE */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
+            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
+            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2845405629) /* Velocity (P_VELOCITY) */);
+            public int CrowdAgentState => UrhoMap.get_int (handle, unchecked((int)1729065465) /* CrowdAgentState (P_CROWD_AGENT_STATE) */);
+            public int CrowdTargetState => UrhoMap.get_int (handle, unchecked((int)928574867) /* CrowdTargetState (P_CROWD_TARGET_STATE) */);
         } /* struct CrowdAgentFailureEventArgs */
 
         public partial class CrowdManager {
@@ -1675,7 +1675,7 @@ namespace Urho.Navigation {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new CrowdAgentFailureEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4177819236 /* E_CROWD_AGENT_FAILURE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)487208914) /* CrowdAgentFailure (E_CROWD_AGENT_FAILURE) */);
                   return s;
              }
 
@@ -1697,12 +1697,12 @@ namespace Urho.Navigation {
 namespace Urho {
         public partial struct CrowdAgentNodeFailureEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)3726284516) /* P_CROWD_AGENT */);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1006264408) /* P_POSITION */);
-            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2518413228) /* P_VELOCITY */);
-            public int CrowdAgentState => UrhoMap.get_int (handle, unchecked((int)743446) /* P_CROWD_AGENT_STATE */);
-            public int CrowdTargetState => UrhoMap.get_int (handle, unchecked((int)2530801124) /* P_CROWD_TARGET_STATE */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
+            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
+            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2845405629) /* Velocity (P_VELOCITY) */);
+            public int CrowdAgentState => UrhoMap.get_int (handle, unchecked((int)1729065465) /* CrowdAgentState (P_CROWD_AGENT_STATE) */);
+            public int CrowdTargetState => UrhoMap.get_int (handle, unchecked((int)928574867) /* CrowdTargetState (P_CROWD_TARGET_STATE) */);
         } /* struct CrowdAgentNodeFailureEventArgs */
 
 } /* namespace */
@@ -1710,12 +1710,12 @@ namespace Urho {
 namespace Urho.Navigation {
         public partial struct CrowdAgentStateChangedEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)3726284516) /* P_CROWD_AGENT */);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1006264408) /* P_POSITION */);
-            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2518413228) /* P_VELOCITY */);
-            public int CrowdAgentState => UrhoMap.get_int (handle, unchecked((int)743446) /* P_CROWD_AGENT_STATE */);
-            public int CrowdTargetState => UrhoMap.get_int (handle, unchecked((int)2530801124) /* P_CROWD_TARGET_STATE */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
+            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
+            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2845405629) /* Velocity (P_VELOCITY) */);
+            public int CrowdAgentState => UrhoMap.get_int (handle, unchecked((int)1729065465) /* CrowdAgentState (P_CROWD_AGENT_STATE) */);
+            public int CrowdTargetState => UrhoMap.get_int (handle, unchecked((int)928574867) /* CrowdTargetState (P_CROWD_TARGET_STATE) */);
         } /* struct CrowdAgentStateChangedEventArgs */
 
         public partial class CrowdManager {
@@ -1724,7 +1724,7 @@ namespace Urho.Navigation {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new CrowdAgentStateChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1325284992 /* E_CROWD_AGENT_STATE_CHANGED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1897461467) /* CrowdAgentStateChanged (E_CROWD_AGENT_STATE_CHANGED) */);
                   return s;
              }
 
@@ -1746,12 +1746,12 @@ namespace Urho.Navigation {
 namespace Urho {
         public partial struct CrowdAgentNodeStateChangedEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)3726284516) /* P_CROWD_AGENT */);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1006264408) /* P_POSITION */);
-            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2518413228) /* P_VELOCITY */);
-            public int CrowdAgentState => UrhoMap.get_int (handle, unchecked((int)743446) /* P_CROWD_AGENT_STATE */);
-            public int CrowdTargetState => UrhoMap.get_int (handle, unchecked((int)2530801124) /* P_CROWD_TARGET_STATE */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public CrowdAgent CrowdAgent => UrhoMap.get_CrowdAgent (handle, unchecked((int)687004888) /* CrowdAgent (P_CROWD_AGENT) */);
+            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
+            public Vector3 Velocity => UrhoMap.get_Vector3 (handle, unchecked((int)2845405629) /* Velocity (P_VELOCITY) */);
+            public int CrowdAgentState => UrhoMap.get_int (handle, unchecked((int)1729065465) /* CrowdAgentState (P_CROWD_AGENT_STATE) */);
+            public int CrowdTargetState => UrhoMap.get_int (handle, unchecked((int)928574867) /* CrowdTargetState (P_CROWD_TARGET_STATE) */);
         } /* struct CrowdAgentNodeStateChangedEventArgs */
 
 } /* namespace */
@@ -1759,11 +1759,11 @@ namespace Urho {
 namespace Urho.Navigation {
         public partial struct NavigationObstacleAddedEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public Obstacle Obstacle => UrhoMap.get_Obstacle (handle, unchecked((int)753519390) /* P_OBSTACLE */);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1006264408) /* P_POSITION */);
-            public float Radius => UrhoMap.get_float (handle, unchecked((int)3469907617) /* P_RADIUS */);
-            public float Height => UrhoMap.get_float (handle, unchecked((int)3898685366) /* P_HEIGHT */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public Obstacle Obstacle => UrhoMap.get_Obstacle (handle, unchecked((int)1080511791) /* Obstacle (P_OBSTACLE) */);
+            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
+            public float Radius => UrhoMap.get_float (handle, unchecked((int)4247146802) /* Radius (P_RADIUS) */);
+            public float Height => UrhoMap.get_float (handle, unchecked((int)380957255) /* Height (P_HEIGHT) */);
         } /* struct NavigationObstacleAddedEventArgs */
 
         public partial class DynamicNavigationMesh {
@@ -1772,7 +1772,7 @@ namespace Urho.Navigation {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NavigationObstacleAddedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 368183937 /* E_NAVIGATION_OBSTACLE_ADDED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)842705885) /* NavigationObstacleAdded (E_NAVIGATION_OBSTACLE_ADDED) */);
                   return s;
              }
 
@@ -1794,11 +1794,11 @@ namespace Urho.Navigation {
 namespace Urho.Navigation {
         public partial struct NavigationObstacleRemovedEventArgs {
             internal IntPtr handle;
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public Obstacle Obstacle => UrhoMap.get_Obstacle (handle, unchecked((int)753519390) /* P_OBSTACLE */);
-            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1006264408) /* P_POSITION */);
-            public float Radius => UrhoMap.get_float (handle, unchecked((int)3469907617) /* P_RADIUS */);
-            public float Height => UrhoMap.get_float (handle, unchecked((int)3898685366) /* P_HEIGHT */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public Obstacle Obstacle => UrhoMap.get_Obstacle (handle, unchecked((int)1080511791) /* Obstacle (P_OBSTACLE) */);
+            public Vector3 Position => UrhoMap.get_Vector3 (handle, unchecked((int)1333256809) /* Position (P_POSITION) */);
+            public float Radius => UrhoMap.get_float (handle, unchecked((int)4247146802) /* Radius (P_RADIUS) */);
+            public float Height => UrhoMap.get_float (handle, unchecked((int)380957255) /* Height (P_HEIGHT) */);
         } /* struct NavigationObstacleRemovedEventArgs */
 
         public partial class DynamicNavigationMesh {
@@ -1807,7 +1807,7 @@ namespace Urho.Navigation {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NavigationObstacleRemovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4126064801 /* E_NAVIGATION_OBSTACLE_REMOVED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3812914173) /* NavigationObstacleRemoved (E_NAVIGATION_OBSTACLE_REMOVED) */);
                   return s;
              }
 
@@ -1837,7 +1837,7 @@ namespace Urho.Network {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ServerConnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3262549548 /* E_SERVERCONNECTED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4052463078) /* ServerConnected (E_SERVERCONNECTED) */);
                   return s;
              }
 
@@ -1867,7 +1867,7 @@ namespace Urho.Network {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ServerDisconnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3751374392 /* E_SERVERDISCONNECTED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)830421502) /* ServerDisconnected (E_SERVERDISCONNECTED) */);
                   return s;
              }
 
@@ -1897,7 +1897,7 @@ namespace Urho.Network {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ConnectFailedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2926413357 /* E_CONNECTFAILED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1377395431) /* ConnectFailed (E_CONNECTFAILED) */);
                   return s;
              }
 
@@ -1919,7 +1919,7 @@ namespace Urho.Network {
 namespace Urho.Network {
         public partial struct ClientConnectedEventArgs {
             internal IntPtr handle;
-            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)1353514029) /* P_CONNECTION */);
+            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)2179499454) /* Connection (P_CONNECTION) */);
         } /* struct ClientConnectedEventArgs */
 
         public partial class Network {
@@ -1928,7 +1928,7 @@ namespace Urho.Network {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ClientConnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3320559396 /* E_CLIENTCONNECTED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4110472926) /* ClientConnected (E_CLIENTCONNECTED) */);
                   return s;
              }
 
@@ -1950,7 +1950,7 @@ namespace Urho.Network {
 namespace Urho.Network {
         public partial struct ClientDisconnectedEventArgs {
             internal IntPtr handle;
-            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)1353514029) /* P_CONNECTION */);
+            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)2179499454) /* Connection (P_CONNECTION) */);
         } /* struct ClientDisconnectedEventArgs */
 
         public partial class Network {
@@ -1959,7 +1959,7 @@ namespace Urho.Network {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ClientDisconnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2803662656 /* E_CLIENTDISCONNECTED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4177677062) /* ClientDisconnected (E_CLIENTDISCONNECTED) */);
                   return s;
              }
 
@@ -1981,8 +1981,8 @@ namespace Urho.Network {
 namespace Urho.Network {
         public partial struct ClientIdentityEventArgs {
             internal IntPtr handle;
-            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)1353514029) /* P_CONNECTION */);
-            public bool Allow => UrhoMap.get_bool (handle, unchecked((int)2152604922) /* P_ALLOW */);
+            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)2179499454) /* Connection (P_CONNECTION) */);
+            public bool Allow => UrhoMap.get_bool (handle, unchecked((int)2467149353) /* Allow (P_ALLOW) */);
         } /* struct ClientIdentityEventArgs */
 
         public partial class Connection {
@@ -1991,7 +1991,7 @@ namespace Urho.Network {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ClientIdentityEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3856118083 /* E_CLIENTIDENTITY */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)165479177) /* ClientIdentity (E_CLIENTIDENTITY) */);
                   return s;
              }
 
@@ -2013,7 +2013,7 @@ namespace Urho.Network {
 namespace Urho.Network {
         public partial struct ClientSceneLoadedEventArgs {
             internal IntPtr handle;
-            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)1353514029) /* P_CONNECTION */);
+            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)2179499454) /* Connection (P_CONNECTION) */);
         } /* struct ClientSceneLoadedEventArgs */
 
         public partial class Connection {
@@ -2022,7 +2022,7 @@ namespace Urho.Network {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ClientSceneLoadedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 386521772 /* E_CLIENTSCENELOADED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2870394214) /* ClientSceneLoaded (E_CLIENTSCENELOADED) */);
                   return s;
              }
 
@@ -2044,9 +2044,9 @@ namespace Urho.Network {
 namespace Urho.Network {
         public partial struct NetworkMessageEventArgs {
             internal IntPtr handle;
-            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)1353514029) /* P_CONNECTION */);
-            public int MessageID => UrhoMap.get_int (handle, unchecked((int)3156806707) /* P_MESSAGEID */);
-            public byte [] Data => UrhoMap.get_Buffer (handle, unchecked((int)1157846105) /* P_DATA */);
+            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)2179499454) /* Connection (P_CONNECTION) */);
+            public int MessageID => UrhoMap.get_int (handle, unchecked((int)169676386) /* MessageID (P_MESSAGEID) */);
+            public byte [] Data => UrhoMap.get_Buffer (handle, unchecked((int)1558284138) /* Data (P_DATA) */);
         } /* struct NetworkMessageEventArgs */
 
         public partial class Network {
@@ -2055,7 +2055,7 @@ namespace Urho.Network {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NetworkMessageEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4201693811 /* E_NETWORKMESSAGE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)511054905) /* NetworkMessage (E_NETWORKMESSAGE) */);
                   return s;
              }
 
@@ -2085,7 +2085,7 @@ namespace Urho.Network {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NetworkUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 936553437 /* E_NETWORKUPDATE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3682502807) /* NetworkUpdate (E_NETWORKUPDATE) */);
                   return s;
              }
 
@@ -2115,7 +2115,7 @@ namespace Urho.Network {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NetworkUpdateSentEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3306139157 /* E_NETWORKUPDATESENT */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1495044303) /* NetworkUpdateSent (E_NETWORKUPDATESENT) */);
                   return s;
              }
 
@@ -2137,7 +2137,7 @@ namespace Urho.Network {
 namespace Urho.Network {
         public partial struct NetworkSceneLoadFailedEventArgs {
             internal IntPtr handle;
-            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)1353514029) /* P_CONNECTION */);
+            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)2179499454) /* Connection (P_CONNECTION) */);
         } /* struct NetworkSceneLoadFailedEventArgs */
 
         public partial class Network {
@@ -2146,7 +2146,7 @@ namespace Urho.Network {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NetworkSceneLoadFailedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2673696443 /* E_NETWORKSCENELOADFAILED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3832128641) /* NetworkSceneLoadFailed (E_NETWORKSCENELOADFAILED) */);
                   return s;
              }
 
@@ -2168,7 +2168,7 @@ namespace Urho.Network {
 namespace Urho.Network {
         public partial struct RemoteEventDataEventArgs {
             internal IntPtr handle;
-            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)1353514029) /* P_CONNECTION */);
+            public Connection Connection => UrhoMap.get_Connection (handle, unchecked((int)2179499454) /* Connection (P_CONNECTION) */);
         } /* struct RemoteEventDataEventArgs */
 
 } /* namespace */
@@ -2176,8 +2176,8 @@ namespace Urho.Network {
 namespace Urho.Physics {
         public partial struct PhysicsPreStepEventArgs {
             internal IntPtr handle;
-            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, unchecked((int)3844349315) /* P_WORLD */);
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
+            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, unchecked((int)4158893746) /* World (P_WORLD) */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct PhysicsPreStepEventArgs */
 
         public partial class PhysicsWorld {
@@ -2186,7 +2186,7 @@ namespace Urho.Physics {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsPreStepEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1935709666 /* E_PHYSICSPRESTEP */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2540038056) /* PhysicsPreStep (E_PHYSICSPRESTEP) */);
                   return s;
              }
 
@@ -2208,8 +2208,8 @@ namespace Urho.Physics {
 namespace Urho.Physics {
         public partial struct PhysicsPostStepEventArgs {
             internal IntPtr handle;
-            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, unchecked((int)3844349315) /* P_WORLD */);
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
+            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, unchecked((int)4158893746) /* World (P_WORLD) */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct PhysicsPostStepEventArgs */
 
         public partial class PhysicsWorld {
@@ -2218,7 +2218,7 @@ namespace Urho.Physics {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsPostStepEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3411074329 /* E_PHYSICSPOSTSTEP */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4200987859) /* PhysicsPostStep (E_PHYSICSPOSTSTEP) */);
                   return s;
              }
 
@@ -2240,13 +2240,13 @@ namespace Urho.Physics {
 namespace Urho.Physics {
         public partial struct PhysicsCollisionStartEventArgs {
             internal IntPtr handle;
-            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, unchecked((int)3844349315) /* P_WORLD */);
-            public Node NodeA => UrhoMap.get_Node (handle, unchecked((int)2062085040) /* P_NODEA */);
-            public Node NodeB => UrhoMap.get_Node (handle, unchecked((int)2062085041) /* P_NODEB */);
-            public RigidBody BodyA => UrhoMap.get_RigidBody (handle, unchecked((int)1273527440) /* P_BODYA */);
-            public RigidBody BodyB => UrhoMap.get_RigidBody (handle, unchecked((int)1273527441) /* P_BODYB */);
-            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2438578505) /* P_TRIGGER */);
-            public CollisionData [] Contacts => UrhoMap.get_CollisionData (handle, unchecked((int)4184714882) /* P_CONTACTS */);
+            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, unchecked((int)4158893746) /* World (P_WORLD) */);
+            public Node NodeA => UrhoMap.get_Node (handle, unchecked((int)2376629471) /* NodeA (P_NODEA) */);
+            public Node NodeB => UrhoMap.get_Node (handle, unchecked((int)2376629472) /* NodeB (P_NODEB) */);
+            public RigidBody BodyA => UrhoMap.get_RigidBody (handle, unchecked((int)1588071871) /* BodyA (P_BODYA) */);
+            public RigidBody BodyB => UrhoMap.get_RigidBody (handle, unchecked((int)1588071872) /* BodyB (P_BODYB) */);
+            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2995104504) /* Trigger (P_TRIGGER) */);
+            public CollisionData [] Contacts => UrhoMap.get_CollisionData (handle, unchecked((int)216739987) /* Contacts (P_CONTACTS) */);
         } /* struct PhysicsCollisionStartEventArgs */
 
         public partial class PhysicsWorld {
@@ -2255,7 +2255,7 @@ namespace Urho.Physics {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsCollisionStartEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2978544541 /* E_PHYSICSCOLLISIONSTART */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3207652439) /* PhysicsCollisionStart (E_PHYSICSCOLLISIONSTART) */);
                   return s;
              }
 
@@ -2277,13 +2277,13 @@ namespace Urho.Physics {
 namespace Urho.Physics {
         public partial struct PhysicsCollisionEventArgs {
             internal IntPtr handle;
-            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, unchecked((int)3844349315) /* P_WORLD */);
-            public Node NodeA => UrhoMap.get_Node (handle, unchecked((int)2062085040) /* P_NODEA */);
-            public Node NodeB => UrhoMap.get_Node (handle, unchecked((int)2062085041) /* P_NODEB */);
-            public RigidBody BodyA => UrhoMap.get_RigidBody (handle, unchecked((int)1273527440) /* P_BODYA */);
-            public RigidBody BodyB => UrhoMap.get_RigidBody (handle, unchecked((int)1273527441) /* P_BODYB */);
-            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2438578505) /* P_TRIGGER */);
-            public CollisionData [] Contacts => UrhoMap.get_CollisionData (handle, unchecked((int)4184714882) /* P_CONTACTS */);
+            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, unchecked((int)4158893746) /* World (P_WORLD) */);
+            public Node NodeA => UrhoMap.get_Node (handle, unchecked((int)2376629471) /* NodeA (P_NODEA) */);
+            public Node NodeB => UrhoMap.get_Node (handle, unchecked((int)2376629472) /* NodeB (P_NODEB) */);
+            public RigidBody BodyA => UrhoMap.get_RigidBody (handle, unchecked((int)1588071871) /* BodyA (P_BODYA) */);
+            public RigidBody BodyB => UrhoMap.get_RigidBody (handle, unchecked((int)1588071872) /* BodyB (P_BODYB) */);
+            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2995104504) /* Trigger (P_TRIGGER) */);
+            public CollisionData [] Contacts => UrhoMap.get_CollisionData (handle, unchecked((int)216739987) /* Contacts (P_CONTACTS) */);
         } /* struct PhysicsCollisionEventArgs */
 
         public partial class PhysicsWorld {
@@ -2292,7 +2292,7 @@ namespace Urho.Physics {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsCollisionEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3444960005 /* E_PHYSICSCOLLISION */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2202188235) /* PhysicsCollision (E_PHYSICSCOLLISION) */);
                   return s;
              }
 
@@ -2314,12 +2314,12 @@ namespace Urho.Physics {
 namespace Urho.Physics {
         public partial struct PhysicsCollisionEndEventArgs {
             internal IntPtr handle;
-            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, unchecked((int)3844349315) /* P_WORLD */);
-            public Node NodeA => UrhoMap.get_Node (handle, unchecked((int)2062085040) /* P_NODEA */);
-            public Node NodeB => UrhoMap.get_Node (handle, unchecked((int)2062085041) /* P_NODEB */);
-            public RigidBody BodyA => UrhoMap.get_RigidBody (handle, unchecked((int)1273527440) /* P_BODYA */);
-            public RigidBody BodyB => UrhoMap.get_RigidBody (handle, unchecked((int)1273527441) /* P_BODYB */);
-            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2438578505) /* P_TRIGGER */);
+            public PhysicsWorld World => UrhoMap.get_PhysicsWorld (handle, unchecked((int)4158893746) /* World (P_WORLD) */);
+            public Node NodeA => UrhoMap.get_Node (handle, unchecked((int)2376629471) /* NodeA (P_NODEA) */);
+            public Node NodeB => UrhoMap.get_Node (handle, unchecked((int)2376629472) /* NodeB (P_NODEB) */);
+            public RigidBody BodyA => UrhoMap.get_RigidBody (handle, unchecked((int)1588071871) /* BodyA (P_BODYA) */);
+            public RigidBody BodyB => UrhoMap.get_RigidBody (handle, unchecked((int)1588071872) /* BodyB (P_BODYB) */);
+            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2995104504) /* Trigger (P_TRIGGER) */);
         } /* struct PhysicsCollisionEndEventArgs */
 
         public partial class PhysicsWorld {
@@ -2328,7 +2328,7 @@ namespace Urho.Physics {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsCollisionEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 517382678 /* E_PHYSICSCOLLISIONEND */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)304728016) /* PhysicsCollisionEnd (E_PHYSICSCOLLISIONEND) */);
                   return s;
              }
 
@@ -2350,11 +2350,11 @@ namespace Urho.Physics {
 namespace Urho {
         public partial struct NodeCollisionStartEventArgs {
             internal IntPtr handle;
-            public RigidBody Body => UrhoMap.get_RigidBody (handle, unchecked((int)4006250513) /* P_BODY */);
-            public Node OtherNode => UrhoMap.get_Node (handle, unchecked((int)1399455619) /* P_OTHERNODE */);
-            public RigidBody OtherBody => UrhoMap.get_RigidBody (handle, unchecked((int)622343843) /* P_OTHERBODY */);
-            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2438578505) /* P_TRIGGER */);
-            public CollisionData [] Contacts => UrhoMap.get_CollisionData (handle, unchecked((int)4184714882) /* P_CONTACTS */);
+            public RigidBody Body => UrhoMap.get_RigidBody (handle, unchecked((int)111721250) /* Body (P_BODY) */);
+            public Node OtherNode => UrhoMap.get_Node (handle, unchecked((int)2707292594) /* OtherNode (P_OTHERNODE) */);
+            public RigidBody OtherBody => UrhoMap.get_RigidBody (handle, unchecked((int)1930180818) /* OtherBody (P_OTHERBODY) */);
+            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2995104504) /* Trigger (P_TRIGGER) */);
+            public CollisionData [] Contacts => UrhoMap.get_CollisionData (handle, unchecked((int)216739987) /* Contacts (P_CONTACTS) */);
         } /* struct NodeCollisionStartEventArgs */
 
         public partial class Node {
@@ -2363,7 +2363,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeCollisionStartEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1423131148 /* E_NODECOLLISIONSTART */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2797145554) /* NodeCollisionStart (E_NODECOLLISIONSTART) */);
                   return s;
              }
 
@@ -2385,11 +2385,11 @@ namespace Urho {
 namespace Urho {
         public partial struct NodeCollisionEventArgs {
             internal IntPtr handle;
-            public RigidBody Body => UrhoMap.get_RigidBody (handle, unchecked((int)4006250513) /* P_BODY */);
-            public Node OtherNode => UrhoMap.get_Node (handle, unchecked((int)1399455619) /* P_OTHERNODE */);
-            public RigidBody OtherBody => UrhoMap.get_RigidBody (handle, unchecked((int)622343843) /* P_OTHERBODY */);
-            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2438578505) /* P_TRIGGER */);
-            public CollisionData [] Contacts => UrhoMap.get_CollisionData (handle, unchecked((int)4184714882) /* P_CONTACTS */);
+            public RigidBody Body => UrhoMap.get_RigidBody (handle, unchecked((int)111721250) /* Body (P_BODY) */);
+            public Node OtherNode => UrhoMap.get_Node (handle, unchecked((int)2707292594) /* OtherNode (P_OTHERNODE) */);
+            public RigidBody OtherBody => UrhoMap.get_RigidBody (handle, unchecked((int)1930180818) /* OtherBody (P_OTHERBODY) */);
+            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2995104504) /* Trigger (P_TRIGGER) */);
+            public CollisionData [] Contacts => UrhoMap.get_CollisionData (handle, unchecked((int)216739987) /* Contacts (P_CONTACTS) */);
         } /* struct NodeCollisionEventArgs */
 
         public partial class Node {
@@ -2398,7 +2398,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeCollisionEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4224485846 /* E_NODECOLLISION */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2675467920) /* NodeCollision (E_NODECOLLISION) */);
                   return s;
              }
 
@@ -2420,10 +2420,10 @@ namespace Urho {
 namespace Urho {
         public partial struct NodeCollisionEndEventArgs {
             internal IntPtr handle;
-            public RigidBody Body => UrhoMap.get_RigidBody (handle, unchecked((int)4006250513) /* P_BODY */);
-            public Node OtherNode => UrhoMap.get_Node (handle, unchecked((int)1399455619) /* P_OTHERNODE */);
-            public RigidBody OtherBody => UrhoMap.get_RigidBody (handle, unchecked((int)622343843) /* P_OTHERBODY */);
-            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2438578505) /* P_TRIGGER */);
+            public RigidBody Body => UrhoMap.get_RigidBody (handle, unchecked((int)111721250) /* Body (P_BODY) */);
+            public Node OtherNode => UrhoMap.get_Node (handle, unchecked((int)2707292594) /* OtherNode (P_OTHERNODE) */);
+            public RigidBody OtherBody => UrhoMap.get_RigidBody (handle, unchecked((int)1930180818) /* OtherBody (P_OTHERBODY) */);
+            public bool Trigger => UrhoMap.get_bool (handle, unchecked((int)2995104504) /* Trigger (P_TRIGGER) */);
         } /* struct NodeCollisionEndEventArgs */
 
         public partial class Node {
@@ -2432,7 +2432,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeCollisionEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3653693445 /* E_NODECOLLISIONEND */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2410921675) /* NodeCollisionEnd (E_NODECOLLISIONEND) */);
                   return s;
              }
 
@@ -2462,7 +2462,7 @@ namespace Urho.Resources {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ReloadStartedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1762890862 /* E_RELOADSTARTED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)213872936) /* ReloadStarted (E_RELOADSTARTED) */);
                   return s;
              }
 
@@ -2492,7 +2492,7 @@ namespace Urho.Resources {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ReloadFinishedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2221357157 /* E_RELOADFINISHED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2825685547) /* ReloadFinished (E_RELOADFINISHED) */);
                   return s;
              }
 
@@ -2522,7 +2522,7 @@ namespace Urho.Resources {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ReloadFailedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 201060720 /* E_RELOADFAILED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4176168502) /* ReloadFailed (E_RELOADFAILED) */);
                   return s;
              }
 
@@ -2544,8 +2544,8 @@ namespace Urho.Resources {
 namespace Urho.Resources {
         public partial struct FileChangedEventArgs {
             internal IntPtr handle;
-            public String FileName => UrhoMap.get_String (handle, unchecked((int)306467350) /* P_FILENAME */);
-            public String ResourceName => UrhoMap.get_String (handle, unchecked((int)4110644808) /* P_RESOURCENAME */);
+            public String FileName => UrhoMap.get_String (handle, unchecked((int)633459751) /* FileName (P_FILENAME) */);
+            public String ResourceName => UrhoMap.get_String (handle, unchecked((int)4134618969) /* ResourceName (P_RESOURCENAME) */);
         } /* struct FileChangedEventArgs */
 
         public partial class ResourceCache {
@@ -2554,7 +2554,7 @@ namespace Urho.Resources {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FileChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1400537438 /* E_FILECHANGED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3297483544) /* FileChanged (E_FILECHANGED) */);
                   return s;
              }
 
@@ -2576,7 +2576,7 @@ namespace Urho.Resources {
 namespace Urho.Resources {
         public partial struct LoadFailedEventArgs {
             internal IntPtr handle;
-            public String ResourceName => UrhoMap.get_String (handle, unchecked((int)4110644808) /* P_RESOURCENAME */);
+            public String ResourceName => UrhoMap.get_String (handle, unchecked((int)4134618969) /* ResourceName (P_RESOURCENAME) */);
         } /* struct LoadFailedEventArgs */
 
         public partial class ResourceCache {
@@ -2585,7 +2585,7 @@ namespace Urho.Resources {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new LoadFailedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3874488701 /* E_LOADFAILED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2824526147) /* LoadFailed (E_LOADFAILED) */);
                   return s;
              }
 
@@ -2607,7 +2607,7 @@ namespace Urho.Resources {
 namespace Urho.Resources {
         public partial struct ResourceNotFoundEventArgs {
             internal IntPtr handle;
-            public String ResourceName => UrhoMap.get_String (handle, unchecked((int)4110644808) /* P_RESOURCENAME */);
+            public String ResourceName => UrhoMap.get_String (handle, unchecked((int)4134618969) /* ResourceName (P_RESOURCENAME) */);
         } /* struct ResourceNotFoundEventArgs */
 
         public partial class ResourceCache {
@@ -2616,7 +2616,7 @@ namespace Urho.Resources {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ResourceNotFoundEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1460029079 /* E_RESOURCENOTFOUND */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)217257309) /* ResourceNotFound (E_RESOURCENOTFOUND) */);
                   return s;
              }
 
@@ -2638,7 +2638,7 @@ namespace Urho.Resources {
 namespace Urho.Resources {
         public partial struct UnknownResourceTypeEventArgs {
             internal IntPtr handle;
-            public StringHash ResourceType => UrhoMap.get_StringHash (handle, unchecked((int)402706327) /* P_RESOURCETYPE */);
+            public StringHash ResourceType => UrhoMap.get_StringHash (handle, unchecked((int)426680488) /* ResourceType (P_RESOURCETYPE) */);
         } /* struct UnknownResourceTypeEventArgs */
 
         public partial class ResourceCache {
@@ -2647,7 +2647,7 @@ namespace Urho.Resources {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UnknownResourceTypeEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2564965656 /* E_UNKNOWNRESOURCETYPE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2352310994) /* UnknownResourceType (E_UNKNOWNRESOURCETYPE) */);
                   return s;
              }
 
@@ -2669,9 +2669,9 @@ namespace Urho.Resources {
 namespace Urho.Resources {
         public partial struct ResourceBackgroundLoadedEventArgs {
             internal IntPtr handle;
-            public String ResourceName => UrhoMap.get_String (handle, unchecked((int)4110644808) /* P_RESOURCENAME */);
-            public bool Success => UrhoMap.get_bool (handle, unchecked((int)2871025140) /* P_SUCCESS */);
-            public Resource Resource => UrhoMap.get_Resource (handle, unchecked((int)4007921181) /* P_RESOURCE */);
+            public String ResourceName => UrhoMap.get_String (handle, unchecked((int)4134618969) /* ResourceName (P_RESOURCENAME) */);
+            public bool Success => UrhoMap.get_bool (handle, unchecked((int)3427551139) /* Success (P_SUCCESS) */);
+            public Resource Resource => UrhoMap.get_Resource (handle, unchecked((int)39946286) /* Resource (P_RESOURCE) */);
         } /* struct ResourceBackgroundLoadedEventArgs */
 
         public partial class ResourceCache {
@@ -2680,7 +2680,7 @@ namespace Urho.Resources {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ResourceBackgroundLoadedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 593631931 /* E_RESOURCEBACKGROUNDLOADED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4263239041) /* ResourceBackgroundLoaded (E_RESOURCEBACKGROUNDLOADED) */);
                   return s;
              }
 
@@ -2710,7 +2710,7 @@ namespace Urho.Resources {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ChangeLanguageEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 732879970 /* E_CHANGELANGUAGE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1337208360) /* ChangeLanguage (E_CHANGELANGUAGE) */);
                   return s;
              }
 
@@ -2732,8 +2732,8 @@ namespace Urho.Resources {
 namespace Urho {
         public partial struct SceneUpdateEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct SceneUpdateEventArgs */
 
         public partial class Scene {
@@ -2742,7 +2742,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SceneUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1248218779 /* E_SCENEUPDATE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3145164885) /* SceneUpdate (E_SCENEUPDATE) */);
                   return s;
              }
 
@@ -2764,8 +2764,8 @@ namespace Urho {
 namespace Urho {
         public partial struct SceneSubsystemUpdateEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct SceneSubsystemUpdateEventArgs */
 
         public partial class Scene {
@@ -2774,7 +2774,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SceneSubsystemUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1876766502 /* E_SCENESUBSYSTEMUPDATE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1997371372) /* SceneSubsystemUpdate (E_SCENESUBSYSTEMUPDATE) */);
                   return s;
              }
 
@@ -2796,8 +2796,8 @@ namespace Urho {
 namespace Urho {
         public partial struct UpdateSmoothingEventArgs {
             internal IntPtr handle;
-            public float Constant => UrhoMap.get_float (handle, unchecked((int)679521587) /* P_CONSTANT */);
-            public float SquaredSnapThreshold => UrhoMap.get_float (handle, unchecked((int)245637545) /* P_SQUAREDSNAPTHRESHOLD */);
+            public float Constant => UrhoMap.get_float (handle, unchecked((int)1006513988) /* Constant (P_CONSTANT) */);
+            public float SquaredSnapThreshold => UrhoMap.get_float (handle, unchecked((int)4276457658) /* SquaredSnapThreshold (P_SQUAREDSNAPTHRESHOLD) */);
         } /* struct UpdateSmoothingEventArgs */
 
         public partial class Scene {
@@ -2806,7 +2806,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UpdateSmoothingEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3293102417 /* E_UPDATESMOOTHING */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4083015947) /* UpdateSmoothing (E_UPDATESMOOTHING) */);
                   return s;
              }
 
@@ -2828,8 +2828,8 @@ namespace Urho {
 namespace Urho {
         public partial struct SceneDrawableUpdateFinishedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct SceneDrawableUpdateFinishedEventArgs */
 
         public partial class Scene {
@@ -2838,7 +2838,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SceneDrawableUpdateFinishedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1730217387 /* E_SCENEDRAWABLEUPDATEFINISHED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)228472677) /* SceneDrawableUpdateFinished (E_SCENEDRAWABLEUPDATEFINISHED) */);
                   return s;
              }
 
@@ -2868,7 +2868,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TargetPositionChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1237076436 /* E_TARGETPOSITION */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3850327802) /* TargetPositionChanged (E_TARGETPOSITION) */);
                   return s;
              }
 
@@ -2898,7 +2898,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TargetRotationChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2259228297 /* E_TARGETROTATION */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3938072325) /* TargetRotationChanged (E_TARGETROTATION) */);
                   return s;
              }
 
@@ -2920,8 +2920,8 @@ namespace Urho {
 namespace Urho {
         public partial struct AttributeAnimationUpdateEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct AttributeAnimationUpdateEventArgs */
 
         public partial class Scene {
@@ -2930,7 +2930,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AttributeAnimationUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1638761419 /* E_ATTRIBUTEANIMATIONUPDATE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1013401233) /* AttributeAnimationUpdate (E_ATTRIBUTEANIMATIONUPDATE) */);
                   return s;
              }
 
@@ -2952,8 +2952,8 @@ namespace Urho {
 namespace Urho {
         public partial struct AttributeAnimationAddedEventArgs {
             internal IntPtr handle;
-            public Object ObjectAnimation => UrhoMap.get_Object (handle, unchecked((int)1429834326) /* P_OBJECTANIMATION */);
-            public String AttributeAnimationName => UrhoMap.get_String (handle, unchecked((int)1823696770) /* P_ATTRIBUTEANIMATIONNAME */);
+            public Object ObjectAnimation => UrhoMap.get_Object (handle, unchecked((int)485250565) /* ObjectAnimation (P_OBJECTANIMATION) */);
+            public String AttributeAnimationName => UrhoMap.get_String (handle, unchecked((int)4253834771) /* AttributeAnimationName (P_ATTRIBUTEANIMATIONNAME) */);
         } /* struct AttributeAnimationAddedEventArgs */
 
         public partial class ObjectAnimation {
@@ -2962,7 +2962,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AttributeAnimationAddedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2482507518 /* E_ATTRIBUTEANIMATIONADDED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3619895992) /* AttributeAnimationAdded (E_ATTRIBUTEANIMATIONADDED) */);
                   return s;
              }
 
@@ -2984,8 +2984,8 @@ namespace Urho {
 namespace Urho {
         public partial struct AttributeAnimationRemovedEventArgs {
             internal IntPtr handle;
-            public Object ObjectAnimation => UrhoMap.get_Object (handle, unchecked((int)1429834326) /* P_OBJECTANIMATION */);
-            public String AttributeAnimationName => UrhoMap.get_String (handle, unchecked((int)1823696770) /* P_ATTRIBUTEANIMATIONNAME */);
+            public Object ObjectAnimation => UrhoMap.get_Object (handle, unchecked((int)485250565) /* ObjectAnimation (P_OBJECTANIMATION) */);
+            public String AttributeAnimationName => UrhoMap.get_String (handle, unchecked((int)4253834771) /* AttributeAnimationName (P_ATTRIBUTEANIMATIONNAME) */);
         } /* struct AttributeAnimationRemovedEventArgs */
 
         public partial class ObjectAnimation {
@@ -2994,7 +2994,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AttributeAnimationRemovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 113268382 /* E_ATTRIBUTEANIMATIONREMOVED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2638038360) /* AttributeAnimationRemoved (E_ATTRIBUTEANIMATIONREMOVED) */);
                   return s;
              }
 
@@ -3016,8 +3016,8 @@ namespace Urho {
 namespace Urho {
         public partial struct ScenePostUpdateEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)90022952) /* P_TIMESTEP */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public float TimeStep => UrhoMap.get_float (handle, unchecked((int)417015353) /* TimeStep (P_TIMESTEP) */);
         } /* struct ScenePostUpdateEventArgs */
 
         public partial class Scene {
@@ -3026,7 +3026,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ScenePostUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3508102619 /* E_SCENEPOSTUPDATE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3048853) /* ScenePostUpdate (E_SCENEPOSTUPDATE) */);
                   return s;
              }
 
@@ -3048,12 +3048,12 @@ namespace Urho {
 namespace Urho {
         public partial struct AsyncLoadProgressEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public float Progress => UrhoMap.get_float (handle, unchecked((int)2129594972) /* P_PROGRESS */);
-            public int LoadedNodes => UrhoMap.get_int (handle, unchecked((int)3950383229) /* P_LOADEDNODES */);
-            public int TotalNodes => UrhoMap.get_int (handle, unchecked((int)2766686812) /* P_TOTALNODES */);
-            public int LoadedResources => UrhoMap.get_int (handle, unchecked((int)1858931537) /* P_LOADEDRESOURCES */);
-            public int TotalResources => UrhoMap.get_int (handle, unchecked((int)1112344112) /* P_TOTALRESOURCES */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public float Progress => UrhoMap.get_float (handle, unchecked((int)2456587373) /* Progress (P_PROGRESS) */);
+            public int LoadedNodes => UrhoMap.get_int (handle, unchecked((int)2460871468) /* LoadedNodes (P_LOADEDNODES) */);
+            public int TotalNodes => UrhoMap.get_int (handle, unchecked((int)3592672237) /* TotalNodes (P_TOTALNODES) */);
+            public int LoadedResources => UrhoMap.get_int (handle, unchecked((int)914347776) /* LoadedResources (P_LOADEDRESOURCES) */);
+            public int TotalResources => UrhoMap.get_int (handle, unchecked((int)1346461377) /* TotalResources (P_TOTALRESOURCES) */);
         } /* struct AsyncLoadProgressEventArgs */
 
         public partial class Scene {
@@ -3062,7 +3062,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AsyncLoadProgressEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3374931989 /* E_ASYNCLOADPROGRESS */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1563837135) /* AsyncLoadProgress (E_ASYNCLOADPROGRESS) */);
                   return s;
              }
 
@@ -3084,7 +3084,7 @@ namespace Urho {
 namespace Urho {
         public partial struct AsyncLoadFinishedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
         } /* struct AsyncLoadFinishedEventArgs */
 
         public partial class Scene {
@@ -3093,7 +3093,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AsyncLoadFinishedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2224383130 /* E_ASYNCLOADFINISHED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)413288276) /* AsyncLoadFinished (E_ASYNCLOADFINISHED) */);
                   return s;
              }
 
@@ -3115,9 +3115,9 @@ namespace Urho {
 namespace Urho {
         public partial struct NodeAddedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public Node Parent => UrhoMap.get_Node (handle, unchecked((int)735706841) /* P_PARENT */);
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Node Parent => UrhoMap.get_Node (handle, unchecked((int)1512946026) /* Parent (P_PARENT) */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
         } /* struct NodeAddedEventArgs */
 
         public partial class Scene {
@@ -3126,7 +3126,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeAddedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 911939940 /* E_NODEADDED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3974098974) /* NodeAdded (E_NODEADDED) */);
                   return s;
              }
 
@@ -3148,9 +3148,9 @@ namespace Urho {
 namespace Urho {
         public partial struct NodeRemovedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public Node Parent => UrhoMap.get_Node (handle, unchecked((int)735706841) /* P_PARENT */);
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Node Parent => UrhoMap.get_Node (handle, unchecked((int)1512946026) /* Parent (P_PARENT) */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
         } /* struct NodeRemovedEventArgs */
 
         public partial class Scene {
@@ -3159,7 +3159,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeRemovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3329789444 /* E_NODEREMOVED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)931768254) /* NodeRemoved (E_NODEREMOVED) */);
                   return s;
              }
 
@@ -3181,9 +3181,9 @@ namespace Urho {
 namespace Urho {
         public partial struct ComponentAddedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public Component Component => UrhoMap.get_Component (handle, unchecked((int)2431893358) /* P_COMPONENT */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public Component Component => UrhoMap.get_Component (handle, unchecked((int)3739730333) /* Component (P_COMPONENT) */);
         } /* struct ComponentAddedEventArgs */
 
         public partial class Scene {
@@ -3192,7 +3192,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ComponentAddedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1731756669 /* E_COMPONENTADDED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2336085059) /* ComponentAdded (E_COMPONENTADDED) */);
                   return s;
              }
 
@@ -3214,9 +3214,9 @@ namespace Urho {
 namespace Urho {
         public partial struct ComponentRemovedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public Component Component => UrhoMap.get_Component (handle, unchecked((int)2431893358) /* P_COMPONENT */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public Component Component => UrhoMap.get_Component (handle, unchecked((int)3739730333) /* Component (P_COMPONENT) */);
         } /* struct ComponentRemovedEventArgs */
 
         public partial class Scene {
@@ -3225,7 +3225,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ComponentRemovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 427883165 /* E_COMPONENTREMOVED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3480078691) /* ComponentRemoved (E_COMPONENTREMOVED) */);
                   return s;
              }
 
@@ -3247,8 +3247,8 @@ namespace Urho {
 namespace Urho {
         public partial struct NodeNameChangedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
         } /* struct NodeNameChangedEventArgs */
 
         public partial class Scene {
@@ -3257,7 +3257,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeNameChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2131244269 /* E_NODENAMECHANGED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2921157799) /* NodeNameChanged (E_NODENAMECHANGED) */);
                   return s;
              }
 
@@ -3279,8 +3279,8 @@ namespace Urho {
 namespace Urho {
         public partial struct NodeEnabledChangedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
         } /* struct NodeEnabledChangedEventArgs */
 
         public partial class Scene {
@@ -3289,7 +3289,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeEnabledChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3396981231 /* E_NODEENABLEDCHANGED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)476028341) /* NodeEnabledChanged (E_NODEENABLEDCHANGED) */);
                   return s;
              }
 
@@ -3311,9 +3311,9 @@ namespace Urho {
 namespace Urho {
         public partial struct NodeTagAddedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public String Tag => UrhoMap.get_String (handle, unchecked((int)888219147) /* P_TAG */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public String Tag => UrhoMap.get_String (handle, unchecked((int)964697786) /* Tag (P_TAG) */);
         } /* struct NodeTagAddedEventArgs */
 
 } /* namespace */
@@ -3321,9 +3321,9 @@ namespace Urho {
 namespace Urho {
         public partial struct NodeTagRemovedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public String Tag => UrhoMap.get_String (handle, unchecked((int)888219147) /* P_TAG */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public String Tag => UrhoMap.get_String (handle, unchecked((int)964697786) /* Tag (P_TAG) */);
         } /* struct NodeTagRemovedEventArgs */
 
 } /* namespace */
@@ -3331,9 +3331,9 @@ namespace Urho {
 namespace Urho {
         public partial struct ComponentEnabledChangedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public Component Component => UrhoMap.get_Component (handle, unchecked((int)2431893358) /* P_COMPONENT */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public Component Component => UrhoMap.get_Component (handle, unchecked((int)3739730333) /* Component (P_COMPONENT) */);
         } /* struct ComponentEnabledChangedEventArgs */
 
         public partial class Scene {
@@ -3342,7 +3342,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ComponentEnabledChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 838967574 /* E_COMPONENTENABLEDCHANGED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1976356048) /* ComponentEnabledChanged (E_COMPONENTENABLEDCHANGED) */);
                   return s;
              }
 
@@ -3364,7 +3364,7 @@ namespace Urho {
 namespace Urho {
         public partial struct TemporaryChangedEventArgs {
             internal IntPtr handle;
-            public Serializable Serializable => UrhoMap.get_Serializable (handle, unchecked((int)1457316078) /* P_SERIALIZABLE */);
+            public Serializable Serializable => UrhoMap.get_Serializable (handle, unchecked((int)1481290239) /* Serializable (P_SERIALIZABLE) */);
         } /* struct TemporaryChangedEventArgs */
 
         public partial class Serializable {
@@ -3373,7 +3373,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TemporaryChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4218062813 /* E_TEMPORARYCHANGED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2975291043) /* TemporaryChanged (E_TEMPORARYCHANGED) */);
                   return s;
              }
 
@@ -3395,9 +3395,9 @@ namespace Urho {
 namespace Urho {
         public partial struct NodeClonedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public Node Node => UrhoMap.get_Node (handle, unchecked((int)488394993) /* P_NODE */);
-            public Node CloneNode => UrhoMap.get_Node (handle, unchecked((int)2237835056) /* P_CLONENODE */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Node Node => UrhoMap.get_Node (handle, unchecked((int)888833026) /* Node (P_NODE) */);
+            public Node CloneNode => UrhoMap.get_Node (handle, unchecked((int)3545672031) /* CloneNode (P_CLONENODE) */);
         } /* struct NodeClonedEventArgs */
 
         public partial class Scene {
@@ -3406,7 +3406,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeClonedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3385163395 /* E_NODECLONED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2335200841) /* NodeCloned (E_NODECLONED) */);
                   return s;
              }
 
@@ -3428,9 +3428,9 @@ namespace Urho {
 namespace Urho {
         public partial struct ComponentClonedEventArgs {
             internal IntPtr handle;
-            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)2696679293) /* P_SCENE */);
-            public Component Component => UrhoMap.get_Component (handle, unchecked((int)2431893358) /* P_COMPONENT */);
-            public Component CloneComponent => UrhoMap.get_Component (handle, unchecked((int)499439599) /* P_CLONECOMPONENT */);
+            public Scene Scene => UrhoMap.get_Scene (handle, unchecked((int)3011223724) /* Scene (P_SCENE) */);
+            public Component Component => UrhoMap.get_Component (handle, unchecked((int)3739730333) /* Component (P_COMPONENT) */);
+            public Component CloneComponent => UrhoMap.get_Component (handle, unchecked((int)733556864) /* CloneComponent (P_CLONECOMPONENT) */);
         } /* struct ComponentClonedEventArgs */
 
         public partial class Scene {
@@ -3439,7 +3439,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ComponentClonedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 962288554 /* E_COMPONENTCLONED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1752202084) /* ComponentCloned (E_COMPONENTCLONED) */);
                   return s;
              }
 
@@ -3461,11 +3461,11 @@ namespace Urho {
 namespace Urho {
         public partial struct InterceptNetworkUpdateEventArgs {
             internal IntPtr handle;
-            public Serializable Serializable => UrhoMap.get_Serializable (handle, unchecked((int)1457316078) /* P_SERIALIZABLE */);
-            public uint TimeStamp => UrhoMap.get_uint (handle, unchecked((int)4097320839) /* P_TIMESTAMP */);
-            public uint Index => UrhoMap.get_uint (handle, unchecked((int)4173611011) /* P_INDEX */);
-            public String Name => UrhoMap.get_String (handle, unchecked((int)373324314) /* P_NAME */);
-            public Variant Value => UrhoMap.get_Variant (handle, unchecked((int)317520194) /* P_VALUE */);
+            public Serializable Serializable => UrhoMap.get_Serializable (handle, unchecked((int)1481290239) /* Serializable (P_SERIALIZABLE) */);
+            public uint TimeStamp => UrhoMap.get_uint (handle, unchecked((int)1110190518) /* TimeStamp (P_TIMESTAMP) */);
+            public uint Index => UrhoMap.get_uint (handle, unchecked((int)193188146) /* Index (P_INDEX) */);
+            public String Name => UrhoMap.get_String (handle, unchecked((int)773762347) /* Name (P_NAME) */);
+            public Variant Value => UrhoMap.get_Variant (handle, unchecked((int)632064625) /* Value (P_VALUE) */);
         } /* struct InterceptNetworkUpdateEventArgs */
 
         public partial class Serializable {
@@ -3474,7 +3474,7 @@ namespace Urho {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new InterceptNetworkUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3106195535 /* E_INTERCEPTNETWORKUPDATE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4264627733) /* InterceptNetworkUpdate (E_INTERCEPTNETWORKUPDATE) */);
                   return s;
              }
 
@@ -3496,12 +3496,12 @@ namespace Urho {
 namespace Urho.Gui {
         public partial struct UIMouseClickEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct UIMouseClickEventArgs */
 
         public partial class UI {
@@ -3510,7 +3510,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UIMouseClickEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3300073073 /* E_UIMOUSECLICK */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2980213559) /* UIMouseClick (E_UIMOUSECLICK) */);
                   return s;
              }
 
@@ -3532,13 +3532,13 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct UIMouseClickEndEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public UIElement BeginElement => UrhoMap.get_UIElement (handle, unchecked((int)636918626) /* P_BEGINELEMENT */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public UIElement BeginElement => UrhoMap.get_UIElement (handle, unchecked((int)660892787) /* BeginElement (P_BEGINELEMENT) */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct UIMouseClickEndEventArgs */
 
         public partial class UI {
@@ -3547,7 +3547,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UIMouseClickEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3115302826 /* E_UIMOUSECLICKEND */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3905216356) /* UIMouseClickEnd (E_UIMOUSECLICKEND) */);
                   return s;
              }
 
@@ -3569,12 +3569,12 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct UIMouseDoubleClickEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct UIMouseDoubleClickEventArgs */
 
 } /* namespace */
@@ -3582,12 +3582,12 @@ namespace Urho.Gui {
 namespace Urho {
         public partial struct ClickEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct ClickEventArgs */
 
 } /* namespace */
@@ -3595,13 +3595,13 @@ namespace Urho {
 namespace Urho {
         public partial struct ClickEndEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public UIElement BeginElement => UrhoMap.get_UIElement (handle, unchecked((int)636918626) /* P_BEGINELEMENT */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public UIElement BeginElement => UrhoMap.get_UIElement (handle, unchecked((int)660892787) /* BeginElement (P_BEGINELEMENT) */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct ClickEndEventArgs */
 
 } /* namespace */
@@ -3609,12 +3609,12 @@ namespace Urho {
 namespace Urho {
         public partial struct DoubleClickEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct DoubleClickEventArgs */
 
 } /* namespace */
@@ -3622,9 +3622,9 @@ namespace Urho {
 namespace Urho.Gui {
         public partial struct DragDropTestEventArgs {
             internal IntPtr handle;
-            public UIElement Source => UrhoMap.get_UIElement (handle, unchecked((int)3074198954) /* P_SOURCE */);
-            public UIElement Target => UrhoMap.get_UIElement (handle, unchecked((int)2239668384) /* P_TARGET */);
-            public bool Accept => UrhoMap.get_bool (handle, unchecked((int)2905919351) /* P_ACCEPT */);
+            public UIElement Source => UrhoMap.get_UIElement (handle, unchecked((int)3851438139) /* Source (P_SOURCE) */);
+            public UIElement Target => UrhoMap.get_UIElement (handle, unchecked((int)3016907569) /* Target (P_TARGET) */);
+            public bool Accept => UrhoMap.get_bool (handle, unchecked((int)3683158536) /* Accept (P_ACCEPT) */);
         } /* struct DragDropTestEventArgs */
 
         public partial class UIElement {
@@ -3633,7 +3633,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragDropTestEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2970729871 /* E_DRAGDROPTEST */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2650870357) /* DragDropTest (E_DRAGDROPTEST) */);
                   return s;
              }
 
@@ -3655,9 +3655,9 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct DragDropFinishEventArgs {
             internal IntPtr handle;
-            public UIElement Source => UrhoMap.get_UIElement (handle, unchecked((int)3074198954) /* P_SOURCE */);
-            public UIElement Target => UrhoMap.get_UIElement (handle, unchecked((int)2239668384) /* P_TARGET */);
-            public bool Accept => UrhoMap.get_bool (handle, unchecked((int)2905919351) /* P_ACCEPT */);
+            public UIElement Source => UrhoMap.get_UIElement (handle, unchecked((int)3851438139) /* Source (P_SOURCE) */);
+            public UIElement Target => UrhoMap.get_UIElement (handle, unchecked((int)3016907569) /* Target (P_TARGET) */);
+            public bool Accept => UrhoMap.get_bool (handle, unchecked((int)3683158536) /* Accept (P_ACCEPT) */);
         } /* struct DragDropFinishEventArgs */
 
         public partial class UIElement {
@@ -3666,7 +3666,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragDropFinishEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2081976080 /* E_DRAGDROPFINISH */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2686304470) /* DragDropFinish (E_DRAGDROPFINISH) */);
                   return s;
              }
 
@@ -3688,8 +3688,8 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct FocusChangedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public UIElement ClickedElement => UrhoMap.get_UIElement (handle, unchecked((int)1396472164) /* P_CLICKEDELEMENT */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public UIElement ClickedElement => UrhoMap.get_UIElement (handle, unchecked((int)1630589429) /* ClickedElement (P_CLICKEDELEMENT) */);
         } /* struct FocusChangedEventArgs */
 
         public partial class UI {
@@ -3698,7 +3698,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FocusChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3670986998 /* E_FOCUSCHANGED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3351127484) /* FocusChanged (E_FOCUSCHANGED) */);
                   return s;
              }
 
@@ -3720,7 +3720,7 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct NameChangedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
         } /* struct NameChangedEventArgs */
 
         public partial class UIElement {
@@ -3729,7 +3729,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NameChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3500448111 /* E_NAMECHANGED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1102426921) /* NameChanged (E_NAMECHANGED) */);
                   return s;
              }
 
@@ -3751,11 +3751,11 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ResizedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public int Width => UrhoMap.get_int (handle, unchecked((int)3340657143) /* P_WIDTH */);
-            public int Height => UrhoMap.get_int (handle, unchecked((int)3898685366) /* P_HEIGHT */);
-            public int DX => UrhoMap.get_int (handle, unchecked((int)2317823363) /* P_DX */);
-            public int DY => UrhoMap.get_int (handle, unchecked((int)2317823364) /* P_DY */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int Width => UrhoMap.get_int (handle, unchecked((int)3655201574) /* Width (P_WIDTH) */);
+            public int Height => UrhoMap.get_int (handle, unchecked((int)380957255) /* Height (P_HEIGHT) */);
+            public int DX => UrhoMap.get_int (handle, unchecked((int)6560020) /* DX (P_DX) */);
+            public int DY => UrhoMap.get_int (handle, unchecked((int)6560021) /* DY (P_DY) */);
         } /* struct ResizedEventArgs */
 
         public partial class UIElement {
@@ -3764,7 +3764,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ResizedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3226224662 /* E_RESIZED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4086520784) /* Resized (E_RESIZED) */);
                   return s;
              }
 
@@ -3786,9 +3786,9 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct PositionedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
         } /* struct PositionedEventArgs */
 
         public partial class UIElement {
@@ -3797,7 +3797,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PositionedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3226828642 /* E_POSITIONED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2176866088) /* Positioned (E_POSITIONED) */);
                   return s;
              }
 
@@ -3819,8 +3819,8 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct VisibleChangedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public bool Visible => UrhoMap.get_bool (handle, unchecked((int)2012888771) /* P_VISIBLE */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public bool Visible => UrhoMap.get_bool (handle, unchecked((int)2569414770) /* Visible (P_VISIBLE) */);
         } /* struct VisibleChangedEventArgs */
 
         public partial class UIElement {
@@ -3829,7 +3829,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new VisibleChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2302177884 /* E_VISIBLECHANGED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2906506274) /* VisibleChanged (E_VISIBLECHANGED) */);
                   return s;
              }
 
@@ -3851,8 +3851,8 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct FocusedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public bool ByKey => UrhoMap.get_bool (handle, unchecked((int)545983417) /* P_BYKEY */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public bool ByKey => UrhoMap.get_bool (handle, unchecked((int)860527848) /* ByKey (P_BYKEY) */);
         } /* struct FocusedEventArgs */
 
         public partial class UIElement {
@@ -3861,7 +3861,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FocusedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2149470941 /* E_FOCUSED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3009767063) /* Focused (E_FOCUSED) */);
                   return s;
              }
 
@@ -3883,7 +3883,7 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct DefocusedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
         } /* struct DefocusedEventArgs */
 
         public partial class UIElement {
@@ -3892,7 +3892,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DefocusedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3370772636 /* E_DEFOCUSED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2137964374) /* Defocused (E_DEFOCUSED) */);
                   return s;
              }
 
@@ -3914,7 +3914,7 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct LayoutUpdatedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
         } /* struct LayoutUpdatedEventArgs */
 
         public partial class UIElement {
@@ -3923,7 +3923,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new LayoutUpdatedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1456117591 /* E_LAYOUTUPDATED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)4202066961) /* LayoutUpdated (E_LAYOUTUPDATED) */);
                   return s;
              }
 
@@ -3945,7 +3945,7 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct PressedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
         } /* struct PressedEventArgs */
 
         public partial class Button {
@@ -3954,7 +3954,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PressedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1260119080 /* E_PRESSED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2120415202) /* Pressed (E_PRESSED) */);
                   return s;
              }
 
@@ -3976,7 +3976,7 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ReleasedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
         } /* struct ReleasedEventArgs */
 
         public partial class Button {
@@ -3985,7 +3985,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ReleasedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1806634935 /* E_RELEASED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)501672573) /* Released (E_RELEASED) */);
                   return s;
              }
 
@@ -4007,8 +4007,8 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ToggledEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public bool State => UrhoMap.get_bool (handle, unchecked((int)3049107362) /* P_STATE */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public bool State => UrhoMap.get_bool (handle, unchecked((int)3363651793) /* State (P_STATE) */);
         } /* struct ToggledEventArgs */
 
         public partial class CheckBox {
@@ -4017,7 +4017,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ToggledEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3075932918 /* E_TOGGLED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3936229040) /* Toggled (E_TOGGLED) */);
                   return s;
              }
 
@@ -4039,8 +4039,8 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct SliderChangedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public float Value => UrhoMap.get_float (handle, unchecked((int)317520194) /* P_VALUE */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public float Value => UrhoMap.get_float (handle, unchecked((int)632064625) /* Value (P_VALUE) */);
         } /* struct SliderChangedEventArgs */
 
         public partial class Slider {
@@ -4049,7 +4049,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SliderChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3371245657 /* E_SLIDERCHANGED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1822227731) /* SliderChanged (E_SLIDERCHANGED) */);
                   return s;
              }
 
@@ -4071,9 +4071,9 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct SliderPagedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public int Offset => UrhoMap.get_int (handle, unchecked((int)1104512642) /* P_OFFSET */);
-            public bool Pressed => UrhoMap.get_bool (handle, unchecked((int)1563889203) /* P_PRESSED */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int Offset => UrhoMap.get_int (handle, unchecked((int)1881751827) /* Offset (P_OFFSET) */);
+            public bool Pressed => UrhoMap.get_bool (handle, unchecked((int)2120415202) /* Pressed (P_PRESSED) */);
         } /* struct SliderPagedEventArgs */
 
         public partial class Slider {
@@ -4082,7 +4082,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SliderPagedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2834623674 /* E_SLIDERPAGED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)436602484) /* SliderPaged (E_SLIDERPAGED) */);
                   return s;
              }
 
@@ -4104,8 +4104,8 @@ namespace Urho.Gui {
 namespace Urho {
         public partial struct ProgressBarChangedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public float Value => UrhoMap.get_float (handle, unchecked((int)317520194) /* P_VALUE */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public float Value => UrhoMap.get_float (handle, unchecked((int)632064625) /* Value (P_VALUE) */);
         } /* struct ProgressBarChangedEventArgs */
 
 } /* namespace */
@@ -4113,8 +4113,8 @@ namespace Urho {
 namespace Urho.Gui {
         public partial struct ScrollBarChangedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public float Value => UrhoMap.get_float (handle, unchecked((int)317520194) /* P_VALUE */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public float Value => UrhoMap.get_float (handle, unchecked((int)632064625) /* Value (P_VALUE) */);
         } /* struct ScrollBarChangedEventArgs */
 
         public partial class ScrollBar {
@@ -4123,7 +4123,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ScrollBarChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3832352008 /* E_SCROLLBARCHANGED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2589580238) /* ScrollBarChanged (E_SCROLLBARCHANGED) */);
                   return s;
              }
 
@@ -4145,9 +4145,9 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ViewChangedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
         } /* struct ViewChangedEventArgs */
 
         public partial class ScrollView {
@@ -4156,7 +4156,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ViewChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1855039189 /* E_VIEWCHANGED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3751985295) /* ViewChanged (E_VIEWCHANGED) */);
                   return s;
              }
 
@@ -4178,8 +4178,8 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ModalChangedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public bool Modal => UrhoMap.get_bool (handle, unchecked((int)922258366) /* P_MODAL */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public bool Modal => UrhoMap.get_bool (handle, unchecked((int)1236802797) /* Modal (P_MODAL) */);
         } /* struct ModalChangedEventArgs */
 
         public partial class Window {
@@ -4188,7 +4188,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ModalChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4100448801 /* E_MODALCHANGED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3780589287) /* ModalChanged (E_MODALCHANGED) */);
                   return s;
              }
 
@@ -4210,10 +4210,10 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct CharEntryEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public String Text => UrhoMap.get_String (handle, unchecked((int)795647836) /* P_TEXT */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public String Text => UrhoMap.get_String (handle, unchecked((int)1196085869) /* Text (P_TEXT) */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct CharEntryEventArgs */
 
         public partial class LineEdit {
@@ -4222,7 +4222,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new CharEntryEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3139211147 /* E_TEXTENTRY */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3958156636) /* CharEntry (E_TEXTENTRY) */);
                   return s;
              }
 
@@ -4244,8 +4244,8 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct TextChangedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public String Text => UrhoMap.get_String (handle, unchecked((int)795647836) /* P_TEXT */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public String Text => UrhoMap.get_String (handle, unchecked((int)1196085869) /* Text (P_TEXT) */);
         } /* struct TextChangedEventArgs */
 
         public partial class LineEdit {
@@ -4254,7 +4254,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TextChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2646149037 /* E_TEXTCHANGED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)248127847) /* TextChanged (E_TEXTCHANGED) */);
                   return s;
              }
 
@@ -4276,9 +4276,9 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct TextFinishedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public String Text => UrhoMap.get_String (handle, unchecked((int)795647836) /* P_TEXT */);
-            public float Value => UrhoMap.get_float (handle, unchecked((int)317520194) /* P_VALUE */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public String Text => UrhoMap.get_String (handle, unchecked((int)1196085869) /* Text (P_TEXT) */);
+            public float Value => UrhoMap.get_float (handle, unchecked((int)632064625) /* Value (P_VALUE) */);
         } /* struct TextFinishedEventArgs */
 
         public partial class LineEdit {
@@ -4287,7 +4287,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TextFinishedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2483418265 /* E_TEXTFINISHED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2163558751) /* TextFinished (E_TEXTFINISHED) */);
                   return s;
              }
 
@@ -4309,7 +4309,7 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct MenuSelectedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
         } /* struct MenuSelectedEventArgs */
 
         public partial class Menu {
@@ -4318,7 +4318,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MenuSelectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4003910964 /* E_MENUSELECTED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3684051450) /* MenuSelected (E_MENUSELECTED) */);
                   return s;
              }
 
@@ -4340,8 +4340,8 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ItemSelectedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public int Selection => UrhoMap.get_int (handle, unchecked((int)2212053117) /* P_SELECTION */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int Selection => UrhoMap.get_int (handle, unchecked((int)3519890092) /* Selection (P_SELECTION) */);
         } /* struct ItemSelectedEventArgs */
 
         public partial class DropDownList {
@@ -4350,7 +4350,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ItemSelectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3897675912 /* E_ITEMSELECTED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3577816398) /* ItemSelected (E_ITEMSELECTED) */);
                   return s;
              }
 
@@ -4373,7 +4373,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ItemSelectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3897675912 /* E_ITEMSELECTED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3577816398) /* ItemSelected (E_ITEMSELECTED) */);
                   return s;
              }
 
@@ -4395,8 +4395,8 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ItemDeselectedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public int Selection => UrhoMap.get_int (handle, unchecked((int)2212053117) /* P_SELECTION */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int Selection => UrhoMap.get_int (handle, unchecked((int)3519890092) /* Selection (P_SELECTION) */);
         } /* struct ItemDeselectedEventArgs */
 
         public partial class ListView {
@@ -4405,7 +4405,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ItemDeselectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 146198793 /* E_ITEMDESELECTED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)750527183) /* ItemDeselected (E_ITEMDESELECTED) */);
                   return s;
              }
 
@@ -4427,7 +4427,7 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct SelectionChangedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
         } /* struct SelectionChangedEventArgs */
 
         public partial class ListView {
@@ -4436,7 +4436,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SelectionChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1895407778 /* E_SELECTIONCHANGED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)652636008) /* SelectionChanged (E_SELECTIONCHANGED) */);
                   return s;
              }
 
@@ -4458,12 +4458,12 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ItemClickedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public UIElement Item => UrhoMap.get_UIElement (handle, unchecked((int)921799426) /* P_ITEM */);
-            public int Selection => UrhoMap.get_int (handle, unchecked((int)2212053117) /* P_SELECTION */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public UIElement Item => UrhoMap.get_UIElement (handle, unchecked((int)1322237459) /* Item (P_ITEM) */);
+            public int Selection => UrhoMap.get_int (handle, unchecked((int)3519890092) /* Selection (P_SELECTION) */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct ItemClickedEventArgs */
 
         public partial class ListView {
@@ -4472,7 +4472,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ItemClickedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4078592346 /* E_ITEMCLICKED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1680571156) /* ItemClicked (E_ITEMCLICKED) */);
                   return s;
              }
 
@@ -4494,12 +4494,12 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ItemDoubleClickedEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public UIElement Item => UrhoMap.get_UIElement (handle, unchecked((int)921799426) /* P_ITEM */);
-            public int Selection => UrhoMap.get_int (handle, unchecked((int)2212053117) /* P_SELECTION */);
-            public int Button => UrhoMap.get_int (handle, unchecked((int)2824184769) /* P_BUTTON */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public UIElement Item => UrhoMap.get_UIElement (handle, unchecked((int)1322237459) /* Item (P_ITEM) */);
+            public int Selection => UrhoMap.get_int (handle, unchecked((int)3519890092) /* Selection (P_SELECTION) */);
+            public int Button => UrhoMap.get_int (handle, unchecked((int)3601423954) /* Button (P_BUTTON) */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct ItemDoubleClickedEventArgs */
 
         public partial class ListView {
@@ -4508,7 +4508,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ItemDoubleClickedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3021048553 /* E_ITEMDOUBLECLICKED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1209953699) /* ItemDoubleClicked (E_ITEMDOUBLECLICKED) */);
                   return s;
              }
 
@@ -4530,10 +4530,10 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct UnhandledKeyEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public Key Key =>(Key) UrhoMap.get_int (handle, unchecked((int)814128016) /* P_KEY */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
-            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)612407416) /* P_QUALIFIERS */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public Key Key =>(Key) UrhoMap.get_int (handle, unchecked((int)890606655) /* Key (P_KEY) */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int Qualifiers => UrhoMap.get_int (handle, unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct UnhandledKeyEventArgs */
 
         public partial class LineEdit {
@@ -4542,7 +4542,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UnhandledKeyEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1902910774 /* E_UNHANDLEDKEY */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1583051260) /* UnhandledKey (E_UNHANDLEDKEY) */);
                   return s;
              }
 
@@ -4565,7 +4565,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UnhandledKeyEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1902910774 /* E_UNHANDLEDKEY */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1583051260) /* UnhandledKey (E_UNHANDLEDKEY) */);
                   return s;
              }
 
@@ -4587,9 +4587,9 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct FileSelectedEventArgs {
             internal IntPtr handle;
-            public String FileName => UrhoMap.get_String (handle, unchecked((int)306467350) /* P_FILENAME */);
-            public String Filter => UrhoMap.get_String (handle, unchecked((int)1571957831) /* P_FILTER */);
-            public bool Ok => UrhoMap.get_bool (handle, unchecked((int)2318544939) /* P_OK */);
+            public String FileName => UrhoMap.get_String (handle, unchecked((int)633459751) /* FileName (P_FILENAME) */);
+            public String Filter => UrhoMap.get_String (handle, unchecked((int)2349197016) /* Filter (P_FILTER) */);
+            public bool Ok => UrhoMap.get_bool (handle, unchecked((int)7281596) /* Ok (P_OK) */);
         } /* struct FileSelectedEventArgs */
 
         public partial class FileSelector {
@@ -4598,7 +4598,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FileSelectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2566890353 /* E_FILESELECTED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2247030839) /* FileSelected (E_FILESELECTED) */);
                   return s;
              }
 
@@ -4620,7 +4620,7 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct MessageACKEventArgs {
             internal IntPtr handle;
-            public bool Ok => UrhoMap.get_bool (handle, unchecked((int)2318544939) /* P_OK */);
+            public bool Ok => UrhoMap.get_bool (handle, unchecked((int)7281596) /* Ok (P_OK) */);
         } /* struct MessageACKEventArgs */
 
         public partial class MessageBox {
@@ -4629,7 +4629,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MessageACKEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3324786300 /* E_MESSAGEACK */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2274823746) /* MessageACK (E_MESSAGEACK) */);
                   return s;
              }
 
@@ -4651,9 +4651,9 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ElementAddedEventArgs {
             internal IntPtr handle;
-            public UIElement Root => UrhoMap.get_UIElement (handle, unchecked((int)3611465393) /* P_ROOT */);
-            public UIElement Parent => UrhoMap.get_UIElement (handle, unchecked((int)735706841) /* P_PARENT */);
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public UIElement Root => UrhoMap.get_UIElement (handle, unchecked((int)4011903426) /* Root (P_ROOT) */);
+            public UIElement Parent => UrhoMap.get_UIElement (handle, unchecked((int)1512946026) /* Parent (P_PARENT) */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
         } /* struct ElementAddedEventArgs */
 
         public partial class UIElement {
@@ -4662,7 +4662,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ElementAddedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3825150526 /* E_ELEMENTADDED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3505291012) /* ElementAdded (E_ELEMENTADDED) */);
                   return s;
              }
 
@@ -4684,9 +4684,9 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct ElementRemovedEventArgs {
             internal IntPtr handle;
-            public UIElement Root => UrhoMap.get_UIElement (handle, unchecked((int)3611465393) /* P_ROOT */);
-            public UIElement Parent => UrhoMap.get_UIElement (handle, unchecked((int)735706841) /* P_PARENT */);
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public UIElement Root => UrhoMap.get_UIElement (handle, unchecked((int)4011903426) /* Root (P_ROOT) */);
+            public UIElement Parent => UrhoMap.get_UIElement (handle, unchecked((int)1512946026) /* Parent (P_PARENT) */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
         } /* struct ElementRemovedEventArgs */
 
         public partial class UIElement {
@@ -4695,7 +4695,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ElementRemovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 778949086 /* E_ELEMENTREMOVED */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1383277476) /* ElementRemoved (E_ELEMENTREMOVED) */);
                   return s;
              }
 
@@ -4717,11 +4717,11 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct HoverBeginEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
-            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3650105291) /* P_ELEMENTX */);
-            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3650105292) /* P_ELEMENTY */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
+            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3977097692) /* ElementX (P_ELEMENTX) */);
+            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3977097693) /* ElementY (P_ELEMENTY) */);
         } /* struct HoverBeginEventArgs */
 
         public partial class UIElement {
@@ -4730,7 +4730,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new HoverBeginEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3920026151 /* E_HOVERBEGIN */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)2870063597) /* HoverBegin (E_HOVERBEGIN) */);
                   return s;
              }
 
@@ -4752,7 +4752,7 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct HoverEndEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
         } /* struct HoverEndEventArgs */
 
         public partial class UIElement {
@@ -4761,7 +4761,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new HoverEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1484734873 /* E_HOVEREND */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)179772511) /* HoverEnd (E_HOVEREND) */);
                   return s;
              }
 
@@ -4783,13 +4783,13 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct DragBeginEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
-            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3650105291) /* P_ELEMENTX */);
-            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3650105292) /* P_ELEMENTY */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
-            public int NumButtons => UrhoMap.get_int (handle, unchecked((int)492349674) /* P_NUMBUTTONS */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
+            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3977097692) /* ElementX (P_ELEMENTX) */);
+            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3977097693) /* ElementY (P_ELEMENTY) */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int NumButtons => UrhoMap.get_int (handle, unchecked((int)1318335099) /* NumButtons (P_NUMBUTTONS) */);
         } /* struct DragBeginEventArgs */
 
         public partial class UIElement {
@@ -4798,7 +4798,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragBeginEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4267186395 /* E_DRAGBEGIN */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3034378133) /* DragBegin (E_DRAGBEGIN) */);
                   return s;
              }
 
@@ -4820,15 +4820,15 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct DragMoveEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
-            public int DX => UrhoMap.get_int (handle, unchecked((int)2317823363) /* P_DX */);
-            public int DY => UrhoMap.get_int (handle, unchecked((int)2317823364) /* P_DY */);
-            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3650105291) /* P_ELEMENTX */);
-            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3650105292) /* P_ELEMENTY */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
-            public int NumButtons => UrhoMap.get_int (handle, unchecked((int)492349674) /* P_NUMBUTTONS */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
+            public int DX => UrhoMap.get_int (handle, unchecked((int)6560020) /* DX (P_DX) */);
+            public int DY => UrhoMap.get_int (handle, unchecked((int)6560021) /* DY (P_DY) */);
+            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3977097692) /* ElementX (P_ELEMENTX) */);
+            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3977097693) /* ElementY (P_ELEMENTY) */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int NumButtons => UrhoMap.get_int (handle, unchecked((int)1318335099) /* NumButtons (P_NUMBUTTONS) */);
         } /* struct DragMoveEventArgs */
 
         public partial class UIElement {
@@ -4837,7 +4837,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragMoveEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 557880127 /* E_DRAGMOVE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3547885061) /* DragMove (E_DRAGMOVE) */);
                   return s;
              }
 
@@ -4859,13 +4859,13 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct DragEndEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
-            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3650105291) /* P_ELEMENTX */);
-            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3650105292) /* P_ELEMENTY */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
-            public int NumButtons => UrhoMap.get_int (handle, unchecked((int)492349674) /* P_NUMBUTTONS */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
+            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3977097692) /* ElementX (P_ELEMENTX) */);
+            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3977097693) /* ElementY (P_ELEMENTY) */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int NumButtons => UrhoMap.get_int (handle, unchecked((int)1318335099) /* NumButtons (P_NUMBUTTONS) */);
         } /* struct DragEndEventArgs */
 
         public partial class UIElement {
@@ -4874,7 +4874,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4231633485 /* E_DRAGEND */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)796962311) /* DragEnd (E_DRAGEND) */);
                   return s;
              }
 
@@ -4896,13 +4896,13 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct DragCancelEventArgs {
             internal IntPtr handle;
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
-            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3650105291) /* P_ELEMENTX */);
-            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3650105292) /* P_ELEMENTY */);
-            public int Buttons => UrhoMap.get_int (handle, unchecked((int)282348786) /* P_BUTTONS */);
-            public int NumButtons => UrhoMap.get_int (handle, unchecked((int)492349674) /* P_NUMBUTTONS */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
+            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3977097692) /* ElementX (P_ELEMENTX) */);
+            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3977097693) /* ElementY (P_ELEMENTY) */);
+            public int Buttons => UrhoMap.get_int (handle, unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
+            public int NumButtons => UrhoMap.get_int (handle, unchecked((int)1318335099) /* NumButtons (P_NUMBUTTONS) */);
         } /* struct DragCancelEventArgs */
 
         public partial class UIElement {
@@ -4911,7 +4911,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragCancelEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4189477256 /* E_DRAGCANCEL */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3139514702) /* DragCancel (E_DRAGCANCEL) */);
                   return s;
              }
 
@@ -4933,12 +4933,12 @@ namespace Urho.Gui {
 namespace Urho.Gui {
         public partial struct UIDropFileEventArgs {
             internal IntPtr handle;
-            public String FileName => UrhoMap.get_String (handle, unchecked((int)306467350) /* P_FILENAME */);
-            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2253376493) /* P_ELEMENT */);
-            public int X => UrhoMap.get_int (handle, unchecked((int)931520585) /* P_X */);
-            public int Y => UrhoMap.get_int (handle, unchecked((int)931520586) /* P_Y */);
-            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3650105291) /* P_ELEMENTX */);
-            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3650105292) /* P_ELEMENTY */);
+            public String FileName => UrhoMap.get_String (handle, unchecked((int)633459751) /* FileName (P_FILENAME) */);
+            public UIElement Element => UrhoMap.get_UIElement (handle, unchecked((int)2809902492) /* Element (P_ELEMENT) */);
+            public int X => UrhoMap.get_int (handle, unchecked((int)120) /* X (P_X) */);
+            public int Y => UrhoMap.get_int (handle, unchecked((int)121) /* Y (P_Y) */);
+            public int ElementX => UrhoMap.get_int (handle, unchecked((int)3977097692) /* ElementX (P_ELEMENTX) */);
+            public int ElementY => UrhoMap.get_int (handle, unchecked((int)3977097693) /* ElementY (P_ELEMENTY) */);
         } /* struct UIDropFileEventArgs */
 
         public partial class UI {
@@ -4947,7 +4947,7 @@ namespace Urho.Gui {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UIDropFileEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 89251641 /* E_UIDROPFILE */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3334256383) /* UIDropFile (E_UIDROPFILE) */);
                   return s;
              }
 
@@ -4969,12 +4969,12 @@ namespace Urho.Gui {
 namespace Urho.Urho2D {
         public partial struct PhysicsBeginContact2DEventArgs {
             internal IntPtr handle;
-            public PhysicsWorld2D World => UrhoMap.get_PhysicsWorld2D (handle, unchecked((int)3844349315) /* P_WORLD */);
-            public RigidBody2D BodyA => UrhoMap.get_RigidBody2D (handle, unchecked((int)1273527440) /* P_BODYA */);
-            public RigidBody2D BodyB => UrhoMap.get_RigidBody2D (handle, unchecked((int)1273527441) /* P_BODYB */);
-            public Node NodeA => UrhoMap.get_Node (handle, unchecked((int)2062085040) /* P_NODEA */);
-            public Node NodeB => UrhoMap.get_Node (handle, unchecked((int)2062085041) /* P_NODEB */);
-            public IntPtr Contact => UrhoMap.get_IntPtr (handle, unchecked((int)3279609393) /* P_CONTACT */);
+            public PhysicsWorld2D World => UrhoMap.get_PhysicsWorld2D (handle, unchecked((int)4158893746) /* World (P_WORLD) */);
+            public RigidBody2D BodyA => UrhoMap.get_RigidBody2D (handle, unchecked((int)1588071871) /* BodyA (P_BODYA) */);
+            public RigidBody2D BodyB => UrhoMap.get_RigidBody2D (handle, unchecked((int)1588071872) /* BodyB (P_BODYB) */);
+            public Node NodeA => UrhoMap.get_Node (handle, unchecked((int)2376629471) /* NodeA (P_NODEA) */);
+            public Node NodeB => UrhoMap.get_Node (handle, unchecked((int)2376629472) /* NodeB (P_NODEB) */);
+            public IntPtr Contact => UrhoMap.get_IntPtr (handle, unchecked((int)3836135392) /* Contact (P_CONTACT) */);
         } /* struct PhysicsBeginContact2DEventArgs */
 
         public partial class PhysicsWorld2D {
@@ -4983,7 +4983,7 @@ namespace Urho.Urho2D {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsBeginContact2DEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3192613558 /* E_PHYSICSBEGINCONTACT2D */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3421721456) /* PhysicsBeginContact2D (E_PHYSICSBEGINCONTACT2D) */);
                   return s;
              }
 
@@ -5005,12 +5005,12 @@ namespace Urho.Urho2D {
 namespace Urho.Urho2D {
         public partial struct PhysicsEndContact2DEventArgs {
             internal IntPtr handle;
-            public PhysicsWorld2D World => UrhoMap.get_PhysicsWorld2D (handle, unchecked((int)3844349315) /* P_WORLD */);
-            public RigidBody2D BodyA => UrhoMap.get_RigidBody2D (handle, unchecked((int)1273527440) /* P_BODYA */);
-            public RigidBody2D BodyB => UrhoMap.get_RigidBody2D (handle, unchecked((int)1273527441) /* P_BODYB */);
-            public Node NodeA => UrhoMap.get_Node (handle, unchecked((int)2062085040) /* P_NODEA */);
-            public Node NodeB => UrhoMap.get_Node (handle, unchecked((int)2062085041) /* P_NODEB */);
-            public IntPtr Contact => UrhoMap.get_IntPtr (handle, unchecked((int)3279609393) /* P_CONTACT */);
+            public PhysicsWorld2D World => UrhoMap.get_PhysicsWorld2D (handle, unchecked((int)4158893746) /* World (P_WORLD) */);
+            public RigidBody2D BodyA => UrhoMap.get_RigidBody2D (handle, unchecked((int)1588071871) /* BodyA (P_BODYA) */);
+            public RigidBody2D BodyB => UrhoMap.get_RigidBody2D (handle, unchecked((int)1588071872) /* BodyB (P_BODYB) */);
+            public Node NodeA => UrhoMap.get_Node (handle, unchecked((int)2376629471) /* NodeA (P_NODEA) */);
+            public Node NodeB => UrhoMap.get_Node (handle, unchecked((int)2376629472) /* NodeB (P_NODEB) */);
+            public IntPtr Contact => UrhoMap.get_IntPtr (handle, unchecked((int)3836135392) /* Contact (P_CONTACT) */);
         } /* struct PhysicsEndContact2DEventArgs */
 
         public partial class PhysicsWorld2D {
@@ -5019,7 +5019,7 @@ namespace Urho.Urho2D {
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsEndContact2DEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3284244804 /* E_PHYSICSENDCONTACT2D */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3071590142) /* PhysicsEndContact2D (E_PHYSICSENDCONTACT2D) */);
                   return s;
              }
 
@@ -5041,10 +5041,10 @@ namespace Urho.Urho2D {
 namespace Urho {
         public partial struct NodeBeginContact2DEventArgs {
             internal IntPtr handle;
-            public RigidBody2D Body => UrhoMap.get_RigidBody2D (handle, unchecked((int)4006250513) /* P_BODY */);
-            public Node OtherNode => UrhoMap.get_Node (handle, unchecked((int)1399455619) /* P_OTHERNODE */);
-            public RigidBody2D OtherBody => UrhoMap.get_RigidBody2D (handle, unchecked((int)622343843) /* P_OTHERBODY */);
-            public IntPtr Contact => UrhoMap.get_IntPtr (handle, unchecked((int)3279609393) /* P_CONTACT */);
+            public RigidBody2D Body => UrhoMap.get_RigidBody2D (handle, unchecked((int)111721250) /* Body (P_BODY) */);
+            public Node OtherNode => UrhoMap.get_Node (handle, unchecked((int)2707292594) /* OtherNode (P_OTHERNODE) */);
+            public RigidBody2D OtherBody => UrhoMap.get_RigidBody2D (handle, unchecked((int)1930180818) /* OtherBody (P_OTHERBODY) */);
+            public IntPtr Contact => UrhoMap.get_IntPtr (handle, unchecked((int)3836135392) /* Contact (P_CONTACT) */);
         } /* struct NodeBeginContact2DEventArgs */
 
 } /* namespace */
@@ -5052,10 +5052,10 @@ namespace Urho {
 namespace Urho {
         public partial struct NodeEndContact2DEventArgs {
             internal IntPtr handle;
-            public RigidBody2D Body => UrhoMap.get_RigidBody2D (handle, unchecked((int)4006250513) /* P_BODY */);
-            public Node OtherNode => UrhoMap.get_Node (handle, unchecked((int)1399455619) /* P_OTHERNODE */);
-            public RigidBody2D OtherBody => UrhoMap.get_RigidBody2D (handle, unchecked((int)622343843) /* P_OTHERBODY */);
-            public IntPtr Contact => UrhoMap.get_IntPtr (handle, unchecked((int)3279609393) /* P_CONTACT */);
+            public RigidBody2D Body => UrhoMap.get_RigidBody2D (handle, unchecked((int)111721250) /* Body (P_BODY) */);
+            public Node OtherNode => UrhoMap.get_Node (handle, unchecked((int)2707292594) /* OtherNode (P_OTHERNODE) */);
+            public RigidBody2D OtherBody => UrhoMap.get_RigidBody2D (handle, unchecked((int)1930180818) /* OtherBody (P_OTHERBODY) */);
+            public IntPtr Contact => UrhoMap.get_IntPtr (handle, unchecked((int)3836135392) /* Contact (P_CONTACT) */);
         } /* struct NodeEndContact2DEventArgs */
 
 } /* namespace */

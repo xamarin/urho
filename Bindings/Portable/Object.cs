@@ -28,6 +28,6 @@ namespace Urho {
 		internal static extern void FreeBuffer(IntPtr buffer);
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal extern static IntPtr urho_subscribe_event(IntPtr target, ObjectCallbackSignature act, IntPtr data, uint eventNameHash);
+		internal extern static IntPtr urho_subscribe_event(IntPtr target, ObjectCallbackSignature act, IntPtr data, int eventNameHash);
 	}
 }
