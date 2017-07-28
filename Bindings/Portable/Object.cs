@@ -22,6 +22,8 @@ namespace Urho {
 			a(variantMap);
 		}
 
+		internal static ObjectCallbackSignature ObjectCallbackInstance = ObjectCallback;
+
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void FreeBuffer(IntPtr buffer);
 

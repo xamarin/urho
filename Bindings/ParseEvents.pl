@@ -200,14 +200,12 @@ while (<>){
 			$eccode = &stringHash($ec);
 
 			print CS "        public partial class $type {\n"; 
-			print CS "             ObjectCallbackSignature callback${eventName};\n";
 			print CS "             [Obsolete(\"SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.${eventName} += ...' instead.\")]\n";			
 			print CS "             @{[$en eq 'Update' ? 'internal' : 'public']} Subscription SubscribeTo${eventName} (Action<${eventName}EventArgs> handler)\n";
 			print CS "             {\n";
 			print CS "                  Action<IntPtr> proxy = (x)=> { var d = new ${eventName}EventArgs () { handle = x }; handler (d); };\n";
 			print CS "                  var s = new Subscription (proxy);\n";
-			print CS "                  callback${eventName} = ObjectCallback;\n";
-			print CS "                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callback${eventName}, GCHandle.ToIntPtr (s.gch), $eccode /* new StringHash(\"$ec\").Code */);\n";
+			print CS "                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), $eccode /* $ec */);\n";
 			print CS "                  return s;\n";
 			print CS "             }\n\n";
 			print CS "             static UrhoEventAdapter<${eventName}EventArgs> eventAdapterFor${eventName};\n";

@@ -33,14 +33,12 @@ namespace Urho {
         } /* struct FrameStartedEventArgs */
 
         public partial class Time {
-             ObjectCallbackSignature callbackFrameStarted;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.FrameStarted += ...' instead.")]
              public Subscription SubscribeToFrameStarted (Action<FrameStartedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FrameStartedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackFrameStarted = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackFrameStarted, GCHandle.ToIntPtr (s.gch), 1579640094 /* new StringHash("E_BEGINFRAME").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1579640094 /* E_BEGINFRAME */);
                   return s;
              }
 
@@ -66,14 +64,12 @@ namespace Urho {
         } /* struct UpdateEventArgs */
 
         public partial class Engine {
-             ObjectCallbackSignature callbackUpdate;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Update += ...' instead.")]
              internal Subscription SubscribeToUpdate (Action<UpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackUpdate = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackUpdate, GCHandle.ToIntPtr (s.gch), 108866531 /* new StringHash("E_UPDATE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 108866531 /* E_UPDATE */);
                   return s;
              }
 
@@ -99,14 +95,12 @@ namespace Urho {
         } /* struct PostUpdateEventArgs */
 
         public partial class Engine {
-             ObjectCallbackSignature callbackPostUpdate;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PostUpdate += ...' instead.")]
              public Subscription SubscribeToPostUpdate (Action<PostUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PostUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackPostUpdate = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPostUpdate, GCHandle.ToIntPtr (s.gch), 3752721187 /* new StringHash("E_POSTUPDATE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3752721187 /* E_POSTUPDATE */);
                   return s;
              }
 
@@ -132,14 +126,12 @@ namespace Urho {
         } /* struct RenderUpdateEventArgs */
 
         public partial class Engine {
-             ObjectCallbackSignature callbackRenderUpdate;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.RenderUpdate += ...' instead.")]
              public Subscription SubscribeToRenderUpdate (Action<RenderUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new RenderUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackRenderUpdate = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackRenderUpdate, GCHandle.ToIntPtr (s.gch), 4171474713 /* new StringHash("E_RENDERUPDATE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4171474713 /* E_RENDERUPDATE */);
                   return s;
              }
 
@@ -165,14 +157,12 @@ namespace Urho {
         } /* struct PostRenderUpdateEventArgs */
 
         public partial class Engine {
-             ObjectCallbackSignature callbackPostRenderUpdate;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PostRenderUpdate += ...' instead.")]
              public Subscription SubscribeToPostRenderUpdate (Action<PostRenderUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PostRenderUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackPostRenderUpdate = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPostRenderUpdate, GCHandle.ToIntPtr (s.gch), 1265210969 /* new StringHash("E_POSTRENDERUPDATE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1265210969 /* E_POSTRENDERUPDATE */);
                   return s;
              }
 
@@ -197,14 +187,12 @@ namespace Urho {
         } /* struct FrameEndedEventArgs */
 
         public partial class Time {
-             ObjectCallbackSignature callbackFrameEnded;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.FrameEnded += ...' instead.")]
              public Subscription SubscribeToFrameEnded (Action<FrameEndedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FrameEndedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackFrameEnded = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackFrameEnded, GCHandle.ToIntPtr (s.gch), 1274251308 /* new StringHash("E_ENDFRAME").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1274251308 /* E_ENDFRAME */);
                   return s;
              }
 
@@ -230,14 +218,12 @@ namespace Urho {
         } /* struct WorkItemCompletedEventArgs */
 
         public partial class WorkQueue {
-             ObjectCallbackSignature callbackWorkItemCompleted;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.WorkItemCompleted += ...' instead.")]
              public Subscription SubscribeToWorkItemCompleted (Action<WorkItemCompletedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new WorkItemCompletedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackWorkItemCompleted = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackWorkItemCompleted, GCHandle.ToIntPtr (s.gch), 3318800173 /* new StringHash("E_WORKITEMCOMPLETED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3318800173 /* E_WORKITEMCOMPLETED */);
                   return s;
              }
 
@@ -264,14 +250,12 @@ namespace Urho {
         } /* struct ConsoleCommandEventArgs */
 
         public partial class UrhoConsole {
-             ObjectCallbackSignature callbackConsoleCommand;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ConsoleCommand += ...' instead.")]
              public Subscription SubscribeToConsoleCommand (Action<ConsoleCommandEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ConsoleCommandEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackConsoleCommand = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackConsoleCommand, GCHandle.ToIntPtr (s.gch), 798325358 /* new StringHash("E_CONSOLECOMMAND").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 798325358 /* E_CONSOLECOMMAND */);
                   return s;
              }
 
@@ -297,14 +281,12 @@ namespace Urho {
         } /* struct BoneHierarchyCreatedEventArgs */
 
         public partial class Node {
-             ObjectCallbackSignature callbackBoneHierarchyCreated;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.BoneHierarchyCreated += ...' instead.")]
              public Subscription SubscribeToBoneHierarchyCreated (Action<BoneHierarchyCreatedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new BoneHierarchyCreatedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackBoneHierarchyCreated = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackBoneHierarchyCreated, GCHandle.ToIntPtr (s.gch), 1604299473 /* new StringHash("E_BONEHIERARCHYCREATED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1604299473 /* E_BONEHIERARCHYCREATED */);
                   return s;
              }
 
@@ -334,14 +316,12 @@ namespace Urho {
         } /* struct AnimationTriggerEventArgs */
 
         public partial class Node {
-             ObjectCallbackSignature callbackAnimationTrigger;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AnimationTrigger += ...' instead.")]
              public Subscription SubscribeToAnimationTrigger (Action<AnimationTriggerEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AnimationTriggerEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackAnimationTrigger = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackAnimationTrigger, GCHandle.ToIntPtr (s.gch), 893439086 /* new StringHash("E_ANIMATIONTRIGGER").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 893439086 /* E_ANIMATIONTRIGGER */);
                   return s;
              }
 
@@ -387,14 +367,12 @@ namespace Urho {
         } /* struct TerrainCreatedEventArgs */
 
         public partial class Terrain {
-             ObjectCallbackSignature callbackTerrainCreated;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TerrainCreated += ...' instead.")]
              public Subscription SubscribeToTerrainCreated (Action<TerrainCreatedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TerrainCreatedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackTerrainCreated = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackTerrainCreated, GCHandle.ToIntPtr (s.gch), 676469357 /* new StringHash("E_TERRAINCREATED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 676469357 /* E_TERRAINCREATED */);
                   return s;
              }
 
@@ -441,14 +419,12 @@ namespace Urho {
         } /* struct RenderSurfaceUpdateEventArgs */
 
         public partial class Renderer {
-             ObjectCallbackSignature callbackRenderSurfaceUpdate;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.RenderSurfaceUpdate += ...' instead.")]
              public Subscription SubscribeToRenderSurfaceUpdate (Action<RenderSurfaceUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new RenderSurfaceUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackRenderSurfaceUpdate = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackRenderSurfaceUpdate, GCHandle.ToIntPtr (s.gch), 742966694 /* new StringHash("E_RENDERSURFACEUPDATE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 742966694 /* E_RENDERSURFACEUPDATE */);
                   return s;
              }
 
@@ -492,14 +468,12 @@ namespace Urho {
         } /* struct BeginViewUpdateEventArgs */
 
         public partial class View {
-             ObjectCallbackSignature callbackBeginViewUpdate;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.BeginViewUpdate += ...' instead.")]
              public Subscription SubscribeToBeginViewUpdate (Action<BeginViewUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new BeginViewUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackBeginViewUpdate = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackBeginViewUpdate, GCHandle.ToIntPtr (s.gch), 414448157 /* new StringHash("E_BEGINVIEWUPDATE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 414448157 /* E_BEGINVIEWUPDATE */);
                   return s;
              }
 
@@ -529,14 +503,12 @@ namespace Urho {
         } /* struct EndViewUpdateEventArgs */
 
         public partial class View {
-             ObjectCallbackSignature callbackEndViewUpdate;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.EndViewUpdate += ...' instead.")]
              public Subscription SubscribeToEndViewUpdate (Action<EndViewUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new EndViewUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackEndViewUpdate = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackEndViewUpdate, GCHandle.ToIntPtr (s.gch), 832628879 /* new StringHash("E_ENDVIEWUPDATE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 832628879 /* E_ENDVIEWUPDATE */);
                   return s;
              }
 
@@ -566,14 +538,12 @@ namespace Urho {
         } /* struct BeginViewRenderEventArgs */
 
         public partial class Renderer {
-             ObjectCallbackSignature callbackBeginViewRender;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.BeginViewRender += ...' instead.")]
              public Subscription SubscribeToBeginViewRender (Action<BeginViewRenderEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new BeginViewRenderEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackBeginViewRender = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackBeginViewRender, GCHandle.ToIntPtr (s.gch), 3182826410 /* new StringHash("E_BEGINVIEWRENDER").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3182826410 /* E_BEGINVIEWRENDER */);
                   return s;
              }
 
@@ -627,14 +597,12 @@ namespace Urho {
         } /* struct EndViewRenderEventArgs */
 
         public partial class Renderer {
-             ObjectCallbackSignature callbackEndViewRender;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.EndViewRender += ...' instead.")]
              public Subscription SubscribeToEndViewRender (Action<EndViewRenderEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new EndViewRenderEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackEndViewRender = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackEndViewRender, GCHandle.ToIntPtr (s.gch), 3601007132 /* new StringHash("E_ENDVIEWRENDER").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3601007132 /* E_ENDVIEWRENDER */);
                   return s;
              }
 
@@ -683,14 +651,12 @@ namespace Urho.IO {
         } /* struct LogMessageEventArgs */
 
         public partial class Log {
-             ObjectCallbackSignature callbackLogMessage;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.LogMessage += ...' instead.")]
              public Subscription SubscribeToLogMessage (Action<LogMessageEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new LogMessageEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackLogMessage = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackLogMessage, GCHandle.ToIntPtr (s.gch), 3173669053 /* new StringHash("E_LOGMESSAGE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3173669053 /* E_LOGMESSAGE */);
                   return s;
              }
 
@@ -717,14 +683,12 @@ namespace Urho.IO {
         } /* struct AsyncExecFinishedEventArgs */
 
         public partial class FileSystem {
-             ObjectCallbackSignature callbackAsyncExecFinished;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AsyncExecFinished += ...' instead.")]
              public Subscription SubscribeToAsyncExecFinished (Action<AsyncExecFinishedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AsyncExecFinishedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackAsyncExecFinished = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackAsyncExecFinished, GCHandle.ToIntPtr (s.gch), 3061114341 /* new StringHash("E_ASYNCEXECFINISHED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3061114341 /* E_ASYNCEXECFINISHED */);
                   return s;
              }
 
@@ -752,14 +716,12 @@ namespace Urho {
         } /* struct MouseButtonDownEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackMouseButtonDown;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MouseButtonDown += ...' instead.")]
              public Subscription SubscribeToMouseButtonDown (Action<MouseButtonDownEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseButtonDownEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackMouseButtonDown = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackMouseButtonDown, GCHandle.ToIntPtr (s.gch), 829098559 /* new StringHash("E_MOUSEBUTTONDOWN").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 829098559 /* E_MOUSEBUTTONDOWN */);
                   return s;
              }
 
@@ -787,14 +749,12 @@ namespace Urho {
         } /* struct MouseButtonUpEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackMouseButtonUp;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MouseButtonUp += ...' instead.")]
              public Subscription SubscribeToMouseButtonUp (Action<MouseButtonUpEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseButtonUpEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackMouseButtonUp = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackMouseButtonUp, GCHandle.ToIntPtr (s.gch), 2095363256 /* new StringHash("E_MOUSEBUTTONUP").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2095363256 /* E_MOUSEBUTTONUP */);
                   return s;
              }
 
@@ -825,14 +785,12 @@ namespace Urho {
         } /* struct MouseMovedEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackMouseMoved;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MouseMoved += ...' instead.")]
              public Subscription SubscribeToMouseMoved (Action<MouseMovedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseMovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackMouseMoved = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackMouseMoved, GCHandle.ToIntPtr (s.gch), 2322793692 /* new StringHash("E_MOUSEMOVE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2322793692 /* E_MOUSEMOVE */);
                   return s;
              }
 
@@ -860,14 +818,12 @@ namespace Urho {
         } /* struct MouseWheelEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackMouseWheel;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MouseWheel += ...' instead.")]
              public Subscription SubscribeToMouseWheel (Action<MouseWheelEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseWheelEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackMouseWheel = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackMouseWheel, GCHandle.ToIntPtr (s.gch), 1884761040 /* new StringHash("E_MOUSEWHEEL").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1884761040 /* E_MOUSEWHEEL */);
                   return s;
              }
 
@@ -897,14 +853,12 @@ namespace Urho {
         } /* struct KeyDownEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackKeyDown;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.KeyDown += ...' instead.")]
              public Subscription SubscribeToKeyDown (Action<KeyDownEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new KeyDownEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackKeyDown = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackKeyDown, GCHandle.ToIntPtr (s.gch), 2393850567 /* new StringHash("E_KEYDOWN").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2393850567 /* E_KEYDOWN */);
                   return s;
              }
 
@@ -933,14 +887,12 @@ namespace Urho {
         } /* struct KeyUpEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackKeyUp;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.KeyUp += ...' instead.")]
              public Subscription SubscribeToKeyUp (Action<KeyUpEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new KeyUpEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackKeyUp = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackKeyUp, GCHandle.ToIntPtr (s.gch), 3027153216 /* new StringHash("E_KEYUP").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3027153216 /* E_KEYUP */);
                   return s;
              }
 
@@ -968,14 +920,12 @@ namespace Urho {
         } /* struct TextInputEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackTextInput;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TextInput += ...' instead.")]
              public Subscription SubscribeToTextInput (Action<TextInputEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TextInputEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackTextInput = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackTextInput, GCHandle.ToIntPtr (s.gch), 3369651779 /* new StringHash("E_TEXTINPUT").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3369651779 /* E_TEXTINPUT */);
                   return s;
              }
 
@@ -1001,14 +951,12 @@ namespace Urho {
         } /* struct JoystickConnectedEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackJoystickConnected;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.JoystickConnected += ...' instead.")]
              public Subscription SubscribeToJoystickConnected (Action<JoystickConnectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickConnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackJoystickConnected = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackJoystickConnected, GCHandle.ToIntPtr (s.gch), 76490611 /* new StringHash("E_JOYSTICKCONNECTED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 76490611 /* E_JOYSTICKCONNECTED */);
                   return s;
              }
 
@@ -1034,14 +982,12 @@ namespace Urho {
         } /* struct JoystickDisconnectedEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackJoystickDisconnected;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.JoystickDisconnected += ...' instead.")]
              public Subscription SubscribeToJoystickDisconnected (Action<JoystickDisconnectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickDisconnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackJoystickDisconnected = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackJoystickDisconnected, GCHandle.ToIntPtr (s.gch), 698841649 /* new StringHash("E_JOYSTICKDISCONNECTED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 698841649 /* E_JOYSTICKDISCONNECTED */);
                   return s;
              }
 
@@ -1068,14 +1014,12 @@ namespace Urho {
         } /* struct JoystickButtonDownEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackJoystickButtonDown;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.JoystickButtonDown += ...' instead.")]
              public Subscription SubscribeToJoystickButtonDown (Action<JoystickButtonDownEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickButtonDownEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackJoystickButtonDown = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackJoystickButtonDown, GCHandle.ToIntPtr (s.gch), 1154719306 /* new StringHash("E_JOYSTICKBUTTONDOWN").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1154719306 /* E_JOYSTICKBUTTONDOWN */);
                   return s;
              }
 
@@ -1102,14 +1046,12 @@ namespace Urho {
         } /* struct JoystickButtonUpEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackJoystickButtonUp;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.JoystickButtonUp += ...' instead.")]
              public Subscription SubscribeToJoystickButtonUp (Action<JoystickButtonUpEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickButtonUpEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackJoystickButtonUp = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackJoystickButtonUp, GCHandle.ToIntPtr (s.gch), 1352621635 /* new StringHash("E_JOYSTICKBUTTONUP").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1352621635 /* E_JOYSTICKBUTTONUP */);
                   return s;
              }
 
@@ -1137,14 +1079,12 @@ namespace Urho {
         } /* struct JoystickAxisMoveEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackJoystickAxisMove;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.JoystickAxisMove += ...' instead.")]
              public Subscription SubscribeToJoystickAxisMove (Action<JoystickAxisMoveEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickAxisMoveEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackJoystickAxisMove = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackJoystickAxisMove, GCHandle.ToIntPtr (s.gch), 2611698056 /* new StringHash("E_JOYSTICKAXISMOVE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2611698056 /* E_JOYSTICKAXISMOVE */);
                   return s;
              }
 
@@ -1172,14 +1112,12 @@ namespace Urho {
         } /* struct JoystickHatMoveEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackJoystickHatMove;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.JoystickHatMove += ...' instead.")]
              public Subscription SubscribeToJoystickHatMove (Action<JoystickHatMoveEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new JoystickHatMoveEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackJoystickHatMove = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackJoystickHatMove, GCHandle.ToIntPtr (s.gch), 3018803254 /* new StringHash("E_JOYSTICKHATMOVE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3018803254 /* E_JOYSTICKHATMOVE */);
                   return s;
              }
 
@@ -1208,14 +1146,12 @@ namespace Urho {
         } /* struct TouchBeginEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackTouchBegin;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TouchBegin += ...' instead.")]
              public Subscription SubscribeToTouchBegin (Action<TouchBeginEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TouchBeginEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackTouchBegin = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackTouchBegin, GCHandle.ToIntPtr (s.gch), 211065316 /* new StringHash("E_TOUCHBEGIN").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 211065316 /* E_TOUCHBEGIN */);
                   return s;
              }
 
@@ -1243,14 +1179,12 @@ namespace Urho {
         } /* struct TouchEndEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackTouchEnd;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TouchEnd += ...' instead.")]
              public Subscription SubscribeToTouchEnd (Action<TouchEndEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TouchEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackTouchEnd = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackTouchEnd, GCHandle.ToIntPtr (s.gch), 2383040470 /* new StringHash("E_TOUCHEND").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2383040470 /* E_TOUCHEND */);
                   return s;
              }
 
@@ -1281,14 +1215,12 @@ namespace Urho {
         } /* struct TouchMoveEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackTouchMove;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TouchMove += ...' instead.")]
              public Subscription SubscribeToTouchMove (Action<TouchMoveEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TouchMoveEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackTouchMove = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackTouchMove, GCHandle.ToIntPtr (s.gch), 3106291702 /* new StringHash("E_TOUCHMOVE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3106291702 /* E_TOUCHMOVE */);
                   return s;
              }
 
@@ -1314,14 +1246,12 @@ namespace Urho {
         } /* struct GestureRecordedEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackGestureRecorded;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.GestureRecorded += ...' instead.")]
              public Subscription SubscribeToGestureRecorded (Action<GestureRecordedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new GestureRecordedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackGestureRecorded = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackGestureRecorded, GCHandle.ToIntPtr (s.gch), 2184659423 /* new StringHash("E_GESTURERECORDED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2184659423 /* E_GESTURERECORDED */);
                   return s;
              }
 
@@ -1351,14 +1281,12 @@ namespace Urho {
         } /* struct GestureInputEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackGestureInput;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.GestureInput += ...' instead.")]
              public Subscription SubscribeToGestureInput (Action<GestureInputEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new GestureInputEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackGestureInput = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackGestureInput, GCHandle.ToIntPtr (s.gch), 3695739771 /* new StringHash("E_GESTUREINPUT").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3695739771 /* E_GESTUREINPUT */);
                   return s;
              }
 
@@ -1388,14 +1316,12 @@ namespace Urho {
         } /* struct MultiGestureEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackMultiGesture;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MultiGesture += ...' instead.")]
              public Subscription SubscribeToMultiGesture (Action<MultiGestureEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MultiGestureEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackMultiGesture = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackMultiGesture, GCHandle.ToIntPtr (s.gch), 2739326730 /* new StringHash("E_MULTIGESTURE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2739326730 /* E_MULTIGESTURE */);
                   return s;
              }
 
@@ -1421,14 +1347,12 @@ namespace Urho {
         } /* struct DropFileEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackDropFile;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.DropFile += ...' instead.")]
              public Subscription SubscribeToDropFile (Action<DropFileEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DropFileEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackDropFile = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackDropFile, GCHandle.ToIntPtr (s.gch), 1917789957 /* new StringHash("E_DROPFILE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1917789957 /* E_DROPFILE */);
                   return s;
              }
 
@@ -1455,14 +1379,12 @@ namespace Urho {
         } /* struct InputFocusEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackInputFocus;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.InputFocus += ...' instead.")]
              public Subscription SubscribeToInputFocus (Action<InputFocusEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new InputFocusEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackInputFocus = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackInputFocus, GCHandle.ToIntPtr (s.gch), 1670039272 /* new StringHash("E_INPUTFOCUS").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1670039272 /* E_INPUTFOCUS */);
                   return s;
              }
 
@@ -1488,14 +1410,12 @@ namespace Urho {
         } /* struct MouseVisibleChangedEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackMouseVisibleChanged;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MouseVisibleChanged += ...' instead.")]
              public Subscription SubscribeToMouseVisibleChanged (Action<MouseVisibleChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseVisibleChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackMouseVisibleChanged = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackMouseVisibleChanged, GCHandle.ToIntPtr (s.gch), 572855757 /* new StringHash("E_MOUSEVISIBLECHANGED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 572855757 /* E_MOUSEVISIBLECHANGED */);
                   return s;
              }
 
@@ -1522,14 +1442,12 @@ namespace Urho {
         } /* struct MouseModeChangedEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackMouseModeChanged;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MouseModeChanged += ...' instead.")]
              public Subscription SubscribeToMouseModeChanged (Action<MouseModeChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MouseModeChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackMouseModeChanged = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackMouseModeChanged, GCHandle.ToIntPtr (s.gch), 590751014 /* new StringHash("E_MOUSEMODECHANGED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 590751014 /* E_MOUSEMODECHANGED */);
                   return s;
              }
 
@@ -1554,14 +1472,12 @@ namespace Urho {
         } /* struct ExitRequestedEventArgs */
 
         public partial class Input {
-             ObjectCallbackSignature callbackExitRequested;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ExitRequested += ...' instead.")]
              public Subscription SubscribeToExitRequested (Action<ExitRequestedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ExitRequestedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackExitRequested = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackExitRequested, GCHandle.ToIntPtr (s.gch), 2448655126 /* new StringHash("E_EXITREQUESTED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2448655126 /* E_EXITREQUESTED */);
                   return s;
              }
 
@@ -1611,14 +1527,12 @@ namespace Urho.Navigation {
         } /* struct NavigationMeshRebuiltEventArgs */
 
         public partial class NavigationMesh {
-             ObjectCallbackSignature callbackNavigationMeshRebuilt;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NavigationMeshRebuilt += ...' instead.")]
              public Subscription SubscribeToNavigationMeshRebuilt (Action<NavigationMeshRebuiltEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NavigationMeshRebuiltEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackNavigationMeshRebuilt = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNavigationMeshRebuilt, GCHandle.ToIntPtr (s.gch), 70749194 /* new StringHash("E_NAVIGATION_MESH_REBUILT").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 70749194 /* E_NAVIGATION_MESH_REBUILT */);
                   return s;
              }
 
@@ -1647,14 +1561,12 @@ namespace Urho.Navigation {
         } /* struct NavigationAreaRebuiltEventArgs */
 
         public partial class NavigationMesh {
-             ObjectCallbackSignature callbackNavigationAreaRebuilt;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NavigationAreaRebuilt += ...' instead.")]
              public Subscription SubscribeToNavigationAreaRebuilt (Action<NavigationAreaRebuiltEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NavigationAreaRebuiltEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackNavigationAreaRebuilt = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNavigationAreaRebuilt, GCHandle.ToIntPtr (s.gch), 607930666 /* new StringHash("E_NAVIGATION_AREA_REBUILT").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 607930666 /* E_NAVIGATION_AREA_REBUILT */);
                   return s;
              }
 
@@ -1709,14 +1621,12 @@ namespace Urho.Navigation {
         } /* struct CrowdAgentRepositionEventArgs */
 
         public partial class CrowdManager {
-             ObjectCallbackSignature callbackCrowdAgentReposition;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.CrowdAgentReposition += ...' instead.")]
              public Subscription SubscribeToCrowdAgentReposition (Action<CrowdAgentRepositionEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new CrowdAgentRepositionEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackCrowdAgentReposition = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackCrowdAgentReposition, GCHandle.ToIntPtr (s.gch), 1303636130 /* new StringHash("E_CROWD_AGENT_REPOSITION").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1303636130 /* E_CROWD_AGENT_REPOSITION */);
                   return s;
              }
 
@@ -1760,14 +1670,12 @@ namespace Urho.Navigation {
         } /* struct CrowdAgentFailureEventArgs */
 
         public partial class CrowdManager {
-             ObjectCallbackSignature callbackCrowdAgentFailure;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.CrowdAgentFailure += ...' instead.")]
              public Subscription SubscribeToCrowdAgentFailure (Action<CrowdAgentFailureEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new CrowdAgentFailureEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackCrowdAgentFailure = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackCrowdAgentFailure, GCHandle.ToIntPtr (s.gch), 4177819236 /* new StringHash("E_CROWD_AGENT_FAILURE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4177819236 /* E_CROWD_AGENT_FAILURE */);
                   return s;
              }
 
@@ -1811,14 +1719,12 @@ namespace Urho.Navigation {
         } /* struct CrowdAgentStateChangedEventArgs */
 
         public partial class CrowdManager {
-             ObjectCallbackSignature callbackCrowdAgentStateChanged;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.CrowdAgentStateChanged += ...' instead.")]
              public Subscription SubscribeToCrowdAgentStateChanged (Action<CrowdAgentStateChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new CrowdAgentStateChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackCrowdAgentStateChanged = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackCrowdAgentStateChanged, GCHandle.ToIntPtr (s.gch), 1325284992 /* new StringHash("E_CROWD_AGENT_STATE_CHANGED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1325284992 /* E_CROWD_AGENT_STATE_CHANGED */);
                   return s;
              }
 
@@ -1861,14 +1767,12 @@ namespace Urho.Navigation {
         } /* struct NavigationObstacleAddedEventArgs */
 
         public partial class DynamicNavigationMesh {
-             ObjectCallbackSignature callbackNavigationObstacleAdded;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NavigationObstacleAdded += ...' instead.")]
              public Subscription SubscribeToNavigationObstacleAdded (Action<NavigationObstacleAddedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NavigationObstacleAddedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackNavigationObstacleAdded = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNavigationObstacleAdded, GCHandle.ToIntPtr (s.gch), 368183937 /* new StringHash("E_NAVIGATION_OBSTACLE_ADDED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 368183937 /* E_NAVIGATION_OBSTACLE_ADDED */);
                   return s;
              }
 
@@ -1898,14 +1802,12 @@ namespace Urho.Navigation {
         } /* struct NavigationObstacleRemovedEventArgs */
 
         public partial class DynamicNavigationMesh {
-             ObjectCallbackSignature callbackNavigationObstacleRemoved;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NavigationObstacleRemoved += ...' instead.")]
              public Subscription SubscribeToNavigationObstacleRemoved (Action<NavigationObstacleRemovedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NavigationObstacleRemovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackNavigationObstacleRemoved = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNavigationObstacleRemoved, GCHandle.ToIntPtr (s.gch), 4126064801 /* new StringHash("E_NAVIGATION_OBSTACLE_REMOVED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4126064801 /* E_NAVIGATION_OBSTACLE_REMOVED */);
                   return s;
              }
 
@@ -1930,14 +1832,12 @@ namespace Urho.Network {
         } /* struct ServerConnectedEventArgs */
 
         public partial class Network {
-             ObjectCallbackSignature callbackServerConnected;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ServerConnected += ...' instead.")]
              public Subscription SubscribeToServerConnected (Action<ServerConnectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ServerConnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackServerConnected = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackServerConnected, GCHandle.ToIntPtr (s.gch), 3262549548 /* new StringHash("E_SERVERCONNECTED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3262549548 /* E_SERVERCONNECTED */);
                   return s;
              }
 
@@ -1962,14 +1862,12 @@ namespace Urho.Network {
         } /* struct ServerDisconnectedEventArgs */
 
         public partial class Network {
-             ObjectCallbackSignature callbackServerDisconnected;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ServerDisconnected += ...' instead.")]
              public Subscription SubscribeToServerDisconnected (Action<ServerDisconnectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ServerDisconnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackServerDisconnected = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackServerDisconnected, GCHandle.ToIntPtr (s.gch), 3751374392 /* new StringHash("E_SERVERDISCONNECTED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3751374392 /* E_SERVERDISCONNECTED */);
                   return s;
              }
 
@@ -1994,14 +1892,12 @@ namespace Urho.Network {
         } /* struct ConnectFailedEventArgs */
 
         public partial class Network {
-             ObjectCallbackSignature callbackConnectFailed;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ConnectFailed += ...' instead.")]
              public Subscription SubscribeToConnectFailed (Action<ConnectFailedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ConnectFailedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackConnectFailed = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackConnectFailed, GCHandle.ToIntPtr (s.gch), 2926413357 /* new StringHash("E_CONNECTFAILED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2926413357 /* E_CONNECTFAILED */);
                   return s;
              }
 
@@ -2027,14 +1923,12 @@ namespace Urho.Network {
         } /* struct ClientConnectedEventArgs */
 
         public partial class Network {
-             ObjectCallbackSignature callbackClientConnected;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ClientConnected += ...' instead.")]
              public Subscription SubscribeToClientConnected (Action<ClientConnectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ClientConnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackClientConnected = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackClientConnected, GCHandle.ToIntPtr (s.gch), 3320559396 /* new StringHash("E_CLIENTCONNECTED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3320559396 /* E_CLIENTCONNECTED */);
                   return s;
              }
 
@@ -2060,14 +1954,12 @@ namespace Urho.Network {
         } /* struct ClientDisconnectedEventArgs */
 
         public partial class Network {
-             ObjectCallbackSignature callbackClientDisconnected;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ClientDisconnected += ...' instead.")]
              public Subscription SubscribeToClientDisconnected (Action<ClientDisconnectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ClientDisconnectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackClientDisconnected = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackClientDisconnected, GCHandle.ToIntPtr (s.gch), 2803662656 /* new StringHash("E_CLIENTDISCONNECTED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2803662656 /* E_CLIENTDISCONNECTED */);
                   return s;
              }
 
@@ -2094,14 +1986,12 @@ namespace Urho.Network {
         } /* struct ClientIdentityEventArgs */
 
         public partial class Connection {
-             ObjectCallbackSignature callbackClientIdentity;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ClientIdentity += ...' instead.")]
              public Subscription SubscribeToClientIdentity (Action<ClientIdentityEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ClientIdentityEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackClientIdentity = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackClientIdentity, GCHandle.ToIntPtr (s.gch), 3856118083 /* new StringHash("E_CLIENTIDENTITY").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3856118083 /* E_CLIENTIDENTITY */);
                   return s;
              }
 
@@ -2127,14 +2017,12 @@ namespace Urho.Network {
         } /* struct ClientSceneLoadedEventArgs */
 
         public partial class Connection {
-             ObjectCallbackSignature callbackClientSceneLoaded;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ClientSceneLoaded += ...' instead.")]
              public Subscription SubscribeToClientSceneLoaded (Action<ClientSceneLoadedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ClientSceneLoadedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackClientSceneLoaded = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackClientSceneLoaded, GCHandle.ToIntPtr (s.gch), 386521772 /* new StringHash("E_CLIENTSCENELOADED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 386521772 /* E_CLIENTSCENELOADED */);
                   return s;
              }
 
@@ -2162,14 +2050,12 @@ namespace Urho.Network {
         } /* struct NetworkMessageEventArgs */
 
         public partial class Network {
-             ObjectCallbackSignature callbackNetworkMessage;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NetworkMessage += ...' instead.")]
              public Subscription SubscribeToNetworkMessage (Action<NetworkMessageEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NetworkMessageEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackNetworkMessage = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNetworkMessage, GCHandle.ToIntPtr (s.gch), 4201693811 /* new StringHash("E_NETWORKMESSAGE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4201693811 /* E_NETWORKMESSAGE */);
                   return s;
              }
 
@@ -2194,14 +2080,12 @@ namespace Urho.Network {
         } /* struct NetworkUpdateEventArgs */
 
         public partial class Network {
-             ObjectCallbackSignature callbackNetworkUpdate;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NetworkUpdate += ...' instead.")]
              public Subscription SubscribeToNetworkUpdate (Action<NetworkUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NetworkUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackNetworkUpdate = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNetworkUpdate, GCHandle.ToIntPtr (s.gch), 936553437 /* new StringHash("E_NETWORKUPDATE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 936553437 /* E_NETWORKUPDATE */);
                   return s;
              }
 
@@ -2226,14 +2110,12 @@ namespace Urho.Network {
         } /* struct NetworkUpdateSentEventArgs */
 
         public partial class Network {
-             ObjectCallbackSignature callbackNetworkUpdateSent;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NetworkUpdateSent += ...' instead.")]
              public Subscription SubscribeToNetworkUpdateSent (Action<NetworkUpdateSentEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NetworkUpdateSentEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackNetworkUpdateSent = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNetworkUpdateSent, GCHandle.ToIntPtr (s.gch), 3306139157 /* new StringHash("E_NETWORKUPDATESENT").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3306139157 /* E_NETWORKUPDATESENT */);
                   return s;
              }
 
@@ -2259,14 +2141,12 @@ namespace Urho.Network {
         } /* struct NetworkSceneLoadFailedEventArgs */
 
         public partial class Network {
-             ObjectCallbackSignature callbackNetworkSceneLoadFailed;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NetworkSceneLoadFailed += ...' instead.")]
              public Subscription SubscribeToNetworkSceneLoadFailed (Action<NetworkSceneLoadFailedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NetworkSceneLoadFailedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackNetworkSceneLoadFailed = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNetworkSceneLoadFailed, GCHandle.ToIntPtr (s.gch), 2673696443 /* new StringHash("E_NETWORKSCENELOADFAILED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2673696443 /* E_NETWORKSCENELOADFAILED */);
                   return s;
              }
 
@@ -2301,14 +2181,12 @@ namespace Urho.Physics {
         } /* struct PhysicsPreStepEventArgs */
 
         public partial class PhysicsWorld {
-             ObjectCallbackSignature callbackPhysicsPreStep;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PhysicsPreStep += ...' instead.")]
              public Subscription SubscribeToPhysicsPreStep (Action<PhysicsPreStepEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsPreStepEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackPhysicsPreStep = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPhysicsPreStep, GCHandle.ToIntPtr (s.gch), 1935709666 /* new StringHash("E_PHYSICSPRESTEP").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1935709666 /* E_PHYSICSPRESTEP */);
                   return s;
              }
 
@@ -2335,14 +2213,12 @@ namespace Urho.Physics {
         } /* struct PhysicsPostStepEventArgs */
 
         public partial class PhysicsWorld {
-             ObjectCallbackSignature callbackPhysicsPostStep;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PhysicsPostStep += ...' instead.")]
              public Subscription SubscribeToPhysicsPostStep (Action<PhysicsPostStepEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsPostStepEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackPhysicsPostStep = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPhysicsPostStep, GCHandle.ToIntPtr (s.gch), 3411074329 /* new StringHash("E_PHYSICSPOSTSTEP").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3411074329 /* E_PHYSICSPOSTSTEP */);
                   return s;
              }
 
@@ -2374,14 +2250,12 @@ namespace Urho.Physics {
         } /* struct PhysicsCollisionStartEventArgs */
 
         public partial class PhysicsWorld {
-             ObjectCallbackSignature callbackPhysicsCollisionStart;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PhysicsCollisionStart += ...' instead.")]
              public Subscription SubscribeToPhysicsCollisionStart (Action<PhysicsCollisionStartEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsCollisionStartEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackPhysicsCollisionStart = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPhysicsCollisionStart, GCHandle.ToIntPtr (s.gch), 2978544541 /* new StringHash("E_PHYSICSCOLLISIONSTART").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2978544541 /* E_PHYSICSCOLLISIONSTART */);
                   return s;
              }
 
@@ -2413,14 +2287,12 @@ namespace Urho.Physics {
         } /* struct PhysicsCollisionEventArgs */
 
         public partial class PhysicsWorld {
-             ObjectCallbackSignature callbackPhysicsCollision;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PhysicsCollision += ...' instead.")]
              public Subscription SubscribeToPhysicsCollision (Action<PhysicsCollisionEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsCollisionEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackPhysicsCollision = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPhysicsCollision, GCHandle.ToIntPtr (s.gch), 3444960005 /* new StringHash("E_PHYSICSCOLLISION").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3444960005 /* E_PHYSICSCOLLISION */);
                   return s;
              }
 
@@ -2451,14 +2323,12 @@ namespace Urho.Physics {
         } /* struct PhysicsCollisionEndEventArgs */
 
         public partial class PhysicsWorld {
-             ObjectCallbackSignature callbackPhysicsCollisionEnd;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PhysicsCollisionEnd += ...' instead.")]
              public Subscription SubscribeToPhysicsCollisionEnd (Action<PhysicsCollisionEndEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsCollisionEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackPhysicsCollisionEnd = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPhysicsCollisionEnd, GCHandle.ToIntPtr (s.gch), 517382678 /* new StringHash("E_PHYSICSCOLLISIONEND").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 517382678 /* E_PHYSICSCOLLISIONEND */);
                   return s;
              }
 
@@ -2488,14 +2358,12 @@ namespace Urho {
         } /* struct NodeCollisionStartEventArgs */
 
         public partial class Node {
-             ObjectCallbackSignature callbackNodeCollisionStart;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeCollisionStart += ...' instead.")]
              public Subscription SubscribeToNodeCollisionStart (Action<NodeCollisionStartEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeCollisionStartEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackNodeCollisionStart = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNodeCollisionStart, GCHandle.ToIntPtr (s.gch), 1423131148 /* new StringHash("E_NODECOLLISIONSTART").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1423131148 /* E_NODECOLLISIONSTART */);
                   return s;
              }
 
@@ -2525,14 +2393,12 @@ namespace Urho {
         } /* struct NodeCollisionEventArgs */
 
         public partial class Node {
-             ObjectCallbackSignature callbackNodeCollision;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeCollision += ...' instead.")]
              public Subscription SubscribeToNodeCollision (Action<NodeCollisionEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeCollisionEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackNodeCollision = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNodeCollision, GCHandle.ToIntPtr (s.gch), 4224485846 /* new StringHash("E_NODECOLLISION").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4224485846 /* E_NODECOLLISION */);
                   return s;
              }
 
@@ -2561,14 +2427,12 @@ namespace Urho {
         } /* struct NodeCollisionEndEventArgs */
 
         public partial class Node {
-             ObjectCallbackSignature callbackNodeCollisionEnd;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeCollisionEnd += ...' instead.")]
              public Subscription SubscribeToNodeCollisionEnd (Action<NodeCollisionEndEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeCollisionEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackNodeCollisionEnd = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNodeCollisionEnd, GCHandle.ToIntPtr (s.gch), 3653693445 /* new StringHash("E_NODECOLLISIONEND").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3653693445 /* E_NODECOLLISIONEND */);
                   return s;
              }
 
@@ -2593,14 +2457,12 @@ namespace Urho.Resources {
         } /* struct ReloadStartedEventArgs */
 
         public partial class Resource {
-             ObjectCallbackSignature callbackReloadStarted;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ReloadStarted += ...' instead.")]
              public Subscription SubscribeToReloadStarted (Action<ReloadStartedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ReloadStartedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackReloadStarted = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackReloadStarted, GCHandle.ToIntPtr (s.gch), 1762890862 /* new StringHash("E_RELOADSTARTED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1762890862 /* E_RELOADSTARTED */);
                   return s;
              }
 
@@ -2625,14 +2487,12 @@ namespace Urho.Resources {
         } /* struct ReloadFinishedEventArgs */
 
         public partial class Resource {
-             ObjectCallbackSignature callbackReloadFinished;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ReloadFinished += ...' instead.")]
              public Subscription SubscribeToReloadFinished (Action<ReloadFinishedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ReloadFinishedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackReloadFinished = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackReloadFinished, GCHandle.ToIntPtr (s.gch), 2221357157 /* new StringHash("E_RELOADFINISHED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2221357157 /* E_RELOADFINISHED */);
                   return s;
              }
 
@@ -2657,14 +2517,12 @@ namespace Urho.Resources {
         } /* struct ReloadFailedEventArgs */
 
         public partial class Resource {
-             ObjectCallbackSignature callbackReloadFailed;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ReloadFailed += ...' instead.")]
              public Subscription SubscribeToReloadFailed (Action<ReloadFailedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ReloadFailedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackReloadFailed = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackReloadFailed, GCHandle.ToIntPtr (s.gch), 201060720 /* new StringHash("E_RELOADFAILED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 201060720 /* E_RELOADFAILED */);
                   return s;
              }
 
@@ -2691,14 +2549,12 @@ namespace Urho.Resources {
         } /* struct FileChangedEventArgs */
 
         public partial class ResourceCache {
-             ObjectCallbackSignature callbackFileChanged;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.FileChanged += ...' instead.")]
              public Subscription SubscribeToFileChanged (Action<FileChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FileChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackFileChanged = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackFileChanged, GCHandle.ToIntPtr (s.gch), 1400537438 /* new StringHash("E_FILECHANGED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1400537438 /* E_FILECHANGED */);
                   return s;
              }
 
@@ -2724,14 +2580,12 @@ namespace Urho.Resources {
         } /* struct LoadFailedEventArgs */
 
         public partial class ResourceCache {
-             ObjectCallbackSignature callbackLoadFailed;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.LoadFailed += ...' instead.")]
              public Subscription SubscribeToLoadFailed (Action<LoadFailedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new LoadFailedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackLoadFailed = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackLoadFailed, GCHandle.ToIntPtr (s.gch), 3874488701 /* new StringHash("E_LOADFAILED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3874488701 /* E_LOADFAILED */);
                   return s;
              }
 
@@ -2757,14 +2611,12 @@ namespace Urho.Resources {
         } /* struct ResourceNotFoundEventArgs */
 
         public partial class ResourceCache {
-             ObjectCallbackSignature callbackResourceNotFound;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ResourceNotFound += ...' instead.")]
              public Subscription SubscribeToResourceNotFound (Action<ResourceNotFoundEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ResourceNotFoundEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackResourceNotFound = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackResourceNotFound, GCHandle.ToIntPtr (s.gch), 1460029079 /* new StringHash("E_RESOURCENOTFOUND").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1460029079 /* E_RESOURCENOTFOUND */);
                   return s;
              }
 
@@ -2790,14 +2642,12 @@ namespace Urho.Resources {
         } /* struct UnknownResourceTypeEventArgs */
 
         public partial class ResourceCache {
-             ObjectCallbackSignature callbackUnknownResourceType;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UnknownResourceType += ...' instead.")]
              public Subscription SubscribeToUnknownResourceType (Action<UnknownResourceTypeEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UnknownResourceTypeEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackUnknownResourceType = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackUnknownResourceType, GCHandle.ToIntPtr (s.gch), 2564965656 /* new StringHash("E_UNKNOWNRESOURCETYPE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2564965656 /* E_UNKNOWNRESOURCETYPE */);
                   return s;
              }
 
@@ -2825,14 +2675,12 @@ namespace Urho.Resources {
         } /* struct ResourceBackgroundLoadedEventArgs */
 
         public partial class ResourceCache {
-             ObjectCallbackSignature callbackResourceBackgroundLoaded;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ResourceBackgroundLoaded += ...' instead.")]
              public Subscription SubscribeToResourceBackgroundLoaded (Action<ResourceBackgroundLoadedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ResourceBackgroundLoadedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackResourceBackgroundLoaded = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackResourceBackgroundLoaded, GCHandle.ToIntPtr (s.gch), 593631931 /* new StringHash("E_RESOURCEBACKGROUNDLOADED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 593631931 /* E_RESOURCEBACKGROUNDLOADED */);
                   return s;
              }
 
@@ -2857,14 +2705,12 @@ namespace Urho.Resources {
         } /* struct ChangeLanguageEventArgs */
 
         public partial class Localization {
-             ObjectCallbackSignature callbackChangeLanguage;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ChangeLanguage += ...' instead.")]
              public Subscription SubscribeToChangeLanguage (Action<ChangeLanguageEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ChangeLanguageEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackChangeLanguage = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackChangeLanguage, GCHandle.ToIntPtr (s.gch), 732879970 /* new StringHash("E_CHANGELANGUAGE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 732879970 /* E_CHANGELANGUAGE */);
                   return s;
              }
 
@@ -2891,14 +2737,12 @@ namespace Urho {
         } /* struct SceneUpdateEventArgs */
 
         public partial class Scene {
-             ObjectCallbackSignature callbackSceneUpdate;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.SceneUpdate += ...' instead.")]
              public Subscription SubscribeToSceneUpdate (Action<SceneUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SceneUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackSceneUpdate = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackSceneUpdate, GCHandle.ToIntPtr (s.gch), 1248218779 /* new StringHash("E_SCENEUPDATE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1248218779 /* E_SCENEUPDATE */);
                   return s;
              }
 
@@ -2925,14 +2769,12 @@ namespace Urho {
         } /* struct SceneSubsystemUpdateEventArgs */
 
         public partial class Scene {
-             ObjectCallbackSignature callbackSceneSubsystemUpdate;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.SceneSubsystemUpdate += ...' instead.")]
              public Subscription SubscribeToSceneSubsystemUpdate (Action<SceneSubsystemUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SceneSubsystemUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackSceneSubsystemUpdate = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackSceneSubsystemUpdate, GCHandle.ToIntPtr (s.gch), 1876766502 /* new StringHash("E_SCENESUBSYSTEMUPDATE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1876766502 /* E_SCENESUBSYSTEMUPDATE */);
                   return s;
              }
 
@@ -2959,14 +2801,12 @@ namespace Urho {
         } /* struct UpdateSmoothingEventArgs */
 
         public partial class Scene {
-             ObjectCallbackSignature callbackUpdateSmoothing;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UpdateSmoothing += ...' instead.")]
              public Subscription SubscribeToUpdateSmoothing (Action<UpdateSmoothingEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UpdateSmoothingEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackUpdateSmoothing = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackUpdateSmoothing, GCHandle.ToIntPtr (s.gch), 3293102417 /* new StringHash("E_UPDATESMOOTHING").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3293102417 /* E_UPDATESMOOTHING */);
                   return s;
              }
 
@@ -2993,14 +2833,12 @@ namespace Urho {
         } /* struct SceneDrawableUpdateFinishedEventArgs */
 
         public partial class Scene {
-             ObjectCallbackSignature callbackSceneDrawableUpdateFinished;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.SceneDrawableUpdateFinished += ...' instead.")]
              public Subscription SubscribeToSceneDrawableUpdateFinished (Action<SceneDrawableUpdateFinishedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SceneDrawableUpdateFinishedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackSceneDrawableUpdateFinished = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackSceneDrawableUpdateFinished, GCHandle.ToIntPtr (s.gch), 1730217387 /* new StringHash("E_SCENEDRAWABLEUPDATEFINISHED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1730217387 /* E_SCENEDRAWABLEUPDATEFINISHED */);
                   return s;
              }
 
@@ -3025,14 +2863,12 @@ namespace Urho {
         } /* struct TargetPositionChangedEventArgs */
 
         public partial class SmoothedTransform {
-             ObjectCallbackSignature callbackTargetPositionChanged;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TargetPositionChanged += ...' instead.")]
              public Subscription SubscribeToTargetPositionChanged (Action<TargetPositionChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TargetPositionChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackTargetPositionChanged = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackTargetPositionChanged, GCHandle.ToIntPtr (s.gch), 1237076436 /* new StringHash("E_TARGETPOSITION").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1237076436 /* E_TARGETPOSITION */);
                   return s;
              }
 
@@ -3057,14 +2893,12 @@ namespace Urho {
         } /* struct TargetRotationChangedEventArgs */
 
         public partial class SmoothedTransform {
-             ObjectCallbackSignature callbackTargetRotationChanged;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TargetRotationChanged += ...' instead.")]
              public Subscription SubscribeToTargetRotationChanged (Action<TargetRotationChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TargetRotationChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackTargetRotationChanged = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackTargetRotationChanged, GCHandle.ToIntPtr (s.gch), 2259228297 /* new StringHash("E_TARGETROTATION").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2259228297 /* E_TARGETROTATION */);
                   return s;
              }
 
@@ -3091,14 +2925,12 @@ namespace Urho {
         } /* struct AttributeAnimationUpdateEventArgs */
 
         public partial class Scene {
-             ObjectCallbackSignature callbackAttributeAnimationUpdate;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AttributeAnimationUpdate += ...' instead.")]
              public Subscription SubscribeToAttributeAnimationUpdate (Action<AttributeAnimationUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AttributeAnimationUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackAttributeAnimationUpdate = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackAttributeAnimationUpdate, GCHandle.ToIntPtr (s.gch), 1638761419 /* new StringHash("E_ATTRIBUTEANIMATIONUPDATE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1638761419 /* E_ATTRIBUTEANIMATIONUPDATE */);
                   return s;
              }
 
@@ -3125,14 +2957,12 @@ namespace Urho {
         } /* struct AttributeAnimationAddedEventArgs */
 
         public partial class ObjectAnimation {
-             ObjectCallbackSignature callbackAttributeAnimationAdded;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AttributeAnimationAdded += ...' instead.")]
              public Subscription SubscribeToAttributeAnimationAdded (Action<AttributeAnimationAddedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AttributeAnimationAddedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackAttributeAnimationAdded = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackAttributeAnimationAdded, GCHandle.ToIntPtr (s.gch), 2482507518 /* new StringHash("E_ATTRIBUTEANIMATIONADDED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2482507518 /* E_ATTRIBUTEANIMATIONADDED */);
                   return s;
              }
 
@@ -3159,14 +2989,12 @@ namespace Urho {
         } /* struct AttributeAnimationRemovedEventArgs */
 
         public partial class ObjectAnimation {
-             ObjectCallbackSignature callbackAttributeAnimationRemoved;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AttributeAnimationRemoved += ...' instead.")]
              public Subscription SubscribeToAttributeAnimationRemoved (Action<AttributeAnimationRemovedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AttributeAnimationRemovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackAttributeAnimationRemoved = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackAttributeAnimationRemoved, GCHandle.ToIntPtr (s.gch), 113268382 /* new StringHash("E_ATTRIBUTEANIMATIONREMOVED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 113268382 /* E_ATTRIBUTEANIMATIONREMOVED */);
                   return s;
              }
 
@@ -3193,14 +3021,12 @@ namespace Urho {
         } /* struct ScenePostUpdateEventArgs */
 
         public partial class Scene {
-             ObjectCallbackSignature callbackScenePostUpdate;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ScenePostUpdate += ...' instead.")]
              public Subscription SubscribeToScenePostUpdate (Action<ScenePostUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ScenePostUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackScenePostUpdate = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackScenePostUpdate, GCHandle.ToIntPtr (s.gch), 3508102619 /* new StringHash("E_SCENEPOSTUPDATE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3508102619 /* E_SCENEPOSTUPDATE */);
                   return s;
              }
 
@@ -3231,14 +3057,12 @@ namespace Urho {
         } /* struct AsyncLoadProgressEventArgs */
 
         public partial class Scene {
-             ObjectCallbackSignature callbackAsyncLoadProgress;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AsyncLoadProgress += ...' instead.")]
              public Subscription SubscribeToAsyncLoadProgress (Action<AsyncLoadProgressEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AsyncLoadProgressEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackAsyncLoadProgress = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackAsyncLoadProgress, GCHandle.ToIntPtr (s.gch), 3374931989 /* new StringHash("E_ASYNCLOADPROGRESS").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3374931989 /* E_ASYNCLOADPROGRESS */);
                   return s;
              }
 
@@ -3264,14 +3088,12 @@ namespace Urho {
         } /* struct AsyncLoadFinishedEventArgs */
 
         public partial class Scene {
-             ObjectCallbackSignature callbackAsyncLoadFinished;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.AsyncLoadFinished += ...' instead.")]
              public Subscription SubscribeToAsyncLoadFinished (Action<AsyncLoadFinishedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new AsyncLoadFinishedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackAsyncLoadFinished = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackAsyncLoadFinished, GCHandle.ToIntPtr (s.gch), 2224383130 /* new StringHash("E_ASYNCLOADFINISHED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2224383130 /* E_ASYNCLOADFINISHED */);
                   return s;
              }
 
@@ -3299,14 +3121,12 @@ namespace Urho {
         } /* struct NodeAddedEventArgs */
 
         public partial class Scene {
-             ObjectCallbackSignature callbackNodeAdded;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeAdded += ...' instead.")]
              public Subscription SubscribeToNodeAdded (Action<NodeAddedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeAddedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackNodeAdded = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNodeAdded, GCHandle.ToIntPtr (s.gch), 911939940 /* new StringHash("E_NODEADDED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 911939940 /* E_NODEADDED */);
                   return s;
              }
 
@@ -3334,14 +3154,12 @@ namespace Urho {
         } /* struct NodeRemovedEventArgs */
 
         public partial class Scene {
-             ObjectCallbackSignature callbackNodeRemoved;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeRemoved += ...' instead.")]
              public Subscription SubscribeToNodeRemoved (Action<NodeRemovedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeRemovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackNodeRemoved = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNodeRemoved, GCHandle.ToIntPtr (s.gch), 3329789444 /* new StringHash("E_NODEREMOVED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3329789444 /* E_NODEREMOVED */);
                   return s;
              }
 
@@ -3369,14 +3187,12 @@ namespace Urho {
         } /* struct ComponentAddedEventArgs */
 
         public partial class Scene {
-             ObjectCallbackSignature callbackComponentAdded;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ComponentAdded += ...' instead.")]
              public Subscription SubscribeToComponentAdded (Action<ComponentAddedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ComponentAddedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackComponentAdded = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackComponentAdded, GCHandle.ToIntPtr (s.gch), 1731756669 /* new StringHash("E_COMPONENTADDED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1731756669 /* E_COMPONENTADDED */);
                   return s;
              }
 
@@ -3404,14 +3220,12 @@ namespace Urho {
         } /* struct ComponentRemovedEventArgs */
 
         public partial class Scene {
-             ObjectCallbackSignature callbackComponentRemoved;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ComponentRemoved += ...' instead.")]
              public Subscription SubscribeToComponentRemoved (Action<ComponentRemovedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ComponentRemovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackComponentRemoved = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackComponentRemoved, GCHandle.ToIntPtr (s.gch), 427883165 /* new StringHash("E_COMPONENTREMOVED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 427883165 /* E_COMPONENTREMOVED */);
                   return s;
              }
 
@@ -3438,14 +3252,12 @@ namespace Urho {
         } /* struct NodeNameChangedEventArgs */
 
         public partial class Scene {
-             ObjectCallbackSignature callbackNodeNameChanged;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeNameChanged += ...' instead.")]
              public Subscription SubscribeToNodeNameChanged (Action<NodeNameChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeNameChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackNodeNameChanged = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNodeNameChanged, GCHandle.ToIntPtr (s.gch), 2131244269 /* new StringHash("E_NODENAMECHANGED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2131244269 /* E_NODENAMECHANGED */);
                   return s;
              }
 
@@ -3472,14 +3284,12 @@ namespace Urho {
         } /* struct NodeEnabledChangedEventArgs */
 
         public partial class Scene {
-             ObjectCallbackSignature callbackNodeEnabledChanged;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeEnabledChanged += ...' instead.")]
              public Subscription SubscribeToNodeEnabledChanged (Action<NodeEnabledChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeEnabledChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackNodeEnabledChanged = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNodeEnabledChanged, GCHandle.ToIntPtr (s.gch), 3396981231 /* new StringHash("E_NODEENABLEDCHANGED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3396981231 /* E_NODEENABLEDCHANGED */);
                   return s;
              }
 
@@ -3527,14 +3337,12 @@ namespace Urho {
         } /* struct ComponentEnabledChangedEventArgs */
 
         public partial class Scene {
-             ObjectCallbackSignature callbackComponentEnabledChanged;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ComponentEnabledChanged += ...' instead.")]
              public Subscription SubscribeToComponentEnabledChanged (Action<ComponentEnabledChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ComponentEnabledChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackComponentEnabledChanged = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackComponentEnabledChanged, GCHandle.ToIntPtr (s.gch), 838967574 /* new StringHash("E_COMPONENTENABLEDCHANGED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 838967574 /* E_COMPONENTENABLEDCHANGED */);
                   return s;
              }
 
@@ -3560,14 +3368,12 @@ namespace Urho {
         } /* struct TemporaryChangedEventArgs */
 
         public partial class Serializable {
-             ObjectCallbackSignature callbackTemporaryChanged;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TemporaryChanged += ...' instead.")]
              public Subscription SubscribeToTemporaryChanged (Action<TemporaryChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TemporaryChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackTemporaryChanged = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackTemporaryChanged, GCHandle.ToIntPtr (s.gch), 4218062813 /* new StringHash("E_TEMPORARYCHANGED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4218062813 /* E_TEMPORARYCHANGED */);
                   return s;
              }
 
@@ -3595,14 +3401,12 @@ namespace Urho {
         } /* struct NodeClonedEventArgs */
 
         public partial class Scene {
-             ObjectCallbackSignature callbackNodeCloned;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NodeCloned += ...' instead.")]
              public Subscription SubscribeToNodeCloned (Action<NodeClonedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NodeClonedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackNodeCloned = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNodeCloned, GCHandle.ToIntPtr (s.gch), 3385163395 /* new StringHash("E_NODECLONED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3385163395 /* E_NODECLONED */);
                   return s;
              }
 
@@ -3630,14 +3434,12 @@ namespace Urho {
         } /* struct ComponentClonedEventArgs */
 
         public partial class Scene {
-             ObjectCallbackSignature callbackComponentCloned;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ComponentCloned += ...' instead.")]
              public Subscription SubscribeToComponentCloned (Action<ComponentClonedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ComponentClonedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackComponentCloned = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackComponentCloned, GCHandle.ToIntPtr (s.gch), 962288554 /* new StringHash("E_COMPONENTCLONED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 962288554 /* E_COMPONENTCLONED */);
                   return s;
              }
 
@@ -3667,14 +3469,12 @@ namespace Urho {
         } /* struct InterceptNetworkUpdateEventArgs */
 
         public partial class Serializable {
-             ObjectCallbackSignature callbackInterceptNetworkUpdate;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.InterceptNetworkUpdate += ...' instead.")]
              public Subscription SubscribeToInterceptNetworkUpdate (Action<InterceptNetworkUpdateEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new InterceptNetworkUpdateEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackInterceptNetworkUpdate = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackInterceptNetworkUpdate, GCHandle.ToIntPtr (s.gch), 3106195535 /* new StringHash("E_INTERCEPTNETWORKUPDATE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3106195535 /* E_INTERCEPTNETWORKUPDATE */);
                   return s;
              }
 
@@ -3705,14 +3505,12 @@ namespace Urho.Gui {
         } /* struct UIMouseClickEventArgs */
 
         public partial class UI {
-             ObjectCallbackSignature callbackUIMouseClick;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UIMouseClick += ...' instead.")]
              public Subscription SubscribeToUIMouseClick (Action<UIMouseClickEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UIMouseClickEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackUIMouseClick = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackUIMouseClick, GCHandle.ToIntPtr (s.gch), 3300073073 /* new StringHash("E_UIMOUSECLICK").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3300073073 /* E_UIMOUSECLICK */);
                   return s;
              }
 
@@ -3744,14 +3542,12 @@ namespace Urho.Gui {
         } /* struct UIMouseClickEndEventArgs */
 
         public partial class UI {
-             ObjectCallbackSignature callbackUIMouseClickEnd;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UIMouseClickEnd += ...' instead.")]
              public Subscription SubscribeToUIMouseClickEnd (Action<UIMouseClickEndEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UIMouseClickEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackUIMouseClickEnd = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackUIMouseClickEnd, GCHandle.ToIntPtr (s.gch), 3115302826 /* new StringHash("E_UIMOUSECLICKEND").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3115302826 /* E_UIMOUSECLICKEND */);
                   return s;
              }
 
@@ -3832,14 +3628,12 @@ namespace Urho.Gui {
         } /* struct DragDropTestEventArgs */
 
         public partial class UIElement {
-             ObjectCallbackSignature callbackDragDropTest;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.DragDropTest += ...' instead.")]
              public Subscription SubscribeToDragDropTest (Action<DragDropTestEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragDropTestEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackDragDropTest = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackDragDropTest, GCHandle.ToIntPtr (s.gch), 2970729871 /* new StringHash("E_DRAGDROPTEST").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2970729871 /* E_DRAGDROPTEST */);
                   return s;
              }
 
@@ -3867,14 +3661,12 @@ namespace Urho.Gui {
         } /* struct DragDropFinishEventArgs */
 
         public partial class UIElement {
-             ObjectCallbackSignature callbackDragDropFinish;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.DragDropFinish += ...' instead.")]
              public Subscription SubscribeToDragDropFinish (Action<DragDropFinishEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragDropFinishEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackDragDropFinish = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackDragDropFinish, GCHandle.ToIntPtr (s.gch), 2081976080 /* new StringHash("E_DRAGDROPFINISH").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2081976080 /* E_DRAGDROPFINISH */);
                   return s;
              }
 
@@ -3901,14 +3693,12 @@ namespace Urho.Gui {
         } /* struct FocusChangedEventArgs */
 
         public partial class UI {
-             ObjectCallbackSignature callbackFocusChanged;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.FocusChanged += ...' instead.")]
              public Subscription SubscribeToFocusChanged (Action<FocusChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FocusChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackFocusChanged = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackFocusChanged, GCHandle.ToIntPtr (s.gch), 3670986998 /* new StringHash("E_FOCUSCHANGED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3670986998 /* E_FOCUSCHANGED */);
                   return s;
              }
 
@@ -3934,14 +3724,12 @@ namespace Urho.Gui {
         } /* struct NameChangedEventArgs */
 
         public partial class UIElement {
-             ObjectCallbackSignature callbackNameChanged;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.NameChanged += ...' instead.")]
              public Subscription SubscribeToNameChanged (Action<NameChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new NameChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackNameChanged = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackNameChanged, GCHandle.ToIntPtr (s.gch), 3500448111 /* new StringHash("E_NAMECHANGED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3500448111 /* E_NAMECHANGED */);
                   return s;
              }
 
@@ -3971,14 +3759,12 @@ namespace Urho.Gui {
         } /* struct ResizedEventArgs */
 
         public partial class UIElement {
-             ObjectCallbackSignature callbackResized;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Resized += ...' instead.")]
              public Subscription SubscribeToResized (Action<ResizedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ResizedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackResized = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackResized, GCHandle.ToIntPtr (s.gch), 3226224662 /* new StringHash("E_RESIZED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3226224662 /* E_RESIZED */);
                   return s;
              }
 
@@ -4006,14 +3792,12 @@ namespace Urho.Gui {
         } /* struct PositionedEventArgs */
 
         public partial class UIElement {
-             ObjectCallbackSignature callbackPositioned;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Positioned += ...' instead.")]
              public Subscription SubscribeToPositioned (Action<PositionedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PositionedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackPositioned = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPositioned, GCHandle.ToIntPtr (s.gch), 3226828642 /* new StringHash("E_POSITIONED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3226828642 /* E_POSITIONED */);
                   return s;
              }
 
@@ -4040,14 +3824,12 @@ namespace Urho.Gui {
         } /* struct VisibleChangedEventArgs */
 
         public partial class UIElement {
-             ObjectCallbackSignature callbackVisibleChanged;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.VisibleChanged += ...' instead.")]
              public Subscription SubscribeToVisibleChanged (Action<VisibleChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new VisibleChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackVisibleChanged = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackVisibleChanged, GCHandle.ToIntPtr (s.gch), 2302177884 /* new StringHash("E_VISIBLECHANGED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2302177884 /* E_VISIBLECHANGED */);
                   return s;
              }
 
@@ -4074,14 +3856,12 @@ namespace Urho.Gui {
         } /* struct FocusedEventArgs */
 
         public partial class UIElement {
-             ObjectCallbackSignature callbackFocused;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Focused += ...' instead.")]
              public Subscription SubscribeToFocused (Action<FocusedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FocusedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackFocused = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackFocused, GCHandle.ToIntPtr (s.gch), 2149470941 /* new StringHash("E_FOCUSED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2149470941 /* E_FOCUSED */);
                   return s;
              }
 
@@ -4107,14 +3887,12 @@ namespace Urho.Gui {
         } /* struct DefocusedEventArgs */
 
         public partial class UIElement {
-             ObjectCallbackSignature callbackDefocused;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Defocused += ...' instead.")]
              public Subscription SubscribeToDefocused (Action<DefocusedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DefocusedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackDefocused = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackDefocused, GCHandle.ToIntPtr (s.gch), 3370772636 /* new StringHash("E_DEFOCUSED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3370772636 /* E_DEFOCUSED */);
                   return s;
              }
 
@@ -4140,14 +3918,12 @@ namespace Urho.Gui {
         } /* struct LayoutUpdatedEventArgs */
 
         public partial class UIElement {
-             ObjectCallbackSignature callbackLayoutUpdated;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.LayoutUpdated += ...' instead.")]
              public Subscription SubscribeToLayoutUpdated (Action<LayoutUpdatedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new LayoutUpdatedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackLayoutUpdated = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackLayoutUpdated, GCHandle.ToIntPtr (s.gch), 1456117591 /* new StringHash("E_LAYOUTUPDATED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1456117591 /* E_LAYOUTUPDATED */);
                   return s;
              }
 
@@ -4173,14 +3949,12 @@ namespace Urho.Gui {
         } /* struct PressedEventArgs */
 
         public partial class Button {
-             ObjectCallbackSignature callbackPressed;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Pressed += ...' instead.")]
              public Subscription SubscribeToPressed (Action<PressedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PressedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackPressed = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPressed, GCHandle.ToIntPtr (s.gch), 1260119080 /* new StringHash("E_PRESSED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1260119080 /* E_PRESSED */);
                   return s;
              }
 
@@ -4206,14 +3980,12 @@ namespace Urho.Gui {
         } /* struct ReleasedEventArgs */
 
         public partial class Button {
-             ObjectCallbackSignature callbackReleased;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Released += ...' instead.")]
              public Subscription SubscribeToReleased (Action<ReleasedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ReleasedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackReleased = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackReleased, GCHandle.ToIntPtr (s.gch), 1806634935 /* new StringHash("E_RELEASED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1806634935 /* E_RELEASED */);
                   return s;
              }
 
@@ -4240,14 +4012,12 @@ namespace Urho.Gui {
         } /* struct ToggledEventArgs */
 
         public partial class CheckBox {
-             ObjectCallbackSignature callbackToggled;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.Toggled += ...' instead.")]
              public Subscription SubscribeToToggled (Action<ToggledEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ToggledEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackToggled = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackToggled, GCHandle.ToIntPtr (s.gch), 3075932918 /* new StringHash("E_TOGGLED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3075932918 /* E_TOGGLED */);
                   return s;
              }
 
@@ -4274,14 +4044,12 @@ namespace Urho.Gui {
         } /* struct SliderChangedEventArgs */
 
         public partial class Slider {
-             ObjectCallbackSignature callbackSliderChanged;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.SliderChanged += ...' instead.")]
              public Subscription SubscribeToSliderChanged (Action<SliderChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SliderChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackSliderChanged = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackSliderChanged, GCHandle.ToIntPtr (s.gch), 3371245657 /* new StringHash("E_SLIDERCHANGED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3371245657 /* E_SLIDERCHANGED */);
                   return s;
              }
 
@@ -4309,14 +4077,12 @@ namespace Urho.Gui {
         } /* struct SliderPagedEventArgs */
 
         public partial class Slider {
-             ObjectCallbackSignature callbackSliderPaged;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.SliderPaged += ...' instead.")]
              public Subscription SubscribeToSliderPaged (Action<SliderPagedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SliderPagedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackSliderPaged = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackSliderPaged, GCHandle.ToIntPtr (s.gch), 2834623674 /* new StringHash("E_SLIDERPAGED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2834623674 /* E_SLIDERPAGED */);
                   return s;
              }
 
@@ -4352,14 +4118,12 @@ namespace Urho.Gui {
         } /* struct ScrollBarChangedEventArgs */
 
         public partial class ScrollBar {
-             ObjectCallbackSignature callbackScrollBarChanged;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ScrollBarChanged += ...' instead.")]
              public Subscription SubscribeToScrollBarChanged (Action<ScrollBarChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ScrollBarChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackScrollBarChanged = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackScrollBarChanged, GCHandle.ToIntPtr (s.gch), 3832352008 /* new StringHash("E_SCROLLBARCHANGED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3832352008 /* E_SCROLLBARCHANGED */);
                   return s;
              }
 
@@ -4387,14 +4151,12 @@ namespace Urho.Gui {
         } /* struct ViewChangedEventArgs */
 
         public partial class ScrollView {
-             ObjectCallbackSignature callbackViewChanged;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ViewChanged += ...' instead.")]
              public Subscription SubscribeToViewChanged (Action<ViewChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ViewChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackViewChanged = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackViewChanged, GCHandle.ToIntPtr (s.gch), 1855039189 /* new StringHash("E_VIEWCHANGED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1855039189 /* E_VIEWCHANGED */);
                   return s;
              }
 
@@ -4421,14 +4183,12 @@ namespace Urho.Gui {
         } /* struct ModalChangedEventArgs */
 
         public partial class Window {
-             ObjectCallbackSignature callbackModalChanged;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ModalChanged += ...' instead.")]
              public Subscription SubscribeToModalChanged (Action<ModalChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ModalChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackModalChanged = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackModalChanged, GCHandle.ToIntPtr (s.gch), 4100448801 /* new StringHash("E_MODALCHANGED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4100448801 /* E_MODALCHANGED */);
                   return s;
              }
 
@@ -4457,14 +4217,12 @@ namespace Urho.Gui {
         } /* struct CharEntryEventArgs */
 
         public partial class LineEdit {
-             ObjectCallbackSignature callbackCharEntry;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.CharEntry += ...' instead.")]
              public Subscription SubscribeToCharEntry (Action<CharEntryEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new CharEntryEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackCharEntry = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackCharEntry, GCHandle.ToIntPtr (s.gch), 3139211147 /* new StringHash("E_TEXTENTRY").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3139211147 /* E_TEXTENTRY */);
                   return s;
              }
 
@@ -4491,14 +4249,12 @@ namespace Urho.Gui {
         } /* struct TextChangedEventArgs */
 
         public partial class LineEdit {
-             ObjectCallbackSignature callbackTextChanged;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TextChanged += ...' instead.")]
              public Subscription SubscribeToTextChanged (Action<TextChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TextChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackTextChanged = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackTextChanged, GCHandle.ToIntPtr (s.gch), 2646149037 /* new StringHash("E_TEXTCHANGED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2646149037 /* E_TEXTCHANGED */);
                   return s;
              }
 
@@ -4526,14 +4282,12 @@ namespace Urho.Gui {
         } /* struct TextFinishedEventArgs */
 
         public partial class LineEdit {
-             ObjectCallbackSignature callbackTextFinished;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TextFinished += ...' instead.")]
              public Subscription SubscribeToTextFinished (Action<TextFinishedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new TextFinishedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackTextFinished = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackTextFinished, GCHandle.ToIntPtr (s.gch), 2483418265 /* new StringHash("E_TEXTFINISHED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2483418265 /* E_TEXTFINISHED */);
                   return s;
              }
 
@@ -4559,14 +4313,12 @@ namespace Urho.Gui {
         } /* struct MenuSelectedEventArgs */
 
         public partial class Menu {
-             ObjectCallbackSignature callbackMenuSelected;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MenuSelected += ...' instead.")]
              public Subscription SubscribeToMenuSelected (Action<MenuSelectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MenuSelectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackMenuSelected = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackMenuSelected, GCHandle.ToIntPtr (s.gch), 4003910964 /* new StringHash("E_MENUSELECTED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4003910964 /* E_MENUSELECTED */);
                   return s;
              }
 
@@ -4593,14 +4345,12 @@ namespace Urho.Gui {
         } /* struct ItemSelectedEventArgs */
 
         public partial class DropDownList {
-             ObjectCallbackSignature callbackItemSelected;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ItemSelected += ...' instead.")]
              public Subscription SubscribeToItemSelected (Action<ItemSelectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ItemSelectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackItemSelected = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackItemSelected, GCHandle.ToIntPtr (s.gch), 3897675912 /* new StringHash("E_ITEMSELECTED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3897675912 /* E_ITEMSELECTED */);
                   return s;
              }
 
@@ -4618,14 +4368,12 @@ namespace Urho.Gui {
         } /* class DropDownList */ 
 
         public partial class ListView {
-             ObjectCallbackSignature callbackItemSelected;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ItemSelected += ...' instead.")]
              public Subscription SubscribeToItemSelected (Action<ItemSelectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ItemSelectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackItemSelected = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackItemSelected, GCHandle.ToIntPtr (s.gch), 3897675912 /* new StringHash("E_ITEMSELECTED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3897675912 /* E_ITEMSELECTED */);
                   return s;
              }
 
@@ -4652,14 +4400,12 @@ namespace Urho.Gui {
         } /* struct ItemDeselectedEventArgs */
 
         public partial class ListView {
-             ObjectCallbackSignature callbackItemDeselected;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ItemDeselected += ...' instead.")]
              public Subscription SubscribeToItemDeselected (Action<ItemDeselectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ItemDeselectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackItemDeselected = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackItemDeselected, GCHandle.ToIntPtr (s.gch), 146198793 /* new StringHash("E_ITEMDESELECTED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 146198793 /* E_ITEMDESELECTED */);
                   return s;
              }
 
@@ -4685,14 +4431,12 @@ namespace Urho.Gui {
         } /* struct SelectionChangedEventArgs */
 
         public partial class ListView {
-             ObjectCallbackSignature callbackSelectionChanged;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.SelectionChanged += ...' instead.")]
              public Subscription SubscribeToSelectionChanged (Action<SelectionChangedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new SelectionChangedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackSelectionChanged = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackSelectionChanged, GCHandle.ToIntPtr (s.gch), 1895407778 /* new StringHash("E_SELECTIONCHANGED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1895407778 /* E_SELECTIONCHANGED */);
                   return s;
              }
 
@@ -4723,14 +4467,12 @@ namespace Urho.Gui {
         } /* struct ItemClickedEventArgs */
 
         public partial class ListView {
-             ObjectCallbackSignature callbackItemClicked;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ItemClicked += ...' instead.")]
              public Subscription SubscribeToItemClicked (Action<ItemClickedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ItemClickedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackItemClicked = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackItemClicked, GCHandle.ToIntPtr (s.gch), 4078592346 /* new StringHash("E_ITEMCLICKED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4078592346 /* E_ITEMCLICKED */);
                   return s;
              }
 
@@ -4761,14 +4503,12 @@ namespace Urho.Gui {
         } /* struct ItemDoubleClickedEventArgs */
 
         public partial class ListView {
-             ObjectCallbackSignature callbackItemDoubleClicked;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ItemDoubleClicked += ...' instead.")]
              public Subscription SubscribeToItemDoubleClicked (Action<ItemDoubleClickedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ItemDoubleClickedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackItemDoubleClicked = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackItemDoubleClicked, GCHandle.ToIntPtr (s.gch), 3021048553 /* new StringHash("E_ITEMDOUBLECLICKED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3021048553 /* E_ITEMDOUBLECLICKED */);
                   return s;
              }
 
@@ -4797,14 +4537,12 @@ namespace Urho.Gui {
         } /* struct UnhandledKeyEventArgs */
 
         public partial class LineEdit {
-             ObjectCallbackSignature callbackUnhandledKey;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UnhandledKey += ...' instead.")]
              public Subscription SubscribeToUnhandledKey (Action<UnhandledKeyEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UnhandledKeyEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackUnhandledKey = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackUnhandledKey, GCHandle.ToIntPtr (s.gch), 1902910774 /* new StringHash("E_UNHANDLEDKEY").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1902910774 /* E_UNHANDLEDKEY */);
                   return s;
              }
 
@@ -4822,14 +4560,12 @@ namespace Urho.Gui {
         } /* class LineEdit */ 
 
         public partial class ListView {
-             ObjectCallbackSignature callbackUnhandledKey;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UnhandledKey += ...' instead.")]
              public Subscription SubscribeToUnhandledKey (Action<UnhandledKeyEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UnhandledKeyEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackUnhandledKey = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackUnhandledKey, GCHandle.ToIntPtr (s.gch), 1902910774 /* new StringHash("E_UNHANDLEDKEY").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1902910774 /* E_UNHANDLEDKEY */);
                   return s;
              }
 
@@ -4857,14 +4593,12 @@ namespace Urho.Gui {
         } /* struct FileSelectedEventArgs */
 
         public partial class FileSelector {
-             ObjectCallbackSignature callbackFileSelected;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.FileSelected += ...' instead.")]
              public Subscription SubscribeToFileSelected (Action<FileSelectedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new FileSelectedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackFileSelected = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackFileSelected, GCHandle.ToIntPtr (s.gch), 2566890353 /* new StringHash("E_FILESELECTED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 2566890353 /* E_FILESELECTED */);
                   return s;
              }
 
@@ -4890,14 +4624,12 @@ namespace Urho.Gui {
         } /* struct MessageACKEventArgs */
 
         public partial class MessageBox {
-             ObjectCallbackSignature callbackMessageACK;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.MessageACK += ...' instead.")]
              public Subscription SubscribeToMessageACK (Action<MessageACKEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new MessageACKEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackMessageACK = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackMessageACK, GCHandle.ToIntPtr (s.gch), 3324786300 /* new StringHash("E_MESSAGEACK").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3324786300 /* E_MESSAGEACK */);
                   return s;
              }
 
@@ -4925,14 +4657,12 @@ namespace Urho.Gui {
         } /* struct ElementAddedEventArgs */
 
         public partial class UIElement {
-             ObjectCallbackSignature callbackElementAdded;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ElementAdded += ...' instead.")]
              public Subscription SubscribeToElementAdded (Action<ElementAddedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ElementAddedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackElementAdded = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackElementAdded, GCHandle.ToIntPtr (s.gch), 3825150526 /* new StringHash("E_ELEMENTADDED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3825150526 /* E_ELEMENTADDED */);
                   return s;
              }
 
@@ -4960,14 +4690,12 @@ namespace Urho.Gui {
         } /* struct ElementRemovedEventArgs */
 
         public partial class UIElement {
-             ObjectCallbackSignature callbackElementRemoved;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.ElementRemoved += ...' instead.")]
              public Subscription SubscribeToElementRemoved (Action<ElementRemovedEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new ElementRemovedEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackElementRemoved = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackElementRemoved, GCHandle.ToIntPtr (s.gch), 778949086 /* new StringHash("E_ELEMENTREMOVED").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 778949086 /* E_ELEMENTREMOVED */);
                   return s;
              }
 
@@ -4997,14 +4725,12 @@ namespace Urho.Gui {
         } /* struct HoverBeginEventArgs */
 
         public partial class UIElement {
-             ObjectCallbackSignature callbackHoverBegin;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.HoverBegin += ...' instead.")]
              public Subscription SubscribeToHoverBegin (Action<HoverBeginEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new HoverBeginEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackHoverBegin = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackHoverBegin, GCHandle.ToIntPtr (s.gch), 3920026151 /* new StringHash("E_HOVERBEGIN").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3920026151 /* E_HOVERBEGIN */);
                   return s;
              }
 
@@ -5030,14 +4756,12 @@ namespace Urho.Gui {
         } /* struct HoverEndEventArgs */
 
         public partial class UIElement {
-             ObjectCallbackSignature callbackHoverEnd;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.HoverEnd += ...' instead.")]
              public Subscription SubscribeToHoverEnd (Action<HoverEndEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new HoverEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackHoverEnd = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackHoverEnd, GCHandle.ToIntPtr (s.gch), 1484734873 /* new StringHash("E_HOVEREND").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 1484734873 /* E_HOVEREND */);
                   return s;
              }
 
@@ -5069,14 +4793,12 @@ namespace Urho.Gui {
         } /* struct DragBeginEventArgs */
 
         public partial class UIElement {
-             ObjectCallbackSignature callbackDragBegin;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.DragBegin += ...' instead.")]
              public Subscription SubscribeToDragBegin (Action<DragBeginEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragBeginEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackDragBegin = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackDragBegin, GCHandle.ToIntPtr (s.gch), 4267186395 /* new StringHash("E_DRAGBEGIN").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4267186395 /* E_DRAGBEGIN */);
                   return s;
              }
 
@@ -5110,14 +4832,12 @@ namespace Urho.Gui {
         } /* struct DragMoveEventArgs */
 
         public partial class UIElement {
-             ObjectCallbackSignature callbackDragMove;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.DragMove += ...' instead.")]
              public Subscription SubscribeToDragMove (Action<DragMoveEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragMoveEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackDragMove = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackDragMove, GCHandle.ToIntPtr (s.gch), 557880127 /* new StringHash("E_DRAGMOVE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 557880127 /* E_DRAGMOVE */);
                   return s;
              }
 
@@ -5149,14 +4869,12 @@ namespace Urho.Gui {
         } /* struct DragEndEventArgs */
 
         public partial class UIElement {
-             ObjectCallbackSignature callbackDragEnd;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.DragEnd += ...' instead.")]
              public Subscription SubscribeToDragEnd (Action<DragEndEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragEndEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackDragEnd = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackDragEnd, GCHandle.ToIntPtr (s.gch), 4231633485 /* new StringHash("E_DRAGEND").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4231633485 /* E_DRAGEND */);
                   return s;
              }
 
@@ -5188,14 +4906,12 @@ namespace Urho.Gui {
         } /* struct DragCancelEventArgs */
 
         public partial class UIElement {
-             ObjectCallbackSignature callbackDragCancel;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.DragCancel += ...' instead.")]
              public Subscription SubscribeToDragCancel (Action<DragCancelEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new DragCancelEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackDragCancel = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackDragCancel, GCHandle.ToIntPtr (s.gch), 4189477256 /* new StringHash("E_DRAGCANCEL").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 4189477256 /* E_DRAGCANCEL */);
                   return s;
              }
 
@@ -5226,14 +4942,12 @@ namespace Urho.Gui {
         } /* struct UIDropFileEventArgs */
 
         public partial class UI {
-             ObjectCallbackSignature callbackUIDropFile;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.UIDropFile += ...' instead.")]
              public Subscription SubscribeToUIDropFile (Action<UIDropFileEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new UIDropFileEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackUIDropFile = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackUIDropFile, GCHandle.ToIntPtr (s.gch), 89251641 /* new StringHash("E_UIDROPFILE").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 89251641 /* E_UIDROPFILE */);
                   return s;
              }
 
@@ -5264,14 +4978,12 @@ namespace Urho.Urho2D {
         } /* struct PhysicsBeginContact2DEventArgs */
 
         public partial class PhysicsWorld2D {
-             ObjectCallbackSignature callbackPhysicsBeginContact2D;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PhysicsBeginContact2D += ...' instead.")]
              public Subscription SubscribeToPhysicsBeginContact2D (Action<PhysicsBeginContact2DEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsBeginContact2DEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackPhysicsBeginContact2D = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPhysicsBeginContact2D, GCHandle.ToIntPtr (s.gch), 3192613558 /* new StringHash("E_PHYSICSBEGINCONTACT2D").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3192613558 /* E_PHYSICSBEGINCONTACT2D */);
                   return s;
              }
 
@@ -5302,14 +5014,12 @@ namespace Urho.Urho2D {
         } /* struct PhysicsEndContact2DEventArgs */
 
         public partial class PhysicsWorld2D {
-             ObjectCallbackSignature callbackPhysicsEndContact2D;
              [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.PhysicsEndContact2D += ...' instead.")]
              public Subscription SubscribeToPhysicsEndContact2D (Action<PhysicsEndContact2DEventArgs> handler)
              {
                   Action<IntPtr> proxy = (x)=> { var d = new PhysicsEndContact2DEventArgs () { handle = x }; handler (d); };
                   var s = new Subscription (proxy);
-                  callbackPhysicsEndContact2D = ObjectCallback;
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, callbackPhysicsEndContact2D, GCHandle.ToIntPtr (s.gch), 3284244804 /* new StringHash("E_PHYSICSENDCONTACT2D").Code */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), 3284244804 /* E_PHYSICSENDCONTACT2D */);
                   return s;
              }
 
