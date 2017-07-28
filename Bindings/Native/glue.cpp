@@ -16,6 +16,15 @@ using namespace Urho3D;
 
 extern "C" {
 
+	DllExport void *urho_subscribe_event(void *_receiver, HandlerFunctionPtr callback, void *data, int eventNameHash)
+	{
+		StringHash h(eventNameHash);
+		Urho3D::Object *receiver = (Urho3D::Object *) _receiver;
+		NotificationProxy *proxy = new NotificationProxy(receiver, callback, data, h);
+		receiver->SubscribeToEvent(receiver, h, proxy);
+		return proxy;
+	}
+
 	DllExport
 	void * urho_map_get_ptr (VariantMap &map, int hash)
 	{
