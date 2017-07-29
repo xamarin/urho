@@ -692,6 +692,20 @@ namespace Urho.Gui
 		}
 
 		/// <summary>
+		/// Return font size.
+		/// Or
+		/// Set font size only while retaining the existing font. Return true if successful.
+		/// </summary>
+		public int FontSize {
+			get {
+				return GetFontSize ();
+			}
+			set {
+				SetFontSize (value);
+			}
+		}
+
+		/// <summary>
 		/// Return text.
 		/// Or
 		/// Set text. Text is assumed to be either ASCII or UTF8-encoded.
@@ -865,15 +879,6 @@ namespace Urho.Gui
 		public Font Font {
 			get {
 				return GetFont ();
-			}
-		}
-
-		/// <summary>
-		/// Return font size.
-		/// </summary>
-		public int FontSize {
-			get {
-				return GetFontSize ();
 			}
 		}
 

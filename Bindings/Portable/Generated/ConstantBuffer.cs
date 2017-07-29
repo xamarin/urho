@@ -206,10 +206,15 @@ namespace Urho
 
 		/// <summary>
 		/// Return size.
+		/// Or
+		/// Set size and create GPU-side buffer. Return true on success.
 		/// </summary>
 		public uint Size {
 			get {
 				return GetSize ();
+			}
+			set {
+				SetSize (value);
 			}
 		}
 

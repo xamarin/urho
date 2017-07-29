@@ -370,6 +370,20 @@ namespace Urho
 		}
 
 		/// <summary>
+		/// Return number of vertex buffers.
+		/// Or
+		/// Set number of vertex buffers.
+		/// </summary>
+		public uint NumVertexBuffers {
+			get {
+				return GetNumVertexBuffers ();
+			}
+			set {
+				SetNumVertexBuffers (value);
+			}
+		}
+
+		/// <summary>
 		/// Return the index buffer.
 		/// Or
 		/// Set the index buffer.
@@ -403,15 +417,6 @@ namespace Urho
 		public IReadOnlyList<VertexBuffer> VertexBuffers {
 			get {
 				return GetVertexBuffers ();
-			}
-		}
-
-		/// <summary>
-		/// Return number of vertex buffers.
-		/// </summary>
-		public uint NumVertexBuffers {
-			get {
-				return GetNumVertexBuffers ();
 			}
 		}
 

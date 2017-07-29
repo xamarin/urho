@@ -966,6 +966,20 @@ namespace Urho
 		}
 
 		/// <summary>
+		/// Return heightmap image.
+		/// Or
+		/// Set heightmap image. Dimensions should be a power of two + 1. Uses 8-bit grayscale, or optionally red as MSB and green as LSB for 16-bit accuracy. Return true if successful.
+		/// </summary>
+		public Image HeightMap {
+			get {
+				return GetHeightMap ();
+			}
+			set {
+				SetHeightMap (value);
+			}
+		}
+
+		/// <summary>
 		/// Return material.
 		/// Or
 		/// Set material.
@@ -1204,15 +1218,6 @@ namespace Urho
 		public Urho.IntVector2 NumPatches {
 			get {
 				return GetNumPatches ();
-			}
-		}
-
-		/// <summary>
-		/// Return heightmap image.
-		/// </summary>
-		public Image HeightMap {
-			get {
-				return GetHeightMap ();
 			}
 		}
 

@@ -170,6 +170,20 @@ namespace Urho
 		}
 
 		/// <summary>
+		/// Return time position.
+		/// Or
+		/// Set time position and apply. Return true when the animation is finished. No-op when the target object is not defined.
+		/// </summary>
+		public float Time {
+			get {
+				return GetTime ();
+			}
+			set {
+				SetTime (value);
+			}
+		}
+
+		/// <summary>
 		/// Return wrap mode.
 		/// Or
 		/// Set wrap mode.
@@ -212,15 +226,6 @@ namespace Urho
 		public ValueAnimation Animation {
 			get {
 				return GetAnimation ();
-			}
-		}
-
-		/// <summary>
-		/// Return time position.
-		/// </summary>
-		public float Time {
-			get {
-				return GetTime ();
 			}
 		}
 	}
