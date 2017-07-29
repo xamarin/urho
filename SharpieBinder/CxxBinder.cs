@@ -1158,7 +1158,7 @@ namespace SharpieBinder
 					Name = remapedName,
 					ReturnType = methodReturn,
 					Modifiers = (decl.IsStatic ? Modifiers.Static : 0) |
-						(propertyInfo != null ? Modifiers.Private : GetMethodModifier(currentType.Name, remapedName))
+						(GetMethodModifier(propertyInfo, currentType.Name, remapedName))
 				};
 				method.Body = new BlockStatement();
 				if (validateInvocation != null)
@@ -1603,8 +1603,11 @@ namespace SharpieBinder
 
 		}
 
-		Modifiers GetMethodModifier(string type, string method)
+		Modifiers GetMethodModifier(ScanBaseTypes.GetterSetter propertyInfo, string type, string method)
 		{
+			if (propertyInfo != null && (!propertyInfo.SetMethodPublic || method == propertyInfo.Getter.Name))
+				return Modifiers.Private;
+
 			if (type == "Engine" && method == "Exit") return Modifiers.Internal;
 			return Modifiers.Public;
 		}

@@ -45,6 +45,7 @@ namespace SharpieBinder
 			public CXXMethodDecl Getter, Setter;
 			public TypeDeclaration HostType;
 			public AstType MethodReturn;
+			public bool SetMethodPublic;
 			public string Name;
 		}
 
@@ -76,6 +77,7 @@ namespace SharpieBinder
 			// Handle Get methods that are not really getters
 			// This is a get method that does not get anything
 
+			bool legacySetMethod = false;
 			QualType type;
 			if (name.StartsWith("Get") || name.StartsWith("Is")) {
 				if (decl.Parameters.Count() != 0)
@@ -91,12 +93,14 @@ namespace SharpieBinder
 			} else if (name.StartsWith("Set")) {
 				if (decl.Parameters.Count() != 1)
 					return;
-				if (!(decl.ReturnQualType.Bind() is Sharpie.Bind.Types.VoidType))
-					return;
 				if ((name == "SetTypeName" || name == "SetType") && decl.Parent.Name == "UnknownComponent")
 					return;
 				if (decl.Access != AccessSpecifier.Public)
 					return;
+				if (!(decl.ReturnQualType.Bind() is Sharpie.Bind.Types.VoidType))
+				{
+					legacySetMethod = true;
+				}
 				type = decl.Parameters.FirstOrDefault().QualType;
 			} else
 				return;
@@ -119,6 +123,8 @@ namespace SharpieBinder
 			if (!property.TryGetValue(type, out gs)) {
 				gs = new GetterSetter() { Name = propName };
 			}
+			if (legacySetMethod)
+				gs.SetMethodPublic = legacySetMethod;
 
 			if (name.StartsWith("Get") || name.StartsWith("Is")) {
 				if (propName != decl.Parent.Name || propName == "Text")
