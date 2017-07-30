@@ -39,15 +39,13 @@ namespace Urho.Shapes
 					alphaTechnique = value.A < (1 - tolerance); 
 					material = Material.FromColor(value);
 					SetMaterial(material);
+					color = value;
 					return;
 				}
 				material.SetShaderParameter("MatDiffColor", value);
 				color = value;
 			}
-			get
-			{
-				return color;
-			}
+			get => color;
 		}
 
 		public override void OnDeserialize(IComponentDeserializer d)
