@@ -45,7 +45,7 @@ namespace Urho.Shapes
 				material.SetShaderParameter("MatDiffColor", value);
 				color = value;
 			}
-			get => color;
+			get { return color; }
 		}
 
 		public override void OnDeserialize(IComponentDeserializer d)
