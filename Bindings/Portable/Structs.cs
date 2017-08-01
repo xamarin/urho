@@ -780,7 +780,7 @@ namespace Urho {
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
-	public struct RenderPathCommand {
+	public unsafe struct RenderPathCommand {
 		public UrhoString Tag;
 		public RenderCommandType Type;
 		public RenderCommandSortMode SortMode;
@@ -812,6 +812,54 @@ namespace Urho {
 		public UrhoString TextureName14;
 		public UrhoString TextureName15;
 #endif
+
+		public RenderPathCommand(RenderCommandType type)
+		{
+			BlendMode = BlendMode.Replace;
+			Enabled = 1;
+			UseLitBase = 1;
+			Type = type;
+
+			//default values:
+			Tag = default(UrhoString);
+			SortMode = RenderCommandSortMode.Fronttoback;
+			Pass = default(UrhoString);
+			PassIndex = 0;
+			Metadata = default(UrhoString);
+			PixelShaderName = default(UrhoString);
+			VertexShaderName = default(UrhoString);
+			PixelShaderDefines = default(UrhoString);
+			VertexShaderDefines = default(UrhoString);
+			TextureName0 = default(UrhoString);
+			TextureName1 = default(UrhoString);
+			TextureName2 = default(UrhoString);
+			TextureName3 = default(UrhoString);
+			TextureName4 = default(UrhoString);
+			TextureName5 = default(UrhoString);
+			TextureName6 = default(UrhoString);
+			TextureName7 = default(UrhoString);
+#if !IOS && !ANDROID
+			TextureName8 = default(UrhoString);
+			TextureName9 = default(UrhoString);
+			TextureName10 = default(UrhoString);
+			TextureName11 = default(UrhoString);
+			TextureName12 = default(UrhoString);
+			TextureName13 = default(UrhoString);
+			TextureName14 = default(UrhoString);
+			TextureName15 = default(UrhoString);
+#endif
+			ShaderParameters = default(HashBase);
+			Outputs = default(VectorBase);
+			DepthStencilName = default(UrhoString);
+			ClearFlags = 0;
+			ClearColor = default(Color);
+			ClearDepth = 0;
+			ClearStencil = 0;
+			UseFogColor = 0;
+			MarkToStencil = 0;
+			VertexLights = 0;
+			EventName = default(UrhoString);
+		}
 
 		public void SetTextureName(TextureUnit unit, string name)
 		{
@@ -873,6 +921,24 @@ namespace Urho {
 				default:
 					throw new InvalidOperationException("Invalid texture unit");
 			}
+		}
+
+		// TODO: Surface more members via SharpieBinder
+
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		static extern void RenderPathCommand_SetShaderParameter(ref RenderPathCommand rpc, string parameter, float value);
+
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		static extern void RenderPathCommand_SetOutput(ref RenderPathCommand rpc, int index, string name);
+
+		public void SetShaderParameter(string parameter, float value)
+		{
+			RenderPathCommand_SetShaderParameter(ref this, parameter, value);
+		}
+
+		public void SetOutput(int index, string name)
+		{
+			RenderPathCommand_SetOutput(ref this, index, name);
 		}
 
 		public HashBase ShaderParameters;

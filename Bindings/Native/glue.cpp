@@ -395,4 +395,16 @@ extern "C" {
 	{
 		delete myBuffer;
 	}
+
+	DllExport
+	void RenderPathCommand_SetShaderParameter(RenderPathCommand* rpc, const char* parameter, float value)
+	{
+		rpc->SetShaderParameter(String(parameter), value);
+	}
+
+	DllExport
+	void RenderPathCommand_SetOutput(RenderPathCommand* rpc, int index, const char* name)
+	{
+		rpc->SetOutput(index, String(name));
+	}
 }
