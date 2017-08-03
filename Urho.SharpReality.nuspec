@@ -18,7 +18,7 @@ Added optional argments everywhere
 Added Equals() and GetHashCode() to Rect and IntRect
 Added several methods to RenderPathCommand
 improved error handling
-Custom urho events (SubscribeToEvent(String eventName, Action<> handler))
+Custom urho events (SubscribeToEvent(String eventName, Action handler))
 
 Bugfixes:
 Fix #210 Crash after attempting to display an UrhoSharp ContentPage for the 2nd time in UWP
