@@ -15,7 +15,7 @@ namespace Urho.iOS
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void SDL_SetExternalViewPlaceholder(IntPtr viewPtr, IntPtr windowPtr);
 
-		[DllImport(Consts.NativeImport)]
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void UIKit_StopRenderLoop(IntPtr window);
 
 		static readonly SemaphoreSlim Semaphore = new SemaphoreSlim(1);
