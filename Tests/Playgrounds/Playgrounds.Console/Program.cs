@@ -11,7 +11,7 @@ namespace Playgrounds.Console
 	{
 		static void Main(string[] args)
 		{
-			Bug219.RunApp();
+			Raycasts.RunApp();
 			System.Console.ReadKey();
 		}
 	}
