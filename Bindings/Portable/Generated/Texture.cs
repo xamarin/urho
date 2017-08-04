@@ -37,9 +37,12 @@ namespace Urho
 			OnTextureCreated ();
 		}
 
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Texture_CastToGPUObject (IntPtr handle);
+
 		public GPUObject AsGPUObject ()
 		{
-			return new GPUObject (handle);
+			return new GPUObject (Texture_CastToGPUObject (handle));
 		}
 
 		[Preserve]

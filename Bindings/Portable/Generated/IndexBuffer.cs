@@ -37,9 +37,12 @@ namespace Urho
 			OnIndexBufferCreated ();
 		}
 
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr IndexBuffer_CastToGPUObject (IntPtr handle);
+
 		public GPUObject AsGPUObject ()
 		{
-			return new GPUObject (handle);
+			return new GPUObject (IndexBuffer_CastToGPUObject (handle));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

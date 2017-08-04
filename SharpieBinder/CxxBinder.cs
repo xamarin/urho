@@ -348,15 +348,29 @@ namespace SharpieBinder
 
 			if (currentType.BaseTypes.Any(t => ((SimpleType)t).Identifier == "IGPUObject"))
 			{
-				var asGpuObjectMethod = new MethodDeclaration
-				{
+				var pinvoke = new MethodDeclaration {
+					Name = currentType.Name + "_CastToGPUObject",
+					ReturnType = new SimpleType("IntPtr"),
+					Modifiers = Modifiers.Extern | Modifiers.Static | Modifiers.Internal
+				};
+				pinvoke.Parameters.Add(new ParameterDeclaration(new SimpleType(nameof(IntPtr)), "handle"));
+				pinvoke.Attributes.Add(CreateDllImportAttribute());
+				currentType.Members.Add(pinvoke);
+
+				var asGpuObjectMethod = new MethodDeclaration {
 					ReturnType = new SimpleType("GPUObject"),
 					Modifiers = Modifiers.Public,
 					Name = "AsGPUObject",
 				};
+
+				var handleCastInvocation = new InvocationExpression(new IdentifierExpression(pinvoke.Name), new IdentifierExpression("handle"));
 				asGpuObjectMethod.Body = new BlockStatement();
-				asGpuObjectMethod.Body.Add(new ReturnStatement(new ObjectCreateExpression(new SimpleType("GPUObject"), new IdentifierExpression("handle"))));
+				asGpuObjectMethod.Body.Add(new ReturnStatement(new ObjectCreateExpression(new SimpleType("GPUObject"), handleCastInvocation)));
 				currentType.Members.Add(asGpuObjectMethod);
+
+				p("DllExport GPUObject*\n" +
+				  $"{pinvoke.Name}(Urho3D::{currentType.Name} *_target)\n" +
+				  "{\n\treturn static_cast<GPUObject*>(_target);\n}\n\n");
 			}
 		}
 
@@ -968,6 +982,16 @@ namespace SharpieBinder
 			return true;
 		}
 
+		public AttributeSection CreateDllImportAttribute()
+		{
+			var dllImport = new Attribute { Type = new SimpleType("DllImport") };
+			dllImport.Arguments.Add(csParser.ParseExpression("Consts.NativeImport"));
+			dllImport.Arguments.Add(new AssignmentExpression(
+				new IdentifierExpression("CallingConvention"), 
+					csParser.ParseExpression("CallingConvention.Cdecl")));
+			return new AttributeSection(dllImport);
+		}
+
 		public override void VisitCXXMethodDecl(CXXMethodDecl decl, VisitKind visitKind)
 		{
 			if (!MethodIsBindable (decl, visitKind))
@@ -1017,10 +1041,7 @@ namespace SharpieBinder
 			if (!decl.IsStatic && !isConstructor)
 				pinvoke.Parameters.Add(new ParameterDeclaration(new SimpleType(nameof(IntPtr)), "handle"));
 
-			var dllImport = new Attribute { Type = new SimpleType("DllImport") };
-			dllImport.Arguments.Add (csParser.ParseExpression ("Consts.NativeImport"));
-			dllImport.Arguments.Add (new AssignmentExpression (new IdentifierExpression ("CallingConvention"), csParser.ParseExpression ("CallingConvention.Cdecl")));
-			pinvoke.Attributes.Add(new AttributeSection(dllImport));
+			pinvoke.Attributes.Add(CreateDllImportAttribute());
 
 			// The C counterpart
 			var cinvoke = new StringBuilder();

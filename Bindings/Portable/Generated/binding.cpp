@@ -8205,6 +8205,12 @@ GPUObject_HasPendingData (Urho3D::GPUObject *_target)
 }
 
 
+DllExport GPUObject*
+Texture_CastToGPUObject(Urho3D::Texture *_target)
+{
+	return static_cast<GPUObject*>(_target);
+}
+
 DllExport void *
 Texture_Texture (Urho3D::Context * context)
 {
@@ -10280,6 +10286,12 @@ Camera_GetClipPlaneAttr (Urho3D::Camera *_target)
 }
 
 
+DllExport GPUObject*
+ConstantBuffer_CastToGPUObject(Urho3D::ConstantBuffer *_target)
+{
+	return static_cast<GPUObject*>(_target);
+}
+
 DllExport int
 ConstantBuffer_GetType (Urho3D::ConstantBuffer *_target)
 {
@@ -11105,6 +11117,12 @@ Geometry_IsEmpty (Urho3D::Geometry *_target)
 	return _target->IsEmpty ();
 }
 
+
+DllExport GPUObject*
+ShaderVariation_CastToGPUObject(Urho3D::ShaderVariation *_target)
+{
+	return static_cast<GPUObject*>(_target);
+}
 
 DllExport void *
 ShaderVariation_ShaderVariation (Urho3D::Shader * owner, enum Urho3D::ShaderType type)
@@ -12840,6 +12858,12 @@ Graphics_GetMaxBones ()
 }
 
 
+DllExport GPUObject*
+ShaderProgram_CastToGPUObject(Urho3D::ShaderProgram *_target)
+{
+	return static_cast<GPUObject*>(_target);
+}
+
 DllExport void *
 ShaderProgram_ShaderProgram (Urho3D::Graphics * graphics, Urho3D::ShaderVariation * vertexShader, Urho3D::ShaderVariation * pixelShader)
 {
@@ -13326,6 +13350,12 @@ Texture2D_GetRenderSurface (Urho3D::Texture2D *_target)
 	return _target->GetRenderSurface ();
 }
 
+
+DllExport GPUObject*
+IndexBuffer_CastToGPUObject(Urho3D::IndexBuffer *_target)
+{
+	return static_cast<GPUObject*>(_target);
+}
 
 DllExport int
 IndexBuffer_GetType (Urho3D::IndexBuffer *_target)
@@ -18408,6 +18438,12 @@ TextureCube_GetRenderSurface (Urho3D::TextureCube *_target, enum Urho3D::CubeMap
 	return _target->GetRenderSurface (face);
 }
 
+
+DllExport GPUObject*
+VertexBuffer_CastToGPUObject(Urho3D::VertexBuffer *_target)
+{
+	return static_cast<GPUObject*>(_target);
+}
 
 DllExport int
 VertexBuffer_GetType (Urho3D::VertexBuffer *_target)

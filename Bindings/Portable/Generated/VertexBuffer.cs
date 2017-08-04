@@ -37,9 +37,12 @@ namespace Urho
 			OnVertexBufferCreated ();
 		}
 
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr VertexBuffer_CastToGPUObject (IntPtr handle);
+
 		public GPUObject AsGPUObject ()
 		{
-			return new GPUObject (handle);
+			return new GPUObject (VertexBuffer_CastToGPUObject (handle));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

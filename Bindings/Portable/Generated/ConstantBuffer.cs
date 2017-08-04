@@ -37,9 +37,12 @@ namespace Urho
 			OnConstantBufferCreated ();
 		}
 
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr ConstantBuffer_CastToGPUObject (IntPtr handle);
+
 		public GPUObject AsGPUObject ()
 		{
-			return new GPUObject (handle);
+			return new GPUObject (ConstantBuffer_CastToGPUObject (handle));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
