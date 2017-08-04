@@ -12857,12 +12857,13 @@ Graphics_GetMaxBones ()
 	return Graphics::GetMaxBones ();
 }
 
-
+#if URHO3D_OPENGL
 DllExport GPUObject*
 ShaderProgram_CastToGPUObject(Urho3D::ShaderProgram *_target)
 {
 	return static_cast<GPUObject*>(_target);
 }
+#endif
 
 DllExport void *
 ShaderProgram_ShaderProgram (Urho3D::Graphics * graphics, Urho3D::ShaderVariation * vertexShader, Urho3D::ShaderVariation * pixelShader)

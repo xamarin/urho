@@ -368,9 +368,14 @@ namespace SharpieBinder
 				asGpuObjectMethod.Body.Add(new ReturnStatement(new ObjectCreateExpression(new SimpleType("GPUObject"), handleCastInvocation)));
 				currentType.Members.Add(asGpuObjectMethod);
 
-				p("DllExport GPUObject*\n" +
+				strinc cpp = "DllExport GPUObject*\n" +
 				  $"{pinvoke.Name}(Urho3D::{currentType.Name} *_target)\n" +
-				  "{\n\treturn static_cast<GPUObject*>(_target);\n}\n\n");
+				  "{\n\treturn static_cast<GPUObject*>(_target);\n}\n";
+
+				if (currentType.Name == "ShaderProgram")
+					cpp = "#if URHO3D_OPENGL\n" + cpp + "#endif\n"
+
+				p(cpp);
 			}
 		}
 
