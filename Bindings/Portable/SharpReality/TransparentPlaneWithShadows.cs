@@ -15,6 +15,9 @@ namespace Urho.SharpReality
 			var pass = technique.CreatePass("litalpha");
 			pass.DepthWrite = false;
 			pass.BlendMode = BlendMode.Multiply;
+			pass.PixelShader = "LitSolid";
+			pass.VertexShader = "LitSolid";
+			pass.VertexShaderDefines = "NOUV";
 			Material material = new Material();
 			material.SetTechnique(0, technique);
 			material.SetShaderParameter(CoreAssets.ShaderParameters.MatDiffColor, Color.White);
