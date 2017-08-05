@@ -373,7 +373,7 @@ namespace SharpieBinder
 				  "{\n\treturn static_cast<GPUObject*>(_target);\n}\n";
 
 				if (currentType.Name == "ShaderProgram")
-					cpp = "#if URHO3D_OPENGL\n" + cpp + "#endif\n"
+					cpp = "#if URHO3D_OPENGL\n" + cpp + "#endif\n";
 
 				p(cpp);
 			}
