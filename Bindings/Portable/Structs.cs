@@ -437,7 +437,7 @@ namespace Urho {
 			m00 = row0.X; m10 = row0.Y; m20 = row0.Z;
 			m01 = row1.X; m11 = row1.Y; m21 = row1.Z;
 			m02 = row2.X; m12 = row2.Y; m22 = row2.Z;
-			m03 = row3.X; m13 = row0.Y; m23 = row0.Z;
+			m03 = row3.X; m13 = row3.Y; m23 = row3.Z;
 		}
 
 		public Matrix3x4 Inverse()
