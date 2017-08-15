@@ -87,13 +87,21 @@ namespace Urho {
 		public T GetComponent<T> (bool recursive = false) where T : Component
 		{
 			Runtime.ValidateRefCounted(this);
-			return (T)Components.FirstOrDefault(c => c is T);
+			var nativeTypeHash = typeof(T).GetRuntimeProperty("TypeStatic")?.GetValue(null);
+			if (nativeTypeHash != null)
+				return (T)GetComponent((StringHash)nativeTypeHash, recursive);
+
+			//slow search (only for components defined by user):
+			var component = (T)Components.FirstOrDefault(c => c is T);
+			if (component == null && recursive)
+				return GetChildrenWithComponent<T>(true).FirstOrDefault()?.GetComponent<T>(false);
+			return component;
 		}
 
 		public T GetOrCreateComponent<T>(bool recursive = false) where T : Component
 		{
 			Runtime.ValidateRefCounted(this);
-			var component = (T)Components.FirstOrDefault(c => c is T);
+			var component = GetComponent<T>(recursive);
 			if (component == null)
 				return CreateComponent<T>();
 			return component;

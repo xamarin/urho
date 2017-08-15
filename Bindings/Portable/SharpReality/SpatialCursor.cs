@@ -5,7 +5,6 @@ namespace Urho.SharpReality
 {
 	public class SpatialCursor : Component
 	{
-		StereoApplication holoApp;
 		
 		public SpatialCursor(IntPtr handle) : base(handle)
 		{
@@ -35,8 +34,6 @@ namespace Urho.SharpReality
 			RunIdleAnimation();
 			staticModel.SetMaterial(mat);
 			staticModel.ViewMask = 0x80000000; //hide from raycasts
-
-			holoApp = (StereoApplication) this.Application;
 			base.OnAttachedToNode(node);
 			ReceiveSceneUpdates = true;
 		}
@@ -67,11 +64,43 @@ namespace Urho.SharpReality
 			RunIdleAnimation();
 		}
 
+		Camera camera;
+
+		private Camera Camera
+		{
+			get
+			{
+				if (camera == null)
+				{
+					var cc = this.Scene.GetComponent(Camera.TypeStatic, true);
+					camera = this.Scene.GetComponent<Camera>(true);
+					if (camera == null)
+						throw new InvalidOperationException("Scene doesn't have a camera");
+				}
+				return camera;
+			}
+		}
+
+		Octree octree;
+		Octree Octree
+		{
+			get
+			{
+				if (octree == null)
+				{
+					octree = this.Scene.GetComponent<Octree>(true);
+					if (octree == null)
+						throw new InvalidOperationException("Scene doesn't have an octree");
+				}
+				return octree;
+			}
+		}
+
 		protected override void OnUpdate(float timeStep)
 		{
 			base.OnUpdate(timeStep);
-			Ray cameraRay = holoApp.LeftCamera.GetScreenRay(0.5f, 0.5f);
-			var result = holoApp.Octree.RaycastSingle(cameraRay, RayQueryLevel.Triangle, 100, DrawableFlags.Geometry, 0x70000000);
+			Ray cameraRay = Camera.GetScreenRay(0.5f, 0.5f);
+			var result = Octree.RaycastSingle(cameraRay, RayQueryLevel.Triangle, 100, DrawableFlags.Geometry, 0x70000000);
 			Raycasted?.Invoke(result);
 			if (!CursorEnabled)
 				return;
@@ -82,7 +111,7 @@ namespace Urho.SharpReality
 				CursorNode.Rotation = FromLookRotation(new Vector3(0, 1, 0), result.Value.Normal);
 			}
 			else
-				CursorNode.Position = holoApp.LeftCamera.Node.Rotation * new Vector3(0, 0, 5f);
+				CursorNode.Position = Camera.Node.Rotation * new Vector3(0, 0, 5f);
 		}
 
 		static Quaternion FromLookRotation(Vector3 direction, Vector3 upDirection)
