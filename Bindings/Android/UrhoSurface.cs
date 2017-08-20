@@ -1,6 +1,5 @@
 using System;
 using System.Runtime.InteropServices;
-using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
@@ -8,9 +7,7 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
-using Java.Lang;
 using Org.Libsdl.App;
-using Urho;
 
 namespace Urho.Droid
 {

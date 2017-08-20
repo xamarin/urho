@@ -6,8 +6,6 @@ using Android.Views;
 using Android.Widget;
 using Org.Libsdl.App;
 using Urho.Forms;
-using Urho.Droid;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
