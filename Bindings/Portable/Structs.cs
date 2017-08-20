@@ -307,7 +307,6 @@ namespace Urho {
 			Merge (frustum);
 		}
 		
-		     
 		public bool Defined ()
 		{
 			return Min.X != float.PositiveInfinity;
@@ -333,8 +332,8 @@ namespace Urho {
 		public Intersection IsInside (Vector3 point)
 		{
 			if (point.X < Min.X || point.X > Max.X ||
-			    point.Y < Min.Y || point.Y > Max.Y ||
-			    point.Z < Min.Z || point.Z > Max.Z)
+				point.Y < Min.Y || point.Y > Max.Y ||
+				point.Z < Min.Z || point.Z > Max.Z)
 				return Intersection.Outside;
 			return Intersection.Inside;
 		}
@@ -343,11 +342,11 @@ namespace Urho {
 		{
 			if (box.Max.X < Min.X || box.Min.X > Max.X || 
 				box.Max.Y < Min.Y || box.Min.Y > Max.Y ||
-			    box.Max.Z < Min.Z || box.Min.Z > Max.Z)
+				box.Max.Z < Min.Z || box.Min.Z > Max.Z)
 				return Intersection.Outside;
 			else if (box.Min.X < Min.X || box.Max.X > Max.X || 
 					 box.Min.Y < Min.Y || box.Max.Y > Max.Y ||
-			         box.Min.Z < Min.Z || box.Max.Z > Max.Z)
+					 box.Min.Z < Min.Z || box.Max.Z > Max.Z)
 				return Intersection.Intersects;
 			else
 				return Intersection.Inside;
@@ -366,11 +365,11 @@ namespace Urho {
 		public BoundingBox Clip (BoundingBox box)
 		{
 			return new BoundingBox (new Vector3 (Math.Max (box.Min.X, Min.X),
-							     Math.Max (box.Min.Y, Min.Y),
-							     Math.Max (box.Min.Z, Min.Z)),
+								 Math.Max (box.Min.Y, Min.Y),
+								 Math.Max (box.Min.Z, Min.Z)),
 						new Vector3 (Math.Min (box.Max.X, Max.X),
-							     Math.Min (box.Max.Y, Max.Y),
-							     Math.Min (box.Max.Z, Max.Z)));
+								 Math.Min (box.Max.Y, Max.Y),
+								 Math.Min (box.Max.Z, Max.Z)));
 		}
 	}
 
@@ -929,17 +928,19 @@ namespace Urho {
 		static extern void RenderPathCommand_SetShaderParameter(ref RenderPathCommand rpc, string parameter, float value);
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		static extern void RenderPathCommand_SetShaderParameter(ref RenderPathCommand rpc, string parameter, ref Matrix4 value);
+
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void RenderPathCommand_SetOutput(ref RenderPathCommand rpc, int index, string name);
 
-		public void SetShaderParameter(string parameter, float value)
-		{
+		public void SetShaderParameter(string parameter, float value) =>
 			RenderPathCommand_SetShaderParameter(ref this, parameter, value);
-		}
 
-		public void SetOutput(int index, string name)
-		{
+		public void SetShaderParameter(string parameter, Matrix4 value) =>
+			RenderPathCommand_SetShaderParameter(ref this, parameter, ref value);
+
+		public void SetOutput(int index, string name) =>
 			RenderPathCommand_SetOutput(ref this, index, name);
-		}
 
 		public HashBase ShaderParameters;
 		public VectorBase Outputs;
