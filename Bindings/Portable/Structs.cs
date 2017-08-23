@@ -928,16 +928,10 @@ namespace Urho {
 		static extern void RenderPathCommand_SetShaderParameter(ref RenderPathCommand rpc, string parameter, float value);
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		static extern void RenderPathCommand_SetShaderParameter(ref RenderPathCommand rpc, string parameter, ref Matrix4 value);
-
-		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void RenderPathCommand_SetOutput(ref RenderPathCommand rpc, int index, string name);
 
 		public void SetShaderParameter(string parameter, float value) =>
 			RenderPathCommand_SetShaderParameter(ref this, parameter, value);
-
-		public void SetShaderParameter(string parameter, Matrix4 value) =>
-			RenderPathCommand_SetShaderParameter(ref this, parameter, ref value);
 
 		public void SetOutput(int index, string name) =>
 			RenderPathCommand_SetOutput(ref this, index, name);
