@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Diagnostics;
+using System.Threading.Tasks;
 using Urho;
 using Urho.Forms;
 using Xamarin.Forms;
@@ -103,6 +104,7 @@ namespace Playgrounds.Forms
 
 		protected override void OnDisappearing()
 		{
+			Debug.WriteLine("UrhoPage.OnDisappearing");
 			UrhoSurface.OnDestroy();
 			base.OnDisappearing();
 		}
@@ -123,6 +125,7 @@ namespace Playgrounds.Forms
 
 		protected override async void OnAppearing()
 		{
+			Debug.WriteLine("UrhoPage.OnAppearing");
 			StartUrhoApp();
 		}
 

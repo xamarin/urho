@@ -293,8 +293,39 @@ namespace Urho
 
 		SemaphoreSlim stopSemaphore = new SemaphoreSlim(1);
 
+#if ANDROID
+		static readonly object stopLock = new object();
+		internal static void StopAndroid()
+		{
+			lock (stopLock)
+			{
+				if (current == null || !current.IsActive)
+					return;
+				LogSharp.Debug($"StopAndroid.");
+
+				Current.Input.Enabled = false;
+				isExiting = true;
+				Current.Engine.Exit();
+				Org.Libsdl.App.SDLSurface.JoinSDLThread();
+			}
+			GC.Collect();
+			GC.WaitForPendingFinalizers();
+			GC.Collect();
+		}
+		
+#endif
+
+		internal static void WaitStart()
+		{
+			waitFrameEndTaskSource = new TaskCompletionSource<bool>();
+			waitFrameEndTaskSource.Task.Wait(3000);
+		}
+
 		internal static async Task StopCurrent()
 		{
+#if ANDROID
+			StopAndroid();
+#endif
 			if (current == null || !current.IsActive)
 				return;
 			
@@ -317,25 +348,13 @@ namespace Urho
 			}
 			LogSharp.Debug($"StopCurrent: Engine.Exit");
 
-#if ANDROID
-			if (System.Threading.Thread.CurrentThread.ManagedThreadId != renderThreadId)
-			{
-				exitTask = new TaskCompletionSource<bool>();
-				InvokeOnMainAsync(() => Current.Engine.Exit()).Wait();
-				//Current.UrhoSurface?.Remove();
-				//Current.UrhoSurface = null;
-				await exitTask.Task;//.Wait();
-			}
-#else
 			Current.Engine.Exit();
-#endif
 
-#if !ANDROID
 #if DESKTOP
 			if (Current.Options.DelayedStart)
 #endif
 			ProxyStop(Current.Handle);
-#endif
+
 			GC.Collect();
 			GC.WaitForPendingFinalizers();
 			GC.Collect();

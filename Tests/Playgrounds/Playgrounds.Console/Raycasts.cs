@@ -31,9 +31,6 @@ namespace Playgrounds.Console
 			var plane = planeNode.CreateComponent<Urho.Shapes.Plane>();
 			plane.Material = ResourceCache.GetMaterial("Materials/Stone.xml");
 
-			var texture = plane.Material.GetTexture(TextureUnit.Diffuse);
-			var glName = texture.AsGPUObject().GPUObjectName;
-
 			pointerNode = Scene.CreateChild();
 			pointerNode.SetScale(0.1f);
 			var pointer = pointerNode.CreateComponent<Sphere>();
@@ -57,13 +54,13 @@ namespace Playgrounds.Console
 			var hud = new MonoDebugHud(this);
 			hud.Show(Color.Red, 24);
 
-			RenderPathCommand rpc = new RenderPathCommand(RenderCommandType.Quad);
+			/*RenderPathCommand rpc = new RenderPathCommand(RenderCommandType.Quad);
 			rpc.SetTextureName(TextureUnit.Diffuse, "Textures/UrhoDecal.dds");
 			rpc.Type = RenderCommandType.Quad;
 			rpc.VertexShaderName = (UrhoString)"CopyFramebuffer";
 			rpc.PixelShaderName = (UrhoString)"CopyFramebuffer";
 			rpc.SetOutput(0, "viewport");
-			Viewport.RenderPath.InsertCommand(1, rpc);
+			Viewport.RenderPath.InsertCommand(1, rpc);*/
 
 		}
 
@@ -122,8 +119,6 @@ namespace Playgrounds.Console
 			textNode.Rotate(new Quaternion(0, 180, 0));
 		}
 
-		private Material connectionMat;
-
 		void AddConnection(Node point1, Node point2 = null)
 		{
 			const float size = 0.03f;
@@ -135,7 +130,7 @@ namespace Playgrounds.Console
 			node.Position = (v1 + v2) / 2f;
 			node.Rotation = Quaternion.FromRotationTo(Vector3.UnitY, v1 - v2);
 			var cylinder = node.CreateComponent<StaticModel>();
-			cylinder.Model = CoreAssets.Models.LinePrimitives.UnitZ;
+			cylinder.Model = CoreAssets.Models.Cylinder;
 			cylinder.CastShadows = false;
 			cylinder.SetMaterial(Material.FromColor(Color.White, true));
 			node.RunActions(new TintTo(1f, 0f, 1f, 1f, 1f));

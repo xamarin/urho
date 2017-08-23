@@ -32,17 +32,19 @@ namespace Urho.Droid
 
 		public static bool IsAlive => SDLActivity.MIsSurfaceReady;
 
+		static UrhoSurfacePlaceholder lastPlaceholder;
+
 		/// <summary>
 		/// Creates a view (SurfaceView) that can be added anywhere
 		/// </summary>
 		public static UrhoSurfacePlaceholder CreateSurface(Activity activity)
 		{
-			var placeholder = new UrhoSurfacePlaceholder(activity) {
+			lastPlaceholder = new UrhoSurfacePlaceholder(activity) {
 					LayoutParameters = new ViewGroup.LayoutParams (
 						ViewGroup.LayoutParams.MatchParent,
 						ViewGroup.LayoutParams.MatchParent)
 				};
-			return placeholder;
+			return lastPlaceholder;
 		}
 
 		public static void OnResume()
@@ -62,7 +64,12 @@ namespace Urho.Droid
 
 		public static void OnDestroy()
 		{
-			SDLActivity.OnDestroy();
+			if (lastPlaceholder != null)
+			{
+				lastPlaceholder.Stop();
+				var viewGroup = lastPlaceholder.Parent as ViewGroup;
+				viewGroup?.RemoveView(lastPlaceholder);
+			}
 		}
 
 		public static bool DispatchKeyEvent(KeyEvent keyEvent)
@@ -119,8 +126,9 @@ namespace Urho.Droid
 
 	public class UrhoSurfacePlaceholder : FrameLayout
 	{
+		bool launching;
 		public SDLSurface SDLSurface;
-
+		
 		public UrhoSurfacePlaceholder(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer) {}
 		public UrhoSurfacePlaceholder(Android.Content.Context context) : base(context) {}
 		public UrhoSurfacePlaceholder(Android.Content.Context context, IAttributeSet attrs) : base(context, attrs) {}
@@ -129,7 +137,8 @@ namespace Urho.Droid
 
 		public async Task<Application> Show(Type appType, ApplicationOptions options = null, bool finishActivityOnExit = false)
 		{
-			await Stop();
+			Stop();
+			launching = true;
 			if (SDLSurface != null)
 			{
 				RemoveView(SDLSurface);
@@ -148,7 +157,9 @@ namespace Urho.Droid
 
 			Application.Started += startedHandler;
 			UrhoSurface.SetSdlMain(() => Application.CreateInstance(appType, options), finishActivityOnExit, SDLSurface);
-			return await tcs.Task;
+			var app = await tcs.Task;
+			launching = false;
+			return app;
 		}
 
 		public async Task<TApplication> Show<TApplication>(ApplicationOptions options = null,
@@ -159,10 +170,15 @@ namespace Urho.Droid
 			return (TApplication)app;
 		}
 
-		public async Task Stop()
+		public void Stop()
 		{
-			if (Application.HasCurrent && Application.Current.IsActive)
-				await Application.Current.Exit();
+			if (launching)
+			{
+				Application.WaitStart();
+				Console.WriteLine("WARNING: Stop while starting the urho app.");
+			}
+			//TODO: make sure Stop() is called in the main Android thread (not in the game thread)
+			Application.StopAndroid();
 		}
 	}
 }

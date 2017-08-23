@@ -29,6 +29,7 @@ namespace Playgrounds.Droid
 			FindViewById<Button>(Resource.Id.spawnBtn).Click += OnSpawn;
 			FindViewById<Button>(Resource.Id.pauseBtn).Click += OnPause;
 			placeholder = FindViewById<AbsoluteLayout>(Resource.Id.UrhoSurfacePlaceHolder);
+			OnRestart(null, null);
 		}
 
 		protected override void OnPause()
@@ -49,6 +50,12 @@ namespace Playgrounds.Droid
 			base.OnDestroy();
 		}
 
+		public override void OnBackPressed()
+		{
+			UrhoSurface.OnDestroy();
+			Finish();
+		}
+
 		public override void OnLowMemory()
 		{
 			UrhoSurface.OnLowMemory();
@@ -65,15 +72,17 @@ namespace Playgrounds.Droid
 				UrhoSurface.OnResume();
 		}
 
-		void OnSpawn(object sender, EventArgs e)
+		async void OnSpawn(object sender, EventArgs e)
 		{
-			if (game?.IsActive == true)
-				Urho.Application.InvokeOnMain(() => game.SpawnRandomShape());
+			surface.Stop();
+			if (surface.Parent is ViewGroup)
+				((ViewGroup)surface.Parent).RemoveView(surface);
+			StartActivity(typeof(MainActivity));
 		}
 
 		async void OnStop(object sender, EventArgs e)
 		{
-			await surface.Stop();
+			surface.Stop();
 			if (surface.Parent is ViewGroup)
 				((ViewGroup)surface.Parent).RemoveView(surface);
 		}
@@ -82,14 +91,13 @@ namespace Playgrounds.Droid
 		{
 			//UrhoSurface.RunInActivity<Game>(new ApplicationOptions(null));
 			//return;
+
 			if (surface != null)
 			{
-				await surface.Stop();
-				await Task.Yield();
+				surface.Stop();
 				var viewGroup = surface.Parent as ViewGroup;
 				viewGroup?.RemoveView(surface);
 			}
-
 			surface = UrhoSurface.CreateSurface(this);
 			placeholder.AddView(surface);
 			game = await surface.Show<Game>(new Urho.ApplicationOptions());

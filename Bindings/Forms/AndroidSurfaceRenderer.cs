@@ -30,7 +30,9 @@ namespace Urho.Forms
 	public class AndroidUrhoSurface : FrameLayout
 	{
 		static readonly SemaphoreSlim launcherSemaphore = new SemaphoreSlim(1);
-		readonly FrameLayout surfaceViewPlaceholder;
+		FrameLayout surfaceViewPlaceholder;
+
+		Urho.Droid.UrhoSurfacePlaceholder surfaceView;
 
 		public AndroidUrhoSurface(Android.Content.Context context) : base(context)
 		{
@@ -48,9 +50,9 @@ namespace Urho.Forms
 		internal async Task<Urho.Application> Launcher(Type type, ApplicationOptions options)
 		{
 			await launcherSemaphore.WaitAsync();
-			await Urho.Application.StopCurrent();
+			Urho.Application.StopAndroid();
 			surfaceViewPlaceholder.RemoveAllViews();
-			var surfaceView = Urho.Droid.UrhoSurface.CreateSurface((Activity)Context);
+			surfaceView = Urho.Droid.UrhoSurface.CreateSurface((Activity)Context);
 			surfaceViewPlaceholder.AddView(surfaceView);
 			var app = await surfaceView.Show(type, options);
 			launcherSemaphore.Release();
