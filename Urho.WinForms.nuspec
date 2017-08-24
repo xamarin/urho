@@ -12,24 +12,11 @@
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <summary>WinForms control (UrhoSurface) for UrhoSharp</summary>
        <description>UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games that run on Android, iOS, Mac, Windows and Unix. The game engine is available as a portable class library, allowing your game code to be written once and shared across all platforms. UrhoSharp is powered by Urho3D (http://urho3d.github.io/), a game engine that has been under development for more than a decade.   All the samples from Urho3D have been ported to C# to help you get started: https://github.com/xamarin/urho-samples</description>
-	   <releaseNotes>Features:
-Added byte[] Image.SavePNG
-Added optional argments everywhere
-Added Equals() and GetHashCode() to Rect and IntRect
-Added several methods to RenderPathCommand
-improved error handling
-Custom urho events (SubscribeToEvent(String eventName, Action handler))
-
-Bugfixes:
-Fix #210 Crash after attempting to display an UrhoSharp ContentPage for the 2nd time in UWP
-Fix #222 UIElement.IsInside crashes
-Fix #203 and fix Playgrounds.Droid prj
-Fix #214 System.InvalidOperationException when using Button.Released += ...
-Fix Shape.Clone
-Several events could hang on 64bit platforms
-Windows, macOS: Fix memory leak
-Android: UrhoSurface crash
-Forms: fix possible race condition
+	   <releaseNotes>
+Optimize Node.GetComponent for native components (O(1))
+Fix Node.GetComponent(recursive:true)
+Fix Android crashes
+Initial built-in ARKit supprot (YuvVideo component + ARKit shader)
 	   </releaseNotes>
        <tags>Urho Urho3D WinForms UrhoSharp Xamarin 2D 3D games engine</tags>
        <dependencies>

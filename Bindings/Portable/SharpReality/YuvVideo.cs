@@ -5,6 +5,12 @@ namespace Urho.SharpReality
 {
 	public class YuvVideo : Component
 	{
+		[Preserve]
+		public YuvVideo() { }
+
+		[Preserve]
+		public YuvVideo(IntPtr handle) : base(handle) { }
+
 		public Texture2D CameraYtexture { get; private set; }
 		public Texture2D CameraUVtexture { get; private set; }
 		public RenderPathCommand RenderPathCommand { get; private set; }
