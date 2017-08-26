@@ -21,7 +21,7 @@ namespace Urho
 	/// <summary>
 	/// Skeletal animation resource.
 	/// </summary>
-	public unsafe partial class Animation : Resource
+	public unsafe partial class Animation : ResourceWithMetadata
 	{
 		unsafe partial void OnAnimationCreated ();
 
@@ -463,7 +463,19 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern AnimationTrack* Animation_GetTrack (IntPtr handle, string name);
+		internal static extern AnimationTrack* Animation_GetTrack (IntPtr handle, uint index);
+
+		/// <summary>
+		/// Return animation track by index.
+		/// </summary>
+		public AnimationTrack* GetTrack (uint index)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Animation_GetTrack (handle, index);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern AnimationTrack* Animation_GetTrack0 (IntPtr handle, string name);
 
 		/// <summary>
 		/// Return animation track by name.
@@ -471,11 +483,11 @@ namespace Urho
 		public AnimationTrack* GetTrack (string name)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Animation_GetTrack (handle, name);
+			return Animation_GetTrack0 (handle, name);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern AnimationTrack* Animation_GetTrack0 (IntPtr handle, int nameHash);
+		internal static extern AnimationTrack* Animation_GetTrack1 (IntPtr handle, int nameHash);
 
 		/// <summary>
 		/// Return animation track by name hash.
@@ -483,7 +495,7 @@ namespace Urho
 		public AnimationTrack* GetTrack (StringHash nameHash)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Animation_GetTrack0 (handle, nameHash.Code);
+			return Animation_GetTrack1 (handle, nameHash.Code);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

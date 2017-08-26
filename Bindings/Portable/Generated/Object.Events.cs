@@ -400,6 +400,8 @@ namespace Urho {
             public bool Borderless => EventData.get_bool (unchecked((int)2212104069) /* Borderless (P_BORDERLESS) */);
             public bool Resizable => EventData.get_bool (unchecked((int)3579260107) /* Resizable (P_RESIZABLE) */);
             public bool HighDPI => EventData.get_bool (unchecked((int)2251421851) /* HighDPI (P_HIGHDPI) */);
+            public int Monitor => EventData.get_int (unchecked((int)1274038842) /* Monitor (P_MONITOR) */);
+            public int RefreshRate => EventData.get_int (unchecked((int)1452299323) /* RefreshRate (P_REFRESHRATE) */);
         } /* struct ScreenModeEventArgs */
 
 } /* namespace */
@@ -622,6 +624,13 @@ namespace Urho {
 } /* namespace */
 
 namespace Urho {
+        public partial struct EndAllViewsRenderEventArgs {
+            public EventDataContainer EventData;
+        } /* struct EndAllViewsRenderEventArgs */
+
+} /* namespace */
+
+namespace Urho {
         public partial struct RenderPathEventEventArgs {
             public EventDataContainer EventData;
             public String Name => EventData.get_String (unchecked((int)773762347) /* Name (P_NAME) */);
@@ -640,6 +649,15 @@ namespace Urho {
         public partial struct DeviceResetEventArgs {
             public EventDataContainer EventData;
         } /* struct DeviceResetEventArgs */
+
+} /* namespace */
+
+namespace Urho {
+        public partial struct IKEffectorTargetChangedEventArgs {
+            public EventDataContainer EventData;
+            public Node EffectorNode => EventData.get_Node (unchecked((int)725806678) /* EffectorNode (P_EFFECTORNODE) */);
+            public Node TargetNode => EventData.get_Node (unchecked((int)3704622643) /* TargetNode (P_TARGETNODE) */);
+        } /* struct IKEffectorTargetChangedEventArgs */
 
 } /* namespace */
 
@@ -915,8 +933,6 @@ namespace Urho {
         public partial struct TextInputEventArgs {
             public EventDataContainer EventData;
             public String Text => EventData.get_String (unchecked((int)1196085869) /* Text (P_TEXT) */);
-            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int Qualifiers => EventData.get_int (unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
         } /* struct TextInputEventArgs */
 
         public partial class Input {
@@ -941,6 +957,16 @@ namespace Urho {
                  remove { eventAdapterForTextInput.RemoveManagedSubscriber(handle, value); }
              }
         } /* class Input */ 
+
+} /* namespace */
+
+namespace Urho {
+        public partial struct TextEditingEventArgs {
+            public EventDataContainer EventData;
+            public String Composition => EventData.get_String (unchecked((int)3273882378) /* Composition (P_COMPOSITION) */);
+            public int Cursor => EventData.get_int (unchecked((int)2403995286) /* Cursor (P_CURSOR) */);
+            public int SelectionLength => EventData.get_int (unchecked((int)2629242514) /* SelectionLength (P_SELECTION_LENGTH) */);
+        } /* struct TextEditingEventArgs */
 
 } /* namespace */
 
@@ -1582,6 +1608,35 @@ namespace Urho.Navigation {
                  remove { eventAdapterForNavigationAreaRebuilt.RemoveManagedSubscriber(handle, value); }
              }
         } /* class NavigationMesh */ 
+
+} /* namespace */
+
+namespace Urho {
+        public partial struct NavigationTileAddedEventArgs {
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public NavigationMesh Mesh => EventData.get_NavigationMesh (unchecked((int)26614765) /* Mesh (P_MESH) */);
+            public IntVector2 Tile => EventData.get_IntVector2 (unchecked((int)1228344686) /* Tile (P_TILE) */);
+        } /* struct NavigationTileAddedEventArgs */
+
+} /* namespace */
+
+namespace Urho {
+        public partial struct NavigationTileRemovedEventArgs {
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public NavigationMesh Mesh => EventData.get_NavigationMesh (unchecked((int)26614765) /* Mesh (P_MESH) */);
+            public IntVector2 Tile => EventData.get_IntVector2 (unchecked((int)1228344686) /* Tile (P_TILE) */);
+        } /* struct NavigationTileRemovedEventArgs */
+
+} /* namespace */
+
+namespace Urho {
+        public partial struct NavigationAllTilesRemovedEventArgs {
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public NavigationMesh Mesh => EventData.get_NavigationMesh (unchecked((int)26614765) /* Mesh (P_MESH) */);
+        } /* struct NavigationAllTilesRemovedEventArgs */
 
 } /* namespace */
 
@@ -4208,34 +4263,32 @@ namespace Urho.Gui {
 } /* namespace */
 
 namespace Urho.Gui {
-        public partial struct CharEntryEventArgs {
+        public partial struct TextEntryEventArgs {
             public EventDataContainer EventData;
             public UIElement Element => EventData.get_UIElement (unchecked((int)2809902492) /* Element (P_ELEMENT) */);
             public String Text => EventData.get_String (unchecked((int)1196085869) /* Text (P_TEXT) */);
-            public int Buttons => EventData.get_int (unchecked((int)838874785) /* Buttons (P_BUTTONS) */);
-            public int Qualifiers => EventData.get_int (unchecked((int)1438392841) /* Qualifiers (P_QUALIFIERS) */);
-        } /* struct CharEntryEventArgs */
+        } /* struct TextEntryEventArgs */
 
         public partial class LineEdit {
-             [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.CharEntry += ...' instead.")]
-             public Subscription SubscribeToCharEntry (Action<CharEntryEventArgs> handler)
+             [Obsolete("SubscribeTo API may lead to unxpected behaviour and will be removed in a future version. Use C# event '.TextEntry += ...' instead.")]
+             public Subscription SubscribeToTextEntry (Action<TextEntryEventArgs> handler)
              {
-                  Action<IntPtr> proxy = (x)=> { var d = new CharEntryEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
+                  Action<IntPtr> proxy = (x)=> { var d = new TextEntryEventArgs () { EventData = new EventDataContainer(x) }; handler (d); };
                   var s = new Subscription (proxy);
-                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)3958156636) /* CharEntry (E_TEXTENTRY) */);
+                  s.UnmanagedProxy = UrhoObject.urho_subscribe_event (handle, UrhoObject.ObjectCallbackInstance, GCHandle.ToIntPtr (s.gch), unchecked((int)1906402885) /* TextEntry (E_TEXTENTRY) */);
                   return s;
              }
 
-             static UrhoEventAdapter<CharEntryEventArgs> eventAdapterForCharEntry;
-             public event Action<CharEntryEventArgs> CharEntry
+             static UrhoEventAdapter<TextEntryEventArgs> eventAdapterForTextEntry;
+             public event Action<TextEntryEventArgs> TextEntry
              {
                  add
                  {
-                      if (eventAdapterForCharEntry == null)
-                          eventAdapterForCharEntry = new UrhoEventAdapter<CharEntryEventArgs>(typeof(LineEdit));
-                      eventAdapterForCharEntry.AddManagedSubscriber(handle, value, SubscribeToCharEntry);
+                      if (eventAdapterForTextEntry == null)
+                          eventAdapterForTextEntry = new UrhoEventAdapter<TextEntryEventArgs>(typeof(LineEdit));
+                      eventAdapterForTextEntry.AddManagedSubscriber(handle, value, SubscribeToTextEntry);
                  }
-                 remove { eventAdapterForCharEntry.RemoveManagedSubscriber(handle, value); }
+                 remove { eventAdapterForTextEntry.RemoveManagedSubscriber(handle, value); }
              }
         } /* class LineEdit */ 
 
@@ -4966,6 +5019,22 @@ namespace Urho.Gui {
 
 } /* namespace */
 
+namespace Urho {
+        public partial struct PhysicsUpdateContact2DEventArgs {
+            public EventDataContainer EventData;
+            public PhysicsWorld2D World => EventData.get_PhysicsWorld2D (unchecked((int)4158893746) /* World (P_WORLD) */);
+            public RigidBody2D BodyA => EventData.get_RigidBody2D (unchecked((int)1588071871) /* BodyA (P_BODYA) */);
+            public RigidBody2D BodyB => EventData.get_RigidBody2D (unchecked((int)1588071872) /* BodyB (P_BODYB) */);
+            public Node NodeA => EventData.get_Node (unchecked((int)2376629471) /* NodeA (P_NODEA) */);
+            public Node NodeB => EventData.get_Node (unchecked((int)2376629472) /* NodeB (P_NODEB) */);
+            public CollisionData [] Contacts => EventData.get_CollisionData (unchecked((int)216739987) /* Contacts (P_CONTACTS) */);
+            public CollisionShape2D ShapeA => EventData.get_CollisionShape2D (unchecked((int)1721188800) /* ShapeA (P_SHAPEA) */);
+            public CollisionShape2D ShapeB => EventData.get_CollisionShape2D (unchecked((int)1721188801) /* ShapeB (P_SHAPEB) */);
+            public bool Enabled => EventData.get_bool (unchecked((int)3351342625) /* Enabled (P_ENABLED) */);
+        } /* struct PhysicsUpdateContact2DEventArgs */
+
+} /* namespace */
+
 namespace Urho.Urho2D {
         public partial struct PhysicsBeginContact2DEventArgs {
             public EventDataContainer EventData;
@@ -4974,7 +5043,9 @@ namespace Urho.Urho2D {
             public RigidBody2D BodyB => EventData.get_RigidBody2D (unchecked((int)1588071872) /* BodyB (P_BODYB) */);
             public Node NodeA => EventData.get_Node (unchecked((int)2376629471) /* NodeA (P_NODEA) */);
             public Node NodeB => EventData.get_Node (unchecked((int)2376629472) /* NodeB (P_NODEB) */);
-            public IntPtr Contact => EventData.get_IntPtr (unchecked((int)3836135392) /* Contact (P_CONTACT) */);
+            public CollisionData [] Contacts => EventData.get_CollisionData (unchecked((int)216739987) /* Contacts (P_CONTACTS) */);
+            public CollisionShape2D ShapeA => EventData.get_CollisionShape2D (unchecked((int)1721188800) /* ShapeA (P_SHAPEA) */);
+            public CollisionShape2D ShapeB => EventData.get_CollisionShape2D (unchecked((int)1721188801) /* ShapeB (P_SHAPEB) */);
         } /* struct PhysicsBeginContact2DEventArgs */
 
         public partial class PhysicsWorld2D {
@@ -5010,7 +5081,9 @@ namespace Urho.Urho2D {
             public RigidBody2D BodyB => EventData.get_RigidBody2D (unchecked((int)1588071872) /* BodyB (P_BODYB) */);
             public Node NodeA => EventData.get_Node (unchecked((int)2376629471) /* NodeA (P_NODEA) */);
             public Node NodeB => EventData.get_Node (unchecked((int)2376629472) /* NodeB (P_NODEB) */);
-            public IntPtr Contact => EventData.get_IntPtr (unchecked((int)3836135392) /* Contact (P_CONTACT) */);
+            public CollisionData [] Contacts => EventData.get_CollisionData (unchecked((int)216739987) /* Contacts (P_CONTACTS) */);
+            public CollisionShape2D ShapeA => EventData.get_CollisionShape2D (unchecked((int)1721188800) /* ShapeA (P_SHAPEA) */);
+            public CollisionShape2D ShapeB => EventData.get_CollisionShape2D (unchecked((int)1721188801) /* ShapeB (P_SHAPEB) */);
         } /* struct PhysicsEndContact2DEventArgs */
 
         public partial class PhysicsWorld2D {
@@ -5039,12 +5112,28 @@ namespace Urho.Urho2D {
 } /* namespace */
 
 namespace Urho {
+        public partial struct NodeUpdateContact2DEventArgs {
+            public EventDataContainer EventData;
+            public RigidBody2D Body => EventData.get_RigidBody2D (unchecked((int)111721250) /* Body (P_BODY) */);
+            public Node OtherNode => EventData.get_Node (unchecked((int)2707292594) /* OtherNode (P_OTHERNODE) */);
+            public RigidBody2D OtherBody => EventData.get_RigidBody2D (unchecked((int)1930180818) /* OtherBody (P_OTHERBODY) */);
+            public CollisionData [] Contacts => EventData.get_CollisionData (unchecked((int)216739987) /* Contacts (P_CONTACTS) */);
+            public CollisionShape2D Shape => EventData.get_CollisionShape2D (unchecked((int)2586277601) /* Shape (P_SHAPE) */);
+            public CollisionShape2D OtherShape => EventData.get_CollisionShape2D (unchecked((int)3293799729) /* OtherShape (P_OTHERSHAPE) */);
+            public bool Enabled => EventData.get_bool (unchecked((int)3351342625) /* Enabled (P_ENABLED) */);
+        } /* struct NodeUpdateContact2DEventArgs */
+
+} /* namespace */
+
+namespace Urho {
         public partial struct NodeBeginContact2DEventArgs {
             public EventDataContainer EventData;
             public RigidBody2D Body => EventData.get_RigidBody2D (unchecked((int)111721250) /* Body (P_BODY) */);
             public Node OtherNode => EventData.get_Node (unchecked((int)2707292594) /* OtherNode (P_OTHERNODE) */);
             public RigidBody2D OtherBody => EventData.get_RigidBody2D (unchecked((int)1930180818) /* OtherBody (P_OTHERBODY) */);
-            public IntPtr Contact => EventData.get_IntPtr (unchecked((int)3836135392) /* Contact (P_CONTACT) */);
+            public CollisionData [] Contacts => EventData.get_CollisionData (unchecked((int)216739987) /* Contacts (P_CONTACTS) */);
+            public CollisionShape2D Shape => EventData.get_CollisionShape2D (unchecked((int)2586277601) /* Shape (P_SHAPE) */);
+            public CollisionShape2D OtherShape => EventData.get_CollisionShape2D (unchecked((int)3293799729) /* OtherShape (P_OTHERSHAPE) */);
         } /* struct NodeBeginContact2DEventArgs */
 
 } /* namespace */
@@ -5055,8 +5144,28 @@ namespace Urho {
             public RigidBody2D Body => EventData.get_RigidBody2D (unchecked((int)111721250) /* Body (P_BODY) */);
             public Node OtherNode => EventData.get_Node (unchecked((int)2707292594) /* OtherNode (P_OTHERNODE) */);
             public RigidBody2D OtherBody => EventData.get_RigidBody2D (unchecked((int)1930180818) /* OtherBody (P_OTHERBODY) */);
-            public IntPtr Contact => EventData.get_IntPtr (unchecked((int)3836135392) /* Contact (P_CONTACT) */);
+            public CollisionData [] Contacts => EventData.get_CollisionData (unchecked((int)216739987) /* Contacts (P_CONTACTS) */);
+            public CollisionShape2D Shape => EventData.get_CollisionShape2D (unchecked((int)2586277601) /* Shape (P_SHAPE) */);
+            public CollisionShape2D OtherShape => EventData.get_CollisionShape2D (unchecked((int)3293799729) /* OtherShape (P_OTHERSHAPE) */);
         } /* struct NodeEndContact2DEventArgs */
+
+} /* namespace */
+
+namespace Urho {
+        public partial struct ParticlesEndEventArgs {
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public ParticleEffect2D Effect => EventData.get_ParticleEffect2D (unchecked((int)2340854545) /* Effect (P_EFFECT) */);
+        } /* struct ParticlesEndEventArgs */
+
+} /* namespace */
+
+namespace Urho {
+        public partial struct ParticlesDurationEventArgs {
+            public EventDataContainer EventData;
+            public Node Node => EventData.get_Node (unchecked((int)888833026) /* Node (P_NODE) */);
+            public ParticleEffect2D Effect => EventData.get_ParticleEffect2D (unchecked((int)2340854545) /* Effect (P_EFFECT) */);
+        } /* struct ParticlesDurationEventArgs */
 
 } /* namespace */
 

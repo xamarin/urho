@@ -89,7 +89,7 @@ $(LOCAL_CLANG):
 #compile Urho.pch for SharpieBinder on Mac
 PchMac: $(LOCAL_CLANG)
 	if test ! -e /usr/include; then xcode-select --install; fi
-	make -j1 Urho3D_Mac -f MakeMac && $(CUSTOM_CLANG) -cc1 -emit-pch -DURHO3D_OPENGL -o Bindings/Urho.pch Bindings/Native/all-urho.cpp  -IUrho3D/Urho3D_Mac/include -IUrho3D/Urho3D_Mac/include/Urho3D/ThirdParty
+	make -j1 Urho3D_Mac -f MakeMac && $(CUSTOM_CLANG) -cc1 -stdlib=libc++ -std=c++0x -emit-pch -DURHO3D_OPENGL -DURHO3D_CXX11=1 -o Bindings/Urho.pch Bindings/Native/all-urho.cpp  -IUrho3D/Urho3D_Mac/include -IUrho3D/Urho3D_Mac/include/Urho3D/ThirdParty
 
 SharpieBinder: Bindings/Urho.pch
 	cd SharpieBinder && $(NUGET) restore SharpieBinder.sln && $(XBUILD) SharpieBinder.csproj && cd bin && $(MONO64) SharpieBinder.exe

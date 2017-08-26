@@ -445,5 +445,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Frustum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\Polyhedron.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Polyhedron.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\ResourceWithMetadata.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\IAbstractFile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\FontType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\FontHintLevel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\External\IntVector3.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\UIComponent.cs" />
   </ItemGroup>
 </Project>

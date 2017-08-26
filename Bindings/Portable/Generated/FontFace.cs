@@ -38,12 +38,12 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool FontFace_Load (IntPtr handle, byte* fontData, uint fontDataSize, int pointSize);
+		internal static extern bool FontFace_Load (IntPtr handle, byte* fontData, uint fontDataSize, float pointSize);
 
 		/// <summary>
 		/// Load font face.
 		/// </summary>
-		public virtual bool Load (byte* fontData, uint fontDataSize, int pointSize)
+		public virtual bool Load (byte* fontData, uint fontDataSize, float pointSize)
 		{
 			Runtime.ValidateRefCounted (this);
 			return FontFace_Load (handle, fontData, fontDataSize, pointSize);
@@ -74,12 +74,12 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern short FontFace_GetKerning (IntPtr handle, uint c, uint d);
+		internal static extern float FontFace_GetKerning (IntPtr handle, uint c, uint d);
 
 		/// <summary>
 		/// Return the kerning for a character and the next character.
 		/// </summary>
-		public short GetKerning (uint c, uint d)
+		public float GetKerning (uint c, uint d)
 		{
 			Runtime.ValidateRefCounted (this);
 			return FontFace_GetKerning (handle, c, d);
@@ -98,24 +98,24 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern int FontFace_GetPointSize (IntPtr handle);
+		internal static extern float FontFace_GetPointSize (IntPtr handle);
 
 		/// <summary>
 		/// Return point size.
 		/// </summary>
-		private int GetPointSize ()
+		private float GetPointSize ()
 		{
 			Runtime.ValidateRefCounted (this);
 			return FontFace_GetPointSize (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern int FontFace_GetRowHeight (IntPtr handle);
+		internal static extern float FontFace_GetRowHeight (IntPtr handle);
 
 		/// <summary>
 		/// Return row height.
 		/// </summary>
-		private int GetRowHeight ()
+		private float GetRowHeight ()
 		{
 			Runtime.ValidateRefCounted (this);
 			return FontFace_GetRowHeight (handle);
@@ -147,7 +147,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Return point size.
 		/// </summary>
-		public int PointSize {
+		public float PointSize {
 			get {
 				return GetPointSize ();
 			}
@@ -156,7 +156,7 @@ namespace Urho.Gui
 		/// <summary>
 		/// Return row height.
 		/// </summary>
-		public int RowHeight {
+		public float RowHeight {
 			get {
 				return GetRowHeight ();
 			}

@@ -499,6 +499,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Renderer_GetViewportForScene (IntPtr handle, IntPtr scene, uint index);
+
+		/// <summary>
+		/// Return nth backbuffer viewport associated to a scene. Index 0 returns the first.
+		/// </summary>
+		public Viewport GetViewportForScene (Scene scene, uint index)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Runtime.LookupObject<Viewport> (Renderer_GetViewportForScene (handle, (object)scene == null ? IntPtr.Zero : scene.Handle, index));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Renderer_GetDefaultRenderPath (IntPtr handle);
 
 		/// <summary>
@@ -1180,30 +1192,6 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			return Renderer_ResizeInstancingBuffer (handle, numInstances);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Renderer_SaveScreenBufferAllocations (IntPtr handle);
-
-		/// <summary>
-		/// Save the screen buffer allocation status. Called by View.
-		/// </summary>
-		public void SaveScreenBufferAllocations ()
-		{
-			Runtime.ValidateRefCounted (this);
-			Renderer_SaveScreenBufferAllocations (handle);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Renderer_RestoreScreenBufferAllocations (IntPtr handle);
-
-		/// <summary>
-		/// Restore the screen buffer allocation status. Called by View.
-		/// </summary>
-		public void RestoreScreenBufferAllocations ()
-		{
-			Runtime.ValidateRefCounted (this);
-			Renderer_RestoreScreenBufferAllocations (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

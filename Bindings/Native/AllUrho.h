@@ -218,6 +218,7 @@
 #include <Urho3D/UI/LineEdit.h>
 #include <Urho3D/UI/ListView.h>
 #include <Urho3D/UI/Menu.h>
+#include <Urho3D/UI/UIComponent.h>
 #include <Urho3D/UI/ScrollBar.h>
 #include <Urho3D/UI/ScrollView.h>
 #include <Urho3D/UI/Slider.h>

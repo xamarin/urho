@@ -214,7 +214,7 @@ namespace Urho
 		internal static extern void Engine_Exit (IntPtr handle);
 
 		/// <summary>
-		/// Close the graphics window and set the exit flag. No-op on iOS, as an iOS application can not legally exit.
+		/// Close the graphics window and set the exit flag. No-op on iOS/tvOS, as an iOS/tvOS application can not legally exit.
 		/// </summary>
 		internal void Exit ()
 		{

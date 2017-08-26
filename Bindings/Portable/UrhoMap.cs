@@ -50,6 +50,9 @@ namespace Urho {
 		static extern Vector3 urho_map_get_Vector3(IntPtr handle, int paramNameHash);
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		static extern IntVector2 urho_map_get_IntVector2(IntPtr handle, int paramNameHash);
+
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern Variant urho_map_get_Variant(IntPtr handle, int paramNameHash);
 
 		public T get_Object<T>(int paramNameHash) where T : UrhoObject
@@ -167,6 +170,16 @@ namespace Urho {
 		{
 			return Runtime.LookupObject<Scene>(urho_map_get_ptr(Handle, paramNameHash));
 		}
+
+		public CollisionShape2D get_CollisionShape2D(int paramNameHash)
+		{
+			return Runtime.LookupObject<CollisionShape2D>(urho_map_get_ptr(Handle, paramNameHash));
+		}
+
+		public ParticleEffect2D get_ParticleEffect2D(int paramNameHash)
+		{
+			return Runtime.LookupObject<ParticleEffect2D>(urho_map_get_ptr(Handle, paramNameHash));
+		}
 		
 		public Serializable get_Serializable (int paramNameHash)
 		{
@@ -212,6 +225,11 @@ namespace Urho {
 		public Vector3 get_Vector3 (int paramNameHash)
 		{
 			return urho_map_get_Vector3 (Handle, paramNameHash);
+		}
+
+		public IntVector2 get_IntVector2(int paramNameHash)
+		{
+			return urho_map_get_IntVector2(Handle, paramNameHash);
 		}
 		
 		public View get_View (int paramNameHash)

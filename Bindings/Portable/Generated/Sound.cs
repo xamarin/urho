@@ -21,7 +21,7 @@ namespace Urho.Audio
 	/// <summary>
 	/// %Sound resource.
 	/// </summary>
-	public unsafe partial class Sound : Resource
+	public unsafe partial class Sound : ResourceWithMetadata
 	{
 		unsafe partial void OnSoundCreated ();
 

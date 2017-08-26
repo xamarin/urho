@@ -389,7 +389,7 @@ namespace Urho
 		internal static extern void Input_SetMousePosition (IntPtr handle, ref Urho.IntVector2 position);
 
 		/// <summary>
-		/// Set the mouse cursor position.
+		/// Set the mouse cursor position. Uses the backbuffer (Graphics width/height) coordinates.
 		/// </summary>
 		public void SetMousePosition (Urho.IntVector2 position)
 		{
@@ -593,7 +593,7 @@ namespace Urho
 		internal static extern Urho.IntVector2 Input_GetMousePosition (IntPtr handle);
 
 		/// <summary>
-		/// Return mouse position within window. Should only be used with a visible mouse cursor.
+		/// Return mouse position within window. Should only be used with a visible mouse cursor. Uses the backbuffer (Graphics width/height) coordinates.
 		/// </summary>
 		private Urho.IntVector2 GetMousePosition ()
 		{
@@ -647,6 +647,18 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			return Input_GetMouseMoveWheel (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern Vector2 Input_GetInputScale (IntPtr handle);
+
+		/// <summary>
+		/// Return input coordinate scaling. Should return non-unity on High DPI display.
+		/// </summary>
+		private Vector2 GetInputScale ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Input_GetInputScale (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -947,7 +959,7 @@ namespace Urho
 		}
 
 		/// <summary>
-		/// Return mouse position within window. Should only be used with a visible mouse cursor.
+		/// Return mouse position within window. Should only be used with a visible mouse cursor. Uses the backbuffer (Graphics width/height) coordinates.
 		/// </summary>
 		public Urho.IntVector2 MousePosition {
 			get {
@@ -997,6 +1009,15 @@ namespace Urho
 		public int MouseMoveWheel {
 			get {
 				return GetMouseMoveWheel ();
+			}
+		}
+
+		/// <summary>
+		/// Return input coordinate scaling. Should return non-unity on High DPI display.
+		/// </summary>
+		public Vector2 InputScale {
+			get {
+				return GetInputScale ();
 			}
 		}
 

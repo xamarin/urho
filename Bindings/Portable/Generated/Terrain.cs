@@ -595,6 +595,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern Vector3 Terrain_HeightMapToWorld (IntPtr handle, ref Urho.IntVector2 pixelPosition);
+
+		/// <summary>
+		/// Convert heightmap pixel position to world position.
+		/// </summary>
+		public Vector3 HeightMapToWorld (Urho.IntVector2 pixelPosition)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Terrain_HeightMapToWorld (handle, ref pixelPosition);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Terrain_GetNorthNeighbor (IntPtr handle);
 
 		/// <summary>
@@ -640,6 +652,54 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Terrain> (Terrain_GetEastNeighbor (handle));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern uint Terrain_GetNorthNeighborNodeID (IntPtr handle);
+
+		/// <summary>
+		/// Return north neighbor terrain.
+		/// </summary>
+		private uint GetNorthNeighborNodeID ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Terrain_GetNorthNeighborNodeID (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern uint Terrain_GetSouthNeighborNodeID (IntPtr handle);
+
+		/// <summary>
+		/// Return south neighbor terrain.
+		/// </summary>
+		private uint GetSouthNeighborNodeID ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Terrain_GetSouthNeighborNodeID (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern uint Terrain_GetWestNeighborNodeID (IntPtr handle);
+
+		/// <summary>
+		/// Return west neighbor terrain.
+		/// </summary>
+		private uint GetWestNeighborNodeID ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Terrain_GetWestNeighborNodeID (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern uint Terrain_GetEastNeighborNodeID (IntPtr handle);
+
+		/// <summary>
+		/// Return east neighbor terrain.
+		/// </summary>
+		private uint GetEastNeighborNodeID ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Terrain_GetEastNeighborNodeID (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -811,6 +871,66 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Terrain_SetNorthNeighborNodeIDAttr (IntPtr handle, uint nodeID);
+
+		/// <summary>
+		/// Set north neighbor node ID attribute.
+		/// </summary>
+		public void SetNorthNeighborNodeIDAttr (uint nodeID)
+		{
+			Runtime.ValidateRefCounted (this);
+			Terrain_SetNorthNeighborNodeIDAttr (handle, nodeID);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Terrain_SetSouthNeighborNodeIDAttr (IntPtr handle, uint nodeID);
+
+		/// <summary>
+		/// Set south neighbor node ID attribute.
+		/// </summary>
+		public void SetSouthNeighborNodeIDAttr (uint nodeID)
+		{
+			Runtime.ValidateRefCounted (this);
+			Terrain_SetSouthNeighborNodeIDAttr (handle, nodeID);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Terrain_SetWestNeighborNodeIDAttr (IntPtr handle, uint nodeID);
+
+		/// <summary>
+		/// Set west neighbor node ID attribute.
+		/// </summary>
+		public void SetWestNeighborNodeIDAttr (uint nodeID)
+		{
+			Runtime.ValidateRefCounted (this);
+			Terrain_SetWestNeighborNodeIDAttr (handle, nodeID);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Terrain_SetEastNeighborNodeIDAttr (IntPtr handle, uint nodeID);
+
+		/// <summary>
+		/// Set east neighbor node ID attribute.
+		/// </summary>
+		public void SetEastNeighborNodeIDAttr (uint nodeID)
+		{
+			Runtime.ValidateRefCounted (this);
+			Terrain_SetEastNeighborNodeIDAttr (handle, nodeID);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Terrain_SetSpacingAttr (IntPtr handle, ref Urho.Vector3 value);
+
+		/// <summary>
+		/// Set vertex spacing attribute.
+		/// </summary>
+		public void SetSpacingAttr (Urho.Vector3 value)
+		{
+			Runtime.ValidateRefCounted (this);
+			Terrain_SetSpacingAttr (handle, ref value);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Terrain_SetPatchSizeAttr (IntPtr handle, int value);
 
 		/// <summary>
@@ -832,6 +952,18 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			Terrain_SetMaxLodLevelsAttr (handle, value);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Terrain_SetSmoothingAttr (IntPtr handle, bool enable);
+
+		/// <summary>
+		/// Set smoothing attribute.
+		/// </summary>
+		public void SetSmoothingAttr (bool enable)
+		{
+			Runtime.ValidateRefCounted (this);
+			Terrain_SetSmoothingAttr (handle, enable);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -1218,6 +1350,42 @@ namespace Urho
 		public Urho.IntVector2 NumPatches {
 			get {
 				return GetNumPatches ();
+			}
+		}
+
+		/// <summary>
+		/// Return north neighbor terrain.
+		/// </summary>
+		public uint NorthNeighborNodeID {
+			get {
+				return GetNorthNeighborNodeID ();
+			}
+		}
+
+		/// <summary>
+		/// Return south neighbor terrain.
+		/// </summary>
+		public uint SouthNeighborNodeID {
+			get {
+				return GetSouthNeighborNodeID ();
+			}
+		}
+
+		/// <summary>
+		/// Return west neighbor terrain.
+		/// </summary>
+		public uint WestNeighborNodeID {
+			get {
+				return GetWestNeighborNodeID ();
+			}
+		}
+
+		/// <summary>
+		/// Return east neighbor terrain.
+		/// </summary>
+		public uint EastNeighborNodeID {
+			get {
+				return GetEastNeighborNodeID ();
 			}
 		}
 

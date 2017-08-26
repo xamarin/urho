@@ -38,6 +38,18 @@ namespace Urho.Audio
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool SoundStream_Seek (IntPtr handle, uint sample_number);
+
+		/// <summary>
+		/// Seek to sample number. Return true on success. Need not be implemented by all streams.
+		/// </summary>
+		public virtual bool Seek (uint sample_number)
+		{
+			Runtime.ValidateRefCounted (this);
+			return SoundStream_Seek (handle, sample_number);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern uint SoundStream_GetData (IntPtr handle, sbyte* dest, uint numBytes);
 
 		/// <summary>

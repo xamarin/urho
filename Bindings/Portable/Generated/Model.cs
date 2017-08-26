@@ -21,7 +21,7 @@ namespace Urho
 	/// <summary>
 	/// 3D model resource.
 	/// </summary>
-	public unsafe partial class Model : Resource
+	public unsafe partial class Model : ResourceWithMetadata
 	{
 		unsafe partial void OnModelCreated ();
 
@@ -434,6 +434,15 @@ namespace Urho
 		}
 
 		/// <summary>
+		/// Return index buffers.
+		/// </summary>
+		public IReadOnlyList<IndexBuffer> IndexBuffers {
+			get {
+				return GetIndexBuffers ();
+			}
+		}
+
+		/// <summary>
 		/// Return number of geometries.
 		/// Or
 		/// Set number of geometries.
@@ -453,15 +462,6 @@ namespace Urho
 		public IReadOnlyList<VertexBuffer> VertexBuffers {
 			get {
 				return GetVertexBuffers ();
-			}
-		}
-
-		/// <summary>
-		/// Return index buffers.
-		/// </summary>
-		public IReadOnlyList<IndexBuffer> IndexBuffers {
-			get {
-				return GetIndexBuffers ();
 			}
 		}
 

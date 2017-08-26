@@ -199,6 +199,18 @@ namespace Urho.Resources
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr XmlFile_GetOrCreateRoot (IntPtr handle, string name);
+
+		/// <summary>
+		/// Get the root element if it has matching name, otherwise create it and clear the document.
+		/// </summary>
+		public XmlElement GetOrCreateRoot (string name)
+		{
+			Runtime.ValidateRefCounted (this);
+			return new XmlElement (XmlFile_GetOrCreateRoot (handle, name));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr XmlFile_GetRoot (IntPtr handle, string name);
 
 		/// <summary>

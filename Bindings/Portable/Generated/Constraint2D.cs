@@ -103,6 +103,18 @@ namespace Urho.Urho2D
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Constraint2D_ApplyAttributes (IntPtr handle);
+
+		/// <summary>
+		/// Apply attribute changes that can not be applied immediately. Called after scene load or a network update.
+		/// </summary>
+		public override void ApplyAttributes ()
+		{
+			Runtime.ValidateRefCounted (this);
+			Constraint2D_ApplyAttributes (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Constraint2D_OnSetEnabled (IntPtr handle);
 
 		/// <summary>
@@ -151,6 +163,18 @@ namespace Urho.Urho2D
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Constraint2D_SetOtherBodyNodeIDAttr (IntPtr handle, uint nodeID);
+
+		/// <summary>
+		/// Set other rigid body node ID.
+		/// </summary>
+		public void SetOtherBodyNodeIDAttr (uint nodeID)
+		{
+			Runtime.ValidateRefCounted (this);
+			Constraint2D_SetOtherBodyNodeIDAttr (handle, nodeID);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Constraint2D_SetCollideConnected (IntPtr handle, bool collideConnected);
 
 		/// <summary>
@@ -166,7 +190,7 @@ namespace Urho.Urho2D
 		internal static extern void Constraint2D_SetAttachedConstraint (IntPtr handle, IntPtr constraint);
 
 		/// <summary>
-		/// Set attached constriant (for gear).
+		/// Set attached constraint (for gear).
 		/// </summary>
 		private void SetAttachedConstraint (Constraint2D constraint)
 		{
@@ -196,6 +220,18 @@ namespace Urho.Urho2D
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<RigidBody2D> (Constraint2D_GetOtherBody (handle));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern uint Constraint2D_GetOtherBodyNodeID (IntPtr handle);
+
+		/// <summary>
+		/// Return other body node ID.
+		/// </summary>
+		private uint GetOtherBodyNodeID ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Constraint2D_GetOtherBodyNodeID (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -278,7 +314,7 @@ namespace Urho.Urho2D
 		/// <summary>
 		/// Return attached constraint (for gear).
 		/// Or
-		/// Set attached constriant (for gear).
+		/// Set attached constraint (for gear).
 		/// </summary>
 		public Constraint2D AttachedConstraint {
 			get {
@@ -295,6 +331,15 @@ namespace Urho.Urho2D
 		public RigidBody2D OwnerBody {
 			get {
 				return GetOwnerBody ();
+			}
+		}
+
+		/// <summary>
+		/// Return other body node ID.
+		/// </summary>
+		public uint OtherBodyNodeID {
+			get {
+				return GetOtherBodyNodeID ();
 			}
 		}
 	}

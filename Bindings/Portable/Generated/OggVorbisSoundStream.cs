@@ -50,6 +50,18 @@ namespace Urho.Audio
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool OggVorbisSoundStream_Seek (IntPtr handle, uint sample_number);
+
+		/// <summary>
+		/// Seek to sample number. Return true on success.
+		/// </summary>
+		public override bool Seek (uint sample_number)
+		{
+			Runtime.ValidateRefCounted (this);
+			return OggVorbisSoundStream_Seek (handle, sample_number);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern uint OggVorbisSoundStream_GetData (IntPtr handle, sbyte* dest, uint numBytes);
 
 		/// <summary>

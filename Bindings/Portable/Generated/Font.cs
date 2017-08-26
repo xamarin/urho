@@ -175,15 +175,27 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntPtr Font_GetFace (IntPtr handle, int pointSize);
+		internal static extern IntPtr Font_GetFace (IntPtr handle, float pointSize);
 
 		/// <summary>
 		/// Return font face. Pack and render to a texture if not rendered yet. Return null on error.
 		/// </summary>
-		public FontFace GetFace (int pointSize)
+		public FontFace GetFace (float pointSize)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupRefCounted<FontFace> (Font_GetFace (handle, pointSize));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern FontType Font_GetFontType (IntPtr handle);
+
+		/// <summary>
+		/// Return font type.
+		/// </summary>
+		private FontType GetFontType ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Font_GetFontType (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -223,12 +235,12 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern Urho.IntVector2 Font_GetTotalGlyphOffset (IntPtr handle, int pointSize);
+		internal static extern Urho.IntVector2 Font_GetTotalGlyphOffset (IntPtr handle, float pointSize);
 
 		/// <summary>
 		/// Return the total effective offset for a point size.
 		/// </summary>
-		public Urho.IntVector2 GetTotalGlyphOffset (int pointSize)
+		public Urho.IntVector2 GetTotalGlyphOffset (float pointSize)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Font_GetTotalGlyphOffset (handle, pointSize);
@@ -296,6 +308,15 @@ namespace Urho.Gui
 			}
 			set {
 				SetScaledGlyphOffset (value);
+			}
+		}
+
+		/// <summary>
+		/// Return font type.
+		/// </summary>
+		public FontType FontType {
+			get {
+				return GetFontType ();
 			}
 		}
 

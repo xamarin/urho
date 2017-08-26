@@ -958,7 +958,7 @@ namespace Urho.Physics
 		internal static extern void RigidBody_UpdateMass (IntPtr handle);
 
 		/// <summary>
-		/// Update mass and inertia to the Bullet rigid body.
+		/// Update mass and inertia to the Bullet rigid body. Readd body to world if necessary: if was in world and the Bullet collision shape to use changed.
 		/// </summary>
 		public void UpdateMass ()
 		{
@@ -976,6 +976,78 @@ namespace Urho.Physics
 		{
 			Runtime.ValidateRefCounted (this);
 			RigidBody_UpdateGravity (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void RigidBody_SetMassAttr (IntPtr handle, float mass);
+
+		/// <summary>
+		/// Set mass attribute.
+		/// </summary>
+		public void SetMassAttr (float mass)
+		{
+			Runtime.ValidateRefCounted (this);
+			RigidBody_SetMassAttr (handle, mass);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void RigidBody_SetCollisionLayerAttr (IntPtr handle, uint layer);
+
+		/// <summary>
+		/// Set collision layer attribute.
+		/// </summary>
+		public void SetCollisionLayerAttr (uint layer)
+		{
+			Runtime.ValidateRefCounted (this);
+			RigidBody_SetCollisionLayerAttr (handle, layer);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void RigidBody_SetCollisionMaskAttr (IntPtr handle, uint mask);
+
+		/// <summary>
+		/// Set collision mask attribute.
+		/// </summary>
+		public void SetCollisionMaskAttr (uint mask)
+		{
+			Runtime.ValidateRefCounted (this);
+			RigidBody_SetCollisionMaskAttr (handle, mask);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void RigidBody_SetCollisionEventModeAttr (IntPtr handle, CollisionEventMode mode);
+
+		/// <summary>
+		/// Set collision event signaling mode attribute.
+		/// </summary>
+		public void SetCollisionEventModeAttr (CollisionEventMode mode)
+		{
+			Runtime.ValidateRefCounted (this);
+			RigidBody_SetCollisionEventModeAttr (handle, mode);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void RigidBody_SetKinematicAttr (IntPtr handle, bool value);
+
+		/// <summary>
+		/// Set rigid body kinematic mode attribute.
+		/// </summary>
+		public void SetKinematicAttr (bool value)
+		{
+			Runtime.ValidateRefCounted (this);
+			RigidBody_SetKinematicAttr (handle, value);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void RigidBody_SetTriggerAttr (IntPtr handle, bool value);
+
+		/// <summary>
+		/// Set rigid body trigger mode attribute.
+		/// </summary>
+		public void SetTriggerAttr (bool value)
+		{
+			Runtime.ValidateRefCounted (this);
+			RigidBody_SetTriggerAttr (handle, value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -164,15 +164,15 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UI_Render (IntPtr handle, bool resetRenderTargets);
+		internal static extern void UI_Render (IntPtr handle, bool renderUICommand);
 
 		/// <summary>
-		/// Render the UI. If resetRenderTargets is true, is assumed to be the default UI render to backbuffer called by Engine, and will be performed only once. Additional UI renders to a different rendertarget may be triggered from the renderpath.
+		/// Render the UI. If renderUICommand is false (default), is assumed to be the default UI render to backbuffer called by Engine, and will be performed only once. Additional UI renders to a different rendertarget may be triggered from the renderpath.
 		/// </summary>
-		public void Render (bool resetRenderTargets = true)
+		public void Render (bool renderUICommand = false)
 		{
 			Runtime.ValidateRefCounted (this);
-			UI_Render (handle, resetRenderTargets);
+			UI_Render (handle, renderUICommand);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -380,6 +380,42 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void UI_SetFontHintLevel (IntPtr handle, FontHintLevel level);
+
+		/// <summary>
+		/// Set the hinting level used by FreeType fonts.
+		/// </summary>
+		private void SetFontHintLevel (FontHintLevel level)
+		{
+			Runtime.ValidateRefCounted (this);
+			UI_SetFontHintLevel (handle, level);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void UI_SetFontSubpixelThreshold (IntPtr handle, float threshold);
+
+		/// <summary>
+		/// Set the font subpixel threshold. Below this size, if the hint level is LIGHT or NONE, fonts will use subpixel positioning plus oversampling for higher-quality rendering. Has no effect at hint level NORMAL.
+		/// </summary>
+		private void SetFontSubpixelThreshold (float threshold)
+		{
+			Runtime.ValidateRefCounted (this);
+			UI_SetFontSubpixelThreshold (handle, threshold);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void UI_SetFontOversampling (IntPtr handle, int oversampling);
+
+		/// <summary>
+		/// Set the oversampling (horizonal stretching) used to improve subpixel font rendering. Only affects fonts smaller than the subpixel limit.
+		/// </summary>
+		private void SetFontOversampling (int oversampling)
+		{
+			Runtime.ValidateRefCounted (this);
+			UI_SetFontOversampling (handle, oversampling);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void UI_SetScale (IntPtr handle, float scale);
 
 		/// <summary>
@@ -491,7 +527,7 @@ namespace Urho.Gui
 		internal static extern IntPtr UI_GetElementAt (IntPtr handle, ref Urho.IntVector2 position, bool enabledOnly);
 
 		/// <summary>
-		/// Return UI element at screen coordinates. By default returns only input-enabled elements.
+		/// Return UI element at global screen coordinates. By default returns only input-enabled elements.
 		/// </summary>
 		public UIElement GetElementAt (Urho.IntVector2 position, bool enabledOnly = true)
 		{
@@ -503,12 +539,24 @@ namespace Urho.Gui
 		internal static extern IntPtr UI_GetElementAt2 (IntPtr handle, int x, int y, bool enabledOnly);
 
 		/// <summary>
-		/// Return UI element at screen coordinates. By default returns only input-enabled elements.
+		/// Return UI element at global screen coordinates. By default returns only input-enabled elements.
 		/// </summary>
 		public UIElement GetElementAt (int x, int y, bool enabledOnly = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<UIElement> (UI_GetElementAt2 (handle, x, y, enabledOnly));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr UI_GetElementAt3 (IntPtr handle, IntPtr root, ref Urho.IntVector2 position, bool enabledOnly);
+
+		/// <summary>
+		/// Get a child element at element's screen position relative to specified root element.
+		/// </summary>
+		public UIElement GetElementAt (UIElement root, Urho.IntVector2 position, bool enabledOnly = true)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Runtime.LookupObject<UIElement> (UI_GetElementAt3 (handle, (object)root == null ? IntPtr.Zero : root.Handle, ref position, enabledOnly));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -692,6 +740,42 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern FontHintLevel UI_GetFontHintLevel (IntPtr handle);
+
+		/// <summary>
+		/// Return the current FreeType font hinting level.
+		/// </summary>
+		private FontHintLevel GetFontHintLevel ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return UI_GetFontHintLevel (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern float UI_GetFontSubpixelThreshold (IntPtr handle);
+
+		/// <summary>
+		/// Get the font subpixel threshold. Below this size, if the hint level is LIGHT or NONE, fonts will use subpixel positioning plus oversampling for higher-quality rendering. Has no effect at hint level NORMAL.
+		/// </summary>
+		private float GetFontSubpixelThreshold ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return UI_GetFontSubpixelThreshold (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern int UI_GetFontOversampling (IntPtr handle);
+
+		/// <summary>
+		/// Get the oversampling (horizonal stretching) used to improve subpixel font rendering. Only affects fonts smaller than the subpixel limit.
+		/// </summary>
+		private int GetFontOversampling ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return UI_GetFontOversampling (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern bool UI_HasModalElement (IntPtr handle);
 
 		/// <summary>
@@ -737,6 +821,18 @@ namespace Urho.Gui
 		{
 			Runtime.ValidateRefCounted (this);
 			return UI_GetCustomSize (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void UI_SetRenderToTexture (IntPtr handle, IntPtr component, bool enable);
+
+		/// <summary>
+		/// Register UIElement for being rendered into a texture.
+		/// </summary>
+		public void SetRenderToTexture (UIComponent component, bool enable)
+		{
+			Runtime.ValidateRefCounted (this);
+			UI_SetRenderToTexture (handle, (object)component == null ? IntPtr.Zero : component.Handle, enable);
 		}
 
 		public override StringHash Type {
@@ -929,6 +1025,48 @@ namespace Urho.Gui
 			}
 			set {
 				SetForceAutoHint (value);
+			}
+		}
+
+		/// <summary>
+		/// Return the current FreeType font hinting level.
+		/// Or
+		/// Set the hinting level used by FreeType fonts.
+		/// </summary>
+		public FontHintLevel FontHintLevel {
+			get {
+				return GetFontHintLevel ();
+			}
+			set {
+				SetFontHintLevel (value);
+			}
+		}
+
+		/// <summary>
+		/// Get the font subpixel threshold. Below this size, if the hint level is LIGHT or NONE, fonts will use subpixel positioning plus oversampling for higher-quality rendering. Has no effect at hint level NORMAL.
+		/// Or
+		/// Set the font subpixel threshold. Below this size, if the hint level is LIGHT or NONE, fonts will use subpixel positioning plus oversampling for higher-quality rendering. Has no effect at hint level NORMAL.
+		/// </summary>
+		public float FontSubpixelThreshold {
+			get {
+				return GetFontSubpixelThreshold ();
+			}
+			set {
+				SetFontSubpixelThreshold (value);
+			}
+		}
+
+		/// <summary>
+		/// Get the oversampling (horizonal stretching) used to improve subpixel font rendering. Only affects fonts smaller than the subpixel limit.
+		/// Or
+		/// Set the oversampling (horizonal stretching) used to improve subpixel font rendering. Only affects fonts smaller than the subpixel limit.
+		/// </summary>
+		public int FontOversampling {
+			get {
+				return GetFontOversampling ();
+			}
+			set {
+				SetFontOversampling (value);
 			}
 		}
 

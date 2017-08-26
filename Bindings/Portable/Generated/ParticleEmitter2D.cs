@@ -163,6 +163,18 @@ namespace Urho.Urho2D
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void ParticleEmitter2D_SetEmitting (IntPtr handle, bool enable);
+
+		/// <summary>
+		/// Set whether should be emitting. If the state was changed, also resets the emission period timer.
+		/// </summary>
+		private void SetEmitting (bool enable)
+		{
+			Runtime.ValidateRefCounted (this);
+			ParticleEmitter2D_SetEmitting (handle, enable);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr ParticleEmitter2D_GetEffect (IntPtr handle);
 
 		/// <summary>
@@ -232,6 +244,18 @@ namespace Urho.Urho2D
 		{
 			Runtime.ValidateRefCounted (this);
 			return ParticleEmitter2D_GetSpriteAttr (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool ParticleEmitter2D_IsEmitting (IntPtr handle);
+
+		/// <summary>
+		/// Return whether is currently emitting.
+		/// </summary>
+		private bool IsEmitting ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return ParticleEmitter2D_IsEmitting (handle);
 		}
 
 		public override StringHash Type {
@@ -312,6 +336,20 @@ namespace Urho.Urho2D
 			}
 			set {
 				SetMaxParticles (value);
+			}
+		}
+
+		/// <summary>
+		/// Return whether is currently emitting.
+		/// Or
+		/// Set whether should be emitting. If the state was changed, also resets the emission period timer.
+		/// </summary>
+		public bool Emitting {
+			get {
+				return IsEmitting ();
+			}
+			set {
+				SetEmitting (value);
 			}
 		}
 

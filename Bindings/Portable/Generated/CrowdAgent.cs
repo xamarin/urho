@@ -127,15 +127,15 @@ namespace Urho.Navigation
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void CrowdAgent_DrawDebugGeometry (IntPtr handle, bool param1);
+		internal static extern void CrowdAgent_DrawDebugGeometry (IntPtr handle, bool depthTest);
 
 		/// <summary>
 		/// Draw debug geometry.
 		/// </summary>
-		public void DrawDebugGeometry (bool param1)
+		public void DrawDebugGeometry (bool depthTest)
 		{
 			Runtime.ValidateRefCounted (this);
-			CrowdAgent_DrawDebugGeometry (handle, param1);
+			CrowdAgent_DrawDebugGeometry (handle, depthTest);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

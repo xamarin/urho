@@ -127,36 +127,36 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Text3D_SetFont (IntPtr handle, string fontName, int size);
+		internal static extern bool Text3D_SetFont (IntPtr handle, string fontName, float size);
 
 		/// <summary>
 		/// Set font by looking from resource cache by name and font size. Return true if successful.
 		/// </summary>
-		public bool SetFont (string fontName, int size)
+		public bool SetFont (string fontName, float size)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Text3D_SetFont (handle, fontName, size);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Text3D_SetFont0 (IntPtr handle, IntPtr font, int size);
+		internal static extern bool Text3D_SetFont0 (IntPtr handle, IntPtr font, float size);
 
 		/// <summary>
 		/// Set font and font size. Return true if successful.
 		/// </summary>
-		public bool SetFont (Font font, int size)
+		public bool SetFont (Font font, float size)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Text3D_SetFont0 (handle, (object)font == null ? IntPtr.Zero : font.Handle, size);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Text3D_SetFontSize (IntPtr handle, int size);
+		internal static extern bool Text3D_SetFontSize (IntPtr handle, float size);
 
 		/// <summary>
 		/// Set font size only while retaining the existing font. Return true if successful.
 		/// </summary>
-		public bool SetFontSize (int size)
+		public bool SetFontSize (float size)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Text3D_SetFontSize (handle, size);
@@ -415,12 +415,12 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern int Text3D_GetFontSize (IntPtr handle);
+		internal static extern float Text3D_GetFontSize (IntPtr handle);
 
 		/// <summary>
 		/// Return font size.
 		/// </summary>
-		private int GetFontSize ()
+		private float GetFontSize ()
 		{
 			Runtime.ValidateRefCounted (this);
 			return Text3D_GetFontSize (handle);
@@ -595,6 +595,18 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern int Text3D_GetHeight (IntPtr handle);
+
+		/// <summary>
+		/// Return text height.
+		/// </summary>
+		private int GetHeight ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Text3D_GetHeight (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern int Text3D_GetRowHeight (IntPtr handle);
 
 		/// <summary>
@@ -643,24 +655,24 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern Urho.IntVector2 Text3D_GetCharPosition (IntPtr handle, uint index);
+		internal static extern Vector2 Text3D_GetCharPosition (IntPtr handle, uint index);
 
 		/// <summary>
 		/// Return position of character by index relative to the text element origin.
 		/// </summary>
-		public Urho.IntVector2 GetCharPosition (uint index)
+		public Vector2 GetCharPosition (uint index)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Text3D_GetCharPosition (handle, index);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern Urho.IntVector2 Text3D_GetCharSize (IntPtr handle, uint index);
+		internal static extern Vector2 Text3D_GetCharSize (IntPtr handle, uint index);
 
 		/// <summary>
 		/// Return size of character by index.
 		/// </summary>
-		public Urho.IntVector2 GetCharSize (uint index)
+		public Vector2 GetCharSize (uint index)
 		{
 			Runtime.ValidateRefCounted (this);
 			return Text3D_GetCharSize (handle, index);
@@ -813,7 +825,7 @@ namespace Urho.Gui
 		/// Or
 		/// Set font size only while retaining the existing font. Return true if successful.
 		/// </summary>
-		public int FontSize {
+		public float FontSize {
 			get {
 				return GetFontSize ();
 			}
@@ -1066,6 +1078,15 @@ namespace Urho.Gui
 		public Font Font {
 			get {
 				return GetFont ();
+			}
+		}
+
+		/// <summary>
+		/// Return text height.
+		/// </summary>
+		public int Height {
+			get {
+				return GetHeight ();
 			}
 		}
 

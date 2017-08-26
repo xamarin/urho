@@ -271,15 +271,15 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UIElement_OnTextInput (IntPtr handle, string text, int buttons, int qualifiers);
+		internal static extern void UIElement_OnTextInput (IntPtr handle, string text);
 
 		/// <summary>
 		/// React to text input event.
 		/// </summary>
-		public virtual void OnTextInput (string text, int buttons, int qualifiers)
+		public virtual void OnTextInput (string text)
 		{
 			Runtime.ValidateRefCounted (this);
-			UIElement_OnTextInput (handle, text, buttons, qualifiers);
+			UIElement_OnTextInput (handle, text);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

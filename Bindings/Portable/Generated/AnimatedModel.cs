@@ -342,6 +342,18 @@ namespace Urho
 			AnimatedModel_ResetMorphWeights (handle);
 		}
 
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void AnimatedModel_ApplyAnimation (IntPtr handle);
+
+		/// <summary>
+		/// Apply all animation states to nodes.
+		/// </summary>
+		public void ApplyAnimation ()
+		{
+			Runtime.ValidateRefCounted (this);
+			AnimatedModel_ApplyAnimation (handle);
+		}
+
 		private IReadOnlyList<AnimationState> _GetAnimationStates_cache;
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

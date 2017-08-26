@@ -21,7 +21,7 @@ namespace Urho
 	/// <summary>
 	/// Base class for texture resources.
 	/// </summary>
-	public unsafe partial class Texture : Resource, IGPUObject
+	public unsafe partial class Texture : ResourceWithMetadata, IGPUObject
 	{
 		unsafe partial void OnTextureCreated ();
 
@@ -67,6 +67,9 @@ namespace Urho
 
 		/// <summary>
 		/// Set number of requested mip levels. Needs to be called before setting size.
+		/// The default value (0) allocates as many mip levels as necessary to reach 1x1 size. Set value 1 to disable mipmapping.
+		/// Note that rendertargets need to regenerate mips dynamically after rendering, which may cost performance. Screen buffers
+		/// and shadow maps allocated by Renderer will have mipmaps disabled.
 		/// </summary>
 		public void SetNumLevels (uint levels)
 		{
@@ -234,7 +237,7 @@ namespace Urho
 		internal static extern int Texture_GetDepth (IntPtr handle);
 
 		/// <summary>
-		/// Return height.
+		/// Return depth.
 		/// </summary>
 		private int GetDepth ()
 		{
@@ -348,6 +351,18 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			return Texture_IsResolveDirty (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Texture_GetLevelsDirty (IntPtr handle);
+
+		/// <summary>
+		/// Return whether rendertarget mipmap levels need regenration.
+		/// </summary>
+		private bool GetLevelsDirty ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Texture_GetLevelsDirty (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -591,6 +606,30 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Texture_SetLevelsDirty (IntPtr handle);
+
+		/// <summary>
+		/// Set the mipmap levels dirty flag. Called internally by Graphics.
+		/// </summary>
+		public void SetLevelsDirty ()
+		{
+			Runtime.ValidateRefCounted (this);
+			Texture_SetLevelsDirty (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Texture_RegenerateLevels (IntPtr handle);
+
+		/// <summary>
+		/// Regenerate mipmap levels for a rendertarget after rendering and before sampling. Called internally by Graphics. No-op on Direct3D9. On OpenGL the texture must have been bound to work properly.
+		/// </summary>
+		public void RegenerateLevels ()
+		{
+			Runtime.ValidateRefCounted (this);
+			Texture_RegenerateLevels (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern uint Texture_CheckMaxLevels (int width, int height, uint requestedLevels);
 
 		/// <summary>
@@ -744,7 +783,7 @@ namespace Urho
 		}
 
 		/// <summary>
-		/// Return height.
+		/// Return depth.
 		/// </summary>
 		public int Depth {
 			get {
@@ -781,6 +820,15 @@ namespace Urho
 			}
 			set {
 				SetResolveDirty (value);
+			}
+		}
+
+		/// <summary>
+		/// Return whether rendertarget mipmap levels need regenration.
+		/// </summary>
+		public bool LevelsDirty {
+			get {
+				return GetLevelsDirty ();
 			}
 		}
 

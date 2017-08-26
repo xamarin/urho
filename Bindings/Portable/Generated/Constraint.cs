@@ -355,6 +355,18 @@ namespace Urho.Physics
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern uint Constraint_GetOtherBodyNodeID (IntPtr handle);
+
+		/// <summary>
+		/// Return the other rigid body node ID.
+		/// </summary>
+		private uint GetOtherBodyNodeID ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Constraint_GetOtherBodyNodeID (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern Urho.Vector3 Constraint_GetPosition (IntPtr handle);
 
 		/// <summary>
@@ -472,6 +484,90 @@ namespace Urho.Physics
 		{
 			Runtime.ValidateRefCounted (this);
 			return Constraint_GetDisableCollision (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Constraint_SetConstraintTypeAttr (IntPtr handle, ConstraintType type);
+
+		/// <summary>
+		/// Set constraint type attribute.
+		/// </summary>
+		public void SetConstraintTypeAttr (ConstraintType type)
+		{
+			Runtime.ValidateRefCounted (this);
+			Constraint_SetConstraintTypeAttr (handle, type);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Constraint_SetPositionAttr (IntPtr handle, ref Urho.Vector3 position);
+
+		/// <summary>
+		/// Set position attribute.
+		/// </summary>
+		public void SetPositionAttr (Urho.Vector3 position)
+		{
+			Runtime.ValidateRefCounted (this);
+			Constraint_SetPositionAttr (handle, ref position);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Constraint_SetRotationAttr (IntPtr handle, ref Urho.Quaternion rotation);
+
+		/// <summary>
+		/// Set rotation attribute.
+		/// </summary>
+		public void SetRotationAttr (Urho.Quaternion rotation)
+		{
+			Runtime.ValidateRefCounted (this);
+			Constraint_SetRotationAttr (handle, ref rotation);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Constraint_SetOtherPositionAttr (IntPtr handle, ref Urho.Vector3 position);
+
+		/// <summary>
+		/// Set other body position attribute.
+		/// </summary>
+		public void SetOtherPositionAttr (Urho.Vector3 position)
+		{
+			Runtime.ValidateRefCounted (this);
+			Constraint_SetOtherPositionAttr (handle, ref position);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Constraint_SetOtherRotationAttr (IntPtr handle, ref Urho.Quaternion rotation);
+
+		/// <summary>
+		/// Set other body rotation attribute.
+		/// </summary>
+		public void SetOtherRotationAttr (Urho.Quaternion rotation)
+		{
+			Runtime.ValidateRefCounted (this);
+			Constraint_SetOtherRotationAttr (handle, ref rotation);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Constraint_SetOtherBodyNodeIDAttr (IntPtr handle, uint nodeID);
+
+		/// <summary>
+		/// Set other body node ID attribute.
+		/// </summary>
+		public void SetOtherBodyNodeIDAttr (uint nodeID)
+		{
+			Runtime.ValidateRefCounted (this);
+			Constraint_SetOtherBodyNodeIDAttr (handle, nodeID);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Constraint_SetDisableCollitionAttr (IntPtr handle, bool value);
+
+		/// <summary>
+		/// Set disable collision attribute.
+		/// </summary>
+		public void SetDisableCollitionAttr (bool value)
+		{
+			Runtime.ValidateRefCounted (this);
+			Constraint_SetDisableCollitionAttr (handle, value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -701,6 +797,15 @@ namespace Urho.Physics
 		public RigidBody OwnBody {
 			get {
 				return GetOwnBody ();
+			}
+		}
+
+		/// <summary>
+		/// Return the other rigid body node ID.
+		/// </summary>
+		public uint OtherBodyNodeID {
+			get {
+				return GetOtherBodyNodeID ();
 			}
 		}
 	}

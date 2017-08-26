@@ -69,6 +69,13 @@ extern "C" {
 		StringHash h (hash);
 		return *((Interop::Vector3  *) &(map [h].GetVector3 ()));
 	}
+	
+	DllExport
+	Interop::IntVector2 urho_map_get_IntVector2 (VariantMap& map, int hash)
+	{
+		StringHash h (hash);
+		return *((Interop::IntVector2  *) &(map [h].GetIntVector2 ()));
+	}
 
 	DllExport
 	int urho_map_get_bool (VariantMap& map, int hash)

@@ -47,6 +47,9 @@ namespace Urho
 		Matrix4,
 		Double,
 		Stringvector,
+		Rect,
+		Intvector3,
+		Int64,
 		MaxVarTypes
 	}
 }

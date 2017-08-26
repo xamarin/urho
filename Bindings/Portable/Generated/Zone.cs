@@ -120,10 +120,34 @@ namespace Urho
 		/// <summary>
 		/// Set local-space bounding box. Will be used as an oriented bounding box to test whether objects or the camera are inside.
 		/// </summary>
-		public void SetBoundingBox (Urho.BoundingBox box)
+		private void SetBoundingBox (Urho.BoundingBox box)
 		{
 			Runtime.ValidateRefCounted (this);
 			Zone_SetBoundingBox (handle, ref box);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Zone_SetBoundingBoxMin (IntPtr handle, ref Urho.Vector3 boxMin);
+
+		/// <summary>
+		/// Set local-space bounding box min.
+		/// </summary>
+		private void SetBoundingBoxMin (Urho.Vector3 boxMin)
+		{
+			Runtime.ValidateRefCounted (this);
+			Zone_SetBoundingBoxMin (handle, ref boxMin);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Zone_SetBoundingBoxMax (IntPtr handle, ref Urho.Vector3 boxMax);
+
+		/// <summary>
+		/// Set local-space bounding box max.
+		/// </summary>
+		private void SetBoundingBoxMax (Urho.Vector3 boxMax)
+		{
+			Runtime.ValidateRefCounted (this);
+			Zone_SetBoundingBoxMax (handle, ref boxMax);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -268,6 +292,42 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			return Zone_GetInverseWorldTransform (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern Urho.BoundingBox Zone_GetBoundingBox (IntPtr handle);
+
+		/// <summary>
+		/// Return local-space bounding box.
+		/// </summary>
+		private Urho.BoundingBox GetBoundingBox ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Zone_GetBoundingBox (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern Urho.Vector3 Zone_GetBoundingBoxMin (IntPtr handle);
+
+		/// <summary>
+		/// Return local-space bounding box min.
+		/// </summary>
+		private Urho.Vector3 GetBoundingBoxMin ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Zone_GetBoundingBoxMin (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern Urho.Vector3 Zone_GetBoundingBoxMax (IntPtr handle);
+
+		/// <summary>
+		/// Return local-space bounding box max.
+		/// </summary>
+		private Urho.Vector3 GetBoundingBoxMax ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Zone_GetBoundingBoxMax (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -472,6 +532,48 @@ namespace Urho
 		public new static string TypeNameStatic {
 			get {
 				return GetTypeNameStatic ();
+			}
+		}
+
+		/// <summary>
+		/// Return local-space bounding box.
+		/// Or
+		/// Set local-space bounding box. Will be used as an oriented bounding box to test whether objects or the camera are inside.
+		/// </summary>
+		public Urho.BoundingBox BoundingBox {
+			get {
+				return GetBoundingBox ();
+			}
+			set {
+				SetBoundingBox (value);
+			}
+		}
+
+		/// <summary>
+		/// Return local-space bounding box min.
+		/// Or
+		/// Set local-space bounding box min.
+		/// </summary>
+		public Urho.Vector3 BoundingBoxMin {
+			get {
+				return GetBoundingBoxMin ();
+			}
+			set {
+				SetBoundingBoxMin (value);
+			}
+		}
+
+		/// <summary>
+		/// Return local-space bounding box max.
+		/// Or
+		/// Set local-space bounding box max.
+		/// </summary>
+		public Urho.Vector3 BoundingBoxMax {
+			get {
+				return GetBoundingBoxMax ();
+			}
+			set {
+				SetBoundingBoxMax (value);
 			}
 		}
 

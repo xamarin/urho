@@ -163,6 +163,30 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Light_SetRadius (IntPtr handle, float radius);
+
+		/// <summary>
+		/// Set area light radius. Greater than zero activates area light mode. Works only with PBR shaders.
+		/// </summary>
+		private void SetRadius (float radius)
+		{
+			Runtime.ValidateRefCounted (this);
+			Light_SetRadius (handle, radius);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Light_SetLength (IntPtr handle, float length);
+
+		/// <summary>
+		/// Set tube area light length. Works only with PBR shaders.
+		/// </summary>
+		private void SetLength (float length)
+		{
+			Runtime.ValidateRefCounted (this);
+			Light_SetLength (handle, length);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Light_SetUsePhysicalValues (IntPtr handle, bool enable);
 
 		/// <summary>
@@ -271,6 +295,42 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Light_SetShadowConstantBias (IntPtr handle, float constantBias);
+
+		/// <summary>
+		/// Set shadow constant bias.
+		/// </summary>
+		private void SetShadowConstantBias (float constantBias)
+		{
+			Runtime.ValidateRefCounted (this);
+			Light_SetShadowConstantBias (handle, constantBias);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Light_SetShadowSlopeScaledBias (IntPtr handle, float slopeScaledBias);
+
+		/// <summary>
+		/// Set shadow slope scaled bias.
+		/// </summary>
+		private void SetShadowSlopeScaledBias (float slopeScaledBias)
+		{
+			Runtime.ValidateRefCounted (this);
+			Light_SetShadowSlopeScaledBias (handle, slopeScaledBias);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Light_SetShadowNormalOffset (IntPtr handle, float normalOffset);
+
+		/// <summary>
+		/// Set shadow normal offset multiplier.
+		/// </summary>
+		private void SetShadowNormalOffset (float normalOffset)
+		{
+			Runtime.ValidateRefCounted (this);
+			Light_SetShadowNormalOffset (handle, normalOffset);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Light_SetShadowCascade (IntPtr handle, ref CascadeParameters parameters);
 
 		/// <summary>
@@ -283,6 +343,42 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Light_SetShadowCascadeSplits (IntPtr handle, ref Urho.Vector4 value);
+
+		/// <summary>
+		/// Set shadow cascade splits.
+		/// </summary>
+		public void SetShadowCascadeSplits (Urho.Vector4 value)
+		{
+			Runtime.ValidateRefCounted (this);
+			Light_SetShadowCascadeSplits (handle, ref value);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Light_SetShadowCascadeFadeStart (IntPtr handle, float fadeStart);
+
+		/// <summary>
+		/// Set shadow cascade fade start.
+		/// </summary>
+		private void SetShadowCascadeFadeStart (float fadeStart)
+		{
+			Runtime.ValidateRefCounted (this);
+			Light_SetShadowCascadeFadeStart (handle, fadeStart);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Light_SetShadowCascadeBiasAutoAdjust (IntPtr handle, float biasAutoAdjust);
+
+		/// <summary>
+		/// Set shadow cascade automatic depth bias adjustment strength.
+		/// </summary>
+		private void SetShadowCascadeBiasAutoAdjust (float biasAutoAdjust)
+		{
+			Runtime.ValidateRefCounted (this);
+			Light_SetShadowCascadeBiasAutoAdjust (handle, biasAutoAdjust);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Light_SetShadowFocus (IntPtr handle, ref FocusParameters parameters);
 
 		/// <summary>
@@ -292,6 +388,66 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			Light_SetShadowFocus (handle, ref parameters);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Light_SetShadowFocusFlag (IntPtr handle, bool focus);
+
+		/// <summary>
+		/// Set shadow focus flag.
+		/// </summary>
+		private void SetShadowFocusFlag (bool focus)
+		{
+			Runtime.ValidateRefCounted (this);
+			Light_SetShadowFocusFlag (handle, focus);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Light_SetShadowFocusNonUniform (IntPtr handle, bool nonUniform);
+
+		/// <summary>
+		/// Set shadow non-uniform focus flag.
+		/// </summary>
+		private void SetShadowFocusNonUniform (bool nonUniform)
+		{
+			Runtime.ValidateRefCounted (this);
+			Light_SetShadowFocusNonUniform (handle, nonUniform);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Light_SetShadowFocusAutoSize (IntPtr handle, bool autoSize);
+
+		/// <summary>
+		/// Set shadow focus auto-size.
+		/// </summary>
+		private void SetShadowFocusAutoSize (bool autoSize)
+		{
+			Runtime.ValidateRefCounted (this);
+			Light_SetShadowFocusAutoSize (handle, autoSize);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Light_SetShadowFocusQuantize (IntPtr handle, float quantize);
+
+		/// <summary>
+		/// Set shadow focus quantization.
+		/// </summary>
+		private void SetShadowFocusQuantize (float quantize)
+		{
+			Runtime.ValidateRefCounted (this);
+			Light_SetShadowFocusQuantize (handle, quantize);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Light_SetShadowFocusMinView (IntPtr handle, float minView);
+
+		/// <summary>
+		/// Set shadow focus minimum view size.
+		/// </summary>
+		private void SetShadowFocusMinView (float minView)
+		{
+			Runtime.ValidateRefCounted (this);
+			Light_SetShadowFocusMinView (handle, minView);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -412,6 +568,30 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			return Light_GetTemperature (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern float Light_GetRadius (IntPtr handle);
+
+		/// <summary>
+		/// Return area light mode radius. Works only with PBR shaders.
+		/// </summary>
+		private float GetRadius ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Light_GetRadius (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern float Light_GetLength (IntPtr handle);
+
+		/// <summary>
+		/// Return area tube light length. Works only with PBR shaders.
+		/// </summary>
+		private float GetLength ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Light_GetLength (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -559,6 +739,42 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern float Light_GetShadowConstantBias (IntPtr handle);
+
+		/// <summary>
+		/// Return shadow constant bias.
+		/// </summary>
+		private float GetShadowConstantBias ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Light_GetShadowConstantBias (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern float Light_GetShadowSlopeScaledBias (IntPtr handle);
+
+		/// <summary>
+		/// Return shadow slope scaled bias.
+		/// </summary>
+		private float GetShadowSlopeScaledBias ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Light_GetShadowSlopeScaledBias (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern float Light_GetShadowNormalOffset (IntPtr handle);
+
+		/// <summary>
+		/// Return shadow normal offset multiplier.
+		/// </summary>
+		private float GetShadowNormalOffset ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Light_GetShadowNormalOffset (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern CascadeParameters Light_GetShadowCascade (IntPtr handle);
 
 		/// <summary>
@@ -571,6 +787,42 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern Vector4 Light_GetShadowCascadeSplits (IntPtr handle);
+
+		/// <summary>
+		/// Return shadow cascade splits.
+		/// </summary>
+		private Vector4 GetShadowCascadeSplits ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Light_GetShadowCascadeSplits (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern float Light_GetShadowCascadeFadeStart (IntPtr handle);
+
+		/// <summary>
+		/// Return shadow cascade fade start.
+		/// </summary>
+		private float GetShadowCascadeFadeStart ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Light_GetShadowCascadeFadeStart (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern float Light_GetShadowCascadeBiasAutoAdjust (IntPtr handle);
+
+		/// <summary>
+		/// Return shadow cascade automatic depth bias adjustment strength.
+		/// </summary>
+		private float GetShadowCascadeBiasAutoAdjust ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Light_GetShadowCascadeBiasAutoAdjust (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern FocusParameters Light_GetShadowFocus (IntPtr handle);
 
 		/// <summary>
@@ -580,6 +832,66 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			return Light_GetShadowFocus (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Light_GetShadowFocusFlag (IntPtr handle);
+
+		/// <summary>
+		/// Return shadow focus flag.
+		/// </summary>
+		private bool GetShadowFocusFlag ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Light_GetShadowFocusFlag (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Light_GetShadowFocusNonUniform (IntPtr handle);
+
+		/// <summary>
+		/// Return shadow non-uniform focus flag.
+		/// </summary>
+		private bool GetShadowFocusNonUniform ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Light_GetShadowFocusNonUniform (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Light_GetShadowFocusAutoSize (IntPtr handle);
+
+		/// <summary>
+		/// Return shadow focus auto-size.
+		/// </summary>
+		private bool GetShadowFocusAutoSize ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Light_GetShadowFocusAutoSize (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern float Light_GetShadowFocusQuantize (IntPtr handle);
+
+		/// <summary>
+		/// Return shadow focus quantization.
+		/// </summary>
+		private float GetShadowFocusQuantize ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Light_GetShadowFocusQuantize (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern float Light_GetShadowFocusMinView (IntPtr handle);
+
+		/// <summary>
+		/// Return shadow focus minimum view size.
+		/// </summary>
+		private float GetShadowFocusMinView ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Light_GetShadowFocusMinView (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -892,6 +1204,34 @@ namespace Urho
 		}
 
 		/// <summary>
+		/// Return area light mode radius. Works only with PBR shaders.
+		/// Or
+		/// Set area light radius. Greater than zero activates area light mode. Works only with PBR shaders.
+		/// </summary>
+		public float Radius {
+			get {
+				return GetRadius ();
+			}
+			set {
+				SetRadius (value);
+			}
+		}
+
+		/// <summary>
+		/// Return area tube light length. Works only with PBR shaders.
+		/// Or
+		/// Set tube area light length. Works only with PBR shaders.
+		/// </summary>
+		public float Length {
+			get {
+				return GetLength ();
+			}
+			set {
+				SetLength (value);
+			}
+		}
+
+		/// <summary>
 		/// Return if light uses temperature and brightness in lumens.
 		/// Or
 		/// Set use physical light values.
@@ -1018,6 +1358,48 @@ namespace Urho
 		}
 
 		/// <summary>
+		/// Return shadow constant bias.
+		/// Or
+		/// Set shadow constant bias.
+		/// </summary>
+		public float ShadowConstantBias {
+			get {
+				return GetShadowConstantBias ();
+			}
+			set {
+				SetShadowConstantBias (value);
+			}
+		}
+
+		/// <summary>
+		/// Return shadow slope scaled bias.
+		/// Or
+		/// Set shadow slope scaled bias.
+		/// </summary>
+		public float ShadowSlopeScaledBias {
+			get {
+				return GetShadowSlopeScaledBias ();
+			}
+			set {
+				SetShadowSlopeScaledBias (value);
+			}
+		}
+
+		/// <summary>
+		/// Return shadow normal offset multiplier.
+		/// Or
+		/// Set shadow normal offset multiplier.
+		/// </summary>
+		public float ShadowNormalOffset {
+			get {
+				return GetShadowNormalOffset ();
+			}
+			set {
+				SetShadowNormalOffset (value);
+			}
+		}
+
+		/// <summary>
 		/// Return directional light cascaded shadow parameters.
 		/// Or
 		/// Set directional light cascaded shadow parameters.
@@ -1032,6 +1414,43 @@ namespace Urho
 		}
 
 		/// <summary>
+		/// Return shadow cascade splits.
+		/// </summary>
+		public Vector4 ShadowCascadeSplits {
+			get {
+				return GetShadowCascadeSplits ();
+			}
+		}
+
+		/// <summary>
+		/// Return shadow cascade fade start.
+		/// Or
+		/// Set shadow cascade fade start.
+		/// </summary>
+		public float ShadowCascadeFadeStart {
+			get {
+				return GetShadowCascadeFadeStart ();
+			}
+			set {
+				SetShadowCascadeFadeStart (value);
+			}
+		}
+
+		/// <summary>
+		/// Return shadow cascade automatic depth bias adjustment strength.
+		/// Or
+		/// Set shadow cascade automatic depth bias adjustment strength.
+		/// </summary>
+		public float ShadowCascadeBiasAutoAdjust {
+			get {
+				return GetShadowCascadeBiasAutoAdjust ();
+			}
+			set {
+				SetShadowCascadeBiasAutoAdjust (value);
+			}
+		}
+
+		/// <summary>
 		/// Return shadow map focus parameters.
 		/// Or
 		/// Set shadow map focusing parameters.
@@ -1042,6 +1461,76 @@ namespace Urho
 			}
 			set {
 				SetShadowFocus (value);
+			}
+		}
+
+		/// <summary>
+		/// Return shadow focus flag.
+		/// Or
+		/// Set shadow focus flag.
+		/// </summary>
+		public bool ShadowFocusFlag {
+			get {
+				return GetShadowFocusFlag ();
+			}
+			set {
+				SetShadowFocusFlag (value);
+			}
+		}
+
+		/// <summary>
+		/// Return shadow non-uniform focus flag.
+		/// Or
+		/// Set shadow non-uniform focus flag.
+		/// </summary>
+		public bool ShadowFocusNonUniform {
+			get {
+				return GetShadowFocusNonUniform ();
+			}
+			set {
+				SetShadowFocusNonUniform (value);
+			}
+		}
+
+		/// <summary>
+		/// Return shadow focus auto-size.
+		/// Or
+		/// Set shadow focus auto-size.
+		/// </summary>
+		public bool ShadowFocusAutoSize {
+			get {
+				return GetShadowFocusAutoSize ();
+			}
+			set {
+				SetShadowFocusAutoSize (value);
+			}
+		}
+
+		/// <summary>
+		/// Return shadow focus quantization.
+		/// Or
+		/// Set shadow focus quantization.
+		/// </summary>
+		public float ShadowFocusQuantize {
+			get {
+				return GetShadowFocusQuantize ();
+			}
+			set {
+				SetShadowFocusQuantize (value);
+			}
+		}
+
+		/// <summary>
+		/// Return shadow focus minimum view size.
+		/// Or
+		/// Set shadow focus minimum view size.
+		/// </summary>
+		public float ShadowFocusMinView {
+			get {
+				return GetShadowFocusMinView ();
+			}
+			set {
+				SetShadowFocusMinView (value);
 			}
 		}
 

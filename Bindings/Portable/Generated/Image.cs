@@ -151,15 +151,15 @@ namespace Urho.Resources
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Image_Save0 (IntPtr handle, string fileName);
+		internal static extern bool Image_SaveFile (IntPtr handle, string fileName);
 
 		/// <summary>
 		/// Save the image to a file. Format of the image is determined by file extension. JPG is saved with maximum quality.
 		/// </summary>
-		public override bool Save (string fileName)
+		public override bool SaveFile (string fileName)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Image_Save0 (handle, fileName);
+			return Image_SaveFile (handle, fileName);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -175,7 +175,7 @@ namespace Urho.Resources
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Image_SetSize1 (IntPtr handle, int width, int height, int depth, uint components);
+		internal static extern bool Image_SetSize0 (IntPtr handle, int width, int height, int depth, uint components);
 
 		/// <summary>
 		/// Set 3D size and number of color components. Old image data will be destroyed and new data is undefined. Return true if successful.
@@ -183,7 +183,7 @@ namespace Urho.Resources
 		public bool SetSize (int width, int height, int depth, uint components)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Image_SetSize1 (handle, width, height, depth, components);
+			return Image_SetSize0 (handle, width, height, depth, components);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -211,7 +211,7 @@ namespace Urho.Resources
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Image_SetPixel2 (IntPtr handle, int x, int y, int z, ref Urho.Color color);
+		internal static extern void Image_SetPixel1 (IntPtr handle, int x, int y, int z, ref Urho.Color color);
 
 		/// <summary>
 		/// Set a 3D pixel.
@@ -219,7 +219,7 @@ namespace Urho.Resources
 		public void SetPixel (int x, int y, int z, Urho.Color color)
 		{
 			Runtime.ValidateRefCounted (this);
-			Image_SetPixel2 (handle, x, y, z, ref color);
+			Image_SetPixel1 (handle, x, y, z, ref color);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -235,7 +235,7 @@ namespace Urho.Resources
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Image_SetPixelInt3 (IntPtr handle, int x, int y, int z, uint uintColor);
+		internal static extern void Image_SetPixelInt2 (IntPtr handle, int x, int y, int z, uint uintColor);
 
 		/// <summary>
 		/// Set a 3D pixel with an integer color. R component is in the 8 lowest bits.
@@ -243,7 +243,7 @@ namespace Urho.Resources
 		public void SetPixelInt (int x, int y, int z, uint uintColor)
 		{
 			Runtime.ValidateRefCounted (this);
-			Image_SetPixelInt3 (handle, x, y, z, uintColor);
+			Image_SetPixelInt2 (handle, x, y, z, uintColor);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -370,7 +370,7 @@ namespace Urho.Resources
 		internal static extern bool Image_SaveJPG (IntPtr handle, string fileName, int quality);
 
 		/// <summary>
-		/// Save in JPG format with compression quality. Return true if successful.
+		/// Save in JPG format with specified quality. Return true if successful.
 		/// </summary>
 		public bool SaveJPG (string fileName, int quality)
 		{
@@ -388,6 +388,18 @@ namespace Urho.Resources
 		{
 			Runtime.ValidateRefCounted (this);
 			return Image_SaveDDS (handle, fileName);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Image_SaveWEBP (IntPtr handle, string fileName, float compression);
+
+		/// <summary>
+		/// Save in WebP format with minimum (fastest) or specified compression. Return true if successful. Fails always if WebP support is not compiled in.
+		/// </summary>
+		public bool SaveWEBP (string fileName, float compression = 0f)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Image_SaveWEBP (handle, fileName, compression);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -439,7 +451,7 @@ namespace Urho.Resources
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern Color Image_GetPixel4 (IntPtr handle, int x, int y, int z);
+		internal static extern Color Image_GetPixel3 (IntPtr handle, int x, int y, int z);
 
 		/// <summary>
 		/// Return a 3D pixel color.
@@ -447,7 +459,7 @@ namespace Urho.Resources
 		public Color GetPixel (int x, int y, int z)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Image_GetPixel4 (handle, x, y, z);
+			return Image_GetPixel3 (handle, x, y, z);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -463,7 +475,7 @@ namespace Urho.Resources
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern uint Image_GetPixelInt5 (IntPtr handle, int x, int y, int z);
+		internal static extern uint Image_GetPixelInt4 (IntPtr handle, int x, int y, int z);
 
 		/// <summary>
 		/// Return a 3D pixel integer color. R component is in the 8 lowest bits.
@@ -471,7 +483,7 @@ namespace Urho.Resources
 		public uint GetPixelInt (int x, int y, int z)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Image_GetPixelInt5 (handle, x, y, z);
+			return Image_GetPixelInt4 (handle, x, y, z);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

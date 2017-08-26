@@ -19,7 +19,7 @@ using Urho.Network;
 namespace Urho.Urho2D
 {
 	/// <summary>
-	/// Tmx image layer.
+	/// Tmx objects layer.
 	/// </summary>
 	public unsafe partial class TmxObjectGroup2D : TmxLayer2D
 	{

@@ -151,15 +151,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool Graphics_SetMode (IntPtr handle, int width, int height, bool fullscreen, bool borderless, bool resizable, bool highDPI, bool vsync, bool tripleBuffer, int multiSample);
+		internal static extern bool Graphics_SetMode (IntPtr handle, int width, int height, bool fullscreen, bool borderless, bool resizable, bool highDPI, bool vsync, bool tripleBuffer, int multiSample, int monitor, int refreshRate);
 
 		/// <summary>
 		/// Set screen mode. Return true if successful.
 		/// </summary>
-		public bool SetMode (int width, int height, bool fullscreen, bool borderless, bool resizable, bool highDPI, bool vsync, bool tripleBuffer, int multiSample)
+		public bool SetMode (int width, int height, bool fullscreen, bool borderless, bool resizable, bool highDPI, bool vsync, bool tripleBuffer, int multiSample, int monitor, int refreshRate)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Graphics_SetMode (handle, width, height, fullscreen, borderless, resizable, highDPI, vsync, tripleBuffer, multiSample);
+			return Graphics_SetMode (handle, width, height, fullscreen, borderless, resizable, highDPI, vsync, tripleBuffer, multiSample, monitor, refreshRate);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -1075,6 +1075,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern Urho.IntVector2 Graphics_GetSize (IntPtr handle);
+
+		/// <summary>
+		/// Return window size in pixels.
+		/// </summary>
+		private Urho.IntVector2 GetSize ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Graphics_GetSize (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern bool Graphics_GetFullscreen (IntPtr handle);
 
 		/// <summary>
@@ -1132,6 +1144,30 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			return Graphics_GetVSync (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern int Graphics_GetRefreshRate (IntPtr handle);
+
+		/// <summary>
+		/// Return refresh rate when using vsync in fullscreen
+		/// </summary>
+		private int GetRefreshRate ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Graphics_GetRefreshRate (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern int Graphics_GetMonitor (IntPtr handle);
+
+		/// <summary>
+		/// Return the current monitor index. Effective on in fullscreen
+		/// </summary>
+		private int GetMonitor ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Graphics_GetMonitor (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -1351,15 +1387,27 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern Urho.IntVector2 Graphics_GetDesktopResolution (IntPtr handle);
+		internal static extern Urho.IntVector2 Graphics_GetDesktopResolution (IntPtr handle, int monitor);
 
 		/// <summary>
 		/// Return the desktop resolution.
 		/// </summary>
-		private Urho.IntVector2 GetDesktopResolution ()
+		public Urho.IntVector2 GetDesktopResolution (int monitor)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Graphics_GetDesktopResolution (handle);
+			return Graphics_GetDesktopResolution (handle, monitor);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern int Graphics_GetMonitorCount (IntPtr handle);
+
+		/// <summary>
+		/// Return the number of currently connected monitors.
+		/// </summary>
+		private int GetMonitorCount ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Graphics_GetMonitorCount (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -2478,6 +2526,15 @@ namespace Urho
 		}
 
 		/// <summary>
+		/// Return window size in pixels.
+		/// </summary>
+		public Urho.IntVector2 Size {
+			get {
+				return GetSize ();
+			}
+		}
+
+		/// <summary>
 		/// Return whether window is fullscreen.
 		/// </summary>
 		public bool Fullscreen {
@@ -2519,6 +2576,24 @@ namespace Urho
 		public bool VSync {
 			get {
 				return GetVSync ();
+			}
+		}
+
+		/// <summary>
+		/// Return refresh rate when using vsync in fullscreen
+		/// </summary>
+		public int RefreshRate {
+			get {
+				return GetRefreshRate ();
+			}
+		}
+
+		/// <summary>
+		/// Return the current monitor index. Effective on in fullscreen
+		/// </summary>
+		public int Monitor {
+			get {
+				return GetMonitor ();
 			}
 		}
 
@@ -2649,11 +2724,11 @@ namespace Urho
 		}
 
 		/// <summary>
-		/// Return the desktop resolution.
+		/// Return the number of currently connected monitors.
 		/// </summary>
-		public Urho.IntVector2 DesktopResolution {
+		public int MonitorCount {
 			get {
-				return GetDesktopResolution ();
+				return GetMonitorCount ();
 			}
 		}
 

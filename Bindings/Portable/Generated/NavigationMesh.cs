@@ -295,6 +295,18 @@ namespace Urho.Navigation
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool NavigationMesh_Allocate (IntPtr handle, ref Urho.BoundingBox boundingBox, uint maxTiles);
+
+		/// <summary>
+		/// Allocate the navigation mesh without building any tiles. Bounding box is not padded. Return true if successful.
+		/// </summary>
+		public virtual bool Allocate (Urho.BoundingBox boundingBox, uint maxTiles)
+		{
+			Runtime.ValidateRefCounted (this);
+			return NavigationMesh_Allocate (handle, ref boundingBox, maxTiles);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern bool NavigationMesh_Build (IntPtr handle);
 
 		/// <summary>
@@ -316,6 +328,78 @@ namespace Urho.Navigation
 		{
 			Runtime.ValidateRefCounted (this);
 			return NavigationMesh_Build0 (handle, ref boundingBox);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool NavigationMesh_Build1 (IntPtr handle, ref Urho.IntVector2 from, ref Urho.IntVector2 to);
+
+		/// <summary>
+		/// Rebuild part of the navigation mesh in the rectangular area. Return true if successful.
+		/// </summary>
+		public virtual bool Build (Urho.IntVector2 from, Urho.IntVector2 to)
+		{
+			Runtime.ValidateRefCounted (this);
+			return NavigationMesh_Build1 (handle, ref from, ref to);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void NavigationMesh_RemoveTile (IntPtr handle, ref Urho.IntVector2 tile);
+
+		/// <summary>
+		/// Remove tile from navigation mesh.
+		/// </summary>
+		public virtual void RemoveTile (Urho.IntVector2 tile)
+		{
+			Runtime.ValidateRefCounted (this);
+			NavigationMesh_RemoveTile (handle, ref tile);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void NavigationMesh_RemoveAllTiles (IntPtr handle);
+
+		/// <summary>
+		/// Remove all tiles from navigation mesh.
+		/// </summary>
+		public virtual void RemoveAllTiles ()
+		{
+			Runtime.ValidateRefCounted (this);
+			NavigationMesh_RemoveAllTiles (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool NavigationMesh_HasTile (IntPtr handle, ref Urho.IntVector2 tile);
+
+		/// <summary>
+		/// Return whether the navigation mesh has tile.
+		/// </summary>
+		public bool HasTile (Urho.IntVector2 tile)
+		{
+			Runtime.ValidateRefCounted (this);
+			return NavigationMesh_HasTile (handle, ref tile);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern BoundingBox NavigationMesh_GetTileBoudningBox (IntPtr handle, ref Urho.IntVector2 tile);
+
+		/// <summary>
+		/// Return bounding box of the tile in the node space.
+		/// </summary>
+		public BoundingBox GetTileBoudningBox (Urho.IntVector2 tile)
+		{
+			Runtime.ValidateRefCounted (this);
+			return NavigationMesh_GetTileBoudningBox (handle, ref tile);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern Urho.IntVector2 NavigationMesh_GetTileIndex (IntPtr handle, ref Urho.Vector3 position);
+
+		/// <summary>
+		/// Return index of the tile at the position.
+		/// </summary>
+		public Urho.IntVector2 GetTileIndex (Urho.Vector3 position)
+		{
+			Runtime.ValidateRefCounted (this);
+			return NavigationMesh_GetTileIndex (handle, ref position);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -391,7 +475,7 @@ namespace Urho.Navigation
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void NavigationMesh_DrawDebugGeometry1 (IntPtr handle, bool depthTest);
+		internal static extern void NavigationMesh_DrawDebugGeometry2 (IntPtr handle, bool depthTest);
 
 		/// <summary>
 		/// Add debug geometry to the debug renderer.
@@ -399,7 +483,7 @@ namespace Urho.Navigation
 		public virtual void DrawDebugGeometry (bool depthTest)
 		{
 			Runtime.ValidateRefCounted (this);
-			NavigationMesh_DrawDebugGeometry1 (handle, depthTest);
+			NavigationMesh_DrawDebugGeometry2 (handle, depthTest);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

@@ -98,6 +98,30 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Context_RequireSDL (IntPtr handle, uint sdlFlags);
+
+		/// <summary>
+		/// Initialises the specified SDL systems, if not already. Returns true if successful. This call must be matched with ReleaseSDL() when SDL functions are no longer required, even if this call fails.
+		/// </summary>
+		public bool RequireSDL (uint sdlFlags)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Context_RequireSDL (handle, sdlFlags);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Context_ReleaseSDL (IntPtr handle);
+
+		/// <summary>
+		/// Indicate that you are done with using SDL. Must be called after using RequireSDL().
+		/// </summary>
+		public void ReleaseSDL ()
+		{
+			Runtime.ValidateRefCounted (this);
+			Context_ReleaseSDL (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Context_CopyBaseAttributes (IntPtr handle, int baseType, int derivedType);
 
 		/// <summary>

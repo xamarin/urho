@@ -127,15 +127,15 @@ namespace Urho.Navigation
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Obstacle_SetHeight (IntPtr handle, float param1);
+		internal static extern void Obstacle_SetHeight (IntPtr handle, float newHeight);
 
 		/// <summary>
 		/// Set the height of this obstacle.
 		/// </summary>
-		private void SetHeight (float param1)
+		private void SetHeight (float newHeight)
 		{
 			Runtime.ValidateRefCounted (this);
-			Obstacle_SetHeight (handle, param1);
+			Obstacle_SetHeight (handle, newHeight);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -151,15 +151,15 @@ namespace Urho.Navigation
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Obstacle_SetRadius (IntPtr handle, float param1);
+		internal static extern void Obstacle_SetRadius (IntPtr handle, float newRadius);
 
 		/// <summary>
 		/// Set the blocking radius of this obstacle.
 		/// </summary>
-		private void SetRadius (float param1)
+		private void SetRadius (float newRadius)
 		{
 			Runtime.ValidateRefCounted (this);
-			Obstacle_SetRadius (handle, param1);
+			Obstacle_SetRadius (handle, newRadius);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -175,15 +175,15 @@ namespace Urho.Navigation
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Obstacle_DrawDebugGeometry (IntPtr handle, IntPtr param1, bool depthTest);
+		internal static extern void Obstacle_DrawDebugGeometry (IntPtr handle, IntPtr debug, bool depthTest);
 
 		/// <summary>
 		/// Render debug information.
 		/// </summary>
-		public override void DrawDebugGeometry (DebugRenderer param1, bool depthTest)
+		public override void DrawDebugGeometry (DebugRenderer debug, bool depthTest)
 		{
 			Runtime.ValidateRefCounted (this);
-			Obstacle_DrawDebugGeometry (handle, (object)param1 == null ? IntPtr.Zero : param1.Handle, depthTest);
+			Obstacle_DrawDebugGeometry (handle, (object)debug == null ? IntPtr.Zero : debug.Handle, depthTest);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

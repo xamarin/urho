@@ -50,12 +50,12 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern bool FontFaceFreeType_Load (IntPtr handle, byte* fontData, uint fontDataSize, int pointSize);
+		internal static extern bool FontFaceFreeType_Load (IntPtr handle, byte* fontData, uint fontDataSize, float pointSize);
 
 		/// <summary>
 		/// Load font face.
 		/// </summary>
-		public override bool Load (byte* fontData, uint fontDataSize, int pointSize)
+		public override bool Load (byte* fontData, uint fontDataSize, float pointSize)
 		{
 			Runtime.ValidateRefCounted (this);
 			return FontFaceFreeType_Load (handle, fontData, fontDataSize, pointSize);

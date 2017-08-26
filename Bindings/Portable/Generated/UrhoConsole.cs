@@ -199,6 +199,30 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void UrhoConsole_AddAutoComplete (IntPtr handle, string option);
+
+		/// <summary>
+		/// Add auto complete option.
+		/// </summary>
+		public void AddAutoComplete (string option)
+		{
+			Runtime.ValidateRefCounted (this);
+			UrhoConsole_AddAutoComplete (handle, option);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void UrhoConsole_RemoveAutoComplete (IntPtr handle, string option);
+
+		/// <summary>
+		/// Remove auto complete option.
+		/// </summary>
+		public void RemoveAutoComplete (string option)
+		{
+			Runtime.ValidateRefCounted (this);
+			UrhoConsole_RemoveAutoComplete (handle, option);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void UrhoConsole_UpdateElements (IntPtr handle);
 
 		/// <summary>

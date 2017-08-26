@@ -943,15 +943,27 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntPtr Node_CreateChild (IntPtr handle, string name, CreateMode mode, uint id);
+		internal static extern IntPtr Node_CreateChild (IntPtr handle, string name, CreateMode mode, uint id, bool temporary);
 
 		/// <summary>
 		/// Create a child scene node (with specified ID if provided).
 		/// </summary>
-		public Node CreateChild (string name = "", CreateMode mode = CreateMode.Replicated, uint id = 0)
+		public Node CreateChild (string name = "", CreateMode mode = CreateMode.Replicated, uint id = 0, bool temporary = false)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Runtime.LookupObject<Node> (Node_CreateChild (handle, name, mode, id));
+			return Runtime.LookupObject<Node> (Node_CreateChild (handle, name, mode, id, temporary));
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Node_CreateTemporaryChild (IntPtr handle, string name, CreateMode mode, uint id);
+
+		/// <summary>
+		/// Create a temporary child scene node (with specified ID if provided).
+		/// </summary>
+		public Node CreateTemporaryChild (string name = "", CreateMode mode = CreateMode.Replicated, uint id = 0)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Runtime.LookupObject<Node> (Node_CreateTemporaryChild (handle, name, mode, id));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -1411,6 +1423,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Node_IsChildOf (IntPtr handle, IntPtr node);
+
+		/// <summary>
+		/// Return whether is a direct or indirect child of specified node.
+		/// </summary>
+		public bool IsChildOf (Node node)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Node_IsChildOf (handle, (object)node == null ? IntPtr.Zero : node.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern bool Node_IsEnabled (IntPtr handle);
 
 		/// <summary>
@@ -1426,7 +1450,7 @@ namespace Urho
 		internal static extern bool Node_IsEnabledSelf (IntPtr handle);
 
 		/// <summary>
-		/// Returns the node's last own enabled state. May be different than the value returned by IsEnabled when SetDeepEnabled has been used.
+		/// Return the node's last own enabled state. May be different than the value returned by IsEnabled when SetDeepEnabled has been used.
 		/// </summary>
 		private bool IsEnabledSelf ()
 		{
@@ -1660,6 +1684,18 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			return Node_GetWorldScale (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern Vector3 Node_GetSignedWorldScale (IntPtr handle);
+
+		/// <summary>
+		/// Return signed scale in world space. Utilized for Urho2D physics.
+		/// </summary>
+		private Vector3 GetSignedWorldScale ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Node_GetSignedWorldScale (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -2003,15 +2039,15 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntPtr Node_CreateChild24 (IntPtr handle, uint id, CreateMode mode);
+		internal static extern IntPtr Node_CreateChild24 (IntPtr handle, uint id, CreateMode mode, bool temporary);
 
 		/// <summary>
 		/// Create a child node with specific ID.
 		/// </summary>
-		public Node CreateChild (uint id, CreateMode mode)
+		public Node CreateChild (uint id, CreateMode mode, bool temporary = false)
 		{
 			Runtime.ValidateRefCounted (this);
-			return Runtime.LookupObject<Node> (Node_CreateChild24 (handle, id, mode));
+			return Runtime.LookupObject<Node> (Node_CreateChild24 (handle, id, mode, temporary));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -2385,7 +2421,7 @@ namespace Urho
 		}
 
 		/// <summary>
-		/// Returns the node's last own enabled state. May be different than the value returned by IsEnabled when SetDeepEnabled has been used.
+		/// Return the node's last own enabled state. May be different than the value returned by IsEnabled when SetDeepEnabled has been used.
 		/// </summary>
 		public bool EnabledSelf {
 			get {
@@ -2426,6 +2462,15 @@ namespace Urho
 		public Vector3 WorldRight {
 			get {
 				return GetWorldRight ();
+			}
+		}
+
+		/// <summary>
+		/// Return signed scale in world space. Utilized for Urho2D physics.
+		/// </summary>
+		public Vector3 SignedWorldScale {
+			get {
+				return GetSignedWorldScale ();
 			}
 		}
 
