@@ -373,33 +373,28 @@ namespace Urho {
 		}
 	}
 
-	[StructLayout(LayoutKind.Sequential)]
+	[StructLayout(LayoutKind.Explicit)]
 	public struct AnimationTriggerPoint {
+		[FieldOffset(0)]
 		public float Time;
+		[FieldOffset(8)]
 		public Variant Variant;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
-	public struct VariantValue
+	public unsafe struct VariantValue
 	{
-		public VariantValueLine VariantValueLine1;
-		public VariantValueLine VariantValueLine2;
-		public VariantValueLine VariantValueLine3;
-		public VariantValueLine VariantValueLine4;
+		IntPtr Storage1;
+		IntPtr Storage2;
+		IntPtr Storage3;
+		IntPtr Storage4;
 	}
 
 	[StructLayout(LayoutKind.Explicit)]
-	public struct VariantValueLine
-	{
-		[FieldOffset(0)] public int Int;
-		[FieldOffset(0)] public byte Bool;
-		[FieldOffset(0)] public float Float;
-		[FieldOffset(0)] public IntPtr Ptr;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
 	public struct Variant {
+		[FieldOffset(0)]
 		public VariantType Type;
+		[FieldOffset(8)]
 		public VariantValue Value;
 	}
 
@@ -990,7 +985,8 @@ namespace Urho {
 
 	[StructLayout (LayoutKind.Sequential)]
 	public struct FontGlyph {
-		public short X, Y, Width, Height, OffsetX, OffsetY, AdvanceX;
+		public short X, Y, TexWidth, TexHeight;
+		public float Width, Height, OffsetX, OffsetY, AdvanceX;
 		public int Page;
 		byte used;
 		public bool Used { get { return used != 0; } set { used = (byte) (value ? 1 : 0); }}

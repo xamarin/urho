@@ -41,7 +41,8 @@ namespace StructsValidator
 
 		static void AddTest(Type type)
 		{
-			if (type.FullName.StartsWith("Urho.Holo"))
+			if (type.FullName.StartsWith("Urho.SharpReality") ||
+			    type.FullName.StartsWith("Urho.Holo"))
 				return;
 
 			var managedName = type.Name;
@@ -108,6 +109,7 @@ namespace StructsValidator
 
 			if (name.EndsWith("EventArgs") || 
 				ignoredTypes.Contains(name) ||
+				name.Contains("PositionNormal") ||
 				//code-generated structs:
 				name.Contains("__StaticArrayInitTypeSize") ||
 				name.Contains("__FixedBuffer"))

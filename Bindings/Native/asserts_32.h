@@ -78,9 +78,9 @@ void check_bindings_offsets()
 	static_assert(offsetof(BoundingBox, dummyMax_) == 28, "BoundingBox.DummyMax has wrong offset (28)");
 
 	// AnimationTriggerPoint:
-	static_assert(sizeof(AnimationTriggerPoint) == 24, "AnimationTriggerPoint has wrong size (24)");
+	static_assert(sizeof(AnimationTriggerPoint) == 32, "AnimationTriggerPoint has wrong size (32)");
 	static_assert(offsetof(AnimationTriggerPoint, time_) == 0, "AnimationTriggerPoint.Time has wrong offset (0)");
-	static_assert(offsetof(AnimationTriggerPoint, data_) == 4, "AnimationTriggerPoint.Variant has wrong offset (4)");
+	static_assert(offsetof(AnimationTriggerPoint, data_) == 8, "AnimationTriggerPoint.Variant has wrong offset (8)");
 
 	// VariantValue:
 	static_assert(sizeof(VariantValue) == 16, "VariantValue has wrong size (16)");
@@ -194,16 +194,18 @@ void check_bindings_offsets()
 	static_assert(offsetof(VertexElement, offset_) == 12, "VertexElement.Offset has wrong offset (12)");
 
 	// FontGlyph:
-	static_assert(sizeof(FontGlyph) == 24, "FontGlyph has wrong size (24)");
+	static_assert(sizeof(FontGlyph) == 36, "FontGlyph has wrong size (36)");
 	static_assert(offsetof(FontGlyph, x_) == 0, "FontGlyph.X has wrong offset (0)");
 	static_assert(offsetof(FontGlyph, y_) == 2, "FontGlyph.Y has wrong offset (2)");
-	static_assert(offsetof(FontGlyph, width_) == 4, "FontGlyph.Width has wrong offset (4)");
-	static_assert(offsetof(FontGlyph, height_) == 6, "FontGlyph.Height has wrong offset (6)");
-	static_assert(offsetof(FontGlyph, offsetX_) == 8, "FontGlyph.OffsetX has wrong offset (8)");
-	static_assert(offsetof(FontGlyph, offsetY_) == 10, "FontGlyph.OffsetY has wrong offset (10)");
-	static_assert(offsetof(FontGlyph, advanceX_) == 12, "FontGlyph.AdvanceX has wrong offset (12)");
-	static_assert(offsetof(FontGlyph, page_) == 16, "FontGlyph.Page has wrong offset (16)");
-	static_assert(offsetof(FontGlyph, used_) == 20, "FontGlyph.used has wrong offset (20)");
+	static_assert(offsetof(FontGlyph, texWidth_) == 4, "FontGlyph.TexWidth has wrong offset (4)");
+	static_assert(offsetof(FontGlyph, texHeight_) == 6, "FontGlyph.TexHeight has wrong offset (6)");
+	static_assert(offsetof(FontGlyph, width_) == 8, "FontGlyph.Width has wrong offset (8)");
+	static_assert(offsetof(FontGlyph, height_) == 12, "FontGlyph.Height has wrong offset (12)");
+	static_assert(offsetof(FontGlyph, offsetX_) == 16, "FontGlyph.OffsetX has wrong offset (16)");
+	static_assert(offsetof(FontGlyph, offsetY_) == 20, "FontGlyph.OffsetY has wrong offset (20)");
+	static_assert(offsetof(FontGlyph, advanceX_) == 24, "FontGlyph.AdvanceX has wrong offset (24)");
+	static_assert(offsetof(FontGlyph, page_) == 28, "FontGlyph.Page has wrong offset (28)");
+	static_assert(offsetof(FontGlyph, used_) == 32, "FontGlyph.used has wrong offset (32)");
 
 	// CompressedLevel:
 	static_assert(sizeof(CompressedLevel) == 36, "CompressedLevel has wrong size (36)");
@@ -243,11 +245,11 @@ void check_bindings_offsets()
 	static_assert(offsetof(FocusParameters, quantize_) == 4, "FocusParameters.Quantize has wrong offset (4)");
 	static_assert(offsetof(FocusParameters, minView_) == 8, "FocusParameters.MinView has wrong offset (8)");
 
-	// PackageEntry:
-	static_assert(sizeof(PackageEntry) == 12, "PackageEntry has wrong size (12)");
-	static_assert(offsetof(PackageEntry, offset_) == 0, "PackageEntry.Offset has wrong offset (0)");
-	static_assert(offsetof(PackageEntry, size_) == 4, "PackageEntry.Size has wrong offset (4)");
-	static_assert(offsetof(PackageEntry, checksum_) == 8, "PackageEntry.Checksum has wrong offset (8)");
+	// IntVector3:
+	static_assert(sizeof(IntVector3) == 12, "IntVector3 has wrong size (12)");
+	static_assert(offsetof(IntVector3, x_) == 0, "IntVector3.X has wrong offset (0)");
+	static_assert(offsetof(IntVector3, y_) == 4, "IntVector3.Y has wrong offset (4)");
+	static_assert(offsetof(IntVector3, z_) == 8, "IntVector3.Z has wrong offset (8)");
 
 	// CrowdObstacleAvoidanceParams:
 	static_assert(sizeof(CrowdObstacleAvoidanceParams) == 28, "CrowdObstacleAvoidanceParams has wrong size (28)");
@@ -286,6 +288,12 @@ void check_bindings_offsets()
 	static_assert(offsetof(TileMapInfo2D, height_) == 8, "TileMapInfo2D.Height has wrong offset (8)");
 	static_assert(offsetof(TileMapInfo2D, tileWidth_) == 12, "TileMapInfo2D.TileWidth has wrong offset (12)");
 	static_assert(offsetof(TileMapInfo2D, tileHeight_) == 16, "TileMapInfo2D.TileHeight has wrong offset (16)");
+
+	// PackageEntry:
+	static_assert(sizeof(PackageEntry) == 12, "PackageEntry has wrong size (12)");
+	static_assert(offsetof(PackageEntry, offset_) == 0, "PackageEntry.Offset has wrong offset (0)");
+	static_assert(offsetof(PackageEntry, size_) == 4, "PackageEntry.Size has wrong offset (4)");
+	static_assert(offsetof(PackageEntry, checksum_) == 8, "PackageEntry.Checksum has wrong offset (8)");
 }
 #endif
 
@@ -298,23 +306,21 @@ void check_bindings_offsets()
   HashIteratorBase
   Iterator
   ResourceRefList
-  Frustum
+  SDL_Event
   TextureFrame
   LightBatchQueue
-  GPUObject
   GraphicsImpl
   RandomAccessIterator
   ModelMorph
   Octant
   AnimationTrack
-  CustomGeometryVertex
   NetworkState
   ComponentReplicationState
   ShaderParameter
   WorkItem
   RefCount
   dtQueryFilter
-  XPathResultSet
   NodeReplicationState
+  XPathResultSet
 
 */
