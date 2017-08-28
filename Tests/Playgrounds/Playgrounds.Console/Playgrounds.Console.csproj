@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bug219.cs" />
+    <Compile Include="EarthDemo.cs" />
     <Compile Include="HoloScene\DTO.cs" />
     <Compile Include="HoloScene\HoloScene.cs" />
     <Compile Include="Program.cs" />
