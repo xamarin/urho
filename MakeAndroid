@@ -9,6 +9,7 @@ BUILD_TYPE=Release
 OUTPUT_DIR=Bin/Android/$(ABI)
 URHO3D_SRC_DIR=Urho3D/Source
 URHO3D_ANDROID_DIR=Urho3D/Urho3D_Android/$(ABI)
+TOOLCHAIN_NAME=arm-linux-androideabi-$(TOOLCHAINS_VER)
 
 ifndef OS
 OS=$(shell uname)
@@ -23,23 +24,27 @@ endif
 
 ifeq ($(ABI), x86)
 PLATFORM=x86
-ANDK_GCC=$(ANDK_DIR)/toolchains/x86-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/i686-linux-android-gcc$(WINDOWS_EXT)
-ANDK_GPP=$(ANDK_DIR)/toolchains/x86-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/i686-linux-android-g++$(WINDOWS_EXT)
+TOOLCHAIN_NAME=x86-clang
+ANDK_GCC=$(ANDK_DIR)/toolchains/llvm/prebuilt/$(PREBUILT_DIR)/bin/clang$(WINDOWS_EXT)
+ANDK_GPP=$(ANDK_DIR)/toolchains/llvm/prebuilt/$(PREBUILT_DIR)/bin/clang++$(WINDOWS_EXT)
 ANDK_STRIP=$(ANDK_DIR)/toolchains/x86-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/i686-linux-android-strip$(WINDOWS_EXT)
 else ifeq ($(ABI), x86_64)
 ANDROID_API=android-21
 PLATFORM=x86_64
+TOOLCHAIN_NAME=x86_64-$(TOOLCHAINS_VER)
 ANDK_GCC=$(ANDK_DIR)/toolchains/x86_64-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/x86_64-linux-android-gcc$(WINDOWS_EXT)
 ANDK_GPP=$(ANDK_DIR)/toolchains/x86_64-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/x86_64-linux-android-g++$(WINDOWS_EXT)
 ANDK_STRIP=$(ANDK_DIR)/toolchains/x86_64-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/x86_64-linux-android-strip$(WINDOWS_EXT)
 else ifeq ($(ABI), arm64-v8a)
 ANDROID_API=android-21
 PLATFORM=arm64
+TOOLCHAIN_NAME=aarch64-linux-android-$(TOOLCHAINS_VER)
 ANDK_GCC=$(ANDK_DIR)/toolchains/aarch64-linux-android-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/aarch64-linux-android-gcc$(WINDOWS_EXT)
 ANDK_GPP=$(ANDK_DIR)/toolchains/aarch64-linux-android-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/aarch64-linux-android-g++$(WINDOWS_EXT)
 ANDK_STRIP=$(ANDK_DIR)/toolchains/aarch64-linux-android-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/aarch64-linux-android-strip$(WINDOWS_EXT)
 else
 PLATFORM=arm
+TOOLCHAIN_NAME=arm-linux-androideabi-$(TOOLCHAINS_VER)
 ANDK_GCC=$(ANDK_DIR)/toolchains/arm-linux-androideabi-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/arm-linux-androideabi-gcc$(WINDOWS_EXT)
 ANDK_GPP=$(ANDK_DIR)/toolchains/arm-linux-androideabi-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/arm-linux-androideabi-g++$(WINDOWS_EXT)
 ANDK_STRIP=$(ANDK_DIR)/toolchains/arm-linux-androideabi-$(TOOLCHAINS_VER)/prebuilt/$(PREBUILT_DIR)/bin/arm-linux-androideabi-strip$(WINDOWS_EXT)
@@ -69,7 +74,7 @@ SDL.o:
 	$(ANDK_GCC) $(C_DEFINES) $(C_FLAGS) -o $(OUTPUT_DIR)/SDL_android_main.c.o -c $(URHO3D_SRC_DIR)/Source/ThirdParty/SDL/src/main/android/SDL_android_main.c
 
 Urho3D_Android:
-	rm -rf $(URHO3D_ANDROID_DIR) && mkdir -p $(URHO3D_ANDROID_DIR) && cd $(URHO3D_SRC_DIR) && cmake -E make_directory ../Urho3D_Android/$(ABI) && cmake -E chdir ../Urho3D_Android/$(ABI) cmake -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE=../../$(URHO3D_SRC_DIR)/CMake/Toolchains/android.toolchain.cmake .../Urho3D_Android/$(ABI) -DANDROID=1 -DANDROID_ABI=$(ABI) -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) -DURHO3D_PCH=0 -DURHO3D_TOOLS=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -DURHO3D_SSE=0 ../../../$(URHO3D_SRC_DIR)/
+	rm -rf $(URHO3D_ANDROID_DIR) && mkdir -p $(URHO3D_ANDROID_DIR) && cd $(URHO3D_SRC_DIR) && cmake -E make_directory ../Urho3D_Android/$(ABI) && cmake -E chdir ../Urho3D_Android/$(ABI) cmake -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE=../../$(URHO3D_SRC_DIR)/CMake/Toolchains/Android.cmake .../Urho3D_Android/$(ABI) -DANDROID=1 -DANDROID_ABI=$(ABI) -DANDROID_TOOLCHAIN_NAME=$(TOOLCHAIN_NAME) -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) -DURHO3D_PCH=0 -DURHO3D_TOOLS=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -DURHO3D_SSE=0 ../../../$(URHO3D_SRC_DIR)/
 	
 libUrho3D.a: Urho3D_Android
 	cd $(URHO3D_ANDROID_DIR) && make Urho3D -j1
@@ -80,4 +85,4 @@ MakeBinDirectory:
 objects: MakeBinDirectory ApplicationProxy.o Glue.o Vector.o Binding.o Events.o SDL.o
 
 libmono-urho.so: libUrho3D.a objects
-	 $(ANDK_GCC)  -fPIC -fexceptions -frtti -fPIC --sysroot=$(ANDK_DIR)/platforms/$(ANDROID_API)/arch-$(PLATFORM) -funwind-tables -funswitch-loops -finline-limit=300 -fsigned-char -no-canonical-prefixes -fdata-sections -ffunction-sections -Wa,--noexecstack  -Wno-invalid-offsetof -fstack-protector -fomit-frame-pointer -fstrict-aliasing -O3 -DNDEBUG  -Wl,--no-undefined -Wl,--gc-sections -Wl,-z,noexecstack -Wl,-z,relro -Wl,-z,now  -shared -Wl,-soname,libmono-urho.so -o $(OUTPUT_DIR)/libmono-urho.so $(OUTPUT_DIR)/ApplicationProxy.cpp.o $(OUTPUT_DIR)/Vector.cpp.o $(OUTPUT_DIR)/Glue.cpp.o $(OUTPUT_DIR)/events.cpp.o $(OUTPUT_DIR)/binding.cpp.o $(OUTPUT_DIR)/SDL_android_main.c.o $(URHO3D_ANDROID_DIR)/libs/$(ABI)/libUrho3D.a -ldl -llog -landroid -lGLESv1_CM -lGLESv2  "$(ANDK_DIR)/sources/cxx-stl/gnu-libstdc++/$(TOOLCHAINS_VER)/libs/$(ABI)/libgnustl_static.a" "$(ANDK_DIR)/sources/cxx-stl/gnu-libstdc++/$(TOOLCHAINS_VER)/libs/$(ABI)/libsupc++.a" -lm && $(ANDK_STRIP) $(OUTPUT_DIR)/libmono-urho.so && cd $(OUTPUT_DIR) && rm *.o
+	 $(ANDK_GCC)  -fPIC -fexceptions -frtti -fPIC --sysroot=$(ANDK_DIR)/platforms/$(ANDROID_API)/arch-$(PLATFORM) -funwind-tables -funswitch-loops -finline-limit=300 -fsigned-char -no-canonical-prefixes -fdata-sections -ffunction-sections -Wa,--noexecstack  -Wno-invalid-offsetof -fstack-protector -fomit-frame-pointer -fstrict-aliasing -O3 -DNDEBUG  -Wl,--no-undefined -Wl,--gc-sections -Wl,-z,noexecstack -Wl,-z,relro -Wl,-z,now  -shared -Wl,-soname,libmono-urho.so -o $(OUTPUT_DIR)/libmono-urho.so $(OUTPUT_DIR)/ApplicationProxy.cpp.o $(OUTPUT_DIR)/Vector.cpp.o $(OUTPUT_DIR)/Glue.cpp.o $(OUTPUT_DIR)/events.cpp.o $(OUTPUT_DIR)/binding.cpp.o $(OUTPUT_DIR)/SDL_android_main.c.o $(URHO3D_ANDROID_DIR)/libs/$(ABI)/libUrho3D.a -ldl -llog -landroid -lGLESv1_CM -lGLESv2  "$(ANDK_DIR)/sources/cxx-stl/gnu-libstdc++/$(TOOLCHAINS_VER)/libs/$(ABI)/libgnustl_static.a" "$(ANDK_DIR)/sources/cxx-stl/gnu-libstdc++/$(TOOLCHAINS_VER)/libs/$(ABI)/libsupc++.a" -lm && cd $(OUTPUT_DIR) && rm *.o
