@@ -83,10 +83,10 @@ SDL.o:
 	$(ANDK_GCC) $(CXX_DEFINES) $(C_FLAGS) -o $(OUTPUT_DIR)/SDL_android_main.c.o -c $(URHO3D_SRC_DIR)/Source/ThirdParty/SDL/src/main/android/SDL_android_main.c
 
 Urho3D_Android:
-	rm -rf $(URHO3D_ANDROID_DIR) && mkdir -p $(URHO3D_ANDROID_DIR) && cd $(URHO3D_SRC_DIR) && cmake -E make_directory ../Urho3D_Android/$(ABI) && cmake -E chdir ../Urho3D_Android/$(ABI) cmake -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE=../../$(URHO3D_SRC_DIR)/CMake/Toolchains/Android.cmake .../Urho3D_Android/$(ABI) -DANDROID=1 -DANDROID_ABI=$(ABI) -DANDROID_TOOLCHAIN_NAME=$(TOOLCHAIN_NAME) -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) -DURHO3D_PCH=0 -DURHO3D_C++11=0 -DURHO3D_TOOLS=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -DURHO3D_SSE=0 ../../../$(URHO3D_SRC_DIR)/
+	rm -rf $(URHO3D_ANDROID_DIR) && mkdir -p $(URHO3D_ANDROID_DIR) && cd $(URHO3D_SRC_DIR) && cmake -E make_directory ../Urho3D_Android/$(ABI) && cmake -E chdir ../Urho3D_Android/$(ABI) cmake -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE=../../$(URHO3D_SRC_DIR)/CMake/Toolchains/Android.cmake .../Urho3D_Android/$(ABI) -DANDROID=1 -DANDROID_ABI=$(ABI) -DANDROID_NATIVE_API_LEVEL=$(ANDROID_API) -DANDROID_TOOLCHAIN_NAME=$(TOOLCHAIN_NAME) -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) -DURHO3D_PCH=0 -DURHO3D_C++11=0 -DURHO3D_TOOLS=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -DURHO3D_SSE=0 ../../../$(URHO3D_SRC_DIR)/
 	
 libUrho3D.a: Urho3D_Android
-	cd $(URHO3D_ANDROID_DIR) && make Urho3D -j4 -k && make Urho3D
+	cd $(URHO3D_ANDROID_DIR) && make Urho3D
 	
 MakeBinDirectory:
 	mkdir -p $(OUTPUT_DIR)
