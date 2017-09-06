@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
+﻿using System.Diagnostics;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using Urho.Tests.Bootstrap;
@@ -37,6 +33,23 @@ namespace Urho.Tests
 				sw.Stop();
 				System.Console.WriteLine($"GetComponent<C++>: {sw.ElapsedMilliseconds}ms");
 
+
+				var node1 = app.Scene.CreateChild();
+				var node2 = node1.CreateChild("node2");
+				node2.AddTag("foo");
+				var node3 = node1.CreateChild("node3");
+				node3.AddTag("boo");
+				node3.AddTag("foo");
+				var node4 = node1.CreateChild("node3");
+				node4.AddTag("boo");
+
+				var fooNodes = node1.GetChildrenWithTag("foo", true);
+				Assert.AreEqual(2, fooNodes.Length);
+				Assert.AreEqual(fooNodes[0].Name, "node2");
+				Assert.AreEqual(fooNodes[1].Name, "node3");
+
+				fooNodes = node1.GetChildrenWithTag("foo", false);
+				Assert.AreEqual(0, fooNodes.Length);
 
 				await app.Exit();
 			});

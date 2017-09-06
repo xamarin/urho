@@ -308,6 +308,21 @@ extern "C" {
 		}
 		return t;
 	}
+	
+	DllExport
+	void* Node_GetChildrenWithTag(Node *node, const char* tag, bool recursive, int *count)
+	{
+		PODVector<Node*> dest;
+		node->GetChildrenWithTag(dest, String(tag), recursive);
+		if (dest.Size() == 0)
+			return NULL;
+		*count = dest.Size();
+		void **t = (void **)malloc(sizeof(Node*)*dest.Size());
+		for (int i = 0; i < dest.Size(); i++) {
+			t[i] = dest[i];
+		}
+		return t;
+	}
 
 	DllExport Interop::Vector3 *
 	urho_navigationmesh_findpath(NavigationMesh * navMesh, const class Urho3D::Vector3 & start, const class Urho3D::Vector3 & end, int *count)

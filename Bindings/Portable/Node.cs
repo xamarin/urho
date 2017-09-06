@@ -14,9 +14,13 @@ using System.Reflection;
 
 namespace Urho {
 
-	internal partial class NodeHelper {
+	internal partial class NodeHelper
+    {
 		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
 		internal extern static IntPtr urho_node_get_components(IntPtr node, int code, int recursive, out int count);
+
+		[DllImport (Consts.NativeImport, CallingConvention=CallingConvention.Cdecl)]
+		internal extern static IntPtr Node_GetChildrenWithTag(IntPtr node, string tag, int recursive, out int count);
 	}
 	
 	public partial class Node {
@@ -39,6 +43,23 @@ namespace Urho {
 			if (Component.IsDefinedInManagedCode<T>())
 				//is not really efficient, but underlying Urho3D knows nothing about components defined in C#
 				return res.Where(c => c.GetComponent<T>() != null).ToArray();
+			return res;
+		}
+			
+		public Node[] GetChildrenWithTag(string tag, bool recursive = false)
+		{
+			Runtime.ValidateRefCounted(this);
+			int count;
+			var ptr = NodeHelper.Node_GetChildrenWithTag(handle, tag, recursive ? 1 : 0, out count);
+			if (ptr == IntPtr.Zero)
+				return ZeroArray;
+			
+			var res = new Node[count];
+			for (int i = 0; i < count; i++){
+				var node = Marshal.ReadIntPtr(ptr, i * IntPtr.Size);
+				res [i] = Runtime.LookupObject<Node> (node);
+			}
+
 			return res;
 		}
 		
