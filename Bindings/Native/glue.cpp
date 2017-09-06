@@ -324,6 +324,18 @@ extern "C" {
 		}
 		return results;
 	}
+
+	DllExport int*
+	Graphics_GetMultiSampleLevels(Graphics* target, int* count)
+	{
+		PODVector<int> levels = target->GetMultiSampleLevels();
+		*count = levels.Size();
+		int* result = new int[levels.Size()];
+		for (int i = 0; i < levels.Size(); i++) {
+			result[i] = levels[i];
+		}
+		return result;
+	}
 	
 	DllExport MemoryBuffer* MemoryBuffer_MemoryBuffer(void* data, int size)
 	{
