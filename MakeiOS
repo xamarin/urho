@@ -16,7 +16,7 @@ endif
 
 URHO_FLAGS=-I$(URHO_DIR)/include -I$(URHO_DIR)/include/Urho3D/ThirdParty -I$(URHO_DIR)/include/Urho3D/ThirdParty/Bullet -DURHO3D_NEON -DSTBI_NEON -DURHO3D_FILEWATCHER -DURHO3D_PROFILING -DURHO3D_LOGGING -DKNET_UNIX -DURHO3D_OPENGL -DURHO3D_NAVIGATION -DURHO3D_NETWORK -DURHO3D_PHYSICS -DURHO3D_URHO2D -DURHO3D_STATIC_DEFINE -DIOS
 URHO_LIBS=-framework AudioToolbox -framework AVFoundation -framework CoreAudio -framework CoreGraphics -framework Foundation -framework OpenGLES -framework QuartzCore -framework UIKit -framework GameController -framework CoreMotion -Wl,-search_paths_first -Wl,-headerpad_max_install_names $(URHO_DIR)/lib/libUrho3D.a -ldl -lpthread
-CXXFLAGS=-g -Wno-address-of-temporary -Wno-return-type-c-linkage -Wno-c++11-extensions $(URHO_FLAGS) 
+CXXFLAGS=-g -stdlib=libc++ -std=c++0x -Wno-address-of-temporary -Wno-return-type-c-linkage -Wno-c++11-extensions $(URHO_FLAGS) 
 
 XCODE_BASE=/Applications/Xcode.app/Contents
 TARGET_BASE=$(XCODE_BASE)/Developer/Platforms/$(TARGET).platform
@@ -27,7 +27,7 @@ XCODE_SDK=$(XCODE_BASE)/Developer/Platforms/$(TARGET).platform/Developer/SDKs/$(
 CPP=clang++ -arch $(ARCH) -F$(XCODE_FRAMEWORKS) -I$(XCODE_INCLUDES) -fapplication-extension -mios-simulator-version-min=$(MIN_IOS_VER) -miphoneos-version-min=$(MIN_IOS_VER) -isysroot $(XCODE_SDK) $(CXXFLAGS) -msse3
 
 Urho3D_IOS:
-	rm -rf $(URHO_DIR) && mkdir -p $(URHO_DIR) && $(URHO_SOURCE_DIR)/./cmake_ios.sh $(URHO_DIR) -DURHO3D_PCH=0 -DURHO3D_TOOLS=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0
+	rm -rf $(URHO_DIR) && mkdir -p $(URHO_DIR) && $(URHO_SOURCE_DIR)/./cmake_ios.sh $(URHO_DIR) -DURHO3D_PCH=0 -DURHO3D_TOOLS=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -DURHO3D_C++11=1
 	
 libUrho3D.a: Urho3D_IOS
 ifeq ($(ARCH), i386)
