@@ -53,7 +53,7 @@ endif
 
 # fixes 'error: relocation overflow in R_ARM_THM_CALL' on armeabi
 ifeq ($(ABI), armeabi)
-ABI_FLAGS= -march=armv5te -mtune=xscale -msoft-float
+ABI_FLAGS= -march=armv6t2 -09
 endif
 
 C_FLAGS=-fexceptions -fPIC --sysroot=$(ANDK_DIR)/platforms/$(ANDROID_API)/arch-$(PLATFORM) -funwind-tables -funswitch-loops -finline-limit=300 -fsigned-char -no-canonical-prefixes -fdata-sections -ffunction-sections -Wa,--noexecstack  -fstack-protector -fomit-frame-pointer -fstrict-aliasing -O3 -DNDEBUG -isystem $(ANDK_DIR)/platforms/$(ANDROID_API)/arch-$(PLATFORM)/usr/include -isystem $(ANDK_DIR)/sources/cxx-stl/gnu-libstdc++/$(TOOLCHAINS_VER)/include -isystem $(ANDK_DIR)/sources/cxx-stl/gnu-libstdc++/$(TOOLCHAINS_VER)/libs/$(ABI)/include -isystem $(ANDK_DIR)/sources/cxx-stl/gnu-libstdc++/$(TOOLCHAINS_VER)/include/backward -I$(URHO3D_ANDROID_DIR)/include -I$(URHO3D_ANDROID_DIR)/include/Urho3D/ThirdParty -I$(URHO3D_ANDROID_DIR)/include/Urho3D/ThirdParty/Bullet -I$(URHO3D_SRC_DIR)/Source/Samples 
