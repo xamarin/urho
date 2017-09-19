@@ -17,6 +17,7 @@ public:
 
 		if (externalWindow != NULL)
 			engineParameters_["ExternalWindow"] = externalWindow;
+		engineParameters_["LogName"] = Urho3D::String::EMPTY;
 	}
 
 	void Setup ()

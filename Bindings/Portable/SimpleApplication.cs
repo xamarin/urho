@@ -80,6 +80,7 @@ namespace Urho
 			opts = opts ?? new ApplicationOptions();
 			opts.ResizableWindow = true;
 			opts.DelayedStart = true;
+			opts.HighDpi = false;
 
 			if (opts.Width < 1)
 				opts.Width = 900;
