@@ -34,39 +34,6 @@ namespace Urho.Desktop
 			}
 		}
 
-		internal static void OnInited()
-		{
-			if (Environment.OSVersion.Platform != PlatformID.Win32NT)
-				return;
-
-			var currentPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-			bool is64BitProcess = IntPtr.Size == 8;
-			bool is64BitLib = Is64Bit(Path.Combine(currentPath, Consts.NativeImport + ".dll"));
-
-			if (is64BitProcess && !is64BitLib)
-				throw new NotSupportedException("mono-urho.dll is 32bit, but current process is x64");
-
-			if (!is64BitProcess && is64BitLib)
-				throw new NotSupportedException("mono-urho.dll is 64bit, but current process is x86 (change target platform from Any CPU/x86 to x64). Or rename mono-urho_32bit.dll to mono-urho.dll in the output dir.");
-		}
-
-		static bool Is64Bit(string file)
-		{
-			using (var fileStream = new FileStream(file, FileMode.Open, FileAccess.Read))
-			using (var binaryReader = new BinaryReader(fileStream))
-			{
-				if (binaryReader.ReadUInt16() == 23117)
-				{
-					fileStream.Seek(0x3A, SeekOrigin.Current);
-					fileStream.Seek(binaryReader.ReadUInt32(), SeekOrigin.Begin);
-					if (binaryReader.ReadUInt32() == 17744)
-					{
-						fileStream.Seek(20, SeekOrigin.Current);
-						return binaryReader.ReadUInt16() != 0x10B; //PE32
-					}
-				}
-			}
-			return false;
-		}
+		internal static void OnInited() { }
 	}
 }
