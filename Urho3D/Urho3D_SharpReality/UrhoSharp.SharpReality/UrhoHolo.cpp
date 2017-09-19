@@ -3,6 +3,9 @@
 HolographicSpace^ holographicSpace;
 HolographicFrame^ current_frame;
 
+void __cdecl WINRT_InitGameBar(struct SDL_VideoDevice *p){};
+void __cdecl WINRT_QuitGameBar(struct SDL_VideoDevice *p){};
+
 extern "C"
 {
 	__declspec(dllexport) void InitializeSpace()
@@ -26,6 +29,7 @@ extern "C"
 	{
 		return -1; //TODO
 	}
+
 
 	ComPtr<ID3D11Device> d3ddevice;
 	ComPtr<ID3D11DeviceContext> context;
