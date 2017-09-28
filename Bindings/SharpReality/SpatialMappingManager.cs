@@ -123,7 +123,7 @@ namespace Urho
 			var trianglesBytes = mesh.TriangleIndices.Data.ToArray();
 			var indeces = new short[mesh.TriangleIndices.ElementCount];
 			int indexOffset = 0;
-			for (int i = 0; i < mesh.TriangleIndices.ElementCount; i++)
+			for (int i = 0; i < indeces.Length; i++)
 			{
 				//DirectXPixelFormat.R16UInt
 				var index = BitConverter.ToInt16(trianglesBytes, indexOffset);
@@ -152,7 +152,7 @@ namespace Urho
 			const int normalStride = 16; // (int) mesh.VertexNormals.Stride;
 
 			//2,3 - VertexPositions and Normals
-			for (int i = 0; i < vertexCount; i++)
+			for (int i = 0; i < vertexData.Length; i++)
 			{
 				var positionX = BitConverter.ToSingle(vertexRawData, i * vertexStride + 0); 
 				var positionY = BitConverter.ToSingle(vertexRawData, i * vertexStride + 4); //4 per X,Y,Z,W (stride is 16)

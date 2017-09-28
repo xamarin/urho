@@ -19,7 +19,7 @@ namespace Urho.Navigation
 			var res = new Vector3[count];
 
 			int structSize = Marshal.SizeOf(typeof(Vector3));
-			for (int i = 0; i < count; i++)
+			for (int i = 0; i < res.Length; i++)
 			{
 				IntPtr data = new IntPtr(ptr.ToInt64() + structSize * i);
 				Vector3 item = (Vector3)Marshal.PtrToStructure(data, typeof(Vector3));

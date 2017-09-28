@@ -395,7 +395,7 @@ namespace Urho.SharpReality.HoloToolkit
 			int structsize = Marshal.SizeOf(typeof(BoundedPlane));
 #pragma warning restore 618
 			IntPtr current = outArray;
-			for (int i = 0; i < size; i++)
+			for (int i = 0; i < resArray.Length; i++)
 			{
 #pragma warning disable 618
 				resArray[i] = (BoundedPlane)Marshal.PtrToStructure(current, typeof(BoundedPlane));

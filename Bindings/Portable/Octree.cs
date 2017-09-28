@@ -12,15 +12,15 @@ namespace Urho
 		List<RayQueryResult> Raycast(Ray ray, RayQueryLevel level, float maxDistance, DrawableFlags drawableFlags, bool single, uint viewMask = UInt32.MaxValue)
 		{
 			Runtime.ValidateRefCounted(this);
-			List<RayQueryResult> result = new List<RayQueryResult>();
 
 			int count;
 			var ptr = Octree_Raycast(Handle, ref ray, ref level, maxDistance, (uint)drawableFlags, viewMask, single, out count);
 
 			if (ptr == IntPtr.Zero)
-				return result;
+				return new List<RayQueryResult>(0);
 
-			int structSize = Marshal.SizeOf(typeof (RayQueryResult));
+            List<RayQueryResult> result = new List<RayQueryResult>(count);
+            int structSize = Marshal.SizeOf(typeof (RayQueryResult));
 			for (int i = 0; i < count; i++)
 			{
 				IntPtr data = new IntPtr(ptr.ToInt64() + structSize * i);
