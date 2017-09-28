@@ -36,7 +36,7 @@ namespace Urho {
 				return ZeroArray;
 			
 			var res = new Node[count];
-			for (int i = 0; i < count; i++){
+			for (int i = 0; i < res.Length; i++){
 				var node = Marshal.ReadIntPtr(ptr, i * IntPtr.Size);
 				res [i] = Runtime.LookupObject<Node> (node);
 			}
@@ -55,7 +55,7 @@ namespace Urho {
 				return ZeroArray;
 			
 			var res = new Node[count];
-			for (int i = 0; i < count; i++){
+			for (int i = 0; i < res.Length; i++){
 				var node = Marshal.ReadIntPtr(ptr, i * IntPtr.Size);
 				res [i] = Runtime.LookupObject<Node> (node);
 			}

@@ -8,7 +8,7 @@
 			{
 				var count = NumCommands;
 				var result = new RenderPathCommand*[count];
-				for (uint i = 0; i < count; i++)
+				for (uint i = 0; i < result.Length; i++)
 				{
 					result[i] = GetCommand(i);
 				}
