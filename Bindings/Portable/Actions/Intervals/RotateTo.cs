@@ -54,7 +54,7 @@ namespace Urho.Actions
 			DistanceAngleY = action.DistanceAngleY;
 			DistanceAngleZ = action.DistanceAngleZ;
 
-			var sourceRotation = Target.Rotation;
+			var sourceRotation = Target.Rotation.ToEulerAngles();
 
 			// Calculate X
 			StartAngleX = sourceRotation.X;
