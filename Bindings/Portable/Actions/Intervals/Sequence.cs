@@ -23,7 +23,7 @@ namespace Urho.Actions
 			InitFromArray(actions, other);
 		}
 
-		public Sequence (FiniteTimeAction[] actions) : base ()
+		public Sequence (params FiniteTimeAction[] actions) : base ()
 		{
 			InitFromArray(actions, null);
 		}
