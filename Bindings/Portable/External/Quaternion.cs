@@ -260,8 +260,8 @@ namespace Urho
 			{
 				return new Vector3(
 					(float)Math.Asin(check) * radToDeg,
-					(float)Math.Atan2(2.0f * (X * Z - W * Y), 1.0f - 2.0f * (X * X + Y * Y)) * radToDeg,
-					(float)Math.Atan2(2.0f * (X * Y - W * Z), 1.0f - 2.0f * (X * X + Z * Z)) * radToDeg);
+					(float)Math.Atan2(2.0f * (X * Z + W * Y), 1.0f - 2.0f * (X * X + Y * Y)) * radToDeg,
+					(float)Math.Atan2(2.0f * (X * Y + W * Z), 1.0f - 2.0f * (X * X + Z * Z)) * radToDeg);
 			}
 		}
 
