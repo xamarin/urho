@@ -37,6 +37,13 @@ namespace Urho
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
+		public struct PositionColor
+		{
+			public Vector3 Position;
+			public uint Color;
+		}
+
+		[StructLayout(LayoutKind.Sequential)]
 		public struct PositionNormalColor
 		{
 			public Vector3 Position;

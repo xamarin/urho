@@ -15,5 +15,15 @@ namespace Urho
 				}
 			}
 		}
+
+		public void SetData (uint [] vertexData)
+		{
+			Runtime.ValidateRefCounted(this);
+			unsafe {
+				fixed (uint* p = &vertexData [0]){
+					SetData ((void *) p);
+				}
+			}
+		}
 	}
 }
