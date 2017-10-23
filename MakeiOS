@@ -1,6 +1,6 @@
 # armv7s, armv7, arm64, i386, x86_64
 ARCH=i386
-SDK_VER=9.2
+SDK_VER=11.0
 MIN_IOS_VER=8.0
 OUTPUT_DIR=Bin/iOS
 URHO_DIR=Urho3D/Urho3D_iOS
@@ -31,11 +31,11 @@ Urho3D_IOS:
 	
 libUrho3D.a: Urho3D_IOS
 ifeq ($(ARCH), i386)
-	cd $(URHO_DIR) && xcodebuild -arch "i386" ONLY_ACTIVE_ARCH=NO VALID_ARCHS="i386" -target Urho3D -sdk iphonesimulator$(SDK_VER)
+	cd $(URHO_DIR) && xcodebuild -arch "i386" IPHONEOS_DEPLOYMENT_TARGET=$(MIN_IOS_VER) ONLY_ACTIVE_ARCH=NO VALID_ARCHS="i386" -target Urho3D -sdk iphonesimulator$(SDK_VER)
 else ifeq ($(ARCH), x86_64)
-	cd $(URHO_DIR) && xcodebuild -arch "x86_64" ONLY_ACTIVE_ARCH=NO VALID_ARCHS="x86_64" -target Urho3D -sdk iphonesimulator$(SDK_VER)
+	cd $(URHO_DIR) && xcodebuild -arch "x86_64" IPHONEOS_DEPLOYMENT_TARGET=$(MIN_IOS_VER) ONLY_ACTIVE_ARCH=NO VALID_ARCHS="x86_64" -target Urho3D -sdk iphonesimulator$(SDK_VER)
 else
-	cd $(URHO_DIR) && xcodebuild ARCHS=$(ARCH) ONLY_ACTIVE_ARCH=NO -target Urho3D -configuration Release
+	cd $(URHO_DIR) && xcodebuild ARCHS=$(ARCH) IPHONEOS_DEPLOYMENT_TARGET=$(MIN_IOS_VER) ONLY_ACTIVE_ARCH=NO -target Urho3D -configuration Release
 endif
 
 MakeBinDirectory:
