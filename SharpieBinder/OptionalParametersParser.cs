@@ -13,6 +13,7 @@ namespace SharpieBinder
 			"SetLayout",
 			"DefineSprite",
 			"SetConvexHull",
+			"SetGImpactMesh"
 		};
 
 		public static Expression Parse(ParmVarDecl param, CSharpParser parser)
@@ -38,6 +39,8 @@ namespace SharpieBinder
 					defaultValue = "null";
 				if (defaultValue == "0f" && dump.Contains("Urho3D::Color"))
 					defaultValue = "default(Urho.Color)";
+				if (defaultValue == "'nullptr_t'")
+					defaultValue = "null";
 
 				expression = parser.ParseExpression(defaultValue);
 			}

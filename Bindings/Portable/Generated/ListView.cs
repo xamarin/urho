@@ -127,6 +127,42 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void ListView_UpdateInternalLayout (IntPtr handle);
+
+		/// <summary>
+		/// Manually update layout on internal elements.
+		/// </summary>
+		public void UpdateInternalLayout ()
+		{
+			Runtime.ValidateRefCounted (this);
+			ListView_UpdateInternalLayout (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void ListView_DisableInternalLayoutUpdate (IntPtr handle);
+
+		/// <summary>
+		/// Disable automatic layout update for internal elements.
+		/// </summary>
+		public void DisableInternalLayoutUpdate ()
+		{
+			Runtime.ValidateRefCounted (this);
+			ListView_DisableInternalLayoutUpdate (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void ListView_EnableInternalLayoutUpdate (IntPtr handle);
+
+		/// <summary>
+		/// Enable automatic layout update for internal elements.
+		/// </summary>
+		public void EnableInternalLayoutUpdate ()
+		{
+			Runtime.ValidateRefCounted (this);
+			ListView_EnableInternalLayoutUpdate (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void ListView_AddItem (IntPtr handle, IntPtr item);
 
 		/// <summary>

@@ -1678,7 +1678,7 @@ namespace SharpieBinder
 					{
 						foreach (var baseProperty in baseType.Members.OfType<PropertyDeclaration>()) {
 							if (baseProperty.Name == property.Name && 
-							    !(property.Name == "BoundingBox" && ((TypeDeclaration)property.Parent).Name == "Zone")) {
+							    !(property.Name == "BoundingBox" && ((TypeDeclaration)property.Parent).Name == "Drawable")) {
 								UpdateMembers(baseProperty, property);
 								return true;
 							}

@@ -50,6 +50,8 @@ namespace Urho
 		Rect,
 		Intvector3,
 		Int64,
+		CustomHeap,
+		CustomStack,
 		MaxVarTypes
 	}
 }

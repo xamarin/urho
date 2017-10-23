@@ -139,18 +139,6 @@ namespace Urho.Navigation
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void OffMeshConnection_SetEndPointNodeIDAttr (IntPtr handle, uint nodeID);
-
-		/// <summary>
-		/// Set endpoint node ID.
-		/// </summary>
-		public void SetEndPointNodeIDAttr (uint nodeID)
-		{
-			Runtime.ValidateRefCounted (this);
-			OffMeshConnection_SetEndPointNodeIDAttr (handle, nodeID);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void OffMeshConnection_SetRadius (IntPtr handle, float radius);
 
 		/// <summary>
@@ -208,18 +196,6 @@ namespace Urho.Navigation
 		{
 			Runtime.ValidateRefCounted (this);
 			return Runtime.LookupObject<Node> (OffMeshConnection_GetEndPoint (handle));
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern uint OffMeshConnection_GetEndPointNodeID (IntPtr handle);
-
-		/// <summary>
-		/// Return endpoint node ID.
-		/// </summary>
-		private uint GetEndPointNodeID ()
-		{
-			Runtime.ValidateRefCounted (this);
-			return OffMeshConnection_GetEndPointNodeID (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -362,15 +338,6 @@ namespace Urho.Navigation
 			}
 			set {
 				SetAreaID (value);
-			}
-		}
-
-		/// <summary>
-		/// Return endpoint node ID.
-		/// </summary>
-		public uint EndPointNodeID {
-			get {
-				return GetEndPointNodeID ();
 			}
 		}
 	}

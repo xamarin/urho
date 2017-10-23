@@ -451,5 +451,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\FontHintLevel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\External\IntVector3.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\UIComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\GImpactMeshData.cs" />
   </ItemGroup>
 </Project>

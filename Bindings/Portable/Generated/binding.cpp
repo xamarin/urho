@@ -9015,27 +9015,6 @@ Light_SetShadowBias (Urho3D::Light *_target, const struct Urho3D::BiasParameters
 
 
 DllExport void
-Light_SetShadowConstantBias (Urho3D::Light *_target, float constantBias)
-{
-	_target->SetShadowConstantBias (constantBias);
-}
-
-
-DllExport void
-Light_SetShadowSlopeScaledBias (Urho3D::Light *_target, float slopeScaledBias)
-{
-	_target->SetShadowSlopeScaledBias (slopeScaledBias);
-}
-
-
-DllExport void
-Light_SetShadowNormalOffset (Urho3D::Light *_target, float normalOffset)
-{
-	_target->SetShadowNormalOffset (normalOffset);
-}
-
-
-DllExport void
 Light_SetShadowCascade (Urho3D::Light *_target, const struct Urho3D::CascadeParameters & parameters)
 {
 	_target->SetShadowCascade (parameters);
@@ -9043,65 +9022,9 @@ Light_SetShadowCascade (Urho3D::Light *_target, const struct Urho3D::CascadePara
 
 
 DllExport void
-Light_SetShadowCascadeSplits (Urho3D::Light *_target, const class Urho3D::Vector4 & value)
-{
-	_target->SetShadowCascadeSplits (value);
-}
-
-
-DllExport void
-Light_SetShadowCascadeFadeStart (Urho3D::Light *_target, float fadeStart)
-{
-	_target->SetShadowCascadeFadeStart (fadeStart);
-}
-
-
-DllExport void
-Light_SetShadowCascadeBiasAutoAdjust (Urho3D::Light *_target, float biasAutoAdjust)
-{
-	_target->SetShadowCascadeBiasAutoAdjust (biasAutoAdjust);
-}
-
-
-DllExport void
 Light_SetShadowFocus (Urho3D::Light *_target, const struct Urho3D::FocusParameters & parameters)
 {
 	_target->SetShadowFocus (parameters);
-}
-
-
-DllExport void
-Light_SetShadowFocusFlag (Urho3D::Light *_target, bool focus)
-{
-	_target->SetShadowFocusFlag (focus);
-}
-
-
-DllExport void
-Light_SetShadowFocusNonUniform (Urho3D::Light *_target, bool nonUniform)
-{
-	_target->SetShadowFocusNonUniform (nonUniform);
-}
-
-
-DllExport void
-Light_SetShadowFocusAutoSize (Urho3D::Light *_target, bool autoSize)
-{
-	_target->SetShadowFocusAutoSize (autoSize);
-}
-
-
-DllExport void
-Light_SetShadowFocusQuantize (Urho3D::Light *_target, float quantize)
-{
-	_target->SetShadowFocusQuantize (quantize);
-}
-
-
-DllExport void
-Light_SetShadowFocusMinView (Urho3D::Light *_target, float minView)
-{
-	_target->SetShadowFocusMinView (minView);
 }
 
 
@@ -9273,27 +9196,6 @@ Light_GetShadowBias (Urho3D::Light *_target)
 }
 
 
-DllExport float
-Light_GetShadowConstantBias (Urho3D::Light *_target)
-{
-	return _target->GetShadowConstantBias ();
-}
-
-
-DllExport float
-Light_GetShadowSlopeScaledBias (Urho3D::Light *_target)
-{
-	return _target->GetShadowSlopeScaledBias ();
-}
-
-
-DllExport float
-Light_GetShadowNormalOffset (Urho3D::Light *_target)
-{
-	return _target->GetShadowNormalOffset ();
-}
-
-
 DllExport const struct Urho3D::CascadeParameters &
 Light_GetShadowCascade (Urho3D::Light *_target)
 {
@@ -9301,66 +9203,10 @@ Light_GetShadowCascade (Urho3D::Light *_target)
 }
 
 
-DllExport Interop::Vector4 
-Light_GetShadowCascadeSplits (Urho3D::Light *_target)
-{
-	return *((Interop::Vector4  *) &(_target->GetShadowCascadeSplits ()));
-}
-
-
-DllExport float
-Light_GetShadowCascadeFadeStart (Urho3D::Light *_target)
-{
-	return _target->GetShadowCascadeFadeStart ();
-}
-
-
-DllExport float
-Light_GetShadowCascadeBiasAutoAdjust (Urho3D::Light *_target)
-{
-	return _target->GetShadowCascadeBiasAutoAdjust ();
-}
-
-
 DllExport const struct Urho3D::FocusParameters &
 Light_GetShadowFocus (Urho3D::Light *_target)
 {
 	return _target->GetShadowFocus ();
-}
-
-
-DllExport int
-Light_GetShadowFocusFlag (Urho3D::Light *_target)
-{
-	return _target->GetShadowFocusFlag ();
-}
-
-
-DllExport int
-Light_GetShadowFocusNonUniform (Urho3D::Light *_target)
-{
-	return _target->GetShadowFocusNonUniform ();
-}
-
-
-DllExport int
-Light_GetShadowFocusAutoSize (Urho3D::Light *_target)
-{
-	return _target->GetShadowFocusAutoSize ();
-}
-
-
-DllExport float
-Light_GetShadowFocusQuantize (Urho3D::Light *_target)
-{
-	return _target->GetShadowFocusQuantize ();
-}
-
-
-DllExport float
-Light_GetShadowFocusMinView (Urho3D::Light *_target)
-{
-	return _target->GetShadowFocusMinView ();
 }
 
 
@@ -18333,34 +18179,6 @@ Terrain_GetEastNeighbor (Urho3D::Terrain *_target)
 }
 
 
-DllExport unsigned int
-Terrain_GetNorthNeighborNodeID (Urho3D::Terrain *_target)
-{
-	return _target->GetNorthNeighborNodeID ();
-}
-
-
-DllExport unsigned int
-Terrain_GetSouthNeighborNodeID (Urho3D::Terrain *_target)
-{
-	return _target->GetSouthNeighborNodeID ();
-}
-
-
-DllExport unsigned int
-Terrain_GetWestNeighborNodeID (Urho3D::Terrain *_target)
-{
-	return _target->GetWestNeighborNodeID ();
-}
-
-
-DllExport unsigned int
-Terrain_GetEastNeighborNodeID (Urho3D::Terrain *_target)
-{
-	return _target->GetEastNeighborNodeID ();
-}
-
-
 DllExport float
 Terrain_GetDrawDistance (Urho3D::Terrain *_target)
 {
@@ -18460,41 +18278,6 @@ Terrain_UpdatePatchLod (Urho3D::Terrain *_target, Urho3D::TerrainPatch * patch)
 
 
 DllExport void
-Terrain_SetNorthNeighborNodeIDAttr (Urho3D::Terrain *_target, unsigned int nodeID)
-{
-	_target->SetNorthNeighborNodeIDAttr (nodeID);
-}
-
-
-DllExport void
-Terrain_SetSouthNeighborNodeIDAttr (Urho3D::Terrain *_target, unsigned int nodeID)
-{
-	_target->SetSouthNeighborNodeIDAttr (nodeID);
-}
-
-
-DllExport void
-Terrain_SetWestNeighborNodeIDAttr (Urho3D::Terrain *_target, unsigned int nodeID)
-{
-	_target->SetWestNeighborNodeIDAttr (nodeID);
-}
-
-
-DllExport void
-Terrain_SetEastNeighborNodeIDAttr (Urho3D::Terrain *_target, unsigned int nodeID)
-{
-	_target->SetEastNeighborNodeIDAttr (nodeID);
-}
-
-
-DllExport void
-Terrain_SetSpacingAttr (Urho3D::Terrain *_target, const class Urho3D::Vector3 & value)
-{
-	_target->SetSpacingAttr (value);
-}
-
-
-DllExport void
 Terrain_SetPatchSizeAttr (Urho3D::Terrain *_target, int value)
 {
 	_target->SetPatchSizeAttr (value);
@@ -18505,13 +18288,6 @@ DllExport void
 Terrain_SetMaxLodLevelsAttr (Urho3D::Terrain *_target, unsigned int value)
 {
 	_target->SetMaxLodLevelsAttr (value);
-}
-
-
-DllExport void
-Terrain_SetSmoothingAttr (Urho3D::Terrain *_target, bool enable)
-{
-	_target->SetSmoothingAttr (enable);
 }
 
 
@@ -19365,20 +19141,6 @@ Zone_SetBoundingBox (Urho3D::Zone *_target, const class Urho3D::BoundingBox & bo
 
 
 DllExport void
-Zone_SetBoundingBoxMin (Urho3D::Zone *_target, const class Urho3D::Vector3 & boxMin)
-{
-	_target->SetBoundingBoxMin (boxMin);
-}
-
-
-DllExport void
-Zone_SetBoundingBoxMax (Urho3D::Zone *_target, const class Urho3D::Vector3 & boxMax)
-{
-	_target->SetBoundingBoxMax (boxMax);
-}
-
-
-DllExport void
 Zone_SetAmbientColor (Urho3D::Zone *_target, const class Urho3D::Color & color)
 {
 	_target->SetAmbientColor (color);
@@ -19459,27 +19221,6 @@ DllExport Interop::Matrix3x4
 Zone_GetInverseWorldTransform (Urho3D::Zone *_target)
 {
 	return *((Interop::Matrix3x4  *) &(_target->GetInverseWorldTransform ()));
-}
-
-
-DllExport Interop::BoundingBox 
-Zone_GetBoundingBox (Urho3D::Zone *_target)
-{
-	return *((Interop::BoundingBox  *) &(_target->GetBoundingBox ()));
-}
-
-
-DllExport Interop::Vector3 
-Zone_GetBoundingBoxMin (Urho3D::Zone *_target)
-{
-	return *((Interop::Vector3  *) &(_target->GetBoundingBoxMin ()));
-}
-
-
-DllExport Interop::Vector3 
-Zone_GetBoundingBoxMax (Urho3D::Zone *_target)
-{
-	return *((Interop::Vector3  *) &(_target->GetBoundingBoxMax ()));
 }
 
 
@@ -24114,13 +23855,6 @@ OffMeshConnection_SetEndPoint (Urho3D::OffMeshConnection *_target, Urho3D::Node 
 
 
 DllExport void
-OffMeshConnection_SetEndPointNodeIDAttr (Urho3D::OffMeshConnection *_target, unsigned int nodeID)
-{
-	_target->SetEndPointNodeIDAttr (nodeID);
-}
-
-
-DllExport void
 OffMeshConnection_SetRadius (Urho3D::OffMeshConnection *_target, float radius)
 {
 	_target->SetRadius (radius);
@@ -24152,13 +23886,6 @@ DllExport Urho3D::Node *
 OffMeshConnection_GetEndPoint (Urho3D::OffMeshConnection *_target)
 {
 	return _target->GetEndPoint ();
-}
-
-
-DllExport unsigned int
-OffMeshConnection_GetEndPointNodeID (Urho3D::OffMeshConnection *_target)
-{
-	return _target->GetEndPointNodeID ();
 }
 
 
@@ -24828,6 +24555,20 @@ TriangleMeshData_TriangleMeshData0 (Urho3D::CustomGeometry * custom)
 
 
 DllExport void *
+GImpactMeshData_GImpactMeshData (Urho3D::Model * model, unsigned int lodLevel)
+{
+	return WeakPtr<GImpactMeshData>(new GImpactMeshData(model, lodLevel));
+}
+
+
+DllExport void *
+GImpactMeshData_GImpactMeshData0 (Urho3D::CustomGeometry * custom)
+{
+	return WeakPtr<GImpactMeshData>(new GImpactMeshData(custom));
+}
+
+
+DllExport void *
 ConvexData_ConvexData (Urho3D::Model * model, unsigned int lodLevel)
 {
 	return WeakPtr<ConvexData>(new ConvexData(model, lodLevel));
@@ -24982,6 +24723,20 @@ CollisionShape_SetCustomConvexHull (Urho3D::CollisionShape *_target, Urho3D::Cus
 
 
 DllExport void
+CollisionShape_SetGImpactMesh (Urho3D::CollisionShape *_target, Urho3D::Model * model, unsigned int lodLevel, const class Urho3D::Vector3 & scale, const class Urho3D::Vector3 & position, const class Urho3D::Quaternion & rotation)
+{
+	_target->SetGImpactMesh (model, lodLevel, scale, position, rotation);
+}
+
+
+DllExport void
+CollisionShape_SetCustomGImpactMesh (Urho3D::CollisionShape *_target, Urho3D::CustomGeometry * custom, const class Urho3D::Vector3 & scale, const class Urho3D::Vector3 & position, const class Urho3D::Quaternion & rotation)
+{
+	_target->SetCustomGImpactMesh (custom, scale, position, rotation);
+}
+
+
+DllExport void
 CollisionShape_SetTerrain (Urho3D::CollisionShape *_target, unsigned int lodLevel)
 {
 	_target->SetTerrain (lodLevel);
@@ -25086,13 +24841,6 @@ CollisionShape_GetMargin (Urho3D::CollisionShape *_target)
 }
 
 
-DllExport unsigned int
-CollisionShape_GetCustomGeometryID (Urho3D::CollisionShape *_target)
-{
-	return _target->GetCustomGeometryID ();
-}
-
-
 DllExport Urho3D::Model *
 CollisionShape_GetModel (Urho3D::CollisionShape *_target)
 {
@@ -25118,41 +24866,6 @@ DllExport void
 CollisionShape_NotifyRigidBody (Urho3D::CollisionShape *_target, bool updateMass)
 {
 	_target->NotifyRigidBody (updateMass);
-}
-
-
-DllExport void
-CollisionShape_SetShapeTypeAttr (Urho3D::CollisionShape *_target, enum Urho3D::ShapeType type)
-{
-	_target->SetShapeTypeAttr (type);
-}
-
-
-DllExport void
-CollisionShape_SetSizeAttr (Urho3D::CollisionShape *_target, const class Urho3D::Vector3 & value)
-{
-	_target->SetSizeAttr (value);
-}
-
-
-DllExport void
-CollisionShape_SetLodLevelAttr (Urho3D::CollisionShape *_target, unsigned int value)
-{
-	_target->SetLodLevelAttr (value);
-}
-
-
-DllExport void
-CollisionShape_SetMarginAttr (Urho3D::CollisionShape *_target, float value)
-{
-	_target->SetMarginAttr (value);
-}
-
-
-DllExport void
-CollisionShape_SetCustomGeometryIDAttr (Urho3D::CollisionShape *_target, unsigned int componentID)
-{
-	_target->SetCustomGeometryIDAttr (componentID);
 }
 
 
@@ -25359,13 +25072,6 @@ Constraint_GetOtherBody (Urho3D::Constraint *_target)
 }
 
 
-DllExport unsigned int
-Constraint_GetOtherBodyNodeID (Urho3D::Constraint *_target)
-{
-	return _target->GetOtherBodyNodeID ();
-}
-
-
 DllExport Interop::Vector3 
 Constraint_GetPosition (Urho3D::Constraint *_target)
 {
@@ -25433,55 +25139,6 @@ DllExport int
 Constraint_GetDisableCollision (Urho3D::Constraint *_target)
 {
 	return _target->GetDisableCollision ();
-}
-
-
-DllExport void
-Constraint_SetConstraintTypeAttr (Urho3D::Constraint *_target, enum Urho3D::ConstraintType type)
-{
-	_target->SetConstraintTypeAttr (type);
-}
-
-
-DllExport void
-Constraint_SetPositionAttr (Urho3D::Constraint *_target, const class Urho3D::Vector3 & position)
-{
-	_target->SetPositionAttr (position);
-}
-
-
-DllExport void
-Constraint_SetRotationAttr (Urho3D::Constraint *_target, const class Urho3D::Quaternion & rotation)
-{
-	_target->SetRotationAttr (rotation);
-}
-
-
-DllExport void
-Constraint_SetOtherPositionAttr (Urho3D::Constraint *_target, const class Urho3D::Vector3 & position)
-{
-	_target->SetOtherPositionAttr (position);
-}
-
-
-DllExport void
-Constraint_SetOtherRotationAttr (Urho3D::Constraint *_target, const class Urho3D::Quaternion & rotation)
-{
-	_target->SetOtherRotationAttr (rotation);
-}
-
-
-DllExport void
-Constraint_SetOtherBodyNodeIDAttr (Urho3D::Constraint *_target, unsigned int nodeID)
-{
-	_target->SetOtherBodyNodeIDAttr (nodeID);
-}
-
-
-DllExport void
-Constraint_SetDisableCollitionAttr (Urho3D::Constraint *_target, bool value)
-{
-	_target->SetDisableCollitionAttr (value);
 }
 
 
@@ -26378,48 +26035,6 @@ DllExport void
 RigidBody_UpdateGravity (Urho3D::RigidBody *_target)
 {
 	_target->UpdateGravity ();
-}
-
-
-DllExport void
-RigidBody_SetMassAttr (Urho3D::RigidBody *_target, float mass)
-{
-	_target->SetMassAttr (mass);
-}
-
-
-DllExport void
-RigidBody_SetCollisionLayerAttr (Urho3D::RigidBody *_target, unsigned int layer)
-{
-	_target->SetCollisionLayerAttr (layer);
-}
-
-
-DllExport void
-RigidBody_SetCollisionMaskAttr (Urho3D::RigidBody *_target, unsigned int mask)
-{
-	_target->SetCollisionMaskAttr (mask);
-}
-
-
-DllExport void
-RigidBody_SetCollisionEventModeAttr (Urho3D::RigidBody *_target, enum Urho3D::CollisionEventMode mode)
-{
-	_target->SetCollisionEventModeAttr (mode);
-}
-
-
-DllExport void
-RigidBody_SetKinematicAttr (Urho3D::RigidBody *_target, bool value)
-{
-	_target->SetKinematicAttr (value);
-}
-
-
-DllExport void
-RigidBody_SetTriggerAttr (Urho3D::RigidBody *_target, bool value)
-{
-	_target->SetTriggerAttr (value);
 }
 
 
@@ -28556,6 +28171,20 @@ Button_SetPressedOffset0 (Urho3D::Button *_target, int x, int y)
 
 
 DllExport void
+Button_SetDisabledOffset (Urho3D::Button *_target, const class Urho3D::IntVector2 & offset)
+{
+	_target->SetDisabledOffset (offset);
+}
+
+
+DllExport void
+Button_SetDisabledOffset1 (Urho3D::Button *_target, int x, int y)
+{
+	_target->SetDisabledOffset (x, y);
+}
+
+
+DllExport void
 Button_SetPressedChildOffset (Urho3D::Button *_target, const class Urho3D::IntVector2 & offset)
 {
 	_target->SetPressedChildOffset (offset);
@@ -28563,7 +28192,7 @@ Button_SetPressedChildOffset (Urho3D::Button *_target, const class Urho3D::IntVe
 
 
 DllExport void
-Button_SetPressedChildOffset1 (Urho3D::Button *_target, int x, int y)
+Button_SetPressedChildOffset2 (Urho3D::Button *_target, int x, int y)
 {
 	_target->SetPressedChildOffset (x, y);
 }
@@ -28594,6 +28223,13 @@ DllExport Interop::IntVector2
 Button_GetPressedOffset (Urho3D::Button *_target)
 {
 	return *((Interop::IntVector2  *) &(_target->GetPressedOffset ()));
+}
+
+
+DllExport Interop::IntVector2 
+Button_GetDisabledOffset (Urho3D::Button *_target)
+{
+	return *((Interop::IntVector2  *) &(_target->GetDisabledOffset ()));
 }
 
 
@@ -30022,6 +29658,27 @@ DllExport void
 ListView_OnResize (Urho3D::ListView *_target, const class Urho3D::IntVector2 & newSize, const class Urho3D::IntVector2 & delta)
 {
 	_target->OnResize (newSize, delta);
+}
+
+
+DllExport void
+ListView_UpdateInternalLayout (Urho3D::ListView *_target)
+{
+	_target->UpdateInternalLayout ();
+}
+
+
+DllExport void
+ListView_DisableInternalLayoutUpdate (Urho3D::ListView *_target)
+{
+	_target->DisableInternalLayoutUpdate ();
+}
+
+
+DllExport void
+ListView_EnableInternalLayoutUpdate (Urho3D::ListView *_target)
+{
+	_target->EnableInternalLayoutUpdate ();
 }
 
 
@@ -33734,13 +33391,6 @@ Constraint2D_SetOtherBody (Urho3D::Constraint2D *_target, Urho3D::RigidBody2D * 
 
 
 DllExport void
-Constraint2D_SetOtherBodyNodeIDAttr (Urho3D::Constraint2D *_target, unsigned int nodeID)
-{
-	_target->SetOtherBodyNodeIDAttr (nodeID);
-}
-
-
-DllExport void
 Constraint2D_SetCollideConnected (Urho3D::Constraint2D *_target, bool collideConnected)
 {
 	_target->SetCollideConnected (collideConnected);
@@ -33765,13 +33415,6 @@ DllExport Urho3D::RigidBody2D *
 Constraint2D_GetOtherBody (Urho3D::Constraint2D *_target)
 {
 	return _target->GetOtherBody ();
-}
-
-
-DllExport unsigned int
-Constraint2D_GetOtherBodyNodeID (Urho3D::Constraint2D *_target)
-{
-	return _target->GetOtherBodyNodeID ();
 }
 
 

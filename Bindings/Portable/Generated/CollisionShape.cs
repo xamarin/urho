@@ -259,6 +259,30 @@ namespace Urho.Physics
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void CollisionShape_SetGImpactMesh (IntPtr handle, IntPtr model, uint lodLevel, ref Urho.Vector3 scale, ref Urho.Vector3 position, ref Urho.Quaternion rotation);
+
+		/// <summary>
+		/// Set as a triangle mesh from Model. If you update a model's geometry and want to reapply the shape, call physicsWorld->RemoveCachedGeometry(model) first.
+		/// </summary>
+		public void SetGImpactMesh (Model model, uint lodLevel, Urho.Vector3 scale, Urho.Vector3 position, Urho.Quaternion rotation)
+		{
+			Runtime.ValidateRefCounted (this);
+			CollisionShape_SetGImpactMesh (handle, (object)model == null ? IntPtr.Zero : model.Handle, lodLevel, ref scale, ref position, ref rotation);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void CollisionShape_SetCustomGImpactMesh (IntPtr handle, IntPtr custom, ref Urho.Vector3 scale, ref Urho.Vector3 position, ref Urho.Quaternion rotation);
+
+		/// <summary>
+		/// Set as a triangle mesh from CustomGeometry.
+		/// </summary>
+		public void SetCustomGImpactMesh (CustomGeometry custom, Urho.Vector3 scale, Urho.Vector3 position, Urho.Quaternion rotation)
+		{
+			Runtime.ValidateRefCounted (this);
+			CollisionShape_SetCustomGImpactMesh (handle, (object)custom == null ? IntPtr.Zero : custom.Handle, ref scale, ref position, ref rotation);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void CollisionShape_SetTerrain (IntPtr handle, uint lodLevel);
 
 		/// <summary>
@@ -439,18 +463,6 @@ namespace Urho.Physics
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern uint CollisionShape_GetCustomGeometryID (IntPtr handle);
-
-		/// <summary>
-		/// Return custom geometry component ID.
-		/// </summary>
-		private uint GetCustomGeometryID ()
-		{
-			Runtime.ValidateRefCounted (this);
-			return CollisionShape_GetCustomGeometryID (handle);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr CollisionShape_GetModel (IntPtr handle);
 
 		/// <summary>
@@ -496,66 +508,6 @@ namespace Urho.Physics
 		{
 			Runtime.ValidateRefCounted (this);
 			CollisionShape_NotifyRigidBody (handle, updateMass);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void CollisionShape_SetShapeTypeAttr (IntPtr handle, ShapeType type);
-
-		/// <summary>
-		/// Set shape type attribute.
-		/// </summary>
-		public void SetShapeTypeAttr (ShapeType type)
-		{
-			Runtime.ValidateRefCounted (this);
-			CollisionShape_SetShapeTypeAttr (handle, type);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void CollisionShape_SetSizeAttr (IntPtr handle, ref Urho.Vector3 value);
-
-		/// <summary>
-		/// Set size attribute.
-		/// </summary>
-		public void SetSizeAttr (Urho.Vector3 value)
-		{
-			Runtime.ValidateRefCounted (this);
-			CollisionShape_SetSizeAttr (handle, ref value);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void CollisionShape_SetLodLevelAttr (IntPtr handle, uint value);
-
-		/// <summary>
-		/// Set model LOD level attribute.
-		/// </summary>
-		public void SetLodLevelAttr (uint value)
-		{
-			Runtime.ValidateRefCounted (this);
-			CollisionShape_SetLodLevelAttr (handle, value);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void CollisionShape_SetMarginAttr (IntPtr handle, float value);
-
-		/// <summary>
-		/// Set collision margin attribute.
-		/// </summary>
-		public void SetMarginAttr (float value)
-		{
-			Runtime.ValidateRefCounted (this);
-			CollisionShape_SetMarginAttr (handle, value);
-		}
-
-		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void CollisionShape_SetCustomGeometryIDAttr (IntPtr handle, uint componentID);
-
-		/// <summary>
-		/// Set custom geometry component ID attribute.
-		/// </summary>
-		public void SetCustomGeometryIDAttr (uint componentID)
-		{
-			Runtime.ValidateRefCounted (this);
-			CollisionShape_SetCustomGeometryIDAttr (handle, componentID);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -711,15 +663,6 @@ namespace Urho.Physics
 		public PhysicsWorld PhysicsWorld {
 			get {
 				return GetPhysicsWorld ();
-			}
-		}
-
-		/// <summary>
-		/// Return custom geometry component ID.
-		/// </summary>
-		public uint CustomGeometryID {
-			get {
-				return GetCustomGeometryID ();
 			}
 		}
 

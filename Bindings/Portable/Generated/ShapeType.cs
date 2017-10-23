@@ -31,6 +31,7 @@ namespace Urho.Physics
 		Cone,
 		Trianglemesh,
 		Convexhull,
-		Terrain
+		Terrain,
+		Gimpactmesh
 	}
 }
