@@ -291,10 +291,10 @@ namespace Urho
 			return new Vectors.ProxyRefCounted<T>(handle);
 		}
 
-		internal static void Cleanup()
+		internal static void Cleanup(bool disposeContext = true)
 		{
 			IsClosing = true;
-			RefCountedCache.Clean();
+			RefCountedCache.Clean(disposeContext);
 			GC.Collect();
 			GC.WaitForPendingFinalizers();
 			GC.Collect();

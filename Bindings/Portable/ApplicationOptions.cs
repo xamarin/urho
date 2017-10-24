@@ -85,7 +85,7 @@ namespace Urho
 		public bool HighDpi { get; set; } = true;
 
 		/// <summary>
-		/// Add any flag listed here: http://urho3d.github.io/documentation/1.5/_running.html 
+		/// Add any flag listed here: http://urho3d.github.io/documentation/1.7/_running.html 
 		/// </summary>
 		public string AdditionalFlags { get; set; } = string.Empty;
 
@@ -161,8 +161,11 @@ namespace Urho
 				possibleCoreDataDirectories = ResourcePrefixPaths.Concat(possibleCoreDataDirectories).Distinct().ToArray();
 			resourcePrefixPaths = possibleCoreDataDirectories;
 
-			if (System.Diagnostics.Debugger.IsAttached)
+			if (System.Diagnostics.Debugger.IsAttached && Environment.OSVersion.Platform == PlatformID.Win32NT)
+			{
 				NoSound = true;
+				System.Diagnostics.Debug.WriteLine("WARNING! Sound is disabled on Windows when debugger is attached (temporarily).");
+			}
 #endif
 
 			if (resourcePrefixPaths?.Length > 0)

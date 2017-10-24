@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26923.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho", "bindings\Urho.csproj", "{641886DB-2C6C-4D33-88DA-97BEC0EC5F86}"
 EndProject
@@ -341,7 +341,9 @@ Global
 		{F0C1189B-75F7-4BD8-B394-A23D5B03EFF6}.Package|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{F0C1189B-75F7-4BD8-B394-A23D5B03EFF6}.Package|iPhoneSimulator.Build.0 = Release|Any CPU
 		{F0C1189B-75F7-4BD8-B394-A23D5B03EFF6}.Package|x64.ActiveCfg = Release|Any CPU
+		{F0C1189B-75F7-4BD8-B394-A23D5B03EFF6}.Package|x64.Build.0 = Release|Any CPU
 		{F0C1189B-75F7-4BD8-B394-A23D5B03EFF6}.Package|x86.ActiveCfg = Release|Any CPU
+		{F0C1189B-75F7-4BD8-B394-A23D5B03EFF6}.Package|x86.Build.0 = Release|Any CPU
 		{F0C1189B-75F7-4BD8-B394-A23D5B03EFF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0C1189B-75F7-4BD8-B394-A23D5B03EFF6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F0C1189B-75F7-4BD8-B394-A23D5B03EFF6}.Release|ARM.ActiveCfg = Release|Any CPU
@@ -554,7 +556,9 @@ Global
 		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Package|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Package|iPhoneSimulator.Build.0 = Release|Any CPU
 		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Package|x64.ActiveCfg = Release|Any CPU
+		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Package|x64.Build.0 = Release|Any CPU
 		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Package|x86.ActiveCfg = Release|Any CPU
+		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Package|x86.Build.0 = Release|Any CPU
 		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}.Release|ARM.ActiveCfg = Release|Any CPU
@@ -961,7 +965,9 @@ Global
 		{68A19C58-7EBA-4AF4-BE15-F5D7A13B6C97}.Package|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{68A19C58-7EBA-4AF4-BE15-F5D7A13B6C97}.Package|iPhoneSimulator.Build.0 = Release|Any CPU
 		{68A19C58-7EBA-4AF4-BE15-F5D7A13B6C97}.Package|x64.ActiveCfg = Release|Any CPU
+		{68A19C58-7EBA-4AF4-BE15-F5D7A13B6C97}.Package|x64.Build.0 = Release|Any CPU
 		{68A19C58-7EBA-4AF4-BE15-F5D7A13B6C97}.Package|x86.ActiveCfg = Release|Any CPU
+		{68A19C58-7EBA-4AF4-BE15-F5D7A13B6C97}.Package|x86.Build.0 = Release|Any CPU
 		{68A19C58-7EBA-4AF4-BE15-F5D7A13B6C97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68A19C58-7EBA-4AF4-BE15-F5D7A13B6C97}.Release|Any CPU.Build.0 = Release|Any CPU
 		{68A19C58-7EBA-4AF4-BE15-F5D7A13B6C97}.Release|ARM.ActiveCfg = Release|Any CPU
@@ -1101,8 +1107,9 @@ Global
 		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Package|iPhoneSimulator.ActiveCfg = Release|Win32
 		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Package|iPhoneSimulator.Build.0 = Release|Win32
 		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Package|iPhoneSimulator.Deploy.0 = Release|Win32
-		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Package|x64.ActiveCfg = Release|Win32
-		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Package|x64.Deploy.0 = Release|Win32
+		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Package|x64.ActiveCfg = Release|x64
+		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Package|x64.Build.0 = Release|x64
+		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Package|x64.Deploy.0 = Release|x64
 		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Package|x86.ActiveCfg = Release|Win32
 		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Package|x86.Build.0 = Release|Win32
 		{C0C58E2D-5719-4C57-8A3E-B746AA8C9EB6}.Package|x86.Deploy.0 = Release|Win32
@@ -1177,6 +1184,7 @@ Global
 		{9C3A02C0-6776-438A-AAF7-9F95AF55E243}.Package|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{9C3A02C0-6776-438A-AAF7-9F95AF55E243}.Package|iPhoneSimulator.Build.0 = Release|Any CPU
 		{9C3A02C0-6776-438A-AAF7-9F95AF55E243}.Package|x64.ActiveCfg = Release|Any CPU
+		{9C3A02C0-6776-438A-AAF7-9F95AF55E243}.Package|x64.Build.0 = Release|Any CPU
 		{9C3A02C0-6776-438A-AAF7-9F95AF55E243}.Package|x86.ActiveCfg = Release|Any CPU
 		{9C3A02C0-6776-438A-AAF7-9F95AF55E243}.Package|x86.Build.0 = Release|Any CPU
 		{9C3A02C0-6776-438A-AAF7-9F95AF55E243}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -2512,5 +2520,8 @@ Global
 		{AA325D2D-B242-4773-B303-A609C4DA5017} = {7B31BB67-CA12-41DD-8DDF-779B7E7561D3}
 		{8C12B028-853C-4E51-AB9D-FD4CE4C50FBF} = {7B31BB67-CA12-41DD-8DDF-779B7E7561D3}
 		{507FEED7-F317-4DE5-BF4A-147FA35123EE} = {D26E6130-7AF0-4559-8A9A-0C8B0A638C14}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DF39E318-B1C7-47FA-AD4D-7888C36A22C1}
 	EndGlobalSection
 EndGlobal

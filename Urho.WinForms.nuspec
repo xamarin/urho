@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>UrhoSharp.WinForms</id>
-       <version>1.5</version>
+       <version>1.7.2</version>
        <title>UrhoSharp.WinForms</title>
        <authors>Xamarin Inc.</authors>
        <owners>Xamarin</owners>
@@ -20,7 +20,7 @@ Initial built-in ARKit supprot (YuvVideo component + ARKit shader)
 	   </releaseNotes>
        <tags>Urho Urho3D WinForms UrhoSharp Xamarin 2D 3D games engine</tags>
        <dependencies>
-         <dependency id="UrhoSharp" version="1.5" />
+         <dependency id="UrhoSharp" version="1.7.2" />
        </dependencies>
    </metadata>
    <files>

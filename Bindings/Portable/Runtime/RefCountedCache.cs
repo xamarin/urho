@@ -63,7 +63,7 @@ namespace Urho
 			}
 		}
 
-		public void Clean()
+		public void Clean(bool disposeContext = true)
 		{
 			IntPtr[] handles;
 
@@ -75,7 +75,12 @@ namespace Urho
 				ReferenceHolder<RefCounted> refHolder;
 				lock (knownObjects)
 					knownObjects.TryGetValue(handle, out refHolder);
-				refHolder?.Reference?.Dispose();
+				var reference = refHolder?.Reference;
+				if (!disposeContext && reference is Context)
+				{
+					continue;
+				}
+				reference?.Dispose();
 			}
 			LogSharp.Warn($"RefCountedCache objects alive: {knownObjects.Count}");
 

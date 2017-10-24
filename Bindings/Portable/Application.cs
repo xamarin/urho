@@ -274,11 +274,18 @@ namespace Urho
 			var app = GetApp(h);
 			app.IsClosed = true;
 			app.Stop();
+#if ANDROID
+			LogSharp.Debug("ProxyStop: Runtime.Cleanup");
+			Runtime.Cleanup(false);
+			LogSharp.Debug("ProxyStop: Disposing context");
+			Current = null;
+			Sdl.Quit();
+#else
 			LogSharp.Debug("ProxyStop: Runtime.Cleanup");
 			Runtime.Cleanup();
 			LogSharp.Debug("ProxyStop: Disposing context");
-			context.Dispose();
 			Current = null;
+#endif
 			Stopped?.Invoke();
 			LogSharp.Debug("ProxyStop: end");
 			exitTask?.TrySetResult(true);
@@ -297,6 +304,7 @@ namespace Urho
 		static readonly object stopLock = new object();
 		internal static void StopAndroid()
 		{
+			Sdl.AudioQuit();
 			lock (stopLock)
 			{
 				if (current == null || !current.IsActive)

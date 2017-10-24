@@ -17,6 +17,16 @@ namespace Urho
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void SDL_SetMainReady();
 
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		static extern void SDL_AudioQuit();
+
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		static extern void SDL_Quit();
+
+		public static void AudioQuit() => SDL_AudioQuit();
+
+		public static void Quit() => SDL_Quit();
+
 		public static void SetMainReady() => SDL_SetMainReady();
 
 		public static void SendWindowEvent(SdlWindowEvent wndEvent, int data1 = 0, int data2 = 0)
