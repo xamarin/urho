@@ -47,6 +47,11 @@ namespace Urho
 		public bool LimitFps { get; set; } = true;
 
 		/// <summary>
+		/// Disable sound output
+		/// </summary>
+		public bool NoSound { get; set; } = false;
+
+		/// <summary>
 		/// iOS & Android only
 		/// </summary>
 		public OrientationType Orientation { get; set; }
@@ -155,6 +160,9 @@ namespace Urho
 			if (ResourcePrefixPaths?.Length > 0)
 				possibleCoreDataDirectories = ResourcePrefixPaths.Concat(possibleCoreDataDirectories).Distinct().ToArray();
 			resourcePrefixPaths = possibleCoreDataDirectories;
+
+			if (System.Diagnostics.Debugger.IsAttached)
+				NoSound = true;
 #endif
 
 			if (resourcePrefixPaths?.Length > 0)
@@ -167,6 +175,9 @@ namespace Urho
 
 			if (HighDpi)
 				builder.Append(" -hd");
+
+			if (NoSound)
+				builder.Append(" -nosound");
 
 			switch (Orientation)
 			{
