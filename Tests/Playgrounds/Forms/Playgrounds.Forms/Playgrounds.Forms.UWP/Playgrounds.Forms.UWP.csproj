@@ -11,8 +11,8 @@
     <AssemblyName>Playgrounds.Forms.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.15063.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
     <FileAlignment>512</FileAlignment>
@@ -135,7 +135,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Bindings\UWP\Forms\Urho.Forms.UWP.csproj">
+    <ProjectReference Include="..\..\..\..\..\Bindings\Forms.UWP\Urho.Forms.UWP.csproj">
       <Project>{3afdab77-57ce-4fce-8324-81d57556a4fa}</Project>
       <Name>Urho.Forms.UWP</Name>
     </ProjectReference>

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26923.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho", "bindings\Urho.csproj", "{641886DB-2C6C-4D33-88DA-97BEC0EC5F86}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho", "bindings\Portable\Urho.csproj", "{641886DB-2C6C-4D33-88DA-97BEC0EC5F86}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{ED29FA71-95CA-4E72-92F8-813A25C81218}"
 	ProjectSection(SolutionItems) = preProject
@@ -24,17 +24,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{ED29FA71-9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Native", "Native", "{02DFD71E-AC0B-4D8A-9038-CD4EE9ED7209}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.iOS", "bindings\Urho.iOS.csproj", "{048373C2-B60A-4F61-B095-287C57437EFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.iOS", "bindings\iOS\Urho.iOS.csproj", "{048373C2-B60A-4F61-B095-287C57437EFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Droid", "bindings\Urho.Droid.csproj", "{F0C1189B-75F7-4BD8-B394-A23D5B03EFF6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Droid", "bindings\Android\Urho.Droid.csproj", "{F0C1189B-75F7-4BD8-B394-A23D5B03EFF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Desktop", "bindings\Urho.Desktop.csproj", "{F0359D5E-D6D4-47D3-A9F0-5A97C31DC476}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Desktop", "bindings\Desktop\Urho.Desktop.csproj", "{F0359D5E-D6D4-47D3-A9F0-5A97C31DC476}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Forms", "bindings\Urho.Forms.csproj", "{D599C47F-B9E0-4A58-82E8-6286E0442E8F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Forms", "bindings\Forms\Urho.Forms.csproj", "{D599C47F-B9E0-4A58-82E8-6286E0442E8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Forms.Droid", "bindings\Urho.Forms.Droid.csproj", "{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Forms.Droid", "bindings\Forms.Droid\Urho.Forms.Droid.csproj", "{8BAE491B-46F0-4A51-A456-D7A3B332BDC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Forms.iOS", "bindings\Urho.Forms.iOS.csproj", "{8F3352BA-BF6A-49F8-81D6-58D54B3EA72B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Forms.iOS", "bindings\Forms.iOS\Urho.Forms.iOS.csproj", "{8F3352BA-BF6A-49F8-81D6-58D54B3EA72B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.UWP", "Bindings\UWP\Urho.UWP.csproj", "{3B881C69-A1AC-410A-A633-EA9FCA4A760C}"
 EndProject
@@ -42,7 +42,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UrhoSharp.UWP", "Urho3D\Urh
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UrhoSharp.Windows", "Urho3D\Urho3D_Windows\MonoUrho.Windows\MonoUrho.Windows.vcxproj", "{6F1CB939-16E1-4753-91B1-A0B5C04D3121}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Forms.UWP", "Bindings\UWP\Forms\Urho.Forms.UWP.csproj", "{3AFDAB77-57CE-4FCE-8324-81D57556A4FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Forms.UWP", "Bindings\Forms.UWP\Urho.Forms.UWP.csproj", "{3AFDAB77-57CE-4FCE-8324-81D57556A4FA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Forms", "Forms", "{B2858361-A335-49FA-A9B9-8877E4B1B0EF}"
 EndProject
@@ -1880,7 +1880,8 @@ Global
 		{EB7E3694-DA4F-4E75-B705-838379838A00}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
 		{EB7E3694-DA4F-4E75-B705-838379838A00}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
 		{EB7E3694-DA4F-4E75-B705-838379838A00}.Debug|x64.ActiveCfg = Debug|iPhone
-		{EB7E3694-DA4F-4E75-B705-838379838A00}.Debug|x86.ActiveCfg = Debug|iPhone
+		{EB7E3694-DA4F-4E75-B705-838379838A00}.Debug|x86.ActiveCfg = Debug|iPhoneSimulator
+		{EB7E3694-DA4F-4E75-B705-838379838A00}.Debug|x86.Build.0 = Debug|iPhoneSimulator
 		{EB7E3694-DA4F-4E75-B705-838379838A00}.Package|Any CPU.ActiveCfg = AppStore|iPhone
 		{EB7E3694-DA4F-4E75-B705-838379838A00}.Package|ARM.ActiveCfg = AppStore|iPhone
 		{EB7E3694-DA4F-4E75-B705-838379838A00}.Package|ARM.Build.0 = AppStore|iPhone

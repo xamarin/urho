@@ -38,7 +38,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\bindings\Urho.Forms.csproj">
+    <ProjectReference Include="..\..\..\..\..\bindings\Forms\Urho.Forms.csproj">
       <Project>{d599c47f-b9e0-4a58-82e8-6286e0442e8f}</Project>
       <Name>Urho.Forms</Name>
     </ProjectReference>

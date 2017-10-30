@@ -2994,9 +2994,6 @@ namespace Playgrounds.Forms.Droid
 			// aapt resource value: 0x7f080021
 			public const int abc_toolbar_collapse_description = 2131230753;
 			
-			// aapt resource value: 0x7f080026
-			public const int app_name = 2131230758;
-			
 			// aapt resource value: 0x7f080023
 			public const int appbar_scrolling_view_behavior = 2131230755;
 			

@@ -137,7 +137,7 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\bindings\Urho.Forms.iOS.csproj">
+    <ProjectReference Include="..\..\..\..\..\bindings\Forms.iOS\Urho.Forms.iOS.csproj">
       <Project>{8F3352BA-BF6A-49F8-81D6-58D54B3EA72B}</Project>
       <Name>Urho.Forms.iOS</Name>
     </ProjectReference>

@@ -40,7 +40,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Bindings\Urho.csproj">
+    <ProjectReference Include="..\..\Bindings\Portable\Urho.csproj">
       <Project>{641886db-2c6c-4d33-88da-97bec0ec5f86}</Project>
       <Name>Urho</Name>
     </ProjectReference>

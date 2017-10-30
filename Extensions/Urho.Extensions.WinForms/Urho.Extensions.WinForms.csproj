@@ -46,7 +46,7 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\bindings\Urho.Desktop.csproj">
+    <ProjectReference Include="..\..\bindings\Desktop\Urho.Desktop.csproj">
       <Project>{f0359d5e-d6d4-47d3-a9f0-5a97c31dc476}</Project>
       <Name>Urho.Desktop</Name>
     </ProjectReference>

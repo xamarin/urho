@@ -156,7 +156,7 @@
     <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\bindings\Urho.Forms.Droid.csproj">
+    <ProjectReference Include="..\..\..\..\..\bindings\Forms.Droid\Urho.Forms.Droid.csproj">
       <Project>{8bae491b-46f0-4a51-a456-d7a3b332bdc4}</Project>
       <Name>Urho.Forms.Droid</Name>
     </ProjectReference>

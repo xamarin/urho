@@ -43,7 +43,7 @@
     <Compile Include="StringHash.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\bindings\Urho.Desktop.csproj">
+    <ProjectReference Include="..\..\bindings\Desktop\Urho.Desktop.csproj">
       <Project>{F0359D5E-D6D4-47D3-A9F0-5A97C31DC476}</Project>
       <Name>Urho.Desktop</Name>
     </ProjectReference>

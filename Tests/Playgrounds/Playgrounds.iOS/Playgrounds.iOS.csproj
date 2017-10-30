@@ -131,7 +131,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\bindings\Urho.iOS.csproj">
+    <ProjectReference Include="..\..\..\bindings\iOS\Urho.iOS.csproj">
       <Project>{048373C2-B60A-4F61-B095-287C57437EFB}</Project>
       <Name>Urho.iOS</Name>
     </ProjectReference>
