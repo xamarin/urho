@@ -1,28 +1,34 @@
 using System;
-using System.Runtime.InteropServices;
-using System.Collections.Generic;
 
 namespace Urho
 {
 	public partial class IndexBuffer
 	{
-		public void SetData (short [] vertexData)
+		public unsafe void SetData (short [] vertexData)
 		{
+			if (vertexData == null)
+				throw new ArgumentException(nameof(vertexData));
+
+			if (vertexData.Length == 0)
+				SetData((void*)IntPtr.Zero);
+
 			Runtime.ValidateRefCounted(this);
-			unsafe {
-				fixed (short *p = &vertexData [0]){
-					SetData ((void *) p);
-				}
+			fixed (short *ptr = &vertexData [0]) {
+				SetData (ptr);
 			}
 		}
 
-		public void SetData (uint [] vertexData)
+		public unsafe void SetData (uint [] vertexData)
 		{
+			if (vertexData == null)
+				throw new ArgumentException(nameof(vertexData));
+
+			if (vertexData.Length == 0)
+				SetData((void*)IntPtr.Zero);
+
 			Runtime.ValidateRefCounted(this);
-			unsafe {
-				fixed (uint* p = &vertexData [0]){
-					SetData ((void *) p);
-				}
+			fixed (uint* ptr = &vertexData [0]) {
+				SetData (ptr);
 			}
 		}
 	}

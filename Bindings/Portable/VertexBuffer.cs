@@ -1,32 +1,63 @@
+using System;
 using System.Runtime.InteropServices;
 
 namespace Urho
 {	
 	public partial class VertexBuffer
 	{
-		public void SetData(PositionNormal[] data)
+		public unsafe void SetData(PositionNormal[] data)
 		{
-			unsafe { fixed (PositionNormal* p = &data[0]) SetData(p); }
+			if (data == null || data.Length == 0)
+			{
+				SetData((void*)IntPtr.Zero);
+				return;
+			}
+
+			fixed (PositionNormal* p = &data[0]) SetData(p);
 		}
 
-		public void SetData(PositionNormalColor[] data)
+		public unsafe void SetData(PositionNormalColor[] data)
 		{
-			unsafe { fixed (PositionNormalColor* p = &data[0]) SetData(p); }
+			if (data == null || data.Length == 0)
+			{
+				SetData((void*)IntPtr.Zero);
+				return;
+			}
+
+			fixed (PositionNormalColor* p = &data[0]) SetData(p);
 		}
 
-		public void SetData(PositionNormalColorTexcoord[] data)
+		public unsafe void SetData(PositionNormalColorTexcoord[] data)
 		{
-			unsafe { fixed (PositionNormalColorTexcoord* p = &data[0]) SetData(p); }
+			if (data == null || data.Length == 0)
+			{
+				SetData((void*)IntPtr.Zero);
+				return;
+			}
+
+			fixed (PositionNormalColorTexcoord* p = &data[0]) SetData(p);
 		}
 
-		public void SetData(PositionNormalColorTexcoordTangent[] data)
+		public unsafe void SetData(PositionNormalColorTexcoordTangent[] data)
 		{
-			unsafe { fixed (PositionNormalColorTexcoordTangent* p = &data[0]) SetData(p); }
+			if (data == null || data.Length == 0)
+			{
+				SetData((void*)IntPtr.Zero);
+				return;
+			}
+
+			fixed (PositionNormalColorTexcoordTangent* p = &data[0]) SetData(p);
 		}
 
-		public void SetData (float [] data)
+		public unsafe void SetData (float [] data)
 		{
-			unsafe { fixed (float* p = &data[0]) SetData(p); }
+			if (data == null || data.Length == 0)
+			{
+				SetData((void*)IntPtr.Zero);
+				return;
+			}
+
+			fixed (float* p = &data[0]) SetData(p);
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
