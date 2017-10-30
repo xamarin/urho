@@ -50,7 +50,7 @@ namespace Urho.Forms
 		internal async Task<Urho.Application> Launcher(Type type, ApplicationOptions options)
 		{
 			await launcherSemaphore.WaitAsync();
-			Urho.Application.StopAndroid();
+			Urho.Application.StopCurrent();
 			surfaceViewPlaceholder.RemoveAllViews();
 			surfaceView = Urho.Droid.UrhoSurface.CreateSurface((Activity)Context);
 			surfaceViewPlaceholder.AddView(surfaceView);

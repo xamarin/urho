@@ -31,6 +31,7 @@ namespace Urho
 
 		static TaskCompletionSource<bool> exitTask;
 		static TaskCompletionSource<bool> waitFrameEndTaskSource;
+		AutoResetEvent frameEndResetEvent;
 		static int renderThreadId = -1;
 		static bool isExiting = false;
 		static List<Action> staticActionsToDispatch;
@@ -185,8 +186,19 @@ namespace Urho
 		void Time_FrameEnded(FrameEndedEventArgs args)
 		{
 			IsFrameRendering = false;
-			if (waitFrameEndTaskSource != null)
-				waitFrameEndTaskSource?.TrySetResult(true);
+			waitFrameEndTaskSource?.TrySetResult(true);
+
+			if (frameEndResetEvent != null)
+			{
+				frameEndResetEvent.Set();
+				frameEndResetEvent = null;
+			}
+		}
+
+		public void WaitFrameEnd()
+		{
+			frameEndResetEvent = new AutoResetEvent(false);
+			frameEndResetEvent.WaitOne();
 		}
 
 		void HandleUpdate(UpdateEventArgs args)
@@ -300,28 +312,6 @@ namespace Urho
 
 		SemaphoreSlim stopSemaphore = new SemaphoreSlim(1);
 
-#if ANDROID
-		static readonly object stopLock = new object();
-		internal static void StopAndroid()
-		{
-			Sdl.AudioQuit();
-			lock (stopLock)
-			{
-				if (current == null || !current.IsActive)
-					return;
-				LogSharp.Debug($"StopAndroid.");
-
-				Current.Input.Enabled = false;
-				isExiting = true;
-				Current.Engine.Exit();
-				Org.Libsdl.App.SDLSurface.JoinSDLThread();
-			}
-			GC.Collect();
-			GC.WaitForPendingFinalizers();
-			GC.Collect();
-		}
-		
-#endif
 
 		internal static void WaitStart()
 		{
@@ -331,12 +321,14 @@ namespace Urho
 
 		internal static async Task StopCurrent()
 		{
-#if ANDROID
-			StopAndroid();
-#endif
 			if (current == null || !current.IsActive)
 				return;
-			
+
+#if ANDROID
+			current.WaitFrameEnd();
+			Org.Libsdl.App.SDLActivity.OnDestroy();
+			return;
+#endif
 			Current.Input.Enabled = false;
 			isExiting = true;
 #if IOS

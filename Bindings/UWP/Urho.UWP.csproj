@@ -111,9 +111,6 @@
   <ItemGroup>
     <Compile Include="UrhoSurface.cs" />
     <Compile Include="UwpUrhoInitializer.cs" />
-    <EmbeddedResource Include="..\Properties\Urho.UWP.rd.xml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="project.lock.json" />

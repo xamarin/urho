@@ -178,7 +178,7 @@ namespace Urho.Droid
 				Console.WriteLine("WARNING: Stop while starting the urho app.");
 			}
 			//TODO: make sure Stop() is called in the main Android thread (not in the game thread)
-			Application.StopAndroid();
+			Application.StopCurrent();
 		}
 	}
 }
