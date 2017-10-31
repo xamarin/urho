@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>UrhoSharp.SharpReality</id>
-       <version>1.7.2</version>
+       <version>1.7.4</version>
        <title>UrhoSharp.SharpReality</title>
        <authors>Xamarin Inc.</authors>
        <owners>Xamarin</owners>

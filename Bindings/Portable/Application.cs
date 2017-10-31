@@ -291,7 +291,6 @@ namespace Urho
 			Runtime.Cleanup(false);
 			LogSharp.Debug("ProxyStop: Disposing context");
 			Current = null;
-			Sdl.Quit();
 #else
 			LogSharp.Debug("ProxyStop: Runtime.Cleanup");
 			Runtime.Cleanup();
