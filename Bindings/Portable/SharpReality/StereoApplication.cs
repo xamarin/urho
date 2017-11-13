@@ -258,7 +258,10 @@ namespace Urho.SharpReality
 				{
 					var position = rotation * vertexData[i].Position;
 					vertexData[i].Position = position;
-					boundingBox.Merge(boundingBox);
+					boundingBox.Merge(position);
+
+					var normal = rotation * vertexData[i].Normal;
+					vertexData[i].Normal = normal;
 				}
 			}
 			else
