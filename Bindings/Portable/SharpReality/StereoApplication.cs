@@ -231,7 +231,7 @@ namespace Urho.SharpReality
 		/// </summary>
 		public virtual Model GenerateModelFromSpatialSurface(SpatialMeshInfo surface)
 		{
-			return CreateModelFromVertexData(surface.VertexData, surface.IndexData);
+			return CreateModelFromVertexData(surface.VertexData, surface.IndexData, surface.BoundsRotation);
 		}
 
 		internal void HandleSurfaceUpdated(SpatialMeshInfo surface)
