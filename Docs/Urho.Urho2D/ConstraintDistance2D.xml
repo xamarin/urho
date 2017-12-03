@@ -165,7 +165,9 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return length.
+            Or
+            Set length.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

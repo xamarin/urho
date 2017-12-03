@@ -595,7 +595,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return whether rendertarget mipmap levels need regenration.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -646,7 +646,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Regenerate mipmap levels for a rendertarget after rendering and before sampling. Called internally by Graphics. No-op on Direct3D9. On OpenGL the texture must have been bound to work properly.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -733,7 +733,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Set the mipmap levels dirty flag. Called internally by Graphics.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -430,7 +430,7 @@
         <ReturnType>Urho.SdlEventType</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>This last event is only for bounding internal arrays</summary>
       </Docs>
     </Member>
     <Member MemberName="SDL_MOUSEBUTTONDOWN">

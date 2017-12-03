@@ -193,7 +193,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Apply attribute changes that can not be applied immediately. Called after scene load or a network update.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

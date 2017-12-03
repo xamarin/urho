@@ -178,7 +178,9 @@
         <ReturnType>Urho.SDL_Scancode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>\name Usage page 0x07
+            
+              These values are from usage page 0x07 (USB keyboard page).</summary>
       </Docs>
     </Member>
     <Member MemberName="SDL_SCANCODE_AC_BACK">
@@ -388,7 +390,9 @@
         <ReturnType>Urho.SDL_Scancode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>\name Usage page 0x0C
+            
+              These values are mapped from usage page 0x0C (USB consumer page).</summary>
       </Docs>
     </Member>
     <Member MemberName="SDL_SCANCODE_AUDIOPLAY">
@@ -486,7 +490,9 @@
         <ReturnType>Urho.SDL_Scancode</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>\name Walther keys
+            
+              These are values that Christian Walther added (for mac keyboard?).</summary>
       </Docs>
     </Member>
     <Member MemberName="SDL_SCANCODE_BRIGHTNESSUP">

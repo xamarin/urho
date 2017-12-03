@@ -305,7 +305,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Indicate that you are done with using SDL. Must be called after using RequireSDL().</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

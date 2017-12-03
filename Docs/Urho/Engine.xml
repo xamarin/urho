@@ -220,7 +220,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Get the timestep for the next frame and sleep for frame limiting if necessary.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -564,7 +564,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Run one frame.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

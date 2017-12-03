@@ -856,7 +856,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return next XPath query result. Only valid when this instance of XMLElement is itself one of the query result in the result set.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -925,7 +925,7 @@
         <ReturnType>Urho.Resources.XmlElement</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return parent element.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

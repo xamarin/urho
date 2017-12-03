@@ -399,7 +399,9 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return area tube light length. Works only with PBR shaders.
+            Or
+            Set tube area light length. Works only with PBR shaders.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -509,7 +511,9 @@
         <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return area light mode radius. Works only with PBR shaders.
+            Or
+            Set area light radius. Greater than zero activates area light mode. Works only with PBR shaders.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

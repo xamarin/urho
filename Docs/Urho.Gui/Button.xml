@@ -122,7 +122,9 @@
         <ReturnType>Urho.IntVector2</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return disabled image offset.
+            Or
+            Set offset to image rectangle used when disabled.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

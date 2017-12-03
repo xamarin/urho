@@ -185,7 +185,7 @@
       <Docs>
         <param name="from">To be added.</param>
         <param name="to">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Build/rebuild the entire navigation mesh.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -381,7 +381,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Remove all tiles from navigation mesh.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

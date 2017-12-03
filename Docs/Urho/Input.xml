@@ -817,7 +817,7 @@
         <ReturnType>Urho.Vector2</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return input coordinate scaling. Should return non-unity on High DPI display.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

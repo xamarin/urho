@@ -380,7 +380,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return whether the resource has metadata.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -397,7 +397,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Remove all metadata variables.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

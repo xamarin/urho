@@ -246,7 +246,7 @@
             <remarks></remarks>
         </member>
         <member name="M:Urho.AnimatedModel.ApplyAnimation">
-            <summary></summary>
+            <summary>Apply all animation states to nodes.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.AnimatedModel.ApplyAttributes">
@@ -1747,7 +1747,7 @@
             <remarks></remarks>
         </member>
         <member name="P:Urho.Application.IsFrameRendering">
-            <summary></summary>
+            <summary>True means Urho3D is somewhere between E_BEGINFRAME and E_ENDFRAME in Engine::RunFrame()</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -1836,7 +1836,7 @@
             <remarks></remarks>
         </member>
         <member name="M:Urho.Application.ToMainThreadAsync">
-            <summary></summary>
+            <summary>Dispatch to OnUpdate</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -1963,7 +1963,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.ApplicationOptions.NoSound">
-            <summary></summary>
+            <summary>Disable sound output</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -3107,7 +3107,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.Camera.Frustum">
-            <summary></summary>
+            <summary>Return frustum in world space.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -4352,7 +4352,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="M:Urho.Context.ReleaseSDL">
-            <summary></summary>
+            <summary>Indicate that you are done with using SDL. Must be called after using RequireSDL().</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Context.RemoveSubsystem(Urho.StringHash)">
@@ -6485,7 +6485,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.DebugRenderer.Frustum">
-            <summary></summary>
+            <summary>Return the view frustum.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -7617,7 +7617,7 @@ while (true){
             </remarks>
         </member>
         <member name="M:Urho.Engine.ApplyFrameLimit">
-            <summary></summary>
+            <summary>Get the timestep for the next frame and sleep for frame limiting if necessary.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -7743,7 +7743,7 @@ while (true){
                 <see cref="T:Urho.Renderer" /> updates its viewports here to prepare for rendering, and the <see cref="T:Urho.Gui.UI" /> generates render commands necessary to render the user interface.</remarks>
         </member>
         <member name="M:Urho.Engine.RunFrame">
-            <summary></summary>
+            <summary>Run one frame.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -8182,7 +8182,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="M:Urho.Frustum.UpdatePlanes">
-            <summary></summary>
+            <summary>Update the planes. Called internally.</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Frustum.Vertices">
@@ -8531,44 +8531,44 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="M:Urho.GPUObject.ClearDataLost">
-            <summary></summary>
+            <summary>Clear the data lost flag.</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.GPUObject.DataLost">
-            <summary></summary>
+            <summary>Return whether data is lost due to context loss.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="M:Urho.GPUObject.GetGPUObject">
-            <summary></summary>
+            <summary>Return the object pointer. Applicable only on Direct3D.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="P:Urho.GPUObject.GPUObjectName">
-            <summary></summary>
+            <summary>Return the object name. Applicable only on OpenGL.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.GPUObject.Graphics">
-            <summary></summary>
+            <summary>Return the graphics subsystem associated with this GPU object.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="M:Urho.GPUObject.HasPendingData">
-            <summary></summary>
+            <summary>Return whether has pending data assigned while graphics context was lost.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.GPUObject.OnDeviceLost">
-            <summary></summary>
+            <summary>Mark the GPU resource destroyed on graphics context destruction.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.GPUObject.OnDeviceReset">
-            <summary></summary>
+            <summary>Recreate the GPU resource and restore data if applicable.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.GPUObject.Release">
-            <summary></summary>
+            <summary>Unconditionally release the GPU resource.</summary>
             <remarks></remarks>
         </member>
         <member name="T:Urho.Graphics">
@@ -9249,12 +9249,12 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.Monitor">
-            <summary></summary>
+            <summary>Return the current monitor index. Effective on in fullscreen</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.MonitorCount">
-            <summary></summary>
+            <summary>Return the number of currently connected monitors.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -9349,7 +9349,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.RefreshRate">
-            <summary></summary>
+            <summary>Return refresh rate when using vsync in fullscreen</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -9754,7 +9754,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.Size">
-            <summary></summary>
+            <summary>Return window size in pixels.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -10531,7 +10531,7 @@ while (true){
             </remarks>
         </member>
         <member name="P:Urho.Input.InputScale">
-            <summary></summary>
+            <summary>Return input coordinate scaling. Should return non-unity on High DPI display.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -12696,7 +12696,9 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.Light.Length">
-            <summary></summary>
+            <summary>Return area tube light length. Works only with PBR shaders.
+            Or
+            Set tube area light length. Works only with PBR shaders.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -12740,7 +12742,9 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="P:Urho.Light.Radius">
-            <summary></summary>
+            <summary>Return area light mode radius. Works only with PBR shaders.
+            Or
+            Set area light radius. Greater than zero activates area light mode. Works only with PBR shaders.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -17139,7 +17143,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="P:Urho.Node.SignedWorldScale">
-            <summary></summary>
+            <summary>Return signed scale in world space. Utilized for Urho2D physics.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -19364,7 +19368,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="M:Urho.Polyhedron.Clear">
-            <summary></summary>
+            <summary>Clear all faces.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Polyhedron.Clip(Urho.BoundingBox)">
@@ -19393,7 +19397,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="M:Urho.Polyhedron.Empty">
-            <summary></summary>
+            <summary>Return whether is empty.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -22243,12 +22247,12 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="M:Urho.ResourceWithMetadata.HasMetadata">
-            <summary></summary>
+            <summary>Return whether the resource has metadata.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.ResourceWithMetadata.RemoveAllMetadata">
-            <summary></summary>
+            <summary>Remove all metadata variables.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.ResourceWithMetadata.RemoveMetadata(System.String)">
@@ -23476,7 +23480,9 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary></summary>
         </member>
         <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_A">
-            <summary></summary>
+            <summary>\name Usage page 0x07
+            
+              These values are from usage page 0x07 (USB keyboard page).</summary>
         </member>
         <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_AC_BACK">
             <summary></summary>
@@ -23521,7 +23527,9 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary></summary>
         </member>
         <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_AUDIONEXT">
-            <summary></summary>
+            <summary>\name Usage page 0x0C
+            
+              These values are mapped from usage page 0x0C (USB consumer page).</summary>
         </member>
         <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_AUDIOPLAY">
             <summary></summary>
@@ -23542,7 +23550,9 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary></summary>
         </member>
         <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_BRIGHTNESSDOWN">
-            <summary></summary>
+            <summary>\name Walther keys
+            
+              These are values that Christian Walther added (for mac keyboard?).</summary>
         </member>
         <member name="F:Urho.SDL_Scancode.SDL_SCANCODE_BRIGHTNESSUP">
             <summary></summary>
@@ -24260,7 +24270,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
             <summary></summary>
         </member>
         <member name="F:Urho.SdlEventType.SDL_LASTEVENT">
-            <summary></summary>
+            <summary>This last event is only for bounding internal arrays</summary>
         </member>
         <member name="F:Urho.SdlEventType.SDL_MOUSEBUTTONDOWN">
             <summary></summary>
@@ -27910,7 +27920,7 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Texture.LevelsDirty">
-            <summary></summary>
+            <summary>Return whether rendertarget mipmap levels need regenration.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -27927,7 +27937,7 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Texture.RegenerateLevels">
-            <summary></summary>
+            <summary>Regenerate mipmap levels for a rendertarget after rendering and before sampling. Called internally by Graphics. No-op on Direct3D9. On OpenGL the texture must have been bound to work properly.</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Texture.ResolveDirty">
@@ -27954,7 +27964,7 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Texture.SetLevelsDirty">
-            <summary></summary>
+            <summary>Set the mipmap levels dirty flag. Called internally by Graphics.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Texture.SetMipsToSkip(System.Int32,System.Int32)">
@@ -28969,7 +28979,7 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks></remarks>
         </member>
         <member name="P:Urho.UIComponent.Material">
-            <summary></summary>
+            <summary>Return material which will be used for rendering UI texture.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -28979,12 +28989,12 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks></remarks>
         </member>
         <member name="P:Urho.UIComponent.Root">
-            <summary></summary>
+            <summary>Return UIElement.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.UIComponent.Texture">
-            <summary></summary>
+            <summary>Return texture which will be used for rendering UI to.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -32594,15 +32604,15 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks></remarks>
         </member>
         <member name="F:Urho.VertexElement.Index">
-            <summary></summary>
+            <summary>Semantic index of element, for example multi-texcoords.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.VertexElement.Offset">
-            <summary></summary>
+            <summary>Offset of element from vertex start. Filled by VertexBuffer once the vertex declaration is built.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.VertexElement.PerInstance">
-            <summary></summary>
+            <summary>Per-instance flag.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.VertexElement.Type">
@@ -38922,7 +38932,9 @@ public class MyInstantState : ActionInstantState
             </remarks>
         </member>
         <member name="P:Urho.Gui.Button.DisabledOffset">
-            <summary></summary>
+            <summary>Return disabled image offset.
+            Or
+            Set offset to image rectangle used when disabled.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -40295,7 +40307,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="P:Urho.Gui.Font.FontType">
-            <summary></summary>
+            <summary>Return font type.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -41121,11 +41133,11 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.ListView.DisableInternalLayoutUpdate">
-            <summary></summary>
+            <summary>Disable automatic layout update for internal elements.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.ListView.EnableInternalLayoutUpdate">
-            <summary></summary>
+            <summary>Enable automatic layout update for internal elements.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Gui.ListView.EnsureItemVisibility(System.UInt32)">
@@ -41437,7 +41449,7 @@ public class MyInstantState : ActionInstantState
             </remarks>
         </member>
         <member name="M:Urho.Gui.ListView.UpdateInternalLayout">
-            <summary></summary>
+            <summary>Manually update layout on internal elements.</summary>
             <remarks></remarks>
         </member>
         <member name="T:Urho.Gui.Menu">
@@ -43259,7 +43271,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="P:Urho.Gui.Text3D.Height">
-            <summary></summary>
+            <summary>Return text height.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -43869,17 +43881,23 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="P:Urho.Gui.UI.FontHintLevel">
-            <summary></summary>
+            <summary>Return the current FreeType font hinting level.
+            Or
+            Set the hinting level used by FreeType fonts.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Gui.UI.FontOversampling">
-            <summary></summary>
+            <summary>Get the oversampling (horizonal stretching) used to improve subpixel font rendering. Only affects fonts smaller than the subpixel limit.
+            Or
+            Set the oversampling (horizonal stretching) used to improve subpixel font rendering. Only affects fonts smaller than the subpixel limit.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Gui.UI.FontSubpixelThreshold">
-            <summary></summary>
+            <summary>Get the font subpixel threshold. Below this size, if the hint level is LIGHT or NONE, fonts will use subpixel positioning plus oversampling for higher-quality rendering. Has no effect at hint level NORMAL.
+            Or
+            Set the font subpixel threshold. Below this size, if the hint level is LIGHT or NONE, fonts will use subpixel positioning plus oversampling for higher-quality rendering. Has no effect at hint level NORMAL.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -48155,7 +48173,7 @@ public class MyInstantState : ActionInstantState
         <member name="M:Urho.Navigation.DynamicNavigationMesh.Build(Urho.IntVector2,Urho.IntVector2)">
             <param name="from"></param>
             <param name="to"></param>
-            <summary></summary>
+            <summary>Build/rebuild the entire navigation mesh.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -48226,7 +48244,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Navigation.DynamicNavigationMesh.RemoveAllTiles">
-            <summary></summary>
+            <summary>Remove all tiles from navigation mesh.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Navigation.DynamicNavigationMesh.RemoveTile(Urho.IntVector2)">
@@ -48574,7 +48592,7 @@ public class MyInstantState : ActionInstantState
         <member name="M:Urho.Navigation.NavigationMesh.Build(Urho.IntVector2,Urho.IntVector2)">
             <param name="from"></param>
             <param name="to"></param>
-            <summary></summary>
+            <summary>Rebuild the navigation mesh. Return true if successful.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -48849,7 +48867,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Navigation.NavigationMesh.RemoveAllTiles">
-            <summary></summary>
+            <summary>Remove all tiles from navigation mesh.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Navigation.NavigationMesh.RemoveTile(Urho.IntVector2)">
@@ -53016,23 +53034,23 @@ public class MyInstantState : ActionInstantState
         </member>
         <member name="M:Urho.Resources.Localization.GetLanguage(System.Int32)">
             <param name="index"></param>
-            <summary></summary>
+            <summary>Return the name of current language.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Resources.Localization.GetLanguageIndex(System.String)">
             <param name="language"></param>
-            <summary></summary>
+            <summary>Return the index number of current language. The index is determined by the order of loading.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Resources.Localization.Language">
-            <summary></summary>
+            <summary>Return the name of current language.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Resources.Localization.LanguageIndex">
-            <summary></summary>
+            <summary>Return the index number of current language. The index is determined by the order of loading.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -53042,12 +53060,12 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="P:Urho.Resources.Localization.NumLanguages">
-            <summary></summary>
+            <summary>Return the number of languages.</summary>
             <value></value>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Resources.Localization.Reset">
-            <summary></summary>
+            <summary>Clear all loaded strings.</summary>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Resources.Localization.SetLanguage(System.Int32)">
@@ -54519,7 +54537,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="M:Urho.Resources.XmlElement.NextResult">
-            <summary></summary>
+            <summary>Return next XPath query result. Only valid when this instance of XMLElement is itself one of the query result in the result set.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -54543,7 +54561,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="P:Urho.Resources.XmlElement.Parent">
-            <summary></summary>
+            <summary>Return parent element.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -57383,7 +57401,7 @@ public class MyApplication : StereoApplication
             </remarks>
         </member>
         <member name="M:Urho.Urho2D.Constraint2D.ApplyAttributes">
-            <summary></summary>
+            <summary>Apply attribute changes that can not be applied immediately. Called after scene load or a network update.</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Urho2D.Constraint2D.AttachedConstraint">
@@ -57524,7 +57542,9 @@ public class MyApplication : StereoApplication
             <remarks></remarks>
         </member>
         <member name="P:Urho.Urho2D.ConstraintDistance2D.Length">
-            <summary></summary>
+            <summary>Return length.
+            Or
+            Set length.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -59300,7 +59320,9 @@ public class MyApplication : StereoApplication
             <remarks></remarks>
         </member>
         <member name="P:Urho.Urho2D.ParticleEmitter2D.Emitting">
-            <summary></summary>
+            <summary>Return whether is currently emitting.
+            Or
+            Set whether should be emitting. If the state was changed, also resets the emission period timer.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -60609,7 +60631,9 @@ public class MyApplication : StereoApplication
             <remarks />
         </member>
         <member name="P:Urho.Urho2D.StaticSprite2D.UseDrawRect">
-            <summary></summary>
+            <summary>Return whether to use custom-defined draw rectangle.
+            Or
+            Set whether to use custom-defined draw rectangle.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -60623,7 +60647,9 @@ public class MyApplication : StereoApplication
             <remarks></remarks>
         </member>
         <member name="P:Urho.Urho2D.StaticSprite2D.UseTextureRect">
-            <summary></summary>
+            <summary>Return whether to use custom-defined texture rectangle.
+            Or
+            Set whether to use custom-defined texture rectangle.</summary>
             <value></value>
             <remarks></remarks>
         </member>

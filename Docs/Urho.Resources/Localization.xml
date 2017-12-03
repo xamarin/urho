@@ -151,7 +151,7 @@
       </Parameters>
       <Docs>
         <param name="index">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Return the name of current language.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -171,7 +171,7 @@
       </Parameters>
       <Docs>
         <param name="language">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Return the index number of current language. The index is determined by the order of loading.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -187,7 +187,7 @@
         <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return the name of current language.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -203,7 +203,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return the index number of current language. The index is determined by the order of loading.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -238,7 +238,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return the number of languages.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -255,7 +255,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Clear all loaded strings.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

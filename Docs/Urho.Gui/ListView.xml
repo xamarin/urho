@@ -264,7 +264,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Disable automatic layout update for internal elements.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -280,7 +280,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Enable automatic layout update for internal elements.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1158,7 +1158,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Manually update layout on internal elements.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

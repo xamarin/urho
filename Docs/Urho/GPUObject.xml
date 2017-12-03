@@ -63,7 +63,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Clear the data lost flag.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -78,7 +78,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return whether data is lost due to context loss.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -95,7 +95,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return the object pointer. Applicable only on Direct3D.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -111,7 +111,7 @@
         <ReturnType>System.UInt32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return the object name. Applicable only on OpenGL.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -127,7 +127,7 @@
         <ReturnType>Urho.Graphics</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return the graphics subsystem associated with this GPU object.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -144,7 +144,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Return whether has pending data assigned while graphics context was lost.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -161,7 +161,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Mark the GPU resource destroyed on graphics context destruction.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -177,7 +177,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Recreate the GPU resource and restore data if applicable.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -193,7 +193,7 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Unconditionally release the GPU resource.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

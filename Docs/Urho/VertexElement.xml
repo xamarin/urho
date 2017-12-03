@@ -27,7 +27,7 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Semantic index of element, for example multi-texcoords.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -42,7 +42,7 @@
         <ReturnType>System.UInt32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Offset of element from vertex start. Filled by VertexBuffer once the vertex declaration is built.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -57,7 +57,7 @@
         <ReturnType>System.Byte</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Per-instance flag.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
