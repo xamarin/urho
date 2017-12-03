@@ -194,6 +194,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="GetImage">
+      <MemberSignature Language="C#" Value="public bool GetImage (Urho.Resources.Image image);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool GetImage(class Urho.Resources.Image image) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="image" Type="Urho.Resources.Image" />
+      </Parameters>
+      <Docs>
+        <param name="image">To be added.</param>
+        <summary>Get image data from zero mip level. Only RGB and RGBA textures are supported.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Image">
       <MemberSignature Language="C#" Value="public Urho.Resources.Image Image { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.Resources.Image Image" />

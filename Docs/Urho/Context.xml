@@ -309,6 +309,25 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="RemoveAllAttributes">
+      <MemberSignature Language="C#" Value="public void RemoveAllAttributes (Urho.StringHash objectType);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveAllAttributes(valuetype Urho.StringHash objectType) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="objectType" Type="Urho.StringHash" />
+      </Parameters>
+      <Docs>
+        <param name="objectType">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="RemoveSubsystem">
       <MemberSignature Language="C#" Value="public void RemoveSubsystem (Urho.StringHash objectType);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveSubsystem(valuetype Urho.StringHash objectType) cil managed" />

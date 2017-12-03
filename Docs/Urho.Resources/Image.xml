@@ -596,6 +596,23 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="HasAlphaChannel">
+      <MemberSignature Language="C#" Value="public bool HasAlphaChannel ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool HasAlphaChannel() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Whether this texture has an alpha channel</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Height">
       <MemberSignature Language="C#" Value="public int Height { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance int32 Height" />
@@ -1155,6 +1172,28 @@
         <summary>
             Set 3D size and number of color components. Old image data will be destroyed and new data is undefined. Return true if successful.
             </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetSubimage">
+      <MemberSignature Language="C#" Value="public bool SetSubimage (Urho.Resources.Image image, Urho.IntRect rect);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetSubimage(class Urho.Resources.Image image, valuetype Urho.IntRect rect) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="image" Type="Urho.Resources.Image" />
+        <Parameter Name="rect" Type="Urho.IntRect" />
+      </Parameters>
+      <Docs>
+        <param name="image">To be added.</param>
+        <param name="rect">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

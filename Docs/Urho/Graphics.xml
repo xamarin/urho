@@ -543,6 +543,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="CurrentMonitor">
+      <MemberSignature Language="C#" Value="public int CurrentMonitor { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 CurrentMonitor" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Returns the index of the display containing the center of the window on success or a negative error code on failure.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="DefaultTextureAnisotropy">
       <MemberSignature Language="C#" Value="public uint DefaultTextureAnisotropy { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance unsigned int32 DefaultTextureAnisotropy" />
@@ -1099,6 +1115,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="GetDisplayDPI">
+      <MemberSignature Language="C#" Value="public Urho.Vector3 GetDisplayDPI (int monitor = 0);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 GetDisplayDPI(int32 monitor) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Vector3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="monitor" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="monitor">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetFormat">
       <MemberSignature Language="C#" Value="public static uint GetFormat (string formatName);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig unsigned int32 GetFormat(string formatName) cil managed" />
@@ -1589,6 +1625,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Maximized">
+      <MemberSignature Language="C#" Value="public bool Maximized { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool Maximized" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Returns true if window is maximized or runs in full screen mode.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Minimize">
       <MemberSignature Language="C#" Value="public void Minimize ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Minimize() cil managed" />
@@ -1856,6 +1908,22 @@
       <Docs>
         <param name="source">To be added.</param>
         <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Raise">
+      <MemberSignature Language="C#" Value="public void Raise ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Raise() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>Raises window if it was minimized.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

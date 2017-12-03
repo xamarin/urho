@@ -203,6 +203,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="FramesPerSecond">
+      <MemberSignature Language="C#" Value="public float FramesPerSecond { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 FramesPerSecond" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return current frames per second.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="FrameStarted">
       <MemberSignature Language="C#" Value="public event Action&lt;Urho.FrameStartedEventArgs&gt; FrameStarted;" />
       <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.FrameStartedEventArgs&gt; FrameStarted" />

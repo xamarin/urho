@@ -553,6 +553,43 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="AddTriangleMesh">
+      <MemberSignature Language="C#" Value="public void AddTriangleMesh (void* vertexData, uint vertexSize, uint vertexStart, void* indexData, uint indexSize, uint indexStart, uint indexCount, Urho.Matrix3x4 transform, Urho.Color color, bool depthTest = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddTriangleMesh(void* vertexData, unsigned int32 vertexSize, unsigned int32 vertexStart, void* indexData, unsigned int32 indexSize, unsigned int32 indexStart, unsigned int32 indexCount, valuetype Urho.Matrix3x4 transform, valuetype Urho.Color color, bool depthTest) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vertexData" Type="System.Void*" />
+        <Parameter Name="vertexSize" Type="System.UInt32" />
+        <Parameter Name="vertexStart" Type="System.UInt32" />
+        <Parameter Name="indexData" Type="System.Void*" />
+        <Parameter Name="indexSize" Type="System.UInt32" />
+        <Parameter Name="indexStart" Type="System.UInt32" />
+        <Parameter Name="indexCount" Type="System.UInt32" />
+        <Parameter Name="transform" Type="Urho.Matrix3x4" />
+        <Parameter Name="color" Type="Urho.Color" />
+        <Parameter Name="depthTest" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="vertexData">To be added.</param>
+        <param name="vertexSize">To be added.</param>
+        <param name="vertexStart">To be added.</param>
+        <param name="indexData">To be added.</param>
+        <param name="indexSize">To be added.</param>
+        <param name="indexStart">To be added.</param>
+        <param name="indexCount">To be added.</param>
+        <param name="transform">To be added.</param>
+        <param name="color">To be added.</param>
+        <param name="depthTest">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Frustum">
       <MemberSignature Language="C#" Value="public Urho.Frustum Frustum { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance class Urho.Frustum Frustum" />

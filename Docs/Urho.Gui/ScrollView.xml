@@ -207,6 +207,24 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="HorizontalScrollBarVisible">
+      <MemberSignature Language="C#" Value="public bool HorizontalScrollBarVisible { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool HorizontalScrollBarVisible" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return whether the horizontal scrollbar is visible.
+            Or
+            Set horizontal scrollbar visibility manually. Disables scrollbar autoshow/hide.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="OnKey">
       <MemberSignature Language="C#" Value="public override void OnKey (int key, int buttons, int qualifiers);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void OnKey(int32 key, int32 buttons, int32 qualifiers) cil managed" />
@@ -624,6 +642,24 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="VerticalScrollBarVisible">
+      <MemberSignature Language="C#" Value="public bool VerticalScrollBarVisible { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool VerticalScrollBarVisible" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return whether the vertical scrollbar is visible.
+            Or
+            Set vertical scrollbar visibility manually. Disables scrollbar autoshow/hide.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ViewChanged">
       <MemberSignature Language="C#" Value="public event Action&lt;Urho.Gui.ViewChangedEventArgs&gt; ViewChanged;" />
       <MemberSignature Language="ILAsm" Value=".event class System.Action`1&lt;valuetype Urho.Gui.ViewChangedEventArgs&gt; ViewChanged" />
@@ -657,6 +693,22 @@
             Or
             Set view offset from the top-left corner.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WheelHandler">
+      <MemberSignature Language="C#" Value="public override bool WheelHandler { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool WheelHandler" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return whether the element could handle wheel input.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>

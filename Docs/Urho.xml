@@ -1873,6 +1873,10 @@
             <summary>Frame update event</summary>
             <remarks>This event is raised when the frame has been updated.</remarks>
         </member>
+        <member name="M:Urho.Application.WaitFrameEnd">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Application.WorkQueue">
             <summary>Returns the WorkQueue subsystem.</summary>
             <value></value>
@@ -4355,6 +4359,11 @@ while (true){
             <summary>Indicate that you are done with using SDL. Must be called after using RequireSDL().</summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Context.RemoveAllAttributes(Urho.StringHash)">
+            <param name="objectType"></param>
+            <summary></summary>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Context.RemoveSubsystem(Urho.StringHash)">
             <param name="objectType"></param>
             <summary>
@@ -6482,6 +6491,20 @@ while (true){
             <param name="color"></param>
             <param name="depthTest"></param>
             <summary>Add a triangle mesh.</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.DebugRenderer.AddTriangleMesh(System.Void*,System.UInt32,System.UInt32,System.Void*,System.UInt32,System.UInt32,System.UInt32,Urho.Matrix3x4,Urho.Color,System.Boolean)">
+            <param name="vertexData"></param>
+            <param name="vertexSize"></param>
+            <param name="vertexStart"></param>
+            <param name="indexData"></param>
+            <param name="indexSize"></param>
+            <param name="indexStart"></param>
+            <param name="indexCount"></param>
+            <param name="transform"></param>
+            <param name="color"></param>
+            <param name="depthTest"></param>
+            <summary></summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.DebugRenderer.Frustum">
@@ -8846,6 +8869,11 @@ while (true){
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Graphics.CurrentMonitor">
+            <summary>Returns the index of the display containing the center of the window on success or a negative error code on failure.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Graphics.DefaultTextureAnisotropy">
             <summary>Return or Set default texture anisotropy level. Called by Renderer before rendering.</summary>
             <value></value>
@@ -9060,6 +9088,12 @@ while (true){
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Graphics.GetDisplayDPI(System.Int32)">
+            <param name="monitor"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Graphics.GetFormat(System.String)">
             <param name="formatName"></param>
             <summary>
@@ -9242,6 +9276,11 @@ while (true){
             </summary>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Graphics.Maximized">
+            <summary>Returns true if window is maximized or runs in full screen mode.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Graphics.Minimize">
             <summary>
             Minimize the Window.
@@ -9332,6 +9371,10 @@ while (true){
         <member name="M:Urho.Graphics.PrecacheShaders(Urho.MemoryBuffer)">
             <param name="source"></param>
             <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Graphics.Raise">
+            <summary>Raises window if it was minimized.</summary>
             <remarks></remarks>
         </member>
         <member name="P:Urho.Graphics.ReadableDepthFormat">
@@ -21500,6 +21543,18 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <summary></summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.RenderPath.IsAdded(System.String)">
+            <param name="tag"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.RenderPath.IsEnabled(System.String)">
+            <param name="tag"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.RenderPath.Load(Urho.Resources.XmlFile)">
             <param name="file"></param>
             <summary></summary>
@@ -28700,6 +28755,11 @@ uniform sampler2D sDetailMap3;]]></code>
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Time.FramesPerSecond">
+            <summary>Return current frames per second.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="E:Urho.Time.FrameStarted">
             <summary>Signals the beginning of the new frame.</summary>
             <remarks>
@@ -29440,6 +29500,13 @@ uniform sampler2D sDetailMap3;]]></code>
                 <para>This essentially circumvents the default path that creates a new object and sets the handle and does not call RegisterObject on the target, you must do this on your own constructor.</para>
                 <para>You would typically chain to this constructor from your own, and then set the handle to the unmanaged object from your code, and then register your object.</para>
             </remarks>
+        </member>
+        <member name="P:Urho.UrhoObject.BlockEvents">
+            <summary>Return sending and receiving events blocking status.
+            Or
+            Block object from sending and receiving events.</summary>
+            <value></value>
+            <remarks></remarks>
         </member>
         <member name="P:Urho.UrhoObject.Category">
             <summary>
@@ -42175,6 +42242,13 @@ public class MyInstantState : ActionInstantState
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Gui.ScrollView.HorizontalScrollBarVisible">
+            <summary>Return whether the horizontal scrollbar is visible.
+            Or
+            Set horizontal scrollbar visibility manually. Disables scrollbar autoshow/hide.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Gui.ScrollView.OnKey(System.Int32,System.Int32,System.Int32)">
             <param name="key"></param>
             <param name="buttons"></param>
@@ -42325,6 +42399,13 @@ public class MyInstantState : ActionInstantState
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Gui.ScrollView.VerticalScrollBarVisible">
+            <summary>Return whether the vertical scrollbar is visible.
+            Or
+            Set vertical scrollbar visibility manually. Disables scrollbar autoshow/hide.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="E:Urho.Gui.ScrollView.ViewChanged">
             <summary></summary>
             <remarks>
@@ -42337,6 +42418,11 @@ public class MyInstantState : ActionInstantState
             Or
             Set view offset from the top-left corner.
             </summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.Gui.ScrollView.WheelHandler">
+            <summary>Return whether the element could handle wheel input.</summary>
             <value></value>
             <remarks></remarks>
         </member>
@@ -44858,6 +44944,12 @@ public class MyInstantState : ActionInstantState
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Gui.UIElement.IsChildOf(Urho.Gui.UIElement)">
+            <param name="element"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="M:Urho.Gui.UIElement.IsElementEventSender">
             <summary>
             Return whether element should send child added / removed events by itself. If false, defers to parent element.
@@ -45844,6 +45936,11 @@ public class MyInstantState : ActionInstantState
             <value></value>
             <remarks></remarks>
         </member>
+        <member name="P:Urho.Gui.UIElement.WheelHandler">
+            <summary>Return whether the element could handle wheel input.</summary>
+            <value></value>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Gui.UIElement.Width">
             <summary>
             Return width.
@@ -46827,6 +46924,11 @@ public class MyInstantState : ActionInstantState
             Open a file in an external program, with mode such as "edit" optionally specified. Will fail if any allowed paths are defined.
             </summary>
             <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:Urho.IO.FileSystem.TemporaryDir">
+            <summary>Return path of temporary directory. Path always ends with a forward slash.</summary>
+            <value></value>
             <remarks></remarks>
         </member>
         <member name="P:Urho.IO.FileSystem.Type">
@@ -52603,6 +52705,11 @@ public class MyInstantState : ActionInstantState
             <returns></returns>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Resources.Image.HasAlphaChannel">
+            <summary>Whether this texture has an alpha channel</summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Resources.Image.Height">
             <summary>
             Return height.
@@ -52797,6 +52904,13 @@ public class MyInstantState : ActionInstantState
             <summary>
             Set 3D size and number of color components. Old image data will be destroyed and new data is undefined. Return true if successful.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.Image.SetSubimage(Urho.Resources.Image,Urho.IntRect)">
+            <param name="image"></param>
+            <param name="rect"></param>
+            <summary></summary>
             <returns></returns>
             <remarks></remarks>
         </member>
@@ -54266,6 +54380,13 @@ public class MyInstantState : ActionInstantState
             <summary></summary>
             <remarks></remarks>
         </member>
+        <member name="M:Urho.Resources.XmlElement.AppendChild(Urho.Resources.XmlElement,System.Boolean)">
+            <param name="element"></param>
+            <param name="asCopy"></param>
+            <summary></summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
         <member name="P:Urho.Resources.XmlElement.BoundingBox">
             <summary>
             Return bounding box attribute, or empty if missing.
@@ -54563,6 +54684,11 @@ public class MyInstantState : ActionInstantState
         <member name="P:Urho.Resources.XmlElement.Parent">
             <summary>Return parent element.</summary>
             <value></value>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Resources.XmlElement.Remove">
+            <summary>Remove element from its parent.</summary>
+            <returns></returns>
             <remarks></remarks>
         </member>
         <member name="M:Urho.Resources.XmlElement.RemoveAttribute(System.String)">
@@ -60715,6 +60841,12 @@ public class MyApplication : StereoApplication
             <summary>
             Get data from a mip level. The destination buffer must be big enough. Return true if successful.
             </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Urho.Urho2D.Texture2D.GetImage(Urho.Resources.Image)">
+            <param name="image"></param>
+            <summary>Get image data from zero mip level. Only RGB and RGBA textures are supported.</summary>
             <returns></returns>
             <remarks></remarks>
         </member>

@@ -66,6 +66,24 @@
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="BlockEvents">
+      <MemberSignature Language="C#" Value="public bool BlockEvents { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool BlockEvents" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>Return sending and receiving events blocking status.
+            Or
+            Block object from sending and receiving events.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Category">
       <MemberSignature Language="C#" Value="public string Category { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance string Category" />
