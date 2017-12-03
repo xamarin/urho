@@ -9,7 +9,7 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>A flag representing the type of path point- none, the start of a path segment, the end of one, or an off-mesh connection.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>

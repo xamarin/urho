@@ -9,7 +9,7 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Arbitrary vertex declaration element datatypes.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>

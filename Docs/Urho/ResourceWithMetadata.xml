@@ -10,7 +10,7 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Base class for resources that support arbitrary metadata stored. Metadata serialization shall be implemented in derived classes.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>

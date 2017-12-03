@@ -2303,7 +2303,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="T:Urho.AutoRemoveMode">
-            <summary></summary>
+            <summary>Autoremove is used by some components for automatic removal from the scene hierarchy upon completion of an action, for example sound or particle effect.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.AutoRemoveMode.Component">
@@ -4500,7 +4500,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="T:Urho.ConvexData">
-            <summary></summary>
+            <summary>Convex hull geometry data.</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.ConvexData(Urho.CustomGeometry)">
@@ -7818,7 +7818,7 @@ while (true){
             <remarks>This method is usually invoked from the <see cref="M:Urho.Engine.RunFrame" /> method and it rasises the <see cref="E:Urho.Engine.Update" />, <see cref="E:Urho.Engine.PostUpdate" />, <see cref="E:Urho.Engine.RenderUpdate" /> and <see cref="E:Urho.Engine.PostRenderUpdate" /> events in that order.</remarks>
         </member>
         <member name="T:Urho.EventDataContainer">
-            <summary></summary>
+            <summary>Helper functions to return elements from a VariantMap</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.EventDataContainer(System.IntPtr)">
@@ -7832,7 +7832,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="T:Urho.EventReceiverGroup">
-            <summary></summary>
+            <summary>Tracking structure for event receivers.</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.EventReceiverGroup">
@@ -7944,7 +7944,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="T:Urho.FONT_TYPE">
-            <summary></summary>
+            <summary>Font file type.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.FONT_TYPE.Bitmap">
@@ -8009,7 +8009,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="T:Urho.FontHintLevel">
-            <summary></summary>
+            <summary>Font hinting level (only used for FreeType fonts)</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.FontHintLevel.HintLevelLight">
@@ -8022,7 +8022,7 @@ while (true){
             <summary></summary>
         </member>
         <member name="T:Urho.FontType">
-            <summary></summary>
+            <summary>Font file type.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.FontType.Bitmap">
@@ -8064,7 +8064,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="T:Urho.Frustum">
-            <summary></summary>
+            <summary>Convex constructed of 6 planes.</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.Frustum">
@@ -8502,7 +8502,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="T:Urho.GImpactMeshData">
-            <summary></summary>
+            <summary>Triangle mesh geometry data.</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.GImpactMeshData(Urho.CustomGeometry)">
@@ -8517,7 +8517,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="T:Urho.GPUObject">
-            <summary></summary>
+            <summary>Base class for GPU resources.</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.GPUObject(System.IntPtr)">
@@ -9957,7 +9957,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="T:Urho.HeightfieldData">
-            <summary></summary>
+            <summary>Heightfield geometry data.</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.HeightfieldData(Urho.Terrain,System.UInt32)">
@@ -12503,7 +12503,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="T:Urho.LegacyVertexElement">
-            <summary></summary>
+            <summary>Hardcoded legacy vertex elements.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.LegacyVertexElement.Blendindices">
@@ -15802,7 +15802,7 @@ while (true){
             <remarks></remarks>
         </member>
         <member name="T:Urho.NavigationPathPointFlag">
-            <summary></summary>
+            <summary>A flag representing the type of path point- none, the start of a path segment, the end of one, or an off-mesh connection.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.NavigationPathPointFlag.End">
@@ -19325,7 +19325,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="T:Urho.Polyhedron">
-            <summary></summary>
+            <summary>A convex volume built from polygon faces.</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.Polyhedron">
@@ -22146,7 +22146,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             </remarks>
         </member>
         <member name="T:Urho.ResourceWithMetadata">
-            <summary></summary>
+            <summary>Base class for resources that support arbitrary metadata stored. Metadata serialization shall be implemented in derived classes.</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.ResourceWithMetadata">
@@ -22281,7 +22281,7 @@ planeObject.SetMaterial(cache.GetMaterial("Materials/StoneTiled.xml"));
             <remarks></remarks>
         </member>
         <member name="T:Urho.RibbonTrail">
-            <summary></summary>
+            <summary>Drawable component that creates a tail.</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.RibbonTrail">
@@ -25597,7 +25597,7 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks></remarks>
         </member>
         <member name="T:Urho.ShadowQuality">
-            <summary></summary>
+            <summary>Shadow type.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.ShadowQuality.BlurVsm">
@@ -28042,7 +28042,7 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks></remarks>
         </member>
         <member name="T:Urho.Texture2DArray">
-            <summary></summary>
+            <summary>2D texture array resource.</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.Texture2DArray">
@@ -28925,7 +28925,7 @@ uniform sampler2D sDetailMap3;]]></code>
             <summary></summary>
         </member>
         <member name="T:Urho.TriangleMeshData">
-            <summary></summary>
+            <summary>Triangle mesh geometry data.</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.TriangleMeshData(Urho.CustomGeometry)">
@@ -28956,7 +28956,7 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks />
         </member>
         <member name="T:Urho.UIComponent">
-            <summary></summary>
+            <summary>Construct.</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.UIComponent">
@@ -32620,7 +32620,7 @@ uniform sampler2D sDetailMap3;]]></code>
             <remarks></remarks>
         </member>
         <member name="T:Urho.VertexElementSemantic">
-            <summary></summary>
+            <summary>Arbitrary vertex declaration element semantics.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.VertexElementSemantic.Binormal">
@@ -32654,7 +32654,7 @@ uniform sampler2D sDetailMap3;]]></code>
             <summary></summary>
         </member>
         <member name="T:Urho.VertexElementType">
-            <summary></summary>
+            <summary>Arbitrary vertex declaration element datatypes.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.VertexElementType.Float">
@@ -52996,7 +52996,7 @@ public class MyInstantState : ActionInstantState
             <remarks></remarks>
         </member>
         <member name="T:Urho.Resources.Localization">
-            <summary></summary>
+            <summary>Localization subsystem. Stores all the strings in all languages.</summary>
             <remarks></remarks>
         </member>
         <member name="C:Urho.Resources.Localization">
@@ -58795,7 +58795,7 @@ public class MyApplication : StereoApplication
             <summary></summary>
         </member>
         <member name="T:Urho.Urho2D.LoopMode">
-            <summary></summary>
+            <summary>Loop Mode.</summary>
             <remarks></remarks>
         </member>
         <member name="F:Urho.Urho2D.LoopMode.Default">

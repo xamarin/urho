@@ -9,7 +9,7 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Autoremove is used by some components for automatic removal from the scene hierarchy upon completion of an action, for example sound or particle effect.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>

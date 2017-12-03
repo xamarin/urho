@@ -9,7 +9,7 @@
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>Font hinting level (only used for FreeType fonts)</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
