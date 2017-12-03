@@ -446,7 +446,7 @@
       </Docs>
     </Member>
     <Member MemberName="SetBoneWeight">
-      <MemberSignature Language="C#" Value="public void SetBoneWeight (string name, float weight, bool recursive);" />
+      <MemberSignature Language="C#" Value="public void SetBoneWeight (string name, float weight, bool recursive = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetBoneWeight(string name, float32 weight, bool recursive) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -471,7 +471,7 @@
       </Docs>
     </Member>
     <Member MemberName="SetBoneWeight">
-      <MemberSignature Language="C#" Value="public void SetBoneWeight (uint index, float weight, bool recursive);" />
+      <MemberSignature Language="C#" Value="public void SetBoneWeight (uint index, float weight, bool recursive = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetBoneWeight(unsigned int32 index, float32 weight, bool recursive) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -496,7 +496,7 @@
       </Docs>
     </Member>
     <Member MemberName="SetBoneWeight">
-      <MemberSignature Language="C#" Value="public void SetBoneWeight (Urho.StringHash nameHash, float weight, bool recursive);" />
+      <MemberSignature Language="C#" Value="public void SetBoneWeight (Urho.StringHash nameHash, float weight, bool recursive = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetBoneWeight(valuetype Urho.StringHash nameHash, float32 weight, bool recursive) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>

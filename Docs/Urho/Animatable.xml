@@ -173,7 +173,7 @@
       </Docs>
     </Member>
     <Member MemberName="LoadXml">
-      <MemberSignature Language="C#" Value="public override bool LoadXml (Urho.Resources.XmlElement source, bool setInstanceDefault);" />
+      <MemberSignature Language="C#" Value="public override bool LoadXml (Urho.Resources.XmlElement source, bool setInstanceDefault = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool LoadXml(class Urho.Resources.XmlElement source, bool setInstanceDefault) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -328,7 +328,7 @@
       </Docs>
     </Member>
     <Member MemberName="SetAttributeAnimation">
-      <MemberSignature Language="C#" Value="public void SetAttributeAnimation (string name, Urho.ValueAnimation attributeAnimation, Urho.WrapMode wrapMode, float speed);" />
+      <MemberSignature Language="C#" Value="public void SetAttributeAnimation (string name, Urho.ValueAnimation attributeAnimation, Urho.WrapMode wrapMode = Urho.WrapMode.Loop, float speed = 1);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetAttributeAnimation(string name, class Urho.ValueAnimation attributeAnimation, valuetype Urho.WrapMode wrapMode, float32 speed) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -450,7 +450,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -466,7 +467,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -487,7 +489,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
   </Members>

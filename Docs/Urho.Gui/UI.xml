@@ -87,7 +87,8 @@
       <para>The root UI element can be queried from the UI subsystem. It is an empty canvas (<see cref="T:Urho.Gui.UIElement" />) as large as the application window, into which other elements can be added.</para>
       <para>Elements are added into each other similarly as scene nodes, using the <see cref="M:Urho.Gui.UIElement.AddChild" /> and <see cref="M:Urho.Gui.UIElement.RemoveChild" />. </para>
       <para>To allow the elements react to mouse input, either a mouse cursor element must be defined using the <see cref="P:Urho.Gui.UI.Cursor" /> property  or the operating system mouse cursor must be set visible from the <see cref="T:Urho.Input" /> subsystem.</para>
-      <para></para>
+      <para>
+      </para>
       <format type="text/html">
         <h2>
           <br />
@@ -113,7 +114,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.UI which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -161,7 +163,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.UI linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -435,6 +438,54 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="FontHintLevel">
+      <MemberSignature Language="C#" Value="public Urho.FontHintLevel FontHintLevel { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.FontHintLevel FontHintLevel" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.FontHintLevel</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FontOversampling">
+      <MemberSignature Language="C#" Value="public int FontOversampling { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 FontOversampling" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FontSubpixelThreshold">
+      <MemberSignature Language="C#" Value="public float FontSubpixelThreshold { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 FontSubpixelThreshold" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="ForceAutoHint">
       <MemberSignature Language="C#" Value="public bool ForceAutoHint { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance bool ForceAutoHint" />
@@ -496,7 +547,7 @@
       </Docs>
     </Member>
     <Member MemberName="GetElementAt">
-      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement GetElementAt (Urho.IntVector2 position, bool enabledOnly);" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement GetElementAt (Urho.IntVector2 position, bool enabledOnly = true);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.UIElement GetElementAt(valuetype Urho.IntVector2 position, bool enabledOnly) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -520,7 +571,7 @@
       </Docs>
     </Member>
     <Member MemberName="GetElementAt">
-      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement GetElementAt (int x, int y, bool enabledOnly);" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement GetElementAt (int x, int y, bool enabledOnly = true);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.UIElement GetElementAt(int32 x, int32 y, bool enabledOnly) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -545,6 +596,30 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="GetElementAt">
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement GetElementAt (Urho.Gui.UIElement root, Urho.IntVector2 position, bool enabledOnly = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.UIElement GetElementAt(class Urho.Gui.UIElement root, valuetype Urho.IntVector2 position, bool enabledOnly) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Gui.UIElement</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="root" Type="Urho.Gui.UIElement" />
+        <Parameter Name="position" Type="Urho.IntVector2" />
+        <Parameter Name="enabledOnly" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="root">To be added.</param>
+        <param name="position">To be added.</param>
+        <param name="enabledOnly">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="HasModalElement">
       <MemberSignature Language="C#" Value="public bool HasModalElement ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool HasModalElement() cil managed" />
@@ -565,7 +640,7 @@
       </Docs>
     </Member>
     <Member MemberName="LoadLayout">
-      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement LoadLayout (Urho.IO.File source, Urho.Resources.XmlFile styleFile);" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement LoadLayout (Urho.IO.File source, Urho.Resources.XmlFile styleFile = null);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.UIElement LoadLayout(class Urho.IO.File source, class Urho.Resources.XmlFile styleFile) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -587,7 +662,7 @@
       </Docs>
     </Member>
     <Member MemberName="LoadLayout">
-      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement LoadLayout (Urho.MemoryBuffer source, Urho.Resources.XmlFile styleFile);" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement LoadLayout (Urho.MemoryBuffer source, Urho.Resources.XmlFile styleFile = null);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.UIElement LoadLayout(class Urho.MemoryBuffer source, class Urho.Resources.XmlFile styleFile) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -609,7 +684,7 @@
       </Docs>
     </Member>
     <Member MemberName="LoadLayout">
-      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement LoadLayout (Urho.Resources.XmlFile file, Urho.Resources.XmlFile styleFile);" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.UIElement LoadLayout (Urho.Resources.XmlFile file, Urho.Resources.XmlFile styleFile = null);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.UIElement LoadLayout(class Urho.Resources.XmlFile file, class Urho.Resources.XmlFile styleFile) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -708,8 +783,8 @@
       </Docs>
     </Member>
     <Member MemberName="Render">
-      <MemberSignature Language="C#" Value="public void Render (bool resetRenderTargets);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Render(bool resetRenderTargets) cil managed" />
+      <MemberSignature Language="C#" Value="public void Render (bool renderUICommand = false);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Render(bool renderUICommand) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -721,7 +796,7 @@
         <Parameter Name="resetRenderTargets" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="resetRenderTargets">To be added.</param>
+        <param name="renderUICommand">To be added.</param>
         <summary>
             Render the UI. If resetRenderTargets is true, is assumed to be the default UI render to backbuffer called by Engine, and will be performed only once. Additional UI renders to a different rendertarget may be triggered from the renderpath.
             </summary>
@@ -866,7 +941,7 @@
       </Docs>
     </Member>
     <Member MemberName="SetFocusElement">
-      <MemberSignature Language="C#" Value="public void SetFocusElement (Urho.Gui.UIElement element, bool byKey);" />
+      <MemberSignature Language="C#" Value="public void SetFocusElement (Urho.Gui.UIElement element, bool byKey = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetFocusElement(class Urho.Gui.UIElement element, bool byKey) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -929,6 +1004,27 @@
             Only the modal element can clear its modal status or when it is being destructed.
             </summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetRenderToTexture">
+      <MemberSignature Language="C#" Value="public void SetRenderToTexture (Urho.UIComponent component, bool enable);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetRenderToTexture(class Urho.UIComponent component, bool enable) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="component" Type="Urho.UIComponent" />
+        <Parameter Name="enable" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="component">To be added.</param>
+        <param name="enable">To be added.</param>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1096,7 +1192,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1112,7 +1209,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -1133,7 +1231,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UIDropFile">

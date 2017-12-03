@@ -57,6 +57,34 @@
         <summary>To be added.</summary>
       </Docs>
     </Member>
+    <Member MemberName="CustomHeap">
+      <MemberSignature Language="C#" Value="CustomHeap" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VariantType CustomHeap = int32(27)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VariantType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="CustomStack">
+      <MemberSignature Language="C#" Value="CustomStack" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VariantType CustomStack = int32(28)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VariantType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
     <Member MemberName="Double">
       <MemberSignature Language="C#" Value="Double" />
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VariantType Double = int32(22)" />
@@ -99,6 +127,20 @@
         <summary>To be added.</summary>
       </Docs>
     </Member>
+    <Member MemberName="Int64">
+      <MemberSignature Language="C#" Value="Int64" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VariantType Int64 = int32(26)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VariantType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
     <Member MemberName="Intrect">
       <MemberSignature Language="C#" Value="Intrect" />
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VariantType Intrect = int32(16)" />
@@ -116,6 +158,20 @@
     <Member MemberName="Intvector2">
       <MemberSignature Language="C#" Value="Intvector2" />
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VariantType Intvector2 = int32(17)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VariantType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Intvector3">
+      <MemberSignature Language="C#" Value="Intvector3" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VariantType Intvector3 = int32(25)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -171,7 +227,7 @@
     </Member>
     <Member MemberName="MaxVarTypes">
       <MemberSignature Language="C#" Value="MaxVarTypes" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VariantType MaxVarTypes = int32(24)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VariantType MaxVarTypes = int32(29)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -214,6 +270,20 @@
     <Member MemberName="Quaternion">
       <MemberSignature Language="C#" Value="Quaternion" />
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VariantType Quaternion = int32(7)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.VariantType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Rect">
+      <MemberSignature Language="C#" Value="Rect" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.VariantType Rect = int32(24)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>

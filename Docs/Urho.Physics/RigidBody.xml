@@ -94,7 +94,8 @@
 	<see cref="M:Urho.Physics.RigidBody.DisableMassUpdate" /> and <see cref="P:Urho.Physics.RigidBody.EnableMassUpdate" />.
       </para>
       <para>The following example shows how you setup both the rigid body on a node to be a box shape, and how to set it up so it detects collisions:</para>
-      <para></para>
+      <para>
+      </para>
       <code lang="C#"><![CDATA[void SetupNode (Node node)
     var body = node.CreateComponent<RigidBody> ();
     body.Mass = 1;
@@ -105,7 +106,8 @@
         Console.WriteLine (“Collision with {0}”, args.OtherNode);
     };
 }]]></code>
-      <para></para>
+      <para>
+      </para>
     </remarks>
   </Docs>
   <Members>
@@ -126,7 +128,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Physics.RigidBody which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -174,7 +177,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Physics.RigidBody linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -1343,7 +1347,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1359,7 +1364,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -1380,7 +1386,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UpdateGravity">

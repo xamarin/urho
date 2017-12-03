@@ -61,7 +61,8 @@
           <term>Post-alpha pass, can be used for 3D overlays that should appear on top of everything else.</term>
         </item>
       </list>
-      <para></para>
+      <para>
+      </para>
       <format type="text/html">
         <h2>Rendering components</h2>
       </format>
@@ -133,8 +134,10 @@
         </item>
       </list>
       <para>Additionally there are 2D drawable components defined by the Urho2D library.</para>
-      <para></para>
-      <para></para>
+      <para>
+      </para>
+      <para>
+      </para>
       <format type="text/html">
         <h2>Optimizations</h2>
       </format>
@@ -149,22 +152,26 @@
           <term>Hardware instancing: rendering operations with the same geometry, material and light will be grouped together and performed as one draw call if supported. Note that even when instancing is not available, they still benefit from the grouping, as render state only needs to be checked &amp; set once before rendering each group, reducing the CPU cost.</term>
         </item>
       </list>
-      <para></para>
+      <para>
+      </para>
       <list type="bullet">
         <item>
           <term>Light stencil masking: in forward rendering, before objects lit by a spot or point light are re-rendered additively, the light's bounding shape is rendered to the stencil buffer to ensure pixels outside the light range are not processed.</term>
         </item>
       </list>
       <para>Note that many more optimization opportunities are possible at the content level, for example using geometry &amp; material LOD, grouping many static objects into one object for less draw calls, minimizing the amount of subgeometries (submeshes) per object for less draw calls, using texture atlases to avoid render state changes, using compressed (and smaller) textures, and setting maximum draw distances for objects, lights and shadows.</para>
-      <para></para>
+      <para>
+      </para>
       <format type="text/html">
         <h2>Reusing view preparation</h2>
       </format>
       <para>In some applications, like stereoscopic VR rendering, one needs to render a slightly different view of the world to separate viewports. Normally this results in the view preparation process (described above) being repeated for each view, which can be costly for CPU performance.</para>
       <para>To eliminate the duplicate view preparation cost, you can use <see cref="M:Urho.Viewport.SetCullCamera" /> <see cref="SetCullCamera()" /> to instruct a <see cref="T:Urho.Viewport" /> to use a different camera for culling than rendering. When multiple viewports share the same culling camera, the view preparation will be performed only once.</para>
       <para>To work properly, the culling camera's frustum should cover all the views you are rendering using it, or else missing objects may be present. The culling camera should not be using the auto aspect ratio mode, to ensure you stay in full control of its view frustum.</para>
-      <para></para>
-      <para></para>
+      <para>
+      </para>
+      <para>
+      </para>
       <format type="text/html">
         <h2>
           <br />
@@ -190,7 +197,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Renderer which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -238,7 +246,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Renderer linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -579,7 +588,7 @@
       </Docs>
     </Member>
     <Member MemberName="GetNumGeometries">
-      <MemberSignature Language="C#" Value="public uint GetNumGeometries (bool allViews);" />
+      <MemberSignature Language="C#" Value="public uint GetNumGeometries (bool allViews = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetNumGeometries(bool allViews) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -601,7 +610,7 @@
       </Docs>
     </Member>
     <Member MemberName="GetNumLights">
-      <MemberSignature Language="C#" Value="public uint GetNumLights (bool allViews);" />
+      <MemberSignature Language="C#" Value="public uint GetNumLights (bool allViews = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetNumLights(bool allViews) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -623,7 +632,7 @@
       </Docs>
     </Member>
     <Member MemberName="GetNumOccluders">
-      <MemberSignature Language="C#" Value="public uint GetNumOccluders (bool allViews);" />
+      <MemberSignature Language="C#" Value="public uint GetNumOccluders (bool allViews = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetNumOccluders(bool allViews) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -645,7 +654,7 @@
       </Docs>
     </Member>
     <Member MemberName="GetNumShadowMaps">
-      <MemberSignature Language="C#" Value="public uint GetNumShadowMaps (bool allViews);" />
+      <MemberSignature Language="C#" Value="public uint GetNumShadowMaps (bool allViews = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int32 GetNumShadowMaps(bool allViews) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -709,7 +718,7 @@
       </Docs>
     </Member>
     <Member MemberName="GetScreenBuffer">
-      <MemberSignature Language="C#" Value="public Urho.Texture GetScreenBuffer (int width, int height, uint format, int multiSample, bool autoResolve, bool cubemap, bool filtered, bool srgb, uint persistentKey);" />
+      <MemberSignature Language="C#" Value="public Urho.Texture GetScreenBuffer (int width, int height, uint format, int multiSample, bool autoResolve, bool cubemap, bool filtered, bool srgb, uint persistentKey = 0);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Texture GetScreenBuffer(int32 width, int32 height, unsigned int32 format, int32 multiSample, bool autoResolve, bool cubemap, bool filtered, bool srgb, unsigned int32 persistentKey) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -790,6 +799,28 @@
         <summary>
             Return backbuffer viewport by index.
             </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetViewportForScene">
+      <MemberSignature Language="C#" Value="public Urho.Viewport GetViewportForScene (Urho.Scene scene, uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Viewport GetViewportForScene(class Urho.Scene scene, unsigned int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Viewport</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="scene" Type="Urho.Scene" />
+        <Parameter Name="index" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="scene">To be added.</param>
+        <param name="index">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1319,24 +1350,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="RestoreScreenBufferAllocations">
-      <MemberSignature Language="C#" Value="public void RestoreScreenBufferAllocations ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RestoreScreenBufferAllocations() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Restore the screen buffer allocation status. Called by View.
-            </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="ReuseShadowMaps">
       <MemberSignature Language="C#" Value="public bool ReuseShadowMaps { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance bool ReuseShadowMaps" />
@@ -1354,24 +1367,6 @@
             Set reuse of shadow maps. Default is true. If disabled, also transparent geometry can be shadowed.
             </summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SaveScreenBufferAllocations">
-      <MemberSignature Language="C#" Value="public void SaveScreenBufferAllocations ();" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SaveScreenBufferAllocations() cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters />
-      <Docs>
-        <summary>
-            Save the screen buffer allocation status. Called by View.
-            </summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1768,7 +1763,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1784,7 +1780,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -1805,7 +1802,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Update">

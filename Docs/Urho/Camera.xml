@@ -32,7 +32,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Camera which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -80,7 +81,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Camera linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -368,7 +370,7 @@
       </Docs>
     </Member>
     <Member MemberName="GetFaceCameraRotation">
-      <MemberSignature Language="C#" Value="public Urho.Quaternion GetFaceCameraRotation (Urho.Vector3 position, Urho.Quaternion rotation, Urho.FaceCameraMode mode, float minAngle);" />
+      <MemberSignature Language="C#" Value="public Urho.Quaternion GetFaceCameraRotation (Urho.Vector3 position, Urho.Quaternion rotation, Urho.FaceCameraMode mode, float minAngle = 0);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Quaternion GetFaceCameraRotation(valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation, valuetype Urho.FaceCameraMode mode, float32 minAngle) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -439,6 +441,23 @@
         <summary>
             Return ray corresponding to normalized screen coordinates (0.0 - 1.0).
             </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetScreenRayForMouse">
+      <MemberSignature Language="C#" Value="public Urho.Ray GetScreenRayForMouse ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Ray GetScreenRayForMouse() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Ray</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -921,7 +940,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -937,7 +957,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -958,7 +979,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UseClipping">

@@ -32,7 +32,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.Menu which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -80,7 +81,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.Menu linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -163,7 +165,7 @@
       </Docs>
     </Member>
     <Member MemberName="LoadXml">
-      <MemberSignature Language="C#" Value="public override bool LoadXml (Urho.Resources.XmlElement source, Urho.Resources.XmlFile styleFile, bool setInstanceDefault);" />
+      <MemberSignature Language="C#" Value="public override bool LoadXml (Urho.Resources.XmlElement source, Urho.Resources.XmlFile styleFile, bool setInstanceDefault = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool LoadXml(class Urho.Resources.XmlElement source, class Urho.Resources.XmlFile styleFile, bool setInstanceDefault) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -474,7 +476,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -490,7 +493,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -511,7 +515,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Update">

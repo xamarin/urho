@@ -32,7 +32,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.Text which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -80,7 +81,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.Text linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -295,14 +297,14 @@
       </Docs>
     </Member>
     <Member MemberName="FontSize">
-      <MemberSignature Language="C#" Value="public int FontSize { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance int32 FontSize" />
+      <MemberSignature Language="C#" Value="public float FontSize { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 FontSize" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Int32</ReturnType>
+        <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -313,67 +315,61 @@
       </Docs>
     </Member>
     <Member MemberName="GetCharPosition">
-      <MemberSignature Language="C#" Value="public Urho.IntVector2 GetCharPosition (uint index);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.IntVector2 GetCharPosition(unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Vector2 GetCharPosition (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector2 GetCharPosition(unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.IntVector2</ReturnType>
+        <ReturnType>Urho.Vector2</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="index" Type="System.UInt32" />
       </Parameters>
       <Docs>
         <param name="index">To be added.</param>
-        <summary>
-            Return position of character by index relative to the text element origin.
-            </summary>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetCharSize">
-      <MemberSignature Language="C#" Value="public Urho.IntVector2 GetCharSize (uint index);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.IntVector2 GetCharSize(unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Vector2 GetCharSize (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector2 GetCharSize(unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Urho.IntVector2</ReturnType>
+        <ReturnType>Urho.Vector2</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="index" Type="System.UInt32" />
       </Parameters>
       <Docs>
         <param name="index">To be added.</param>
-        <summary>
-            Return size of character by index.
-            </summary>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetRowWidth">
-      <MemberSignature Language="C#" Value="public int GetRowWidth (uint index);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int32 GetRowWidth(unsigned int32 index) cil managed" />
+      <MemberSignature Language="C#" Value="public float GetRowWidth (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance float32 GetRowWidth(unsigned int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Int32</ReturnType>
+        <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="index" Type="System.UInt32" />
       </Parameters>
       <Docs>
         <param name="index">To be added.</param>
-        <summary>
-            Return width of row by index.
-            </summary>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -495,14 +491,14 @@
       </Docs>
     </Member>
     <Member MemberName="RowHeight">
-      <MemberSignature Language="C#" Value="public int RowHeight { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance int32 RowHeight" />
+      <MemberSignature Language="C#" Value="public float RowHeight { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 RowHeight" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Int32</ReturnType>
+        <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -589,8 +585,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetFont">
-      <MemberSignature Language="C#" Value="public bool SetFont (string fontName, int size);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetFont(string fontName, int32 size) cil managed" />
+      <MemberSignature Language="C#" Value="public bool SetFont (string fontName, float size);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetFont(string fontName, float32 size) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -600,21 +596,19 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="fontName" Type="System.String" />
-        <Parameter Name="size" Type="System.Int32" />
+        <Parameter Name="size" Type="System.Single" />
       </Parameters>
       <Docs>
         <param name="fontName">To be added.</param>
         <param name="size">To be added.</param>
-        <summary>
-            Set font and font size and use signed distance field.
-            </summary>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="SetFont">
-      <MemberSignature Language="C#" Value="public bool SetFont (Urho.Gui.Font font, int size);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetFont(class Urho.Gui.Font font, int32 size) cil managed" />
+      <MemberSignature Language="C#" Value="public bool SetFont (Urho.Gui.Font font, float size);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetFont(class Urho.Gui.Font font, float32 size) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -624,21 +618,19 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="font" Type="Urho.Gui.Font" />
-        <Parameter Name="size" Type="System.Int32" />
+        <Parameter Name="size" Type="System.Single" />
       </Parameters>
       <Docs>
         <param name="font">To be added.</param>
         <param name="size">To be added.</param>
-        <summary>
-            Set font and font size and use signed distance field.
-            </summary>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="SetFontSize">
-      <MemberSignature Language="C#" Value="public bool SetFontSize (int size);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetFontSize(int32 size) cil managed" />
+      <MemberSignature Language="C#" Value="public bool SetFontSize (float size);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetFontSize(float32 size) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -647,7 +639,7 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="size" Type="System.Int32" />
+        <Parameter Name="size" Type="System.Single" />
       </Parameters>
       <Docs>
         <param name="size">To be added.</param>
@@ -657,7 +649,7 @@
       </Docs>
     </Member>
     <Member MemberName="SetSelection">
-      <MemberSignature Language="C#" Value="public void SetSelection (uint start, uint length);" />
+      <MemberSignature Language="C#" Value="public void SetSelection (uint start, uint length = 4294967295);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetSelection(unsigned int32 start, unsigned int32 length) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -783,7 +775,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -799,7 +792,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -820,7 +814,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Value">

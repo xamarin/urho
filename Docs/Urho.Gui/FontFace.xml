@@ -104,14 +104,14 @@
       </Docs>
     </Member>
     <Member MemberName="GetKerning">
-      <MemberSignature Language="C#" Value="public short GetKerning (uint c, uint d);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int16 GetKerning(unsigned int32 c, unsigned int32 d) cil managed" />
+      <MemberSignature Language="C#" Value="public float GetKerning (uint c, uint d);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance float32 GetKerning(unsigned int32 c, unsigned int32 d) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Int16</ReturnType>
+        <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="c" Type="System.UInt32" />
@@ -120,9 +120,7 @@
       <Docs>
         <param name="c">To be added.</param>
         <param name="d">To be added.</param>
-        <summary>
-            Return the kerning for a character and the next character.
-            </summary>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -147,8 +145,8 @@
       </Docs>
     </Member>
     <Member MemberName="Load">
-      <MemberSignature Language="C#" Value="public virtual bool Load (byte* fontData, uint fontDataSize, int pointSize);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool Load(unsigned int8* fontData, unsigned int32 fontDataSize, int32 pointSize) cil managed" />
+      <MemberSignature Language="C#" Value="public virtual bool Load (byte* fontData, uint fontDataSize, float pointSize);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool Load(unsigned int8* fontData, unsigned int32 fontDataSize, float32 pointSize) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -159,28 +157,26 @@
       <Parameters>
         <Parameter Name="fontData" Type="System.Byte*" />
         <Parameter Name="fontDataSize" Type="System.UInt32" />
-        <Parameter Name="pointSize" Type="System.Int32" />
+        <Parameter Name="pointSize" Type="System.Single" />
       </Parameters>
       <Docs>
         <param name="fontData">To be added.</param>
         <param name="fontDataSize">To be added.</param>
         <param name="pointSize">To be added.</param>
-        <summary>
-            Load font face.
-            </summary>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="PointSize">
-      <MemberSignature Language="C#" Value="public int PointSize { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance int32 PointSize" />
+      <MemberSignature Language="C#" Value="public float PointSize { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 PointSize" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Int32</ReturnType>
+        <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -191,14 +187,14 @@
       </Docs>
     </Member>
     <Member MemberName="RowHeight">
-      <MemberSignature Language="C#" Value="public int RowHeight { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance int32 RowHeight" />
+      <MemberSignature Language="C#" Value="public float RowHeight { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 RowHeight" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Int32</ReturnType>
+        <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

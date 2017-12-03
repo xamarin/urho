@@ -36,6 +36,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="DeltaA">
+      <MemberSignature Language="C#" Value="protected float DeltaA { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 DeltaA" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="DeltaB">
       <MemberSignature Language="C#" Value="protected float DeltaB { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance float32 DeltaB" />
@@ -71,6 +87,22 @@
     <Member MemberName="DeltaR">
       <MemberSignature Language="C#" Value="protected float DeltaR { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance float32 DeltaR" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="FromA">
+      <MemberSignature Language="C#" Value="protected float FromA { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance float32 FromA" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -125,6 +157,38 @@
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MaterialIndex">
+      <MemberSignature Language="C#" Value="protected int MaterialIndex { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 MaterialIndex" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShaderParameterName">
+      <MemberSignature Language="C#" Value="protected string ShaderParameterName { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string ShaderParameterName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

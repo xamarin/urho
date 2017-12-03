@@ -164,7 +164,8 @@
       <para>
 	  For the layout definitions, see http://www.cgtextures.com/content.php?action=tutorial&amp;name=cubemaps and http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Build_a_skybox
 	</para>
-      <para></para>
+      <para>
+      </para>
     </remarks>
   </Docs>
   <Members>
@@ -185,7 +186,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Material which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -233,7 +235,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Material linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -338,7 +341,7 @@
       </Docs>
     </Member>
     <Member MemberName="Clone">
-      <MemberSignature Language="C#" Value="public Urho.Material Clone (string cloneName);" />
+      <MemberSignature Language="C#" Value="public Urho.Material Clone (string cloneName = &quot;&quot;);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Material Clone(string cloneName) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -560,6 +563,26 @@
         <summary>
             Return pass by technique index and pass name.
             </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetShaderParameter">
+      <MemberSignature Language="C#" Value="public Urho.Color GetShaderParameter (string parameterName);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Color GetShaderParameter(string parameterName) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Color</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="parameterName" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="parameterName">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1285,7 +1308,7 @@
       </Docs>
     </Member>
     <Member MemberName="SetShaderParameterAnimation">
-      <MemberSignature Language="C#" Value="public void SetShaderParameterAnimation (string name, Urho.ValueAnimation animation, Urho.WrapMode wrapMode, float speed);" />
+      <MemberSignature Language="C#" Value="public void SetShaderParameterAnimation (string name, Urho.ValueAnimation animation, Urho.WrapMode wrapMode = Urho.WrapMode.Loop, float speed = 1);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetShaderParameterAnimation(string name, class Urho.ValueAnimation animation, valuetype Urho.WrapMode wrapMode, float32 speed) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1358,7 +1381,7 @@
       </Docs>
     </Member>
     <Member MemberName="SetTechnique">
-      <MemberSignature Language="C#" Value="public void SetTechnique (uint index, Urho.Technique tech, uint qualityLevel, float lodDistance);" />
+      <MemberSignature Language="C#" Value="public void SetTechnique (uint index, Urho.Technique tech, uint qualityLevel = 0, float lodDistance = 0);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetTechnique(unsigned int32 index, class Urho.Technique tech, unsigned int32 qualityLevel, float32 lodDistance) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1536,7 +1559,8 @@
       <Docs>
         <param name="imagePositiveX">
           <para>Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image for the positive X side of the cube.</para>
-          <para></para>
+          <para>
+          </para>
         </param>
         <param name="imageNegativeX">Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image for the negative X side of the cube.</param>
         <param name="imagePositiveY">Name of the resource that will be extracted from the <see cref="T:Urho.Resources.ResourceCache" /> that contains the image for the positive Y side of the cube.</param>
@@ -1613,7 +1637,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1629,7 +1654,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -1650,7 +1676,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="VertexShaderDefines">

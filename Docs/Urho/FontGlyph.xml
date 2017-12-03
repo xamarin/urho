@@ -15,14 +15,14 @@
   </Docs>
   <Members>
     <Member MemberName="AdvanceX">
-      <MemberSignature Language="C#" Value="public short AdvanceX;" />
-      <MemberSignature Language="ILAsm" Value=".field public int16 AdvanceX" />
+      <MemberSignature Language="C#" Value="public float AdvanceX;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 AdvanceX" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Int16</ReturnType>
+        <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -30,14 +30,14 @@
       </Docs>
     </Member>
     <Member MemberName="Height">
-      <MemberSignature Language="C#" Value="public short Height;" />
-      <MemberSignature Language="ILAsm" Value=".field public int16 Height" />
+      <MemberSignature Language="C#" Value="public float Height;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 Height" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Int16</ReturnType>
+        <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -45,14 +45,14 @@
       </Docs>
     </Member>
     <Member MemberName="OffsetX">
-      <MemberSignature Language="C#" Value="public short OffsetX;" />
-      <MemberSignature Language="ILAsm" Value=".field public int16 OffsetX" />
+      <MemberSignature Language="C#" Value="public float OffsetX;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 OffsetX" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Int16</ReturnType>
+        <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -60,14 +60,14 @@
       </Docs>
     </Member>
     <Member MemberName="OffsetY">
-      <MemberSignature Language="C#" Value="public short OffsetY;" />
-      <MemberSignature Language="ILAsm" Value=".field public int16 OffsetY" />
+      <MemberSignature Language="C#" Value="public float OffsetY;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 OffsetY" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Int16</ReturnType>
+        <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -83,6 +83,36 @@
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TexHeight">
+      <MemberSignature Language="C#" Value="public short TexHeight;" />
+      <MemberSignature Language="ILAsm" Value=".field public int16 TexHeight" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int16</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TexWidth">
+      <MemberSignature Language="C#" Value="public short TexWidth;" />
+      <MemberSignature Language="ILAsm" Value=".field public int16 TexWidth" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int16</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -106,14 +136,14 @@
       </Docs>
     </Member>
     <Member MemberName="Width">
-      <MemberSignature Language="C#" Value="public short Width;" />
-      <MemberSignature Language="ILAsm" Value=".field public int16 Width" />
+      <MemberSignature Language="C#" Value="public float Width;" />
+      <MemberSignature Language="ILAsm" Value=".field public float32 Width" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Int16</ReturnType>
+        <ReturnType>System.Single</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpieBinder", "SharpieBinder.csproj", "{B180BDB5-E041-46CC-A1BD-4616D81BC15F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho", "..\Bindings\Urho.csproj", "{641886DB-2C6C-4D33-88DA-97BEC0EC5F86}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho", "..\Bindings\Portable\Urho.csproj", "{641886DB-2C6C-4D33-88DA-97BEC0EC5F86}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructsValidator", "StructsValidator\StructsValidator.csproj", "{CA2EC759-D4EC-46E4-9592-9C55B0649D81}"
 EndProject

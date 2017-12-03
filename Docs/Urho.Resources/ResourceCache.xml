@@ -33,7 +33,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Resources.ResourceCache which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -81,7 +82,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Resources.ResourceCache linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -204,7 +206,7 @@
       </Docs>
     </Member>
     <Member MemberName="AddResourceRouter">
-      <MemberSignature Language="C#" Value="public void AddResourceRouter (Urho.ResourceRouter router, bool addAsFirst);" />
+      <MemberSignature Language="C#" Value="public void AddResourceRouter (Urho.ResourceRouter router, bool addAsFirst = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddResourceRouter(class Urho.ResourceRouter router, bool addAsFirst) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -247,7 +249,7 @@
       </Docs>
     </Member>
     <Member MemberName="BackgroundLoadResource">
-      <MemberSignature Language="C#" Value="public bool BackgroundLoadResource (Urho.StringHash type, string name, bool sendEventOnFailure, Urho.Resources.Resource caller);" />
+      <MemberSignature Language="C#" Value="public bool BackgroundLoadResource (Urho.StringHash type, string name, bool sendEventOnFailure = true, Urho.Resources.Resource caller = null);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool BackgroundLoadResource(valuetype Urho.StringHash type, string name, bool sendEventOnFailure, class Urho.Resources.Resource caller) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -400,7 +402,7 @@
       </Docs>
     </Member>
     <Member MemberName="GetFile">
-      <MemberSignature Language="C#" Value="public Urho.IO.File GetFile (string name, bool sendEventOnFailure);" />
+      <MemberSignature Language="C#" Value="public Urho.IO.File GetFile (string name, bool sendEventOnFailure = true);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.IO.File GetFile(string name, bool sendEventOnFailure) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -467,7 +469,8 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para></para>
+          <para>
+          </para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -494,7 +497,8 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para></para>
+          <para>
+          </para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -521,7 +525,8 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para></para>
+          <para>
+          </para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -588,7 +593,8 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para></para>
+          <para>
+          </para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -615,7 +621,8 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para></para>
+          <para>
+          </para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -642,7 +649,8 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para></para>
+          <para>
+          </para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -669,7 +677,8 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para></para>
+          <para>
+          </para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -696,7 +705,8 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para></para>
+          <para>
+          </para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -724,7 +734,7 @@
       </Docs>
     </Member>
     <Member MemberName="GetResource">
-      <MemberSignature Language="C#" Value="public Urho.Resources.Resource GetResource (Urho.StringHash type, string name, bool sendEventOnFailure);" />
+      <MemberSignature Language="C#" Value="public Urho.Resources.Resource GetResource (Urho.StringHash type, string name, bool sendEventOnFailure = true);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Resources.Resource GetResource(valuetype Urho.StringHash type, string name, bool sendEventOnFailure) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -749,7 +759,8 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para></para>
+          <para>
+          </para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -822,7 +833,8 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para></para>
+          <para>
+          </para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -849,7 +861,8 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para></para>
+          <para>
+          </para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -876,7 +889,8 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para></para>
+          <para>
+          </para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -903,7 +917,8 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para></para>
+          <para>
+          </para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -930,13 +945,14 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para></para>
+          <para>
+          </para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetTempResource">
-      <MemberSignature Language="C#" Value="public Urho.Resources.Resource GetTempResource (Urho.StringHash type, string name, bool sendEventOnFailure);" />
+      <MemberSignature Language="C#" Value="public Urho.Resources.Resource GetTempResource (Urho.StringHash type, string name, bool sendEventOnFailure = true);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Resources.Resource GetTempResource(valuetype Urho.StringHash type, string name, bool sendEventOnFailure) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -984,7 +1000,8 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para></para>
+          <para>
+          </para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -1011,7 +1028,8 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para></para>
+          <para>
+          </para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -1038,7 +1056,8 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para></para>
+          <para>
+          </para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -1065,7 +1084,8 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para></para>
+          <para>
+          </para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -1092,7 +1112,8 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para></para>
+          <para>
+          </para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -1119,7 +1140,8 @@
           <see langword="null" /> if not found, or if there is an error.   Unless <see cref="P:Urho.Resources.ResourceCache.ReturnFailedResources" /> has been set to <see langword="true" />.</returns>
         <remarks>
           <para>It loads the resource if it has not been loaded yet.</para>
-          <para></para>
+          <para>
+          </para>
           <para>Should only be called from the main thread.</para>
         </remarks>
       </Docs>
@@ -1195,7 +1217,7 @@
       </Docs>
     </Member>
     <Member MemberName="ReleaseAllResources">
-      <MemberSignature Language="C#" Value="public void ReleaseAllResources (bool force);" />
+      <MemberSignature Language="C#" Value="public void ReleaseAllResources (bool force = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ReleaseAllResources(bool force) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1216,7 +1238,7 @@
       </Docs>
     </Member>
     <Member MemberName="ReleaseResource">
-      <MemberSignature Language="C#" Value="public void ReleaseResource (Urho.StringHash type, string name, bool force);" />
+      <MemberSignature Language="C#" Value="public void ReleaseResource (Urho.StringHash type, string name, bool force = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ReleaseResource(valuetype Urho.StringHash type, string name, bool force) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1241,7 +1263,7 @@
       </Docs>
     </Member>
     <Member MemberName="ReleaseResources">
-      <MemberSignature Language="C#" Value="public void ReleaseResources (string partialName, bool force);" />
+      <MemberSignature Language="C#" Value="public void ReleaseResources (string partialName, bool force = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ReleaseResources(string partialName, bool force) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1264,7 +1286,7 @@
       </Docs>
     </Member>
     <Member MemberName="ReleaseResources">
-      <MemberSignature Language="C#" Value="public void ReleaseResources (Urho.StringHash type, bool force);" />
+      <MemberSignature Language="C#" Value="public void ReleaseResources (Urho.StringHash type, bool force = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ReleaseResources(valuetype Urho.StringHash type, bool force) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1287,7 +1309,7 @@
       </Docs>
     </Member>
     <Member MemberName="ReleaseResources">
-      <MemberSignature Language="C#" Value="public void ReleaseResources (Urho.StringHash type, string partialName, bool force);" />
+      <MemberSignature Language="C#" Value="public void ReleaseResources (Urho.StringHash type, string partialName, bool force = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ReleaseResources(valuetype Urho.StringHash type, string partialName, bool force) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1355,7 +1377,7 @@
       </Docs>
     </Member>
     <Member MemberName="RemovePackageFile">
-      <MemberSignature Language="C#" Value="public void RemovePackageFile (string fileName, bool releaseResources, bool forceRelease);" />
+      <MemberSignature Language="C#" Value="public void RemovePackageFile (string fileName, bool releaseResources = true, bool forceRelease = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemovePackageFile(string fileName, bool releaseResources, bool forceRelease) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1380,7 +1402,7 @@
       </Docs>
     </Member>
     <Member MemberName="RemovePackageFile">
-      <MemberSignature Language="C#" Value="public void RemovePackageFile (Urho.IO.PackageFile package, bool releaseResources, bool forceRelease);" />
+      <MemberSignature Language="C#" Value="public void RemovePackageFile (Urho.IO.PackageFile package, bool releaseResources = true, bool forceRelease = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemovePackageFile(class Urho.IO.PackageFile package, bool releaseResources, bool forceRelease) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1821,7 +1843,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1837,7 +1860,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -1858,7 +1882,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UnknownResourceType">

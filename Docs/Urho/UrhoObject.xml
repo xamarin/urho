@@ -560,6 +560,50 @@
       </Docs>
     </Member>
     <Member MemberName="SubscribeToEvent">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToEvent (string eventName, Action&lt;Urho.EventDataContainer&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToEvent(string eventName, class System.Action`1&lt;class Urho.EventDataContainer&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="eventName" Type="System.String" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.EventDataContainer&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="eventName">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToEvent">
+      <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToEvent (Urho.StringHash eventName, Action&lt;Urho.EventDataContainer&gt; handler);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToEvent(valuetype Urho.StringHash eventName, class System.Action`1&lt;class Urho.EventDataContainer&gt; handler) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Subscription</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="eventName" Type="Urho.StringHash" />
+        <Parameter Name="handler" Type="System.Action&lt;Urho.EventDataContainer&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="eventName">To be added.</param>
+        <param name="handler">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SubscribeToEvent">
       <MemberSignature Language="C#" Value="public void SubscribeToEvent (Urho.StringHash eventType, IntPtr handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SubscribeToEvent(valuetype Urho.StringHash eventType, native int handler) cil managed" />
       <MemberType>Method</MemberType>
@@ -668,7 +712,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UnsubscribeFromAllEvents">

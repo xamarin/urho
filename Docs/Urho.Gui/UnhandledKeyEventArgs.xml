@@ -46,6 +46,21 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="EventData">
+      <MemberSignature Language="C#" Value="public Urho.EventDataContainer EventData;" />
+      <MemberSignature Language="ILAsm" Value=".field public class Urho.EventDataContainer EventData" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.EventDataContainer</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Key">
       <MemberSignature Language="C#" Value="public Urho.Key Key { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Key Key" />

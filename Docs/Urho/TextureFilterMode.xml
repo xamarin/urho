@@ -45,7 +45,7 @@
     </Member>
     <Member MemberName="Default">
       <MemberSignature Language="C#" Value="Default" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.TextureFilterMode Default = int32(4)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.TextureFilterMode Default = int32(5)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -59,7 +59,7 @@
     </Member>
     <Member MemberName="MaxFiltermodes">
       <MemberSignature Language="C#" Value="MaxFiltermodes" />
-      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.TextureFilterMode MaxFiltermodes = int32(5)" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.TextureFilterMode MaxFiltermodes = int32(6)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -74,6 +74,20 @@
     <Member MemberName="Nearest">
       <MemberSignature Language="C#" Value="Nearest" />
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.TextureFilterMode Nearest = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.TextureFilterMode</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="NearestAnisotropic">
+      <MemberSignature Language="C#" Value="NearestAnisotropic" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.TextureFilterMode NearestAnisotropic = int32(4)" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>

@@ -16,7 +16,8 @@
     <remarks>
       <para>When you create a Scene, it is automatically attached to the specified context (or the default as exposed by <see cref="P:Urho.Application.CurrentContext)" />.   The Scene is just the toplevel <see cref="T:Urho.Node" /> and it holds the various nodes for your application.   </para>
       <para>In general, you will want to add an Octree component to your scene, without it, none of the visual components will be shown.  The default Octree component volume goes from (-1000,-1000,-1000) to (1000,1000,1000) in world coordinates.</para>
-      <para></para>
+      <para>
+      </para>
       <example>
         <code lang="C#"><![CDATA[scene.CreateComponent<Octree> ();
 
@@ -61,7 +62,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <summary>
           <para>Constructs a new instance of Urho.Scene which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -109,7 +111,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
         <summary>
           <para>Constructs a new instance of Urho.Scene linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -358,7 +361,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="Clear">
-      <MemberSignature Language="C#" Value="public void Clear (bool clearReplicated, bool clearLocal);" />
+      <MemberSignature Language="C#" Value="public void Clear (bool clearReplicated = true, bool clearLocal = true);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Clear(bool clearReplicated, bool clearLocal) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -652,7 +655,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="Instantiate">
-      <MemberSignature Language="C#" Value="public Urho.Node Instantiate (Urho.IO.File source, Urho.Vector3 position, Urho.Quaternion rotation, Urho.CreateMode mode);" />
+      <MemberSignature Language="C#" Value="public Urho.Node Instantiate (Urho.IO.File source, Urho.Vector3 position, Urho.Quaternion rotation, Urho.CreateMode mode = Urho.CreateMode.Replicated);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Node Instantiate(class Urho.IO.File source, valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation, valuetype Urho.CreateMode mode) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -678,7 +681,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="Instantiate">
-      <MemberSignature Language="C#" Value="public Urho.Node Instantiate (Urho.MemoryBuffer source, Urho.Vector3 position, Urho.Quaternion rotation, Urho.CreateMode mode);" />
+      <MemberSignature Language="C#" Value="public Urho.Node Instantiate (Urho.MemoryBuffer source, Urho.Vector3 position, Urho.Quaternion rotation, Urho.CreateMode mode = Urho.CreateMode.Replicated);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Node Instantiate(class Urho.MemoryBuffer source, valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation, valuetype Urho.CreateMode mode) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -704,7 +707,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="InstantiateJson">
-      <MemberSignature Language="C#" Value="public Urho.Node InstantiateJson (Urho.IO.File source, Urho.Vector3 position, Urho.Quaternion rotation, Urho.CreateMode mode);" />
+      <MemberSignature Language="C#" Value="public Urho.Node InstantiateJson (Urho.IO.File source, Urho.Vector3 position, Urho.Quaternion rotation, Urho.CreateMode mode = Urho.CreateMode.Replicated);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Node InstantiateJson(class Urho.IO.File source, valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation, valuetype Urho.CreateMode mode) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -730,7 +733,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="InstantiateJson">
-      <MemberSignature Language="C#" Value="public Urho.Node InstantiateJson (Urho.MemoryBuffer source, Urho.Vector3 position, Urho.Quaternion rotation, Urho.CreateMode mode);" />
+      <MemberSignature Language="C#" Value="public Urho.Node InstantiateJson (Urho.MemoryBuffer source, Urho.Vector3 position, Urho.Quaternion rotation, Urho.CreateMode mode = Urho.CreateMode.Replicated);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Node InstantiateJson(class Urho.MemoryBuffer source, valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation, valuetype Urho.CreateMode mode) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -756,7 +759,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="InstantiateXml">
-      <MemberSignature Language="C#" Value="public Urho.Node InstantiateXml (Urho.IO.File source, Urho.Vector3 position, Urho.Quaternion rotation, Urho.CreateMode mode);" />
+      <MemberSignature Language="C#" Value="public Urho.Node InstantiateXml (Urho.IO.File source, Urho.Vector3 position, Urho.Quaternion rotation, Urho.CreateMode mode = Urho.CreateMode.Replicated);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Node InstantiateXml(class Urho.IO.File source, valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation, valuetype Urho.CreateMode mode) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -782,7 +785,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="InstantiateXml">
-      <MemberSignature Language="C#" Value="public Urho.Node InstantiateXml (Urho.MemoryBuffer source, Urho.Vector3 position, Urho.Quaternion rotation, Urho.CreateMode mode);" />
+      <MemberSignature Language="C#" Value="public Urho.Node InstantiateXml (Urho.MemoryBuffer source, Urho.Vector3 position, Urho.Quaternion rotation, Urho.CreateMode mode = Urho.CreateMode.Replicated);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Node InstantiateXml(class Urho.MemoryBuffer source, valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation, valuetype Urho.CreateMode mode) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -808,7 +811,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="InstantiateXml">
-      <MemberSignature Language="C#" Value="public Urho.Node InstantiateXml (Urho.Resources.XmlElement source, Urho.Vector3 position, Urho.Quaternion rotation, Urho.CreateMode mode);" />
+      <MemberSignature Language="C#" Value="public Urho.Node InstantiateXml (Urho.Resources.XmlElement source, Urho.Vector3 position, Urho.Quaternion rotation, Urho.CreateMode mode = Urho.CreateMode.Replicated);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Node InstantiateXml(class Urho.Resources.XmlElement source, valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation, valuetype Urho.CreateMode mode) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -834,7 +837,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="Load">
-      <MemberSignature Language="C#" Value="public override bool Load (Urho.IO.File source, bool setInstanceDefault);" />
+      <MemberSignature Language="C#" Value="public override bool Load (Urho.IO.File source, bool setInstanceDefault = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool Load(class Urho.IO.File source, bool setInstanceDefault) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -856,7 +859,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="Load">
-      <MemberSignature Language="C#" Value="public override bool Load (Urho.MemoryBuffer source, bool setInstanceDefault);" />
+      <MemberSignature Language="C#" Value="public override bool Load (Urho.MemoryBuffer source, bool setInstanceDefault = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool Load(class Urho.MemoryBuffer source, bool setInstanceDefault) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -878,7 +881,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="LoadAsync">
-      <MemberSignature Language="C#" Value="public bool LoadAsync (Urho.IO.File file, Urho.LoadMode mode);" />
+      <MemberSignature Language="C#" Value="public bool LoadAsync (Urho.IO.File file, Urho.LoadMode mode = Urho.LoadMode.SceneAndResources);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool LoadAsync(class Urho.IO.File file, valuetype Urho.LoadMode mode) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -902,7 +905,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="LoadAsyncJson">
-      <MemberSignature Language="C#" Value="public bool LoadAsyncJson (Urho.IO.File file, Urho.LoadMode mode);" />
+      <MemberSignature Language="C#" Value="public bool LoadAsyncJson (Urho.IO.File file, Urho.LoadMode mode = Urho.LoadMode.SceneAndResources);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool LoadAsyncJson(class Urho.IO.File file, valuetype Urho.LoadMode mode) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -924,7 +927,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="LoadAsyncXml">
-      <MemberSignature Language="C#" Value="public bool LoadAsyncXml (Urho.IO.File file, Urho.LoadMode mode);" />
+      <MemberSignature Language="C#" Value="public bool LoadAsyncXml (Urho.IO.File file, Urho.LoadMode mode = Urho.LoadMode.SceneAndResources);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool LoadAsyncXml(class Urho.IO.File file, valuetype Urho.LoadMode mode) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1046,7 +1049,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="LoadXml">
-      <MemberSignature Language="C#" Value="public override bool LoadXml (Urho.Resources.XmlElement source, bool setInstanceDefault);" />
+      <MemberSignature Language="C#" Value="public override bool LoadXml (Urho.Resources.XmlElement source, bool setInstanceDefault = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool LoadXml(class Urho.Resources.XmlElement source, bool setInstanceDefault) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1414,7 +1417,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="SaveJson">
-      <MemberSignature Language="C#" Value="public override bool SaveJson (Urho.IO.File dest, string indentation);" />
+      <MemberSignature Language="C#" Value="public override bool SaveJson (Urho.IO.File dest, string indentation = &quot;	&quot;);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool SaveJson(class Urho.IO.File dest, string indentation) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1436,7 +1439,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="SaveJson">
-      <MemberSignature Language="C#" Value="public override bool SaveJson (Urho.MemoryBuffer dest, string indentation);" />
+      <MemberSignature Language="C#" Value="public override bool SaveJson (Urho.MemoryBuffer dest, string indentation = &quot;	&quot;);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool SaveJson(class Urho.MemoryBuffer dest, string indentation) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1458,7 +1461,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="SaveXml">
-      <MemberSignature Language="C#" Value="public bool SaveXml (string path, string indentation = &quot; &quot;);" />
+      <MemberSignature Language="C#" Value="public bool SaveXml (string path, string indentation = &quot;	&quot;);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SaveXml(string path, string indentation) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1480,7 +1483,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="SaveXml">
-      <MemberSignature Language="C#" Value="public override bool SaveXml (Urho.IO.File dest, string indentation);" />
+      <MemberSignature Language="C#" Value="public override bool SaveXml (Urho.IO.File dest, string indentation = &quot;	&quot;);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool SaveXml(class Urho.IO.File dest, string indentation) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1502,7 +1505,7 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       </Docs>
     </Member>
     <Member MemberName="SaveXml">
-      <MemberSignature Language="C#" Value="public override bool SaveXml (Urho.MemoryBuffer dest, string indentation);" />
+      <MemberSignature Language="C#" Value="public override bool SaveXml (Urho.MemoryBuffer dest, string indentation = &quot;	&quot;);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool SaveXml(class Urho.MemoryBuffer dest, string indentation) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -2228,7 +2231,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -2244,7 +2248,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -2265,7 +2270,8 @@ lightNode.SetDirection (new Vector3(0.6f, -1.0f, 0.8f));
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UnregisterAllVars">

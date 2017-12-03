@@ -35,7 +35,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.Font which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -83,7 +84,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.Font linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -171,9 +173,25 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="FontType">
+      <MemberSignature Language="C#" Value="public Urho.FontType FontType { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.FontType FontType" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.FontType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetFace">
-      <MemberSignature Language="C#" Value="public Urho.Gui.FontFace GetFace (int pointSize);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.FontFace GetFace(int32 pointSize) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.Gui.FontFace GetFace (float pointSize);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Gui.FontFace GetFace(float32 pointSize) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -182,20 +200,18 @@
         <ReturnType>Urho.Gui.FontFace</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="pointSize" Type="System.Int32" />
+        <Parameter Name="pointSize" Type="System.Single" />
       </Parameters>
       <Docs>
         <param name="pointSize">To be added.</param>
-        <summary>
-            Return font face. Pack and render to a texture if not rendered yet. Return null on error.
-            </summary>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetTotalGlyphOffset">
-      <MemberSignature Language="C#" Value="public Urho.IntVector2 GetTotalGlyphOffset (int pointSize);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.IntVector2 GetTotalGlyphOffset(int32 pointSize) cil managed" />
+      <MemberSignature Language="C#" Value="public Urho.IntVector2 GetTotalGlyphOffset (float pointSize);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.IntVector2 GetTotalGlyphOffset(float32 pointSize) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -204,13 +220,11 @@
         <ReturnType>Urho.IntVector2</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="pointSize" Type="System.Int32" />
+        <Parameter Name="pointSize" Type="System.Single" />
       </Parameters>
       <Docs>
         <param name="pointSize">To be added.</param>
-        <summary>
-            Return the total effective offset for a point size.
-            </summary>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -255,7 +269,7 @@
       </Docs>
     </Member>
     <Member MemberName="SaveXml">
-      <MemberSignature Language="C#" Value="public bool SaveXml (Urho.IO.File dest, int pointSize, bool usedGlyphs, string indentation);" />
+      <MemberSignature Language="C#" Value="public bool SaveXml (Urho.IO.File dest, int pointSize, bool usedGlyphs = false, string indentation = &quot;	&quot;);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SaveXml(class Urho.IO.File dest, int32 pointSize, bool usedGlyphs, string indentation) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -281,7 +295,7 @@
       </Docs>
     </Member>
     <Member MemberName="SaveXml">
-      <MemberSignature Language="C#" Value="public bool SaveXml (Urho.MemoryBuffer dest, int pointSize, bool usedGlyphs, string indentation);" />
+      <MemberSignature Language="C#" Value="public bool SaveXml (Urho.MemoryBuffer dest, int pointSize, bool usedGlyphs = false, string indentation = &quot;	&quot;);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SaveXml(class Urho.MemoryBuffer dest, int32 pointSize, bool usedGlyphs, string indentation) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -371,7 +385,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -387,7 +402,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -408,7 +424,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
   </Members>

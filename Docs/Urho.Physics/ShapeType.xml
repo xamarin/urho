@@ -85,6 +85,20 @@
         <summary>Cylinder.</summary>
       </Docs>
     </Member>
+    <Member MemberName="Gimpactmesh">
+      <MemberSignature Language="C#" Value="Gimpactmesh" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Physics.ShapeType Gimpactmesh = int32(9)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Physics.ShapeType</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
     <Member MemberName="Sphere">
       <MemberSignature Language="C#" Value="Sphere" />
       <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.Physics.ShapeType Sphere = int32(1)" />

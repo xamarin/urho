@@ -1,0 +1,14 @@
+<Type Name="IAbstractFile" FullName="Urho.IAbstractFile">
+  <TypeSignature Language="C#" Value="public interface IAbstractFile" />
+  <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract IAbstractFile" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members />
+</Type>

@@ -15,8 +15,26 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public TintTo (float duration, float red, float green, float blue);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 duration, float32 red, float32 green, float32 blue) cil managed" />
+      <MemberSignature Language="C#" Value="public TintTo (float duration, Urho.Color colorTo);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 duration, valuetype Urho.Color colorTo) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="duration" Type="System.Single" />
+        <Parameter Name="colorTo" Type="Urho.Color" />
+      </Parameters>
+      <Docs>
+        <param name="duration">To be added.</param>
+        <param name="colorTo">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public TintTo (float duration, float red, float green, float blue, float alpha = 1);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(float32 duration, float32 red, float32 green, float32 blue, float32 alpha) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -26,12 +44,14 @@
         <Parameter Name="red" Type="System.Single" />
         <Parameter Name="green" Type="System.Single" />
         <Parameter Name="blue" Type="System.Single" />
+        <Parameter Name="alpha" Type="System.Single" />
       </Parameters>
       <Docs>
         <param name="duration">To be added.</param>
         <param name="red">To be added.</param>
         <param name="green">To be added.</param>
         <param name="blue">To be added.</param>
+        <param name="alpha">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
@@ -45,6 +65,22 @@
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Color</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MaterialIndex">
+      <MemberSignature Language="C#" Value="public int MaterialIndex { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 MaterialIndex" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -66,6 +102,22 @@
       <Docs>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShaderParameterName">
+      <MemberSignature Language="C#" Value="public string ShaderParameterName { get; set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance string ShaderParameterName" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

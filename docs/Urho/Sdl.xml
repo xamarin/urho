@@ -14,6 +14,38 @@
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
+    <Member MemberName="AudioQuit">
+      <MemberSignature Language="C#" Value="public static void AudioQuit ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void AudioQuit() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Quit">
+      <MemberSignature Language="C#" Value="public static void Quit ();" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Quit() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SendAppEvent">
       <MemberSignature Language="C#" Value="public static void SendAppEvent (Urho.SdlEventType eventType);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SendAppEvent(valuetype Urho.SdlEventType eventType) cil managed" />

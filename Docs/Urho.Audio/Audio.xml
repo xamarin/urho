@@ -19,8 +19,10 @@
       <para>For purposes of volume control, each <see cref="T:Urho.Audio.SoundSource" /> can be classified into a user defined group which is multiplied with a master category and the individual <see cref="T:Urho.Audio.SoundSource" /> gain set using <see cref="P:Urho.Audio.SoundSource.Gain" /> for the final volume level.</para>
       <para>To control the category volumes, set the <see cref="M:Urho.Audio.Audio.SetMasterGain" />, which defines the category if it didn't already exist.</para>
       <para>It is possible to control the playback of a class of sounds identified by their type by using the <see cref="M:Urho.Audio.PauseSoundType" />, <see cref="M:Urho.Audio.ResumeSoundType" /> and <see cref="M:Urho.Audio.ResumeAll" /> methods.  You can probe whether a specific sound type is paused by calling the <see cref="M:Urho.Audio.IsSoundTypePaused" />.   The list of possible sound types are the strings “Master”, “Effect”, “Ambient”, “Voice” and “Music”.</para>
-      <para></para>
-      <para></para>
+      <para>
+      </para>
+      <para>
+      </para>
     </remarks>
   </Docs>
   <Members>
@@ -41,7 +43,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Audio.Audio which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -89,7 +92,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Audio.Audio linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -256,7 +260,8 @@
         <summary>Returns whether the specified sound type is currently paused.</summary>
         <returns>True if the sound for that sound type is paused, false otherwise.</returns>
         <remarks>
-          <para></para>
+          <para>
+          </para>
         </remarks>
       </Docs>
     </Member>
@@ -475,7 +480,7 @@
       </Docs>
     </Member>
     <Member MemberName="SetMode">
-      <MemberSignature Language="C#" Value="public bool SetMode (int bufferLengthMSec, int mixRate, bool stereo, bool interpolation);" />
+      <MemberSignature Language="C#" Value="public bool SetMode (int bufferLengthMSec, int mixRate, bool stereo, bool interpolation = true);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetMode(int32 bufferLengthMSec, int32 mixRate, bool stereo, bool interpolation) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -586,7 +591,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -602,7 +608,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -623,7 +630,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Update">

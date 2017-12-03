@@ -42,7 +42,7 @@
           <AttributeName>System.Runtime.InteropServices.Guid("641886db-2c6c-4d33-88da-97bec0ec5f86")</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>System.Runtime.Versioning.TargetFramework(".NETFramework,Version=v4.5", FrameworkDisplayName="")</AttributeName>
+          <AttributeName>System.Runtime.Versioning.TargetFramework(".NETFramework,Version=v4.5", FrameworkDisplayName=".NET Framework 4.5")</AttributeName>
         </Attribute>
       </Attributes>
     </Assembly>
@@ -146,10 +146,12 @@
       <Type Name="DropFileEventArgs" Kind="Structure" />
       <Type Name="ElementMask" Kind="Enumeration" />
       <Type Name="EmitterType" Kind="Enumeration" />
+      <Type Name="EndAllViewsRenderEventArgs" Kind="Structure" />
       <Type Name="EndRenderingEventArgs" Kind="Structure" />
       <Type Name="EndViewRenderEventArgs" Kind="Structure" />
       <Type Name="EndViewUpdateEventArgs" Kind="Structure" />
       <Type Name="Engine" Kind="Class" />
+      <Type Name="EventDataContainer" Kind="Class" />
       <Type Name="EventReceiverGroup" Kind="Class" />
       <Type Name="ExitRequestedEventArgs" Kind="Structure" />
       <Type Name="FaceCameraMode" Kind="Enumeration" />
@@ -157,6 +159,8 @@
       <Type Name="FocusParameters" Kind="Structure" />
       <Type Name="FONT_TYPE" Kind="Enumeration" />
       <Type Name="FontGlyph" Kind="Structure" />
+      <Type Name="FontHintLevel" Kind="Enumeration" />
+      <Type Name="FontType" Kind="Enumeration" />
       <Type Name="FrameEndedEventArgs" Kind="Structure" />
       <Type Name="FrameStartedEventArgs" Kind="Structure" />
       <Type Name="Frustum" Kind="Class" />
@@ -165,14 +169,17 @@
       <Type Name="GeometryType" Kind="Enumeration" />
       <Type Name="GestureInputEventArgs" Kind="Structure" />
       <Type Name="GestureRecordedEventArgs" Kind="Structure" />
+      <Type Name="GImpactMeshData" Kind="Structure" />
       <Type Name="GPUObject" Kind="Class" />
       <Type Name="Graphics" Kind="Class" />
       <Type Name="GraphicsImpl" Kind="Structure" />
       <Type Name="HashBase" Kind="Structure" />
       <Type Name="HashIteratorBase" Kind="Structure" />
       <Type Name="HeightfieldData" Kind="Structure" />
+      <Type Name="IAbstractFile" Kind="Interface" />
       <Type Name="IDeserializer" Kind="Interface" />
       <Type Name="IGPUObject" Kind="Interface" />
+      <Type Name="IKEffectorTargetChangedEventArgs" Kind="Structure" />
       <Type Name="IndexBuffer" Kind="Class" />
       <Type Name="Input" Kind="Class" />
       <Type Name="InputBeginEventArgs" Kind="Structure" />
@@ -184,6 +191,7 @@
       <Type Name="Intersection" Kind="Enumeration" />
       <Type Name="IntRect" Kind="Structure" />
       <Type Name="IntVector2" Kind="Structure" />
+      <Type Name="IntVector3" Kind="Structure" />
       <Type Name="ISerializer" Kind="Interface" />
       <Type Name="Iterator" Kind="Structure" />
       <Type Name="JoystickAxisMoveEventArgs" Kind="Structure" />
@@ -228,7 +236,10 @@
       <Type Name="MouseVisibleChangedEventArgs" Kind="Structure" />
       <Type Name="MouseWheelEventArgs" Kind="Structure" />
       <Type Name="MultiGestureEventArgs" Kind="Structure" />
+      <Type Name="NavigationAllTilesRemovedEventArgs" Kind="Structure" />
       <Type Name="NavigationPathPointFlag" Kind="Enumeration" />
+      <Type Name="NavigationTileAddedEventArgs" Kind="Structure" />
+      <Type Name="NavigationTileRemovedEventArgs" Kind="Structure" />
       <Type Name="NetworkState" Kind="Structure" />
       <Type Name="Node" Kind="Class" />
       <Type Name="NodeAddedEventArgs" Kind="Structure" />
@@ -243,6 +254,7 @@
       <Type Name="NodeRemovedEventArgs" Kind="Structure" />
       <Type Name="NodeTagAddedEventArgs" Kind="Structure" />
       <Type Name="NodeTagRemovedEventArgs" Kind="Structure" />
+      <Type Name="NodeUpdateContact2DEventArgs" Kind="Structure" />
       <Type Name="ObjectAnimation" Kind="Class" />
       <Type Name="ObjectCallbackSignature" Kind="Delegate" />
       <Type Name="ObjectFactory" Kind="Class" />
@@ -252,10 +264,14 @@
       <Type Name="ParticleEffect" Kind="Class" />
       <Type Name="ParticleEffectFinishedEventArgs" Kind="Structure" />
       <Type Name="ParticleEmitter" Kind="Class" />
+      <Type Name="ParticlesDurationEventArgs" Kind="Structure" />
+      <Type Name="ParticlesEndEventArgs" Kind="Structure" />
       <Type Name="Pass" Kind="Class" />
       <Type Name="PassLightingMode" Kind="Enumeration" />
+      <Type Name="PhysicsUpdateContact2DEventArgs" Kind="Structure" />
       <Type Name="Plane" Kind="Structure" />
       <Type Name="Platforms" Kind="Enumeration" />
+      <Type Name="PlatformsExtensions" Kind="Class" />
       <Type Name="PodVector`1" DisplayName="PodVector&lt;T&gt;" Kind="Class" />
       <Type Name="Polyhedron" Kind="Class" />
       <Type Name="PostRenderUpdateEventArgs" Kind="Structure" />
@@ -287,6 +303,7 @@
       <Type Name="ResourceRef" Kind="Structure" />
       <Type Name="ResourceRefList" Kind="Structure" />
       <Type Name="ResourceRouter" Kind="Class" />
+      <Type Name="ResourceWithMetadata" Kind="Class" />
       <Type Name="RibbonTrail" Kind="Class" />
       <Type Name="Scene" Kind="Class" />
       <Type Name="SceneDrawableUpdateFinishedEventArgs" Kind="Structure" />
@@ -331,6 +348,7 @@
       <Type Name="Terrain" Kind="Class" />
       <Type Name="TerrainCreatedEventArgs" Kind="Structure" />
       <Type Name="TerrainPatch" Kind="Class" />
+      <Type Name="TextEditingEventArgs" Kind="Structure" />
       <Type Name="TextInputEventArgs" Kind="Structure" />
       <Type Name="Texture" Kind="Class" />
       <Type Name="Texture2DArray" Kind="Class" />
@@ -351,6 +369,7 @@
       <Type Name="TransformSpace" Kind="Enumeration" />
       <Type Name="TriangleMeshData" Kind="Structure" />
       <Type Name="TypeInfo" Kind="Structure" />
+      <Type Name="UIComponent" Kind="Class" />
       <Type Name="UnhandledExceptionEventArgs" Kind="Class" />
       <Type Name="UnknownComponent" Kind="Class" />
       <Type Name="UpdateEventArgs" Kind="Structure" />
@@ -365,12 +384,12 @@
       <Type Name="Variant" Kind="Structure" />
       <Type Name="VariantType" Kind="Enumeration" />
       <Type Name="VariantValue" Kind="Structure" />
-      <Type Name="VariantValueLine" Kind="Structure" />
       <Type Name="Vector2" Kind="Structure" />
       <Type Name="Vector3" Kind="Structure" />
       <Type Name="Vector4" Kind="Structure" />
       <Type Name="VectorBase" Kind="Structure" />
       <Type Name="VertexBuffer" Kind="Class" />
+      <Type Name="VertexBuffer+PositionColor" Kind="Structure" />
       <Type Name="VertexBuffer+PositionNormal" Kind="Structure" />
       <Type Name="VertexBuffer+PositionNormalColor" Kind="Structure" />
       <Type Name="VertexBuffer+PositionNormalColorTexcoord" Kind="Structure" />
@@ -386,6 +405,7 @@
       <Type Name="Viewport" Kind="Class" />
       <Type Name="WeakPtr" Kind="Structure" />
       <Type Name="WindowPosEventArgs" Kind="Structure" />
+      <Type Name="WirePlane" Kind="Class" />
       <Type Name="WorkItem" Kind="Structure" />
       <Type Name="WorkItemCompletedEventArgs" Kind="Structure" />
       <Type Name="WorkQueue" Kind="Class" />
@@ -543,7 +563,6 @@
     <Namespace Name="Urho.Gui">
       <Type Name="BorderImage" Kind="Class" />
       <Type Name="Button" Kind="Class" />
-      <Type Name="CharEntryEventArgs" Kind="Structure" />
       <Type Name="CheckBox" Kind="Class" />
       <Type Name="Corner" Kind="Enumeration" />
       <Type Name="Cursor" Kind="Class" />
@@ -602,6 +621,7 @@
       <Type Name="Text3D" Kind="Class" />
       <Type Name="TextChangedEventArgs" Kind="Structure" />
       <Type Name="TextEffect" Kind="Enumeration" />
+      <Type Name="TextEntryEventArgs" Kind="Structure" />
       <Type Name="TextFinishedEventArgs" Kind="Structure" />
       <Type Name="ToggledEventArgs" Kind="Structure" />
       <Type Name="ToolTip" Kind="Class" />
@@ -746,6 +766,8 @@
       <Type Name="SpatialMeshInfo" Kind="Structure" />
       <Type Name="SpatialVertex" Kind="Structure" />
       <Type Name="StereoApplication" Kind="Class" />
+      <Type Name="TransparentPlaneWithShadows" Kind="Class" />
+      <Type Name="YuvVideo" Kind="Class" />
     </Namespace>
     <Namespace Name="Urho.SharpReality.HoloToolkit">
       <Type Name="BoundedPlane" Kind="Structure" />
@@ -940,6 +962,27 @@
           <summary>To be added.</summary>
         </Docs>
         <Link Type="Urho.MarshalHelper" Member="M:Urho.MarshalHelper.ToStructsArray``1(System.IntPtr,System.Int32)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Urho.Platforms" />
+      </Targets>
+      <Member MemberName="IsMobile">
+        <MemberSignature Language="C#" Value="public static bool IsMobile (this Urho.Platforms platform);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsMobile(valuetype Urho.Platforms platform) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="platform" Type="Urho.Platforms" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="platform">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Urho.PlatformsExtensions" Member="M:Urho.PlatformsExtensions.IsMobile(Urho.Platforms)" />
       </Member>
     </ExtensionMethod>
   </ExtensionMethods>

@@ -12,7 +12,8 @@
   <Docs>
     <summary>Component that creates a Plane.</summary>
     <remarks>
-      <para></para>
+      <para>
+      </para>
       <code lang="C#"><![CDATA[void MakePlane (Scene scene)
 {
     var node = scene.CreateChild ();
@@ -22,7 +23,8 @@
     var plane = node.CreateComponent<Plane> ();
     plane.Color = Color.Blue;
 }]]></code>
-      <para></para>
+      <para>
+      </para>
     </remarks>
   </Docs>
   <Members>
@@ -43,7 +45,8 @@
         <summary>
           <para>Constructs an instance of the type, for internal use.   These types are created by calling <see cref="M:Urho.Node.CreateComponent" /></para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -80,7 +83,8 @@
       <Docs>
         <summary>Returns the path of the model for this shape, for the shape to work, the MDL file in the CoreData package must exist.</summary>
         <value>To be added.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
   </Members>

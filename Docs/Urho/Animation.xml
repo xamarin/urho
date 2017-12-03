@@ -1,12 +1,12 @@
 <Type Name="Animation" FullName="Urho.Animation">
-  <TypeSignature Language="C#" Value="public class Animation : Urho.Resources.Resource" />
-  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Animation extends Urho.Resources.Resource" />
+  <TypeSignature Language="C#" Value="public class Animation : Urho.ResourceWithMetadata" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit Animation extends Urho.ResourceWithMetadata" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Urho.Resources.Resource</BaseTypeName>
+    <BaseTypeName>Urho.ResourceWithMetadata</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -31,7 +31,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Animation which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -79,7 +80,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Animation linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -505,7 +507,7 @@
       </Docs>
     </Member>
     <Member MemberName="Clone">
-      <MemberSignature Language="C#" Value="public Urho.Animation Clone (string cloneName);" />
+      <MemberSignature Language="C#" Value="public Urho.Animation Clone (string cloneName = &quot;&quot;);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Animation Clone(string cloneName) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -564,6 +566,26 @@
         <summary>
             Return animation track by name.
             </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetTrack">
+      <MemberSignature Language="C#" Value="public Urho.AnimationTrack* GetTrack (uint index);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.AnimationTrack* GetTrack(unsigned int32 index) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.AnimationTrack*</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -839,7 +861,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -855,7 +878,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -876,7 +900,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
   </Members>

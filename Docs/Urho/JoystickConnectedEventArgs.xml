@@ -14,6 +14,21 @@
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
+    <Member MemberName="EventData">
+      <MemberSignature Language="C#" Value="public Urho.EventDataContainer EventData;" />
+      <MemberSignature Language="ILAsm" Value=".field public class Urho.EventDataContainer EventData" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.EventDataContainer</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="JoystickID">
       <MemberSignature Language="C#" Value="public int JoystickID { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance int32 JoystickID" />

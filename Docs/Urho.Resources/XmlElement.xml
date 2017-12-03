@@ -137,7 +137,7 @@
       </Docs>
     </Member>
     <Member MemberName="GetAttribute">
-      <MemberSignature Language="C#" Value="public string GetAttribute (string name);" />
+      <MemberSignature Language="C#" Value="public string GetAttribute (string name = &quot;&quot;);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance string GetAttribute(string name) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -251,7 +251,7 @@
       </Docs>
     </Member>
     <Member MemberName="GetChild">
-      <MemberSignature Language="C#" Value="public Urho.Resources.XmlElement GetChild (string name);" />
+      <MemberSignature Language="C#" Value="public Urho.Resources.XmlElement GetChild (string name = &quot;&quot;);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Resources.XmlElement GetChild(string name) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -358,6 +358,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="GetInt64">
+      <MemberSignature Language="C#" Value="public long GetInt64 (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance int64 GetInt64(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int64</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetIntRect">
       <MemberSignature Language="C#" Value="public Urho.IntRect GetIntRect (string name);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.IntRect GetIntRect(string name) cil managed" />
@@ -398,6 +418,26 @@
         <summary>
             Return an IntVector2 attribute, or default if missing.
             </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetIntVector3">
+      <MemberSignature Language="C#" Value="public Urho.IntVector3 GetIntVector3 (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.IntVector3 GetIntVector3(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector3</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -469,8 +509,28 @@
       </Docs>
     </Member>
     <Member MemberName="GetNext">
-      <MemberSignature Language="C#" Value="public Urho.Resources.XmlElement GetNext (string name);" />
+      <MemberSignature Language="C#" Value="public Urho.Resources.XmlElement GetNext (string name = &quot;&quot;);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Resources.XmlElement GetNext(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resources.XmlElement</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetOrCreateChild">
+      <MemberSignature Language="C#" Value="public Urho.Resources.XmlElement GetOrCreateChild (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Resources.XmlElement GetOrCreateChild(string name) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -550,6 +610,26 @@
         <summary>
             Return an unsigned integer attribute, or zero if missing.
             </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetUInt64">
+      <MemberSignature Language="C#" Value="public ulong GetUInt64 (string name);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance unsigned int64 GetUInt64(string name) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.UInt64</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -851,7 +931,7 @@
       </Docs>
     </Member>
     <Member MemberName="RemoveAttribute">
-      <MemberSignature Language="C#" Value="public bool RemoveAttribute (string name);" />
+      <MemberSignature Language="C#" Value="public bool RemoveAttribute (string name = &quot;&quot;);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool RemoveAttribute(string name) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -915,7 +995,7 @@
       </Docs>
     </Member>
     <Member MemberName="RemoveChildren">
-      <MemberSignature Language="C#" Value="public bool RemoveChildren (string name);" />
+      <MemberSignature Language="C#" Value="public bool RemoveChildren (string name = &quot;&quot;);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool RemoveChildren(string name) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1186,6 +1266,28 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SetInt64">
+      <MemberSignature Language="C#" Value="public bool SetInt64 (string name, long value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetInt64(string name, int64 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="value" Type="System.Int64" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SetIntRect">
       <MemberSignature Language="C#" Value="public bool SetIntRect (string name, Urho.IntRect value);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetIntRect(string name, valuetype Urho.IntRect value) cil managed" />
@@ -1346,6 +1448,28 @@
         <summary>
             Set an unsigned integer attribute.
             </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetUInt64">
+      <MemberSignature Language="C#" Value="public bool SetUInt64 (string name, ulong value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetUInt64(string name, unsigned int64 value) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="name" Type="System.String" />
+        <Parameter Name="value" Type="System.UInt64" />
+      </Parameters>
+      <Docs>
+        <param name="name">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

@@ -46,19 +46,34 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Contact">
-      <MemberSignature Language="C#" Value="public IntPtr Contact { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance native int Contact" />
+    <Member MemberName="Contacts">
+      <MemberSignature Language="C#" Value="public Urho.Physics.CollisionData[] Contacts { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.Physics.CollisionData[] Contacts" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.IntPtr</ReturnType>
+        <ReturnType>Urho.Physics.CollisionData[]</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="EventData">
+      <MemberSignature Language="C#" Value="public Urho.EventDataContainer EventData;" />
+      <MemberSignature Language="ILAsm" Value=".field public class Urho.EventDataContainer EventData" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.EventDataContainer</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -87,6 +102,38 @@
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Urho.Node</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShapeA">
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.CollisionShape2D ShapeA { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Urho2D.CollisionShape2D ShapeA" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Urho2D.CollisionShape2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ShapeB">
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.CollisionShape2D ShapeB { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Urho2D.CollisionShape2D ShapeB" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Urho2D.CollisionShape2D</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

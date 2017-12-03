@@ -33,7 +33,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Navigation.CrowdManager which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -81,7 +82,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Navigation.CrowdManager linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -223,7 +225,7 @@
       </Docs>
     </Member>
     <Member MemberName="FindNearestPoint">
-      <MemberSignature Language="C#" Value="public Urho.Vector3 FindNearestPoint (Urho.Vector3 point, int queryFilterType, uint* nearestRef);" />
+      <MemberSignature Language="C#" Value="public Urho.Vector3 FindNearestPoint (Urho.Vector3 point, int queryFilterType, uint* nearestRef = null);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 FindNearestPoint(valuetype Urho.Vector3 point, int32 queryFilterType, unsigned int32* nearestRef) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -273,7 +275,7 @@
       </Docs>
     </Member>
     <Member MemberName="GetDistanceToWall">
-      <MemberSignature Language="C#" Value="public float GetDistanceToWall (Urho.Vector3 point, float radius, int queryFilterType, Urho.Vector3* hitPos, Urho.Vector3* hitNormal);" />
+      <MemberSignature Language="C#" Value="public float GetDistanceToWall (Urho.Vector3 point, float radius, int queryFilterType, Urho.Vector3* hitPos = null, Urho.Vector3* hitNormal = null);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance float32 GetDistanceToWall(valuetype Urho.Vector3 point, float32 radius, int32 queryFilterType, valuetype Urho.Vector3* hitPos, valuetype Urho.Vector3* hitNormal) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -391,7 +393,7 @@
       </Docs>
     </Member>
     <Member MemberName="GetRandomPoint">
-      <MemberSignature Language="C#" Value="public Urho.Vector3 GetRandomPoint (int queryFilterType, uint* randomRef);" />
+      <MemberSignature Language="C#" Value="public Urho.Vector3 GetRandomPoint (int queryFilterType, uint* randomRef = null);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 GetRandomPoint(int32 queryFilterType, unsigned int32* randomRef) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -415,7 +417,7 @@
       </Docs>
     </Member>
     <Member MemberName="GetRandomPointInCircle">
-      <MemberSignature Language="C#" Value="public Urho.Vector3 GetRandomPointInCircle (Urho.Vector3 center, float radius, int queryFilterType, uint* randomRef);" />
+      <MemberSignature Language="C#" Value="public Urho.Vector3 GetRandomPointInCircle (Urho.Vector3 center, float radius, int queryFilterType, uint* randomRef = null);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 GetRandomPointInCircle(valuetype Urho.Vector3 center, float32 radius, int32 queryFilterType, unsigned int32* randomRef) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -483,7 +485,7 @@
       </Docs>
     </Member>
     <Member MemberName="MoveAlongSurface">
-      <MemberSignature Language="C#" Value="public Urho.Vector3 MoveAlongSurface (Urho.Vector3 start, Urho.Vector3 end, int queryFilterType, int maxVisited);" />
+      <MemberSignature Language="C#" Value="public Urho.Vector3 MoveAlongSurface (Urho.Vector3 start, Urho.Vector3 end, int queryFilterType, int maxVisited = 3);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 MoveAlongSurface(valuetype Urho.Vector3 start, valuetype Urho.Vector3 end, int32 queryFilterType, int32 maxVisited) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -567,7 +569,7 @@
       </Docs>
     </Member>
     <Member MemberName="Raycast">
-      <MemberSignature Language="C#" Value="public Urho.Vector3 Raycast (Urho.Vector3 start, Urho.Vector3 end, int queryFilterType, Urho.Vector3* hitNormal);" />
+      <MemberSignature Language="C#" Value="public Urho.Vector3 Raycast (Urho.Vector3 start, Urho.Vector3 end, int queryFilterType, Urho.Vector3* hitNormal = null);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.Vector3 Raycast(valuetype Urho.Vector3 start, valuetype Urho.Vector3 end, int32 queryFilterType, valuetype Urho.Vector3* hitNormal) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -616,7 +618,7 @@
       </Docs>
     </Member>
     <Member MemberName="ResetCrowdTarget">
-      <MemberSignature Language="C#" Value="public void ResetCrowdTarget (Urho.Node node);" />
+      <MemberSignature Language="C#" Value="public void ResetCrowdTarget (Urho.Node node = null);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ResetCrowdTarget(class Urho.Node node) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -662,7 +664,7 @@
       </Docs>
     </Member>
     <Member MemberName="SetCrowdTarget">
-      <MemberSignature Language="C#" Value="public void SetCrowdTarget (Urho.Vector3 position, Urho.Node node);" />
+      <MemberSignature Language="C#" Value="public void SetCrowdTarget (Urho.Vector3 position, Urho.Node node = null);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetCrowdTarget(valuetype Urho.Vector3 position, class Urho.Node node) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -685,7 +687,7 @@
       </Docs>
     </Member>
     <Member MemberName="SetCrowdVelocity">
-      <MemberSignature Language="C#" Value="public void SetCrowdVelocity (Urho.Vector3 velocity, Urho.Node node);" />
+      <MemberSignature Language="C#" Value="public void SetCrowdVelocity (Urho.Vector3 velocity, Urho.Node node = null);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetCrowdVelocity(valuetype Urho.Vector3 velocity, class Urho.Node node) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -892,7 +894,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -908,7 +911,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -929,7 +933,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
   </Members>

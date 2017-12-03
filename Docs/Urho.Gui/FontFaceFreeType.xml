@@ -129,8 +129,8 @@
       </Docs>
     </Member>
     <Member MemberName="Load">
-      <MemberSignature Language="C#" Value="public override bool Load (byte* fontData, uint fontDataSize, int pointSize);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool Load(unsigned int8* fontData, unsigned int32 fontDataSize, int32 pointSize) cil managed" />
+      <MemberSignature Language="C#" Value="public override bool Load (byte* fontData, uint fontDataSize, float pointSize);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool Load(unsigned int8* fontData, unsigned int32 fontDataSize, float32 pointSize) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -141,15 +141,13 @@
       <Parameters>
         <Parameter Name="fontData" Type="System.Byte*" />
         <Parameter Name="fontDataSize" Type="System.UInt32" />
-        <Parameter Name="pointSize" Type="System.Int32" />
+        <Parameter Name="pointSize" Type="System.Single" />
       </Parameters>
       <Docs>
         <param name="fontData">To be added.</param>
         <param name="fontDataSize">To be added.</param>
         <param name="pointSize">To be added.</param>
-        <summary>
-            Load font face.
-            </summary>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>

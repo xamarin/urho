@@ -105,6 +105,28 @@
         </remarks>
       </Docs>
     </Member>
+    <Member MemberName="Allocate">
+      <MemberSignature Language="C#" Value="public override bool Allocate (Urho.BoundingBox boundingBox, uint maxTiles);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool Allocate(valuetype Urho.BoundingBox boundingBox, unsigned int32 maxTiles) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="boundingBox" Type="Urho.BoundingBox" />
+        <Parameter Name="maxTiles" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="boundingBox">To be added.</param>
+        <param name="maxTiles">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Build">
       <MemberSignature Language="C#" Value="public override bool Build ();" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool Build() cil managed" />
@@ -142,6 +164,28 @@
         <summary>
             Build/rebuild a portion of the navigation mesh.
             </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Build">
+      <MemberSignature Language="C#" Value="public override bool Build (Urho.IntVector2 from, Urho.IntVector2 to);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool Build(valuetype Urho.IntVector2 from, valuetype Urho.IntVector2 to) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="from" Type="Urho.IntVector2" />
+        <Parameter Name="to" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="from">To be added.</param>
+        <param name="to">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -207,6 +251,28 @@
             Draw debug geometry for Obstacles.
             </summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsObstacleInTile">
+      <MemberSignature Language="C#" Value="public bool IsObstacleInTile (Urho.Navigation.Obstacle obstacle, Urho.IntVector2 tile);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool IsObstacleInTile(class Urho.Navigation.Obstacle obstacle, valuetype Urho.IntVector2 tile) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="obstacle" Type="Urho.Navigation.Obstacle" />
+        <Parameter Name="tile" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="obstacle">To be added.</param>
+        <param name="tile">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -303,6 +369,41 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="RemoveAllTiles">
+      <MemberSignature Language="C#" Value="public override void RemoveAllTiles ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void RemoveAllTiles() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveTile">
+      <MemberSignature Language="C#" Value="public override void RemoveTile (Urho.IntVector2 tile);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void RemoveTile(valuetype Urho.IntVector2 tile) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="tile" Type="Urho.IntVector2" />
+      </Parameters>
+      <Docs>
+        <param name="tile">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SubscribeToNavigationObstacleAdded">
       <MemberSignature Language="C#" Value="public Urho.Subscription SubscribeToNavigationObstacleAdded (Action&lt;Urho.Navigation.NavigationObstacleAddedEventArgs&gt; handler);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.Subscription SubscribeToNavigationObstacleAdded(class System.Action`1&lt;valuetype Urho.Navigation.NavigationObstacleAddedEventArgs&gt; handler) cil managed" />
@@ -390,7 +491,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -406,7 +508,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -427,7 +530,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
   </Members>

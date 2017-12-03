@@ -195,7 +195,7 @@
       </Docs>
     </Member>
     <Member MemberName="Time">
-      <MemberSignature Language="C#" Value="public float Time { get; }" />
+      <MemberSignature Language="C#" Value="public float Time { get; set; }" />
       <MemberSignature Language="ILAsm" Value=".property instance float32 Time" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>

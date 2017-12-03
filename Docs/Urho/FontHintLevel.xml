@@ -1,0 +1,59 @@
+<Type Name="FontHintLevel" FullName="Urho.FontHintLevel">
+  <TypeSignature Language="C#" Value="public enum FontHintLevel" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed FontHintLevel extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="HintLevelLight">
+      <MemberSignature Language="C#" Value="HintLevelLight" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.FontHintLevel HintLevelLight = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.FontHintLevel</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="HintLevelNone">
+      <MemberSignature Language="C#" Value="HintLevelNone" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.FontHintLevel HintLevelNone = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.FontHintLevel</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="HintLevelNormal">
+      <MemberSignature Language="C#" Value="HintLevelNormal" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Urho.FontHintLevel HintLevelNormal = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.FontHintLevel</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

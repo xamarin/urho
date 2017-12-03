@@ -13,7 +13,8 @@
     <summary>Physics collision shape component.</summary>
     <remarks>
       <para>Use the collision shape component to configure the geometrical shape of the node.</para>
-      <para></para>
+      <para>
+      </para>
       <para>You configure the CollisionShape by calling one of the Set methods to configure the shape, the supported shapes are:</para>
       <list type="bullet">
         <item>
@@ -67,7 +68,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Physics.CollisionShape which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -115,7 +117,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Physics.CollisionShape linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -269,7 +272,7 @@
       </Docs>
     </Member>
     <Member MemberName="NotifyRigidBody">
-      <MemberSignature Language="C#" Value="public void NotifyRigidBody (bool updateMass);" />
+      <MemberSignature Language="C#" Value="public void NotifyRigidBody (bool updateMass = true);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void NotifyRigidBody(bool updateMass) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -539,6 +542,31 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SetCustomGImpactMesh">
+      <MemberSignature Language="C#" Value="public void SetCustomGImpactMesh (Urho.CustomGeometry custom, Urho.Vector3 scale, Urho.Vector3 position, Urho.Quaternion rotation);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetCustomGImpactMesh(class Urho.CustomGeometry custom, valuetype Urho.Vector3 scale, valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="custom" Type="Urho.CustomGeometry" />
+        <Parameter Name="scale" Type="Urho.Vector3" />
+        <Parameter Name="position" Type="Urho.Vector3" />
+        <Parameter Name="rotation" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="custom">To be added.</param>
+        <param name="scale">To be added.</param>
+        <param name="position">To be added.</param>
+        <param name="rotation">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SetCustomTriangleMesh">
       <MemberSignature Language="C#" Value="public void SetCustomTriangleMesh (Urho.CustomGeometry custom, Urho.Vector3 scale, Urho.Vector3 position, Urho.Quaternion rotation);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetCustomTriangleMesh(class Urho.CustomGeometry custom, valuetype Urho.Vector3 scale, valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation) cil managed" />
@@ -593,6 +621,33 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="SetGImpactMesh">
+      <MemberSignature Language="C#" Value="public void SetGImpactMesh (Urho.Model model, uint lodLevel, Urho.Vector3 scale, Urho.Vector3 position, Urho.Quaternion rotation);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetGImpactMesh(class Urho.Model model, unsigned int32 lodLevel, valuetype Urho.Vector3 scale, valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="model" Type="Urho.Model" />
+        <Parameter Name="lodLevel" Type="System.UInt32" />
+        <Parameter Name="scale" Type="Urho.Vector3" />
+        <Parameter Name="position" Type="Urho.Vector3" />
+        <Parameter Name="rotation" Type="Urho.Quaternion" />
+      </Parameters>
+      <Docs>
+        <param name="model">To be added.</param>
+        <param name="lodLevel">To be added.</param>
+        <param name="scale">To be added.</param>
+        <param name="position">To be added.</param>
+        <param name="rotation">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="SetSphere">
       <MemberSignature Language="C#" Value="public void SetSphere (float diameter, Urho.Vector3 position, Urho.Quaternion rotation);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetSphere(float32 diameter, valuetype Urho.Vector3 position, valuetype Urho.Quaternion rotation) cil managed" />
@@ -642,7 +697,7 @@
       </Docs>
     </Member>
     <Member MemberName="SetTerrain">
-      <MemberSignature Language="C#" Value="public void SetTerrain (uint lodLevel);" />
+      <MemberSignature Language="C#" Value="public void SetTerrain (uint lodLevel = 0);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetTerrain(unsigned int32 lodLevel) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -783,7 +838,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -799,7 +855,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -820,7 +877,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="WorldBoundingBox">

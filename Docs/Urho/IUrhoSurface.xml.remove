@@ -1,10 +1,6 @@
 <Type Name="IUrhoSurface" FullName="Urho.IUrhoSurface">
   <TypeSignature Language="C#" Value="public interface IUrhoSurface" />
   <TypeSignature Language="ILAsm" Value=".class public interface auto ansi abstract IUrhoSurface" />
-  <AssemblyInfo>
-    <AssemblyName>Urho</AssemblyName>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-  </AssemblyInfo>
   <Interfaces />
   <Docs>
     <summary>To be added.</summary>

@@ -32,7 +32,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Viewport which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -80,7 +81,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Viewport linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -129,7 +131,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public Viewport (Urho.Context context, Urho.Scene scene, Urho.Camera camera, Urho.RenderPath renderPath);" />
+      <MemberSignature Language="C#" Value="public Viewport (Urho.Context context, Urho.Scene scene, Urho.Camera camera, Urho.RenderPath renderPath = null);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context, class Urho.Scene scene, class Urho.Camera camera, class Urho.RenderPath renderPath) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -180,7 +182,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public Viewport (Urho.Context context, Urho.Scene scene, Urho.Camera camera, Urho.IntRect rect, Urho.RenderPath renderPath);" />
+      <MemberSignature Language="C#" Value="public Viewport (Urho.Context context, Urho.Scene scene, Urho.Camera camera, Urho.IntRect rect, Urho.RenderPath renderPath = null);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context, class Urho.Scene scene, class Urho.Camera camera, valuetype Urho.IntRect rect, class Urho.RenderPath renderPath) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -480,7 +482,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -496,7 +499,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -517,7 +521,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="View">

@@ -243,6 +243,11 @@
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Obsolete("RunAsync is Obsolete. Use Show() instead.")</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>System.Threading.Tasks.Task&lt;Urho.SimpleApplication&gt;</ReturnType>
       </ReturnValue>
@@ -294,6 +299,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Show">
+      <MemberSignature Language="C#" Value="public static Urho.SimpleApplication Show (Urho.ApplicationOptions opts = null);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Urho.SimpleApplication Show(class Urho.ApplicationOptions opts) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.SimpleApplication</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="opts" Type="Urho.ApplicationOptions" />
+      </Parameters>
+      <Docs>
+        <param name="opts">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Start">
       <MemberSignature Language="C#" Value="protected override void Start ();" />
       <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Start() cil managed" />
@@ -335,6 +360,22 @@
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Single</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Zone">
+      <MemberSignature Language="C#" Value="public Urho.Zone Zone { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Zone Zone" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Zone</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

@@ -14,10 +14,13 @@
             </summary>
     <remarks>
       <para>The <see cref="T:Urho.Gui.BorderImage" /> and elements deriving from it specify a texture and an absolute pixel rect within it to use for rendering; see <see cref="P:Urho.Gui.BorderImage.Texture" /> and <see cref="P:Urho.Gui.BorderImage.ImageRect" />. The texture is modulated with the element's color. To allow for more versatile scaling the element can be divided into 9 sub-quads or patches by specifying the width of each of its borders, see <see cref="P:Urho.Gui.BorderImage.Border" />. Setting zero borders (the default) causes the element to be drawn as one quad.</para>
-      <para></para>
+      <para>
+      </para>
       <para>The absolute pixel rects interact poorly with the <see cref="T:Urho.Renderer" /> texture quality setting, which reduces texture sizes by skipping the topmost mipmaps. Generating mipmaps is also often unnecessary for UI textures, as they are usually displayed with 1:1 ratio on the screen. Therefore it's a good practice to use the following accompanying settings XML file for UI textures to disable quality reduction and mipmaps (mipmap enable set to false, quality low set to zero in the texture xml group).</para>
-      <para></para>
-      <para></para>
+      <para>
+      </para>
+      <para>
+      </para>
     </remarks>
   </Docs>
   <Members>
@@ -38,7 +41,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.BorderImage which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -86,7 +90,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.BorderImage linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -359,7 +364,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -375,7 +381,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -396,7 +403,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
   </Members>

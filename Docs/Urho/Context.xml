@@ -293,6 +293,22 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="ReleaseSDL">
+      <MemberSignature Language="C#" Value="public void ReleaseSDL ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void ReleaseSDL() cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="RemoveSubsystem">
       <MemberSignature Language="C#" Value="public void RemoveSubsystem (Urho.StringHash objectType);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void RemoveSubsystem(valuetype Urho.StringHash objectType) cil managed" />
@@ -311,6 +327,26 @@
         <summary>
             Remove a subsystem.
             </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RequireSDL">
+      <MemberSignature Language="C#" Value="public bool RequireSDL (uint sdlFlags);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool RequireSDL(unsigned int32 sdlFlags) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="sdlFlags" Type="System.UInt32" />
+      </Parameters>
+      <Docs>
+        <param name="sdlFlags">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

@@ -32,7 +32,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.View3D which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -80,7 +81,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Gui.View3D linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -281,7 +283,7 @@
       </Docs>
     </Member>
     <Member MemberName="SetView">
-      <MemberSignature Language="C#" Value="public void SetView (Urho.Scene scene, Urho.Camera camera, bool ownScene);" />
+      <MemberSignature Language="C#" Value="public void SetView (Urho.Scene scene, Urho.Camera camera, bool ownScene = true);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetView(class Urho.Scene scene, class Urho.Camera camera, bool ownScene) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -334,7 +336,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -350,7 +353,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -371,7 +375,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Viewport">

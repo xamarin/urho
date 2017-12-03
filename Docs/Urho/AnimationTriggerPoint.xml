@@ -1,6 +1,6 @@
 <Type Name="AnimationTriggerPoint" FullName="Urho.AnimationTriggerPoint">
   <TypeSignature Language="C#" Value="public struct AnimationTriggerPoint" />
-  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit AnimationTriggerPoint extends System.ValueType" />
+  <TypeSignature Language="ILAsm" Value=".class public ansi sealed beforefieldinit AnimationTriggerPoint extends System.ValueType" />
   <AssemblyInfo>
     <AssemblyName>Urho</AssemblyName>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>

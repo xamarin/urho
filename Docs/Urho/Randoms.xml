@@ -126,5 +126,25 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="NextRotation">
+      <MemberSignature Language="C#" Value="public static Urho.Quaternion NextRotation (float maxAngle = 360);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Urho.Quaternion NextRotation(float32 maxAngle) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Quaternion</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="maxAngle" Type="System.Single" />
+      </Parameters>
+      <Docs>
+        <param name="maxAngle">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
   </Members>
 </Type>

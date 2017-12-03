@@ -15,8 +15,10 @@
             </summary>
     <remarks>
       <para>This implements Box2D fixtures and Collision Filtering.</para>
-      <para></para>
-      <para></para>
+      <para>
+      </para>
+      <para>
+      </para>
       <format type="text/html">
         <div>Box2D supports collision filtering (restricting which other objects to collide with) using categories and groups:</div>
         <div>
@@ -51,7 +53,8 @@
         </div>
       </format>
       <format type="text/html" />
-      <para></para>
+      <para>
+      </para>
     </remarks>
   </Docs>
   <Members>
@@ -399,7 +402,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -415,7 +419,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -436,7 +441,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
   </Members>

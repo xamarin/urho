@@ -31,7 +31,8 @@
         <summary>
           <para>Constructs a new instance of Urho.DebugRenderer which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -79,7 +80,8 @@
         <summary>
           <para>Constructs a new instance of Urho.DebugRenderer linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -108,8 +110,8 @@
       </Docs>
     </Member>
     <Member MemberName="AddBoundingBox">
-      <MemberSignature Language="C#" Value="public void AddBoundingBox (Urho.BoundingBox box, Urho.Color color, bool depthTest);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddBoundingBox(valuetype Urho.BoundingBox box, valuetype Urho.Color color, bool depthTest) cil managed" />
+      <MemberSignature Language="C#" Value="public void AddBoundingBox (Urho.BoundingBox box, Urho.Color color, bool depthTest = true, bool solid = false);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddBoundingBox(valuetype Urho.BoundingBox box, valuetype Urho.Color color, bool depthTest, bool solid) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -121,18 +123,20 @@
         <Parameter Name="box" Type="Urho.BoundingBox" />
         <Parameter Name="color" Type="Urho.Color" />
         <Parameter Name="depthTest" Type="System.Boolean" />
+        <Parameter Name="solid" Type="System.Boolean" />
       </Parameters>
       <Docs>
         <param name="box">To be added.</param>
         <param name="color">To be added.</param>
         <param name="depthTest">To be added.</param>
+        <param name="solid">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="AddBoundingBox">
-      <MemberSignature Language="C#" Value="public void AddBoundingBox (Urho.BoundingBox box, Urho.Matrix3x4 transform, Urho.Color color, bool depthTest);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddBoundingBox(valuetype Urho.BoundingBox box, valuetype Urho.Matrix3x4 transform, valuetype Urho.Color color, bool depthTest) cil managed" />
+      <MemberSignature Language="C#" Value="public void AddBoundingBox (Urho.BoundingBox box, Urho.Matrix3x4 transform, Urho.Color color, bool depthTest = true, bool solid = false);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddBoundingBox(valuetype Urho.BoundingBox box, valuetype Urho.Matrix3x4 transform, valuetype Urho.Color color, bool depthTest, bool solid) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -145,18 +149,20 @@
         <Parameter Name="transform" Type="Urho.Matrix3x4" />
         <Parameter Name="color" Type="Urho.Color" />
         <Parameter Name="depthTest" Type="System.Boolean" />
+        <Parameter Name="solid" Type="System.Boolean" />
       </Parameters>
       <Docs>
         <param name="box">To be added.</param>
         <param name="transform">To be added.</param>
         <param name="color">To be added.</param>
         <param name="depthTest">To be added.</param>
+        <param name="solid">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="AddCircle">
-      <MemberSignature Language="C#" Value="public void AddCircle (Urho.Vector3 center, Urho.Vector3 normal, float radius, Urho.Color color, int steps, bool depthTest);" />
+      <MemberSignature Language="C#" Value="public void AddCircle (Urho.Vector3 center, Urho.Vector3 normal, float radius, Urho.Color color, int steps = 64, bool depthTest = true);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddCircle(valuetype Urho.Vector3 center, valuetype Urho.Vector3 normal, float32 radius, valuetype Urho.Color color, int32 steps, bool depthTest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -187,7 +193,7 @@
       </Docs>
     </Member>
     <Member MemberName="AddCross">
-      <MemberSignature Language="C#" Value="public void AddCross (Urho.Vector3 center, float size, Urho.Color color, bool depthTest);" />
+      <MemberSignature Language="C#" Value="public void AddCross (Urho.Vector3 center, float size, Urho.Color color, bool depthTest = true);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddCross(valuetype Urho.Vector3 center, float32 size, valuetype Urho.Color color, bool depthTest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -214,7 +220,7 @@
       </Docs>
     </Member>
     <Member MemberName="AddCylinder">
-      <MemberSignature Language="C#" Value="public void AddCylinder (Urho.Vector3 position, float radius, float height, Urho.Color color, bool depthTest);" />
+      <MemberSignature Language="C#" Value="public void AddCylinder (Urho.Vector3 position, float radius, float height, Urho.Color color, bool depthTest = true);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddCylinder(valuetype Urho.Vector3 position, float32 radius, float32 height, valuetype Urho.Color color, bool depthTest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -243,7 +249,7 @@
       </Docs>
     </Member>
     <Member MemberName="AddFrustum">
-      <MemberSignature Language="C#" Value="public void AddFrustum (Urho.Frustum frustum, Urho.Color color, bool depthTest);" />
+      <MemberSignature Language="C#" Value="public void AddFrustum (Urho.Frustum frustum, Urho.Color color, bool depthTest = true);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddFrustum(class Urho.Frustum frustum, valuetype Urho.Color color, bool depthTest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -266,7 +272,7 @@
       </Docs>
     </Member>
     <Member MemberName="AddLine">
-      <MemberSignature Language="C#" Value="public void AddLine (Urho.Vector3 start, Urho.Vector3 end, uint color, bool depthTest);" />
+      <MemberSignature Language="C#" Value="public void AddLine (Urho.Vector3 start, Urho.Vector3 end, uint color, bool depthTest = true);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddLine(valuetype Urho.Vector3 start, valuetype Urho.Vector3 end, unsigned int32 color, bool depthTest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -293,7 +299,7 @@
       </Docs>
     </Member>
     <Member MemberName="AddLine">
-      <MemberSignature Language="C#" Value="public void AddLine (Urho.Vector3 start, Urho.Vector3 end, Urho.Color color, bool depthTest);" />
+      <MemberSignature Language="C#" Value="public void AddLine (Urho.Vector3 start, Urho.Vector3 end, Urho.Color color, bool depthTest = true);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddLine(valuetype Urho.Vector3 start, valuetype Urho.Vector3 end, valuetype Urho.Color color, bool depthTest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -320,7 +326,7 @@
       </Docs>
     </Member>
     <Member MemberName="AddNode">
-      <MemberSignature Language="C#" Value="public void AddNode (Urho.Node node, float scale, bool depthTest);" />
+      <MemberSignature Language="C#" Value="public void AddNode (Urho.Node node, float scale = 1, bool depthTest = true);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddNode(class Urho.Node node, float32 scale, bool depthTest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -344,8 +350,66 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="AddPolygon">
+      <MemberSignature Language="C#" Value="public void AddPolygon (Urho.Vector3 v1, Urho.Vector3 v2, Urho.Vector3 v3, Urho.Vector3 v4, uint color, bool depthTest = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddPolygon(valuetype Urho.Vector3 v1, valuetype Urho.Vector3 v2, valuetype Urho.Vector3 v3, valuetype Urho.Vector3 v4, unsigned int32 color, bool depthTest) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="v1" Type="Urho.Vector3" />
+        <Parameter Name="v2" Type="Urho.Vector3" />
+        <Parameter Name="v3" Type="Urho.Vector3" />
+        <Parameter Name="v4" Type="Urho.Vector3" />
+        <Parameter Name="color" Type="System.UInt32" />
+        <Parameter Name="depthTest" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="v1">To be added.</param>
+        <param name="v2">To be added.</param>
+        <param name="v3">To be added.</param>
+        <param name="v4">To be added.</param>
+        <param name="color">To be added.</param>
+        <param name="depthTest">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="AddPolygon">
+      <MemberSignature Language="C#" Value="public void AddPolygon (Urho.Vector3 v1, Urho.Vector3 v2, Urho.Vector3 v3, Urho.Vector3 v4, Urho.Color color, bool depthTest = true);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddPolygon(valuetype Urho.Vector3 v1, valuetype Urho.Vector3 v2, valuetype Urho.Vector3 v3, valuetype Urho.Vector3 v4, valuetype Urho.Color color, bool depthTest) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="v1" Type="Urho.Vector3" />
+        <Parameter Name="v2" Type="Urho.Vector3" />
+        <Parameter Name="v3" Type="Urho.Vector3" />
+        <Parameter Name="v4" Type="Urho.Vector3" />
+        <Parameter Name="color" Type="Urho.Color" />
+        <Parameter Name="depthTest" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="v1">To be added.</param>
+        <param name="v2">To be added.</param>
+        <param name="v3">To be added.</param>
+        <param name="v4">To be added.</param>
+        <param name="color">To be added.</param>
+        <param name="depthTest">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="AddPolyhedron">
-      <MemberSignature Language="C#" Value="public void AddPolyhedron (Urho.Polyhedron poly, Urho.Color color, bool depthTest);" />
+      <MemberSignature Language="C#" Value="public void AddPolyhedron (Urho.Polyhedron poly, Urho.Color color, bool depthTest = true);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddPolyhedron(class Urho.Polyhedron poly, valuetype Urho.Color color, bool depthTest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -368,7 +432,7 @@
       </Docs>
     </Member>
     <Member MemberName="AddQuad">
-      <MemberSignature Language="C#" Value="public void AddQuad (Urho.Vector3 center, float width, float height, Urho.Color color, bool depthTest);" />
+      <MemberSignature Language="C#" Value="public void AddQuad (Urho.Vector3 center, float width, float height, Urho.Color color, bool depthTest = true);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddQuad(valuetype Urho.Vector3 center, float32 width, float32 height, valuetype Urho.Color color, bool depthTest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -397,7 +461,7 @@
       </Docs>
     </Member>
     <Member MemberName="AddTriangle">
-      <MemberSignature Language="C#" Value="public void AddTriangle (Urho.Vector3 v1, Urho.Vector3 v2, Urho.Vector3 v3, uint color, bool depthTest);" />
+      <MemberSignature Language="C#" Value="public void AddTriangle (Urho.Vector3 v1, Urho.Vector3 v2, Urho.Vector3 v3, uint color, bool depthTest = true);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddTriangle(valuetype Urho.Vector3 v1, valuetype Urho.Vector3 v2, valuetype Urho.Vector3 v3, unsigned int32 color, bool depthTest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -426,7 +490,7 @@
       </Docs>
     </Member>
     <Member MemberName="AddTriangle">
-      <MemberSignature Language="C#" Value="public void AddTriangle (Urho.Vector3 v1, Urho.Vector3 v2, Urho.Vector3 v3, Urho.Color color, bool depthTest);" />
+      <MemberSignature Language="C#" Value="public void AddTriangle (Urho.Vector3 v1, Urho.Vector3 v2, Urho.Vector3 v3, Urho.Color color, bool depthTest = true);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddTriangle(valuetype Urho.Vector3 v1, valuetype Urho.Vector3 v2, valuetype Urho.Vector3 v3, valuetype Urho.Color color, bool depthTest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -455,7 +519,7 @@
       </Docs>
     </Member>
     <Member MemberName="AddTriangleMesh">
-      <MemberSignature Language="C#" Value="public void AddTriangleMesh (void* vertexData, uint vertexSize, void* indexData, uint indexSize, uint indexStart, uint indexCount, Urho.Matrix3x4 transform, Urho.Color color, bool depthTest);" />
+      <MemberSignature Language="C#" Value="public void AddTriangleMesh (void* vertexData, uint vertexSize, void* indexData, uint indexSize, uint indexStart, uint indexCount, Urho.Matrix3x4 transform, Urho.Color color, bool depthTest = true);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void AddTriangleMesh(void* vertexData, unsigned int32 vertexSize, void* indexData, unsigned int32 indexSize, unsigned int32 indexStart, unsigned int32 indexCount, valuetype Urho.Matrix3x4 transform, valuetype Urho.Color color, bool depthTest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -667,7 +731,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -683,7 +748,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -704,7 +770,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="View">

@@ -101,6 +101,6 @@ ParseEventsMac:
 Generated: PchMac SharpieBinder ParseEventsMac
 	
 refresh-docs: Generated
-	xbuild /target:clean bindings/Urho.Desktop.csproj
-	xbuild bindings/Urho.Desktop.csproj
+	xbuild /target:clean bindings/Desktop/Urho.Desktop.csproj
+	xbuild bindings/Desktop/Urho.Desktop.csproj
 	(cd docs; make update)

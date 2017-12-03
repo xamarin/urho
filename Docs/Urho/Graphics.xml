@@ -402,7 +402,7 @@
       </Docs>
     </Member>
     <Member MemberName="Clear">
-      <MemberSignature Language="C#" Value="public void Clear (uint flags, Urho.Color color, float depth, uint stencil);" />
+      <MemberSignature Language="C#" Value="public void Clear (uint flags, Urho.Color color = null, float depth = 1, uint stencil = 0);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Clear(unsigned int32 flags, valuetype Urho.Color color, float32 depth, unsigned int32 stencil) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -706,24 +706,6 @@
             Return whether depth write is enabled.
             Or
             Set depth write on/off.
-            </summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="DesktopResolution">
-      <MemberSignature Language="C#" Value="public Urho.IntVector2 DesktopResolution { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntVector2 DesktopResolution" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Urho.IntVector2</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>
-            Return the desktop resolution.
             </summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
@@ -1097,6 +1079,26 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="GetDesktopResolution">
+      <MemberSignature Language="C#" Value="public Urho.IntVector2 GetDesktopResolution (int monitor);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Urho.IntVector2 GetDesktopResolution(int32 monitor) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="monitor" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="monitor">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetFormat">
       <MemberSignature Language="C#" Value="public static uint GetFormat (string formatName);" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig unsigned int32 GetFormat(string formatName) cil managed" />
@@ -1164,7 +1166,7 @@
       </Docs>
     </Member>
     <Member MemberName="GetShader">
-      <MemberSignature Language="C#" Value="public Urho.ShaderVariation GetShader (Urho.ShaderType type, string name, string defines);" />
+      <MemberSignature Language="C#" Value="public Urho.ShaderVariation GetShader (Urho.ShaderType type, string name, string defines = &quot;&quot;);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Urho.ShaderVariation GetShader(valuetype Urho.ShaderType type, string name, string defines) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1605,6 +1607,38 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Monitor">
+      <MemberSignature Language="C#" Value="public int Monitor { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 Monitor" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MonitorCount">
+      <MemberSignature Language="C#" Value="public int MonitorCount { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 MonitorCount" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="MultiSample">
       <MemberSignature Language="C#" Value="public int MultiSample { get; }" />
       <MemberSignature Language="ILAsm" Value=".property instance int32 MultiSample" />
@@ -1619,6 +1653,22 @@
         <summary>
             Return multisample mode (1 = no multisampling.)
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MultiSampleLevels">
+      <MemberSignature Language="C#" Value="public int[] MultiSampleLevels { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32[] MultiSampleLevels" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32[]</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -1841,6 +1891,22 @@
         <summary>
             Return whether a readable hardware depth format is available.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RefreshRate">
+      <MemberSignature Language="C#" Value="public int RefreshRate { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 RefreshRate" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2240,7 +2306,7 @@
       </Docs>
     </Member>
     <Member MemberName="SetBlendMode">
-      <MemberSignature Language="C#" Value="public void SetBlendMode (Urho.BlendMode mode, bool alphaToCoverage);" />
+      <MemberSignature Language="C#" Value="public void SetBlendMode (Urho.BlendMode mode, bool alphaToCoverage = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetBlendMode(valuetype Urho.BlendMode mode, bool alphaToCoverage) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -2354,8 +2420,8 @@
       </Docs>
     </Member>
     <Member MemberName="SetMode">
-      <MemberSignature Language="C#" Value="public bool SetMode (int width, int height, bool fullscreen, bool borderless, bool resizable, bool highDPI, bool vsync, bool tripleBuffer, int multiSample);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetMode(int32 width, int32 height, bool fullscreen, bool borderless, bool resizable, bool highDPI, bool vsync, bool tripleBuffer, int32 multiSample) cil managed" />
+      <MemberSignature Language="C#" Value="public bool SetMode (int width, int height, bool fullscreen, bool borderless, bool resizable, bool highDPI, bool vsync, bool tripleBuffer, int multiSample, int monitor, int refreshRate);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetMode(int32 width, int32 height, bool fullscreen, bool borderless, bool resizable, bool highDPI, bool vsync, bool tripleBuffer, int32 multiSample, int32 monitor, int32 refreshRate) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -2373,6 +2439,8 @@
         <Parameter Name="vsync" Type="System.Boolean" />
         <Parameter Name="tripleBuffer" Type="System.Boolean" />
         <Parameter Name="multiSample" Type="System.Int32" />
+        <Parameter Name="monitor" Type="System.Int32" />
+        <Parameter Name="refreshRate" Type="System.Int32" />
       </Parameters>
       <Docs>
         <param name="width">To be added.</param>
@@ -2384,7 +2452,9 @@
         <param name="vsync">To be added.</param>
         <param name="tripleBuffer">To be added.</param>
         <param name="multiSample">To be added.</param>
-        <summary>Set screen mode. Return true if successful.</summary>
+        <param name="monitor">To be added.</param>
+        <param name="refreshRate">To be added.</param>
+        <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
@@ -2724,7 +2794,7 @@
       </Docs>
     </Member>
     <Member MemberName="SetStencilTest">
-      <MemberSignature Language="C#" Value="public void SetStencilTest (bool enable, Urho.CompareMode mode, Urho.StencilOp pass, Urho.StencilOp fail, Urho.StencilOp zFail, uint stencilRef, uint compareMask, uint writeMask);" />
+      <MemberSignature Language="C#" Value="public void SetStencilTest (bool enable, Urho.CompareMode mode = Urho.CompareMode.Always, Urho.StencilOp pass = Urho.StencilOp.Keep, Urho.StencilOp fail = Urho.StencilOp.Keep, Urho.StencilOp zFail = Urho.StencilOp.Keep, uint stencilRef = 0, uint compareMask = 4294967295, uint writeMask = 4294967295);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetStencilTest(bool enable, valuetype Urho.CompareMode mode, valuetype Urho.StencilOp pass, valuetype Urho.StencilOp fail, valuetype Urho.StencilOp zFail, unsigned int32 stencilRef, unsigned int32 compareMask, unsigned int32 writeMask) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -2955,6 +3025,22 @@
         <summary>
             Return shadow map depth texture format, or 0 if not supported.
             </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Size">
+      <MemberSignature Language="C#" Value="public Urho.IntVector2 Size { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.IntVector2 Size" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.IntVector2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -3245,7 +3331,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -3261,7 +3348,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -3282,7 +3370,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UseClipPlane">

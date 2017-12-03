@@ -127,8 +127,8 @@
       </Docs>
     </Member>
     <Member MemberName="DrawDebugGeometry">
-      <MemberSignature Language="C#" Value="public override void DrawDebugGeometry (Urho.DebugRenderer param1, bool depthTest);" />
-      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void DrawDebugGeometry(class Urho.DebugRenderer param1, bool depthTest) cil managed" />
+      <MemberSignature Language="C#" Value="public override void DrawDebugGeometry (Urho.DebugRenderer debug, bool depthTest);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance void DrawDebugGeometry(class Urho.DebugRenderer debug, bool depthTest) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -141,7 +141,7 @@
         <Parameter Name="depthTest" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="param1">To be added.</param>
+        <param name="debug">To be added.</param>
         <param name="depthTest">To be added.</param>
         <summary>
             Render debug information.
@@ -275,7 +275,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -291,7 +292,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -312,7 +314,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
   </Members>

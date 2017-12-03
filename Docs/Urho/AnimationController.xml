@@ -32,7 +32,8 @@
         <summary>
           <para>Constructs a new instance of Urho.AnimationController which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -80,7 +81,8 @@
         <summary>
           <para>Constructs a new instance of Urho.AnimationController linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -615,7 +617,7 @@
       </Docs>
     </Member>
     <Member MemberName="Play">
-      <MemberSignature Language="C#" Value="public bool Play (string name, byte layer, bool looped, float fadeInTime);" />
+      <MemberSignature Language="C#" Value="public bool Play (string name, byte layer, bool looped, float fadeInTime = 0);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Play(string name, unsigned int8 layer, bool looped, float32 fadeInTime) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -643,7 +645,7 @@
       </Docs>
     </Member>
     <Member MemberName="PlayExclusive">
-      <MemberSignature Language="C#" Value="public bool PlayExclusive (string name, byte layer, bool looped, float fadeTime);" />
+      <MemberSignature Language="C#" Value="public bool PlayExclusive (string name, byte layer, bool looped, float fadeTime = 0);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool PlayExclusive(string name, unsigned int8 layer, bool looped, float32 fadeTime) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -906,7 +908,7 @@
       </Docs>
     </Member>
     <Member MemberName="Stop">
-      <MemberSignature Language="C#" Value="public bool Stop (string name, float fadeOutTime);" />
+      <MemberSignature Language="C#" Value="public bool Stop (string name, float fadeOutTime = 0);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool Stop(string name, float32 fadeOutTime) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -930,7 +932,7 @@
       </Docs>
     </Member>
     <Member MemberName="StopAll">
-      <MemberSignature Language="C#" Value="public void StopAll (float fadeTime);" />
+      <MemberSignature Language="C#" Value="public void StopAll (float fadeTime = 0);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void StopAll(float32 fadeTime) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -951,7 +953,7 @@
       </Docs>
     </Member>
     <Member MemberName="StopLayer">
-      <MemberSignature Language="C#" Value="public void StopLayer (byte layer, float fadeOutTime);" />
+      <MemberSignature Language="C#" Value="public void StopLayer (byte layer, float fadeOutTime = 0);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void StopLayer(unsigned int8 layer, float32 fadeOutTime) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1002,7 +1004,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -1018,7 +1021,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -1039,7 +1043,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Update">

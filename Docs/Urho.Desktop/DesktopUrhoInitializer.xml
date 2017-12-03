@@ -30,24 +30,5 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="CopyEmbeddedCoreDataTo">
-      <MemberSignature Language="C#" Value="public static void CopyEmbeddedCoreDataTo (string destinationFolder);" />
-      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void CopyEmbeddedCoreDataTo(string destinationFolder) cil managed" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="destinationFolder" Type="System.String" />
-      </Parameters>
-      <Docs>
-        <param name="destinationFolder">To be added.</param>
-        <summary>Urho for desktop platforms comes with embedded CoreData.pak. This method extracts and copies it to the specified directory. </summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
   </Members>
 </Type>

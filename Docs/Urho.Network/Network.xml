@@ -36,7 +36,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Network.Network which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -84,7 +85,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Network.Network linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -113,7 +115,7 @@
       </Docs>
     </Member>
     <Member MemberName="BroadcastMessage">
-      <MemberSignature Language="C#" Value="public void BroadcastMessage (int msgID, bool reliable, bool inOrder, byte* data, uint numBytes, uint contentID);" />
+      <MemberSignature Language="C#" Value="public void BroadcastMessage (int msgID, bool reliable, bool inOrder, byte* data, uint numBytes, uint contentID = 0);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void BroadcastMessage(int32 msgID, bool reliable, bool inOrder, unsigned int8* data, unsigned int32 numBytes, unsigned int32 contentID) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -241,7 +243,7 @@
       </Docs>
     </Member>
     <Member MemberName="Disconnect">
-      <MemberSignature Language="C#" Value="public void Disconnect (int waitMSec);" />
+      <MemberSignature Language="C#" Value="public void Disconnect (int waitMSec = 0);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void Disconnect(int32 waitMSec) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -852,7 +854,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -868,7 +871,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -889,7 +893,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="UnregisterAllRemoteEvents">

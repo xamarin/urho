@@ -14,9 +14,73 @@
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
+    <Member MemberName="AutoExposure">
+      <MemberSignature Language="C#" Value="public static Urho.Resources.XmlFile AutoExposure { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Resources.XmlFile AutoExposure" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resources.XmlFile</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Bloom">
+      <MemberSignature Language="C#" Value="public static Urho.Resources.XmlFile Bloom { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Resources.XmlFile Bloom" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resources.XmlFile</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BloomHDR">
+      <MemberSignature Language="C#" Value="public static Urho.Resources.XmlFile BloomHDR { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Resources.XmlFile BloomHDR" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resources.XmlFile</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Blur">
       <MemberSignature Language="C#" Value="public static Urho.Resources.XmlFile Blur { get; }" />
       <MemberSignature Language="ILAsm" Value=".property class Urho.Resources.XmlFile Blur" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resources.XmlFile</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ColorCorrection">
+      <MemberSignature Language="C#" Value="public static Urho.Resources.XmlFile ColorCorrection { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Resources.XmlFile ColorCorrection" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -49,6 +113,54 @@
     <Member MemberName="FXAA3">
       <MemberSignature Language="C#" Value="public static Urho.Resources.XmlFile FXAA3 { get; }" />
       <MemberSignature Language="ILAsm" Value=".property class Urho.Resources.XmlFile FXAA3" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resources.XmlFile</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GammaCorrection">
+      <MemberSignature Language="C#" Value="public static Urho.Resources.XmlFile GammaCorrection { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Resources.XmlFile GammaCorrection" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resources.XmlFile</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GreyScale">
+      <MemberSignature Language="C#" Value="public static Urho.Resources.XmlFile GreyScale { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Resources.XmlFile GreyScale" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Resources.XmlFile</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Tonemap">
+      <MemberSignature Language="C#" Value="public static Urho.Resources.XmlFile Tonemap { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Urho.Resources.XmlFile Tonemap" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>

@@ -1,0 +1,154 @@
+<Type Name="YuvVideo" FullName="Urho.SharpReality.YuvVideo">
+  <TypeSignature Language="C#" Value="public class YuvVideo : Urho.Component" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit YuvVideo extends Urho.Component" />
+  <AssemblyInfo>
+    <AssemblyName>Urho</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Urho.Component</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public YuvVideo ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Preserve</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public YuvVideo (IntPtr handle);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(native int handle) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>Preserve</AttributeName>
+        </Attribute>
+      </Attributes>
+      <Parameters>
+        <Parameter Name="handle" Type="System.IntPtr" />
+      </Parameters>
+      <Docs>
+        <param name="handle">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CameraUVtexture">
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.Texture2D CameraUVtexture { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Urho2D.Texture2D CameraUVtexture" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Urho2D.Texture2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CameraYtexture">
+      <MemberSignature Language="C#" Value="public Urho.Urho2D.Texture2D CameraYtexture { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Urho.Urho2D.Texture2D CameraYtexture" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.Urho2D.Texture2D</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="RenderPathCommand">
+      <MemberSignature Language="C#" Value="public Urho.RenderPathCommand RenderPathCommand { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Urho.RenderPathCommand RenderPathCommand" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Urho.RenderPathCommand</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetData">
+      <MemberSignature Language="C#" Value="public void SetData (IntPtr yTexturePtr, IntPtr uvTexturePtr, int yWidth, int yHeight, int uvWidth, int uvHeight, int nativeBoundsWidth, int nativeBoundsHeight);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetData(native int yTexturePtr, native int uvTexturePtr, int32 yWidth, int32 yHeight, int32 uvWidth, int32 uvHeight, int32 nativeBoundsWidth, int32 nativeBoundsHeight) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="yTexturePtr" Type="System.IntPtr" />
+        <Parameter Name="uvTexturePtr" Type="System.IntPtr" />
+        <Parameter Name="yWidth" Type="System.Int32" />
+        <Parameter Name="yHeight" Type="System.Int32" />
+        <Parameter Name="uvWidth" Type="System.Int32" />
+        <Parameter Name="uvHeight" Type="System.Int32" />
+        <Parameter Name="nativeBoundsWidth" Type="System.Int32" />
+        <Parameter Name="nativeBoundsHeight" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="yTexturePtr">To be added.</param>
+        <param name="uvTexturePtr">To be added.</param>
+        <param name="yWidth">To be added.</param>
+        <param name="yHeight">To be added.</param>
+        <param name="uvWidth">To be added.</param>
+        <param name="uvHeight">To be added.</param>
+        <param name="nativeBoundsWidth">To be added.</param>
+        <param name="nativeBoundsHeight">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TexturesInited">
+      <MemberSignature Language="C#" Value="public bool TexturesInited { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool TexturesInited" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

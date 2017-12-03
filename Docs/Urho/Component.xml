@@ -24,7 +24,8 @@
         <h2>Serialization</h2>
       </format>
       <para>To implement serialization you would override the OnSerialize and OnDeserialize methods and store your component state on the provided serializer and deserializer objects.</para>
-      <para></para>
+      <para>
+      </para>
       <code lang="C#"><![CDATA[class MyComponent : Component { // Constructor needed for deserialization public MyComponent(IntPtr handle) : base(handle) { } public MyComponent() { } // user defined properties (managed state): public Quaternion MyRotation { get; set; } public string MyName { get; set; } public override void OnSerialize(IComponentSerializer ser) { // register our properties with their names as keys using nameof() ser.Serialize(nameof(MyRotation), MyRotation); ser.Serialize(nameof(MyName), MyName); } public override void OnDeserialize(IComponentDeserializer des) { MyRotation = des.Deserialize<Quaternion>(nameof(MyRotation)); MyName = des.Deserialize<string>(nameof(MyName)); } // called when the component is attached to some node public override void OnAttachedToNode() { var node = this.Node; } }]]></code>
     </remarks>
   </Docs>
@@ -46,7 +47,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Component which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -94,7 +96,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Component linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -663,7 +666,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -679,7 +683,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -700,7 +705,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
   </Members>

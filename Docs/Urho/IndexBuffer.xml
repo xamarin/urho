@@ -71,7 +71,7 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public IndexBuffer (Urho.Context context, bool forceHeadless);" />
+      <MemberSignature Language="C#" Value="public IndexBuffer (Urho.Context context, bool forceHeadless = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Urho.Context context, bool forceHeadless) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -92,7 +92,8 @@
         <summary>
           <para>Constructs a new instance of Urho.IndexBuffer linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="AsGPUObject">
@@ -165,7 +166,7 @@
       </Docs>
     </Member>
     <Member MemberName="Lock">
-      <MemberSignature Language="C#" Value="public IntPtr Lock (uint start, uint count, bool discard);" />
+      <MemberSignature Language="C#" Value="public IntPtr Lock (uint start, uint count, bool discard = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance native int Lock(unsigned int32 start, unsigned int32 count, bool discard) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -260,6 +261,25 @@
       </Docs>
     </Member>
     <Member MemberName="SetData">
+      <MemberSignature Language="C#" Value="public void SetData (uint[] vertexData);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance void SetData(unsigned int32[] vertexData) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="vertexData" Type="System.UInt32[]" />
+      </Parameters>
+      <Docs>
+        <param name="vertexData">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SetData">
       <MemberSignature Language="C#" Value="public bool SetData (void* data);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetData(void* data) cil managed" />
       <MemberType>Method</MemberType>
@@ -282,7 +302,7 @@
       </Docs>
     </Member>
     <Member MemberName="SetDataRange">
-      <MemberSignature Language="C#" Value="public bool SetDataRange (void* data, uint start, uint count, bool discard);" />
+      <MemberSignature Language="C#" Value="public bool SetDataRange (void* data, uint start, uint count, bool discard = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetDataRange(void* data, unsigned int32 start, unsigned int32 count, bool discard) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -310,7 +330,7 @@
       </Docs>
     </Member>
     <Member MemberName="SetSize">
-      <MemberSignature Language="C#" Value="public bool SetSize (uint indexCount, bool largeIndices, bool dynamic);" />
+      <MemberSignature Language="C#" Value="public bool SetSize (uint indexCount, bool largeIndices, bool dynamic = false);" />
       <MemberSignature Language="ILAsm" Value=".method public hidebysig instance bool SetSize(unsigned int32 indexCount, bool largeIndices, bool dynamic) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -398,7 +418,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -414,7 +435,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -435,7 +457,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Unlock">

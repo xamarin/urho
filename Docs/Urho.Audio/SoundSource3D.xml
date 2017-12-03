@@ -16,7 +16,8 @@
       <para>This plays </para>
       <para>To hear pseudo-3D positional sounds, a <see cref="T:Urho.Audio.SoundListener" /> component must exist in a scene node and be assigned to the audio subsystem by setting the <see cref="P:Urho.Audio.Audio.Listener" /> property. If the sound listener's scene node exists within a specific scene, it will only hear sounds from that scene, but if it has been created into a "sceneless" node it will hear sounds from all scenes.</para>
       <para>Playing the above sound formats in pseudo-3D using the <see cref="T:Urho.Audio.SoundSource3D" /> component. It has stereo positioning and distance attenuation, but does not (at least yet) filter the sound depending on the direction.</para>
-      <para></para>
+      <para>
+      </para>
     </remarks>
   </Docs>
   <Members>
@@ -37,7 +38,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Audio.SoundSource3D which is tied to the <see cref="P:Urho.Application.CurrentContext" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -85,7 +87,8 @@
         <summary>
           <para>Constructs a new instance of Urho.Audio.SoundSource3D linked to a specific <see cref="T:Urho.Context" />.</para>
         </summary>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -372,7 +375,8 @@
       <Docs>
         <summary>Urho's low-level type name.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeNameStatic">
@@ -388,7 +392,8 @@
       <Docs>
         <summary>Urho's low-level type name, accessible as a static method.</summary>
         <value>Stringified low-level type name.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TypeStatic">
@@ -409,7 +414,8 @@
       <Docs>
         <summary>Urho's low-level type, accessible as a static method.</summary>
         <value>This returns the Urho's type and is surface for the low-level Urho code.</value>
-        <remarks></remarks>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Update">
