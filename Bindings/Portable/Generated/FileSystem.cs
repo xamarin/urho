@@ -342,6 +342,18 @@ namespace Urho.IO
 			return Marshal.PtrToStringAnsi (FileSystem_GetAppPreferencesDir (handle, org, app));
 		}
 
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr FileSystem_GetTemporaryDir (IntPtr handle);
+
+		/// <summary>
+		/// Return path of temporary directory. Path always ends with a forward slash.
+		/// </summary>
+		private string GetTemporaryDir ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Marshal.PtrToStringAnsi (FileSystem_GetTemporaryDir (handle));
+		}
+
 		public override StringHash Type {
 			get {
 				return UrhoGetType ();
@@ -405,6 +417,15 @@ namespace Urho.IO
 		public string UserDocumentsDir {
 			get {
 				return GetUserDocumentsDir ();
+			}
+		}
+
+		/// <summary>
+		/// Return path of temporary directory. Path always ends with a forward slash.
+		/// </summary>
+		public string TemporaryDir {
+			get {
+				return GetTemporaryDir ();
 			}
 		}
 	}

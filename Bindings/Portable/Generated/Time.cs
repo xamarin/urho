@@ -175,6 +175,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern float Time_GetFramesPerSecond (IntPtr handle);
+
+		/// <summary>
+		/// Return current frames per second.
+		/// </summary>
+		private float GetFramesPerSecond ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Time_GetFramesPerSecond (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern uint Time_GetSystemTime ();
 
 		/// <summary>
@@ -285,6 +297,15 @@ namespace Urho
 		public float ElapsedTime {
 			get {
 				return GetElapsedTime ();
+			}
+		}
+
+		/// <summary>
+		/// Return current frames per second.
+		/// </summary>
+		public float FramesPerSecond {
+			get {
+				return GetFramesPerSecond ();
 			}
 		}
 

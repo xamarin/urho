@@ -1411,6 +1411,42 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern int Graphics_GetCurrentMonitor (IntPtr handle);
+
+		/// <summary>
+		/// Returns the index of the display containing the center of the window on success or a negative error code on failure.
+		/// </summary>
+		private int GetCurrentMonitor ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Graphics_GetCurrentMonitor (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Graphics_GetMaximized (IntPtr handle);
+
+		/// <summary>
+		/// Returns true if window is maximized or runs in full screen mode.
+		/// </summary>
+		private bool GetMaximized ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Graphics_GetMaximized (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern Vector3 Graphics_GetDisplayDPI (IntPtr handle, int monitor);
+
+		/// <summary>
+		/// Return display dpi information: (hdpi, vdpi, ddpi). On failure returns zero vector.
+		/// </summary>
+		public Vector3 GetDisplayDPI (int monitor = 0)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Graphics_GetDisplayDPI (handle, monitor);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern uint Graphics_GetFormat (IntPtr handle, CompressedFormat format);
 
 		/// <summary>
@@ -1900,6 +1936,18 @@ namespace Urho
 		{
 			Runtime.ValidateRefCounted (this);
 			Graphics_Minimize (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Graphics_Raise (IntPtr handle);
+
+		/// <summary>
+		/// Raises window if it was minimized.
+		/// </summary>
+		public void Raise ()
+		{
+			Runtime.ValidateRefCounted (this);
+			Graphics_Raise (handle);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -2729,6 +2777,24 @@ namespace Urho
 		public int MonitorCount {
 			get {
 				return GetMonitorCount ();
+			}
+		}
+
+		/// <summary>
+		/// Returns the index of the display containing the center of the window on success or a negative error code on failure.
+		/// </summary>
+		public int CurrentMonitor {
+			get {
+				return GetCurrentMonitor ();
+			}
+		}
+
+		/// <summary>
+		/// Returns true if window is maximized or runs in full screen mode.
+		/// </summary>
+		public bool Maximized {
+			get {
+				return GetMaximized ();
 			}
 		}
 

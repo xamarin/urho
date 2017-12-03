@@ -740,6 +740,20 @@ UrhoObject_GetCategory (Urho3D::Object *_target)
 }
 
 
+DllExport void
+UrhoObject_SetBlockEvents (Urho3D::Object *_target, bool block)
+{
+	_target->SetBlockEvents (block);
+}
+
+
+DllExport int
+UrhoObject_GetBlockEvents (Urho3D::Object *_target)
+{
+	return _target->GetBlockEvents ();
+}
+
+
 DllExport Urho3D::Object *
 ObjectFactory_CreateObject (Urho3D::ObjectFactory *_target)
 {
@@ -1664,6 +1678,13 @@ DllExport float
 Time_GetElapsedTime (Urho3D::Time *_target)
 {
 	return _target->GetElapsedTime ();
+}
+
+
+DllExport float
+Time_GetFramesPerSecond (Urho3D::Time *_target)
+{
+	return _target->GetFramesPerSecond ();
 }
 
 
@@ -3974,6 +3995,13 @@ DllExport void
 Context_RemoveSubsystem (Urho3D::Context *_target, int objectType)
 {
 	_target->RemoveSubsystem (Urho3D::StringHash(objectType));
+}
+
+
+DllExport void
+Context_RemoveAllAttributes (Urho3D::Context *_target, int objectType)
+{
+	_target->RemoveAllAttributes (Urho3D::StringHash(objectType));
 }
 
 
@@ -11060,6 +11088,13 @@ DebugRenderer_AddTriangleMesh (Urho3D::DebugRenderer *_target, const void * vert
 
 
 DllExport void
+DebugRenderer_AddTriangleMesh4 (Urho3D::DebugRenderer *_target, const void * vertexData, unsigned int vertexSize, unsigned int vertexStart, const void * indexData, unsigned int indexSize, unsigned int indexStart, unsigned int indexCount, const class Urho3D::Matrix3x4 & transform, const class Urho3D::Color & color, bool depthTest)
+{
+	_target->AddTriangleMesh (vertexData, vertexSize, vertexStart, indexData, indexSize, indexStart, indexCount, transform, color, depthTest);
+}
+
+
+DllExport void
 DebugRenderer_AddCircle (Urho3D::DebugRenderer *_target, const class Urho3D::Vector3 & center, const class Urho3D::Vector3 & normal, float radius, const class Urho3D::Color & color, int steps, bool depthTest)
 {
 	_target->AddCircle (center, normal, radius, color, steps, depthTest);
@@ -11986,6 +12021,20 @@ Image_PrecalculateLevels (Urho3D::Image *_target)
 }
 
 
+DllExport int
+Image_HasAlphaChannel (Urho3D::Image *_target)
+{
+	return _target->HasAlphaChannel ();
+}
+
+
+DllExport int
+Image_SetSubimage (Urho3D::Image *_target, const class Urho3D::Image * image, const class Urho3D::IntRect & rect)
+{
+	return _target->SetSubimage (image, rect);
+}
+
+
 DllExport void
 Image_CleanupLevels (Urho3D::Image *_target)
 {
@@ -12798,6 +12847,27 @@ Graphics_GetMonitorCount (Urho3D::Graphics *_target)
 }
 
 
+DllExport int
+Graphics_GetCurrentMonitor (Urho3D::Graphics *_target)
+{
+	return _target->GetCurrentMonitor ();
+}
+
+
+DllExport int
+Graphics_GetMaximized (Urho3D::Graphics *_target)
+{
+	return _target->GetMaximized ();
+}
+
+
+DllExport Interop::Vector3 
+Graphics_GetDisplayDPI (Urho3D::Graphics *_target, int monitor)
+{
+	return *((Interop::Vector3  *) &(_target->GetDisplayDPI (monitor)));
+}
+
+
 DllExport unsigned int
 Graphics_GetFormat (Urho3D::Graphics *_target, enum Urho3D::CompressedFormat format)
 {
@@ -13082,6 +13152,13 @@ DllExport void
 Graphics_Minimize (Urho3D::Graphics *_target)
 {
 	_target->Minimize ();
+}
+
+
+DllExport void
+Graphics_Raise (Urho3D::Graphics *_target)
+{
+	_target->Raise ();
 }
 
 
@@ -13729,8 +13806,15 @@ Texture2D_GetData (Urho3D::Texture2D *_target, unsigned int level, void * dest)
 }
 
 
+DllExport int
+Texture2D_GetImage (Urho3D::Texture2D *_target, Image * image)
+{
+	return _target->GetImage (*image);
+}
+
+
 DllExport Urho3D::Image *
-Texture2D_GetImage (Urho3D::Texture2D *_target)
+Texture2D_GetImage1 (Urho3D::Texture2D *_target)
 {
 	auto copy = _target->GetImage ();
 	auto plain = copy.Get();
@@ -15017,6 +15101,20 @@ DllExport void
 RenderPath_SetEnabled (Urho3D::RenderPath *_target, const char * tag, bool active)
 {
 	_target->SetEnabled (Urho3D::String(tag), active);
+}
+
+
+DllExport int
+RenderPath_IsEnabled (Urho3D::RenderPath *_target, const char * tag)
+{
+	return _target->IsEnabled (Urho3D::String(tag));
+}
+
+
+DllExport int
+RenderPath_IsAdded (Urho3D::RenderPath *_target, const char * tag)
+{
+	return _target->IsAdded (Urho3D::String(tag));
 }
 
 
@@ -16339,6 +16437,20 @@ DllExport Urho3D::XMLElement *
 XmlElement_GetOrCreateChild (Urho3D::XMLElement *_target, const char * name)
 {
 	return new Urho3D::XMLElement (_target->GetOrCreateChild (Urho3D::String(name)));
+}
+
+
+DllExport int
+XmlElement_AppendChild (Urho3D::XMLElement *_target, Urho3D::XMLElement element, bool asCopy)
+{
+	return _target->AppendChild (element, asCopy);
+}
+
+
+DllExport int
+XmlElement_Remove (Urho3D::XMLElement *_target)
+{
+	return _target->Remove ();
 }
 
 
@@ -19952,6 +20064,13 @@ FileSystem_GetAppPreferencesDir (Urho3D::FileSystem *_target, const char * org, 
 }
 
 
+DllExport const char *
+FileSystem_GetTemporaryDir (Urho3D::FileSystem *_target)
+{
+	return stringdup((_target->GetTemporaryDir ()).CString ());
+}
+
+
 DllExport int
 FileWatcher_GetType (Urho3D::FileWatcher *_target)
 {
@@ -20446,6 +20565,13 @@ DllExport Interop::IntVector2
 UIElement_ElementToScreen (Urho3D::UIElement *_target, const class Urho3D::IntVector2 & position)
 {
 	return *((Interop::IntVector2  *) &(_target->ElementToScreen (position)));
+}
+
+
+DllExport int
+UIElement_IsWheelHandler (Urho3D::UIElement *_target)
+{
+	return _target->IsWheelHandler ();
 }
 
 
@@ -21366,6 +21492,13 @@ DllExport int
 UIElement_HasFocus (Urho3D::UIElement *_target)
 {
 	return _target->HasFocus ();
+}
+
+
+DllExport int
+UIElement_IsChildOf (Urho3D::UIElement *_target, Urho3D::UIElement * element)
+{
+	return _target->IsChildOf (element);
 }
 
 
@@ -29437,6 +29570,13 @@ ScrollView_OnResize (Urho3D::ScrollView *_target, const class Urho3D::IntVector2
 }
 
 
+DllExport int
+ScrollView_IsWheelHandler (Urho3D::ScrollView *_target)
+{
+	return _target->IsWheelHandler ();
+}
+
+
 DllExport void
 ScrollView_SetContentElement (Urho3D::ScrollView *_target, Urho3D::UIElement * element)
 {
@@ -29462,6 +29602,20 @@ DllExport void
 ScrollView_SetScrollBarsVisible (Urho3D::ScrollView *_target, bool horizontal, bool vertical)
 {
 	_target->SetScrollBarsVisible (horizontal, vertical);
+}
+
+
+DllExport void
+ScrollView_SetHorizontalScrollBarVisible (Urho3D::ScrollView *_target, bool visible)
+{
+	_target->SetHorizontalScrollBarVisible (visible);
+}
+
+
+DllExport void
+ScrollView_SetVerticalScrollBarVisible (Urho3D::ScrollView *_target, bool visible)
+{
+	_target->SetVerticalScrollBarVisible (visible);
 }
 
 
@@ -29553,6 +29707,20 @@ DllExport int
 ScrollView_GetScrollBarsAutoVisible (Urho3D::ScrollView *_target)
 {
 	return _target->GetScrollBarsAutoVisible ();
+}
+
+
+DllExport int
+ScrollView_GetHorizontalScrollBarVisible (Urho3D::ScrollView *_target)
+{
+	return _target->GetHorizontalScrollBarVisible ();
+}
+
+
+DllExport int
+ScrollView_GetVerticalScrollBarVisible (Urho3D::ScrollView *_target)
+{
+	return _target->GetVerticalScrollBarVisible ();
 }
 
 

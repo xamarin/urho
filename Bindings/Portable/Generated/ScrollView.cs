@@ -163,6 +163,18 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool ScrollView_IsWheelHandler (IntPtr handle);
+
+		/// <summary>
+		/// Return whether the element could handle wheel input.
+		/// </summary>
+		private bool IsWheelHandler ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return ScrollView_IsWheelHandler (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void ScrollView_SetContentElement (IntPtr handle, IntPtr element);
 
 		/// <summary>
@@ -208,6 +220,30 @@ namespace Urho.Gui
 		{
 			Runtime.ValidateRefCounted (this);
 			ScrollView_SetScrollBarsVisible (handle, horizontal, vertical);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void ScrollView_SetHorizontalScrollBarVisible (IntPtr handle, bool visible);
+
+		/// <summary>
+		/// Set horizontal scrollbar visibility manually. Disables scrollbar autoshow/hide.
+		/// </summary>
+		private void SetHorizontalScrollBarVisible (bool visible)
+		{
+			Runtime.ValidateRefCounted (this);
+			ScrollView_SetHorizontalScrollBarVisible (handle, visible);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void ScrollView_SetVerticalScrollBarVisible (IntPtr handle, bool visible);
+
+		/// <summary>
+		/// Set vertical scrollbar visibility manually. Disables scrollbar autoshow/hide.
+		/// </summary>
+		private void SetVerticalScrollBarVisible (bool visible)
+		{
+			Runtime.ValidateRefCounted (this);
+			ScrollView_SetVerticalScrollBarVisible (handle, visible);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -367,6 +403,30 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool ScrollView_GetHorizontalScrollBarVisible (IntPtr handle);
+
+		/// <summary>
+		/// Return whether the horizontal scrollbar is visible.
+		/// </summary>
+		private bool GetHorizontalScrollBarVisible ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return ScrollView_GetHorizontalScrollBarVisible (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool ScrollView_GetVerticalScrollBarVisible (IntPtr handle);
+
+		/// <summary>
+		/// Return whether the vertical scrollbar is visible.
+		/// </summary>
+		private bool GetVerticalScrollBarVisible ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return ScrollView_GetVerticalScrollBarVisible (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern float ScrollView_GetScrollStep (IntPtr handle);
 
 		/// <summary>
@@ -476,6 +536,15 @@ namespace Urho.Gui
 		}
 
 		/// <summary>
+		/// Return whether the element could handle wheel input.
+		/// </summary>
+		public override bool WheelHandler {
+			get {
+				return IsWheelHandler ();
+			}
+		}
+
+		/// <summary>
 		/// Return content element.
 		/// Or
 		/// Set content element.
@@ -500,6 +569,34 @@ namespace Urho.Gui
 			}
 			set {
 				SetViewPosition (value);
+			}
+		}
+
+		/// <summary>
+		/// Return whether the horizontal scrollbar is visible.
+		/// Or
+		/// Set horizontal scrollbar visibility manually. Disables scrollbar autoshow/hide.
+		/// </summary>
+		public bool HorizontalScrollBarVisible {
+			get {
+				return GetHorizontalScrollBarVisible ();
+			}
+			set {
+				SetHorizontalScrollBarVisible (value);
+			}
+		}
+
+		/// <summary>
+		/// Return whether the vertical scrollbar is visible.
+		/// Or
+		/// Set vertical scrollbar visibility manually. Disables scrollbar autoshow/hide.
+		/// </summary>
+		public bool VerticalScrollBarVisible {
+			get {
+				return GetVerticalScrollBarVisible ();
+			}
+			set {
+				SetVerticalScrollBarVisible (value);
 			}
 		}
 

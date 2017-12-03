@@ -98,6 +98,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Context_RemoveAllAttributes (IntPtr handle, int objectType);
+
+		/// <summary>
+		/// Remove all object attributes.
+		/// </summary>
+		public void RemoveAllAttributes (StringHash objectType)
+		{
+			Runtime.ValidateRefCounted (this);
+			Context_RemoveAllAttributes (handle, objectType.Code);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern bool Context_RequireSDL (IntPtr handle, uint sdlFlags);
 
 		/// <summary>

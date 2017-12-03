@@ -72,6 +72,30 @@ namespace Urho.Resources
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool XmlElement_AppendChild (IntPtr handle, IntPtr element, bool asCopy);
+
+		/// <summary>
+		/// Append element. If asCopy is set to true then original element is copied and appended, otherwise specified element is appended.
+		/// </summary>
+		public bool AppendChild (XmlElement element, bool asCopy = false)
+		{
+			Runtime.ValidateObject (this);
+			return XmlElement_AppendChild (handle, (object)element == null ? IntPtr.Zero : element.Handle, asCopy);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool XmlElement_Remove (IntPtr handle);
+
+		/// <summary>
+		/// Remove element from its parent.
+		/// </summary>
+		public bool Remove ()
+		{
+			Runtime.ValidateObject (this);
+			return XmlElement_Remove (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern bool XmlElement_RemoveChild (IntPtr handle, IntPtr element);
 
 		/// <summary>

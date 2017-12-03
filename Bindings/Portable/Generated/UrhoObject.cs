@@ -444,6 +444,30 @@ namespace Urho
 			return Marshal.PtrToStringAnsi (UrhoObject_GetCategory (handle));
 		}
 
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void UrhoObject_SetBlockEvents (IntPtr handle, bool block);
+
+		/// <summary>
+		/// Block object from sending and receiving events.
+		/// </summary>
+		private void SetBlockEvents (bool block)
+		{
+			Runtime.ValidateRefCounted (this);
+			UrhoObject_SetBlockEvents (handle, block);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool UrhoObject_GetBlockEvents (IntPtr handle);
+
+		/// <summary>
+		/// Return sending and receiving events blocking status.
+		/// </summary>
+		private bool GetBlockEvents ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return UrhoObject_GetBlockEvents (handle);
+		}
+
 		/// <summary>
 		/// Return type hash.
 		/// </summary>
@@ -513,6 +537,20 @@ namespace Urho
 		public string Category {
 			get {
 				return GetCategory ();
+			}
+		}
+
+		/// <summary>
+		/// Return sending and receiving events blocking status.
+		/// Or
+		/// Block object from sending and receiving events.
+		/// </summary>
+		public bool BlockEvents {
+			get {
+				return GetBlockEvents ();
+			}
+			set {
+				SetBlockEvents (value);
 			}
 		}
 	}

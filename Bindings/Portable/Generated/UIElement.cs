@@ -355,6 +355,18 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool UIElement_IsWheelHandler (IntPtr handle);
+
+		/// <summary>
+		/// Return whether the element could handle wheel input.
+		/// </summary>
+		private bool IsWheelHandler ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return UIElement_IsWheelHandler (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern bool UIElement_LoadXML1_File (IntPtr handle, IntPtr source);
 
 		/// <summary>
@@ -1953,6 +1965,18 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool UIElement_IsChildOf (IntPtr handle, IntPtr element);
+
+		/// <summary>
+		/// Return whether is a direct or indirect child of specified element.
+		/// </summary>
+		public bool IsChildOf (UIElement element)
+		{
+			Runtime.ValidateRefCounted (this);
+			return UIElement_IsChildOf (handle, (object)element == null ? IntPtr.Zero : element.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern bool UIElement_IsEnabled (IntPtr handle);
 
 		/// <summary>
@@ -2489,6 +2513,15 @@ namespace Urho.Gui
 		public virtual Urho.IntVector2 ScreenPosition {
 			get {
 				return GetScreenPosition ();
+			}
+		}
+
+		/// <summary>
+		/// Return whether the element could handle wheel input.
+		/// </summary>
+		public virtual bool WheelHandler {
+			get {
+				return IsWheelHandler ();
 			}
 		}
 

@@ -679,6 +679,30 @@ namespace Urho.Resources
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Image_HasAlphaChannel (IntPtr handle);
+
+		/// <summary>
+		/// Whether this texture has an alpha channel
+		/// </summary>
+		public bool HasAlphaChannel ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return Image_HasAlphaChannel (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool Image_SetSubimage (IntPtr handle, IntPtr image, ref Urho.IntRect rect);
+
+		/// <summary>
+		/// Copy contents of the image into the defined rect, scaling if necessary. This image should already be large enough to include the rect. Compressed and 3D images are not supported.
+		/// </summary>
+		public bool SetSubimage (Image image, Urho.IntRect rect)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Image_SetSubimage (handle, (object)image == null ? IntPtr.Zero : image.Handle, ref rect);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void Image_CleanupLevels (IntPtr handle);
 
 		/// <summary>

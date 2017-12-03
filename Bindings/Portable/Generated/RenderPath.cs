@@ -98,6 +98,30 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool RenderPath_IsEnabled (IntPtr handle, string tag);
+
+		/// <summary>
+		/// Return true of any of render targets or commands with specified tag are enabled.
+		/// </summary>
+		public bool IsEnabled (string tag)
+		{
+			Runtime.ValidateRefCounted (this);
+			return RenderPath_IsEnabled (handle, tag);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool RenderPath_IsAdded (IntPtr handle, string tag);
+
+		/// <summary>
+		/// Return true if renderpath or command with given tag exists.
+		/// </summary>
+		public bool IsAdded (string tag)
+		{
+			Runtime.ValidateRefCounted (this);
+			return RenderPath_IsAdded (handle, tag);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern void RenderPath_ToggleEnabled (IntPtr handle, string tag);
 
 		/// <summary>

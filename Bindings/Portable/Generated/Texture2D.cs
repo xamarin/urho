@@ -201,7 +201,19 @@ namespace Urho.Urho2D
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern IntPtr Texture2D_GetImage (IntPtr handle);
+		internal static extern bool Texture2D_GetImage (IntPtr handle, IntPtr image);
+
+		/// <summary>
+		/// Get image data from zero mip level. Only RGB and RGBA textures are supported.
+		/// </summary>
+		public bool GetImage (Image image)
+		{
+			Runtime.ValidateRefCounted (this);
+			return Texture2D_GetImage (handle, (object)image == null ? IntPtr.Zero : image.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern IntPtr Texture2D_GetImage1 (IntPtr handle);
 
 		/// <summary>
 		/// Get image data from zero mip level. Only RGB and RGBA textures are supported.
@@ -209,7 +221,7 @@ namespace Urho.Urho2D
 		private Image GetImage ()
 		{
 			Runtime.ValidateRefCounted (this);
-			return Runtime.LookupRefCounted<Image> (Texture2D_GetImage (handle));
+			return Runtime.LookupRefCounted<Image> (Texture2D_GetImage1 (handle));
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
