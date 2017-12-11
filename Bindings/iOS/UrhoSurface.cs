@@ -39,10 +39,12 @@ namespace Urho.iOS
 		public static void Pause()
 		{
 			if (!Application.HasCurrent) return;
+
 			Application.Current.Input.Enabled = false;
 			Application.Current.Engine.PauseMinimized = true;
 			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_FOCUS_LOST);
 			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_MINIMIZED);
+			Urho.Application.HandlePause();
 		}
 
 		public static void Resume()
@@ -52,6 +54,7 @@ namespace Urho.iOS
 			Application.Current.Engine.PauseMinimized = false;
 			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_FOCUS_GAINED);
 			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_RESTORED);
+			Urho.Application.HandleResume();
 		}
 
 		public Application Application { get; private set; }
@@ -99,6 +102,8 @@ namespace Urho.iOS
 			if (!opts.DelayedStart)
 				await Application.ToMainThreadAsync();
            	InvokeOnMainThread(() => Hidden = false);
+			Urho.Application.CurrentSurface = new WeakReference(this);
+			Urho.Application.CurrentWindow = new WeakReference(Window);
 			LogSharp.Debug("UrhoSurface: Finished.");
 			return app;
 		}

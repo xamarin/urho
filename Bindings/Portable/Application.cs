@@ -69,6 +69,9 @@ namespace Urho
 			private set { currentContext = value; }
 		}
 
+		public static WeakReference CurrentSurface { get; internal set; }
+		public static WeakReference CurrentWindow { get; internal set; }
+
 		// see Drawable2D.h:66
 		public const float PixelSize = 0.01f;
 
@@ -381,8 +384,22 @@ namespace Urho
 
 		protected virtual void OnUpdate(float timeStep) { }
 
-		internal ActionManager ActionManager { get; } = new ActionManager();
 
+		public event Action Paused;
+		internal static void HandlePause()
+		{
+			if (HasCurrent)
+				Current.Paused?.Invoke();
+		}
+
+		public event Action Resumed;
+		internal static void HandleResume() 
+		{ 
+			if (HasCurrent)
+				Current.Resumed?.Invoke(); 
+		}
+
+		internal ActionManager ActionManager { get; } = new ActionManager();
 
 		[DllImport(Consts.NativeImport, EntryPoint = "Urho_GetPlatform", CallingConvention = CallingConvention.Cdecl)]
 		static extern IntPtr GetPlatform();

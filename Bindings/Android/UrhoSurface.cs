@@ -50,11 +50,13 @@ namespace Urho.Droid
 		public static void OnResume()
 		{
 			SDLActivity.OnResume();
+			Urho.Application.HandleResume();
 		}
 
 		public static void OnPause()
 		{
 			SDLActivity.OnPause();
+			Urho.Application.HandlePause();
 		}
 
 		public static void OnLowMemory()
@@ -146,6 +148,8 @@ namespace Urho.Droid
 
 			SDLSurface = SDLActivity.CreateSurface(Context as Activity);
 			AddView(SDLSurface, ViewGroup.LayoutParams.MatchParent);
+			Application.CurrentSurface = new WeakReference(SDLSurface);
+			Application.CurrentWindow = new WeakReference(Context as Activity);
 
 			var tcs = new TaskCompletionSource<Application>();
 			Action startedHandler = null;
@@ -154,7 +158,6 @@ namespace Urho.Droid
 					Application.Started -= startedHandler;
 					tcs.TrySetResult(Application.Current);
 				};
-
 			Application.Started += startedHandler;
 			UrhoSurface.SetSdlMain(() => Application.CreateInstance(appType, options), finishActivityOnExit, SDLSurface);
 			var app = await tcs.Task;
