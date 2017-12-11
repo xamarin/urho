@@ -13824,6 +13824,13 @@ Texture2D_GetImage1 (Urho3D::Texture2D *_target)
 }
 
 
+DllExport void
+Texture2D_SetCustomTarget (Urho3D::Texture2D *_target, unsigned int target)
+{
+	_target->SetCustomTarget (target);
+}
+
+
 DllExport Urho3D::RenderSurface *
 Texture2D_GetRenderSurface (Urho3D::Texture2D *_target)
 {

@@ -225,6 +225,15 @@ namespace Urho.Urho2D
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern void Texture2D_SetCustomTarget (IntPtr handle, uint target);
+
+		public void SetCustomTarget (uint target)
+		{
+			Runtime.ValidateRefCounted (this);
+			Texture2D_SetCustomTarget (handle, target);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern IntPtr Texture2D_GetRenderSurface (IntPtr handle);
 
 		/// <summary>

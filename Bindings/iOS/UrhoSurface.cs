@@ -96,7 +96,8 @@ namespace Urho.iOS
 			Application = app;
 			app.Run();
 			Semaphore.Release();
-			await Application.ToMainThreadAsync();
+			if (!opts.DelayedStart)
+				await Application.ToMainThreadAsync();
            	InvokeOnMainThread(() => Hidden = false);
 			LogSharp.Debug("UrhoSurface: Finished.");
 			return app;

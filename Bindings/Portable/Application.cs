@@ -32,7 +32,6 @@ namespace Urho
 		static TaskCompletionSource<bool> exitTask;
 		static TaskCompletionSource<bool> waitFrameEndTaskSource;
 		AutoResetEvent frameEndResetEvent;
-		static int renderThreadId = -1;
 		static bool isExiting = false;
 		static List<Action> staticActionsToDispatch;
 		static List<DelayState> delayTasks;
@@ -266,10 +265,6 @@ namespace Urho
 #endif
 			Current.Start();
 			Started?.Invoke();
-
-#if ANDROID
-			renderThreadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
-#endif
 		}
 
 		public static bool CancelActiveActionsOnStop { get; set; }
@@ -286,17 +281,12 @@ namespace Urho
 			var app = GetApp(h);
 			app.IsClosed = true;
 			app.Stop();
-#if ANDROID
+
 			LogSharp.Debug("ProxyStop: Runtime.Cleanup");
-			Runtime.Cleanup(false);
+			Runtime.Cleanup(Platform != Platforms.Android);
 			LogSharp.Debug("ProxyStop: Disposing context");
 			Current = null;
-#else
-			LogSharp.Debug("ProxyStop: Runtime.Cleanup");
-			Runtime.Cleanup();
-			LogSharp.Debug("ProxyStop: Disposing context");
-			Current = null;
-#endif
+
 			Stopped?.Invoke();
 			LogSharp.Debug("ProxyStop: end");
 			exitTask?.TrySetResult(true);
@@ -403,6 +393,11 @@ namespace Urho
 		{
 			get
 			{
+#if ANDROID // avoid redundant pinvoke for iOS and Android
+				return Platforms.Android;
+#elif IOS
+				return Platforms.iOS;
+#endif
 				Runtime.Validate(typeof(Application));
 				if (platform == Platforms.Unknown)
 					platform = PlatformsMap.FromString(Marshal.PtrToStringAnsi(GetPlatform()));
