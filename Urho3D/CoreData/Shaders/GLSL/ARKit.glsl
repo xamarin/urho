@@ -4,24 +4,55 @@
 #include "ScreenPos.glsl"
 
 varying highp vec2 vScreenPos;
+
 uniform float cCameraScale;
+uniform float cTx;
+uniform float cTy;
+uniform float cScaleX;
+uniform float cScaleY;
+uniform float cScaleXY;
+uniform float cScaleYX;
 
 void VS()
+
 {
 	mat4 modelMatrix = iModelMatrix;
 	vec3 worldPos = GetWorldPos(modelMatrix);
-	gl_Position = GetClipPos(worldPos);
+	gl_Position = GetClipPos(worldPos);   
 	vScreenPos = GetScreenPosPreDiv(gl_Position);
 }
 
 void PS()
-{ 
-	//flip vertically
-	vec2 vTexCoord = vec2(vScreenPos.x, 1.0 - vScreenPos.y);
+{
+#if defined(ARKIT_FACEX)
+    float yoffset = 0.013;
+#else
+    float yoffset = 0.05;
+#endif
 
-	//scale
-	vec2 center = vec2(0.5,0.5);
-	vTexCoord = (vTexCoord - center) * vec2(cCameraScale, 1) + center;
+    vec2 center = vec2(0.5, 0.5);
+
+#if defined(ARKIT_LANDSCAPE)
+    // TODO: remove this hack 
+    float x = vScreenPos.x + yoffset * cScaleX;
+    if (x > 1.0 && cScaleX <= 1.0)
+        x -= 1.0;
+
+    vec2 vTexCoordY = vec2(x, 1.0 - vScreenPos.y);
+    vec2 vTexCoordUV = vec2(vScreenPos.x, 1.0 - vScreenPos.y);
+    vec2 scale = vec2(1.0 / cScaleX, 1.0 / cScaleY);
+#else
+    float y = vScreenPos.y - yoffset * cScaleYX;
+    if (y < 0.0 && cScaleYX <= 1.0)
+        y = 1.0 + y;
+
+    vec2 vTexCoordY = vec2(1.0 - y, 1.0 - vScreenPos.x);
+    vec2 vTexCoordUV = vec2(1.0 - vScreenPos.y, 1.0 - vScreenPos.x);
+    vec2 scale = vec2(1.0 / cScaleYX, 1.0 / -cScaleXY);
+#endif
+
+    vTexCoordY = (vTexCoordY - center) * scale + center;
+    vTexCoordUV = (vTexCoordUV - center) * scale + center;
 
 	mat4 ycbcrToRGBTransform = mat4(
 		vec4(+1.0000, +1.0000, +1.0000, +0.0000),
@@ -29,7 +60,7 @@ void PS()
 		vec4(+1.4020, -0.7141, +0.0000, +0.0000),
 		vec4(-0.7010, +0.5291, -0.8860, +1.0000));
 
-	vec4 ycbcr = vec4(texture2D(sDiffMap, vec2(vTexCoord.x + 0.05, vTexCoord.y)).r,
-					  texture2D(sNormalMap, vTexCoord).ra, 1.0);
+	vec4 ycbcr = vec4(texture2D(sDiffMap, vTexCoordY).r,
+					  texture2D(sNormalMap, vTexCoordUV).ra, 1.0);
 	gl_FragColor = ycbcrToRGBTransform * ycbcr;
 }

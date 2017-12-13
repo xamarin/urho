@@ -7,7 +7,7 @@ using Android.App;
 
 namespace Urho.Droid
 {
-	public class ARCore : Component
+	public class ARCoreComponent : Component
 	{
 		const uint GL_TEXTURE_EXTERNAL_OES = 36197;
 		bool paused;
@@ -20,8 +20,8 @@ namespace Urho.Droid
 
 		public Action<Frame> ARFrameUpdated;
 
-		public ARCore() { ReceiveSceneUpdates = true; }
-		public ARCore(IntPtr handle) : base(handle) { ReceiveSceneUpdates = true; }
+		public ARCoreComponent() { ReceiveSceneUpdates = true; }
+		public ARCoreComponent(IntPtr handle) : base(handle) { ReceiveSceneUpdates = true; }
 
 		public override unsafe void OnAttachedToNode(Node node)
 		{

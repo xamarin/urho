@@ -34,6 +34,7 @@
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
     <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+    <Compile Include="ARKitComponent.cs" />
     <Compile Include="IosPlatformInitializer.cs" />
     <Compile Include="UrhoSurface.cs" />
     <Compile Include="Urho.framework.linkwith.cs" />

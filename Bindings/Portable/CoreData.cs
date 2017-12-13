@@ -197,6 +197,7 @@ namespace Urho
 			public static Texture2D SpotXml => Cache.GetTexture2D("Textures/Spot.xml");
 			public static Texture2D SpotWide => Cache.GetTexture2D("Textures/SpotWide.png");
 			public static Texture2D SpotWideXml => Cache.GetTexture2D("Textures/SpotWide.xml");
+			public static Texture2D PlaneTile => Cache.GetTexture2D("Textures/PlaneTile.png");
 		}
 
 		public static class ShaderParameters
