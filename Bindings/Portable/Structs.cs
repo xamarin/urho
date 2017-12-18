@@ -920,13 +920,19 @@ namespace Urho {
 		// TODO: Surface more members via SharpieBinder
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		static extern void RenderPathCommand_SetShaderParameter(ref RenderPathCommand rpc, string parameter, float value);
+		static extern void RenderPathCommand_SetShaderParameter_float(ref RenderPathCommand rpc, string parameter, float value);
+
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		static extern void RenderPathCommand_SetShaderParameter_Matrix4(ref RenderPathCommand rpc, string parameter, ref Matrix4 value);
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void RenderPathCommand_SetOutput(ref RenderPathCommand rpc, int index, string name);
 
 		public void SetShaderParameter(string parameter, float value) =>
-			RenderPathCommand_SetShaderParameter(ref this, parameter, value);
+		RenderPathCommand_SetShaderParameter_float(ref this, parameter, value);
+
+		public void SetShaderParameter(string parameter, Matrix4 value) =>
+		RenderPathCommand_SetShaderParameter_Matrix4(ref this, parameter, ref value);
 
 		public void SetOutput(int index, string name) =>
 			RenderPathCommand_SetOutput(ref this, index, name);

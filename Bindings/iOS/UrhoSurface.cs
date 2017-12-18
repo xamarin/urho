@@ -99,11 +99,13 @@ namespace Urho.iOS
 			Application = app;
 			app.Run();
 			Semaphore.Release();
+
+			Urho.Application.CurrentSurface = new WeakReference(this);
+			Urho.Application.CurrentWindow = new WeakReference(Window);
+
 			if (!opts.DelayedStart)
 				await Application.ToMainThreadAsync();
            	InvokeOnMainThread(() => Hidden = false);
-			Urho.Application.CurrentSurface = new WeakReference(this);
-			Urho.Application.CurrentWindow = new WeakReference(Window);
 			LogSharp.Debug("UrhoSurface: Finished.");
 			return app;
 		}

@@ -431,7 +431,13 @@ extern "C" {
 	}
 
 	DllExport
-	void RenderPathCommand_SetShaderParameter(RenderPathCommand* rpc, const char* parameter, float value)
+	void RenderPathCommand_SetShaderParameter_float(RenderPathCommand* rpc, const char* parameter, float value)
+	{
+		rpc->SetShaderParameter(String(parameter), value);
+	}
+
+	DllExport
+	void RenderPathCommand_SetShaderParameter_Matrix4(RenderPathCommand* rpc, const char* parameter, const class Urho3D::Matrix4 & value)
 	{
 		rpc->SetShaderParameter(String(parameter), value);
 	}
