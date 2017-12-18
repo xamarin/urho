@@ -1,9 +1,11 @@
 ﻿using System;
 using Urho;
 using Urho.Urho2D;
-using Google.AR.Core;
 using Urho.IO;
 using Android.App;
+using Android.Runtime;
+using Android.Views;
+using Com.Google.AR.Core;
 
 namespace Urho.Droid
 {
@@ -49,18 +51,20 @@ namespace Urho.Droid
 				{
 					var session = new Session(activity);
 					session.SetCameraTextureName((int)CameraTexture.AsGPUObject().GPUObjectName);
-					session.SetDisplayGeometry(Application.Graphics.Width, Application.Graphics.Height);
+					session.SetDisplayGeometry((int)SurfaceOrientation.Rotation0 /*windowManager.DefaultDisplay.Rotation*/, Application.Graphics.Width, Application.Graphics.Height);
 
-					if (Config == null)
+					Config = new Config(session);
+					if (!session.IsSupported(Config))
 					{
-						Config = Config.CreateDefaultConfig();
-						Config.SetLightingMode(Config.LightingMode.AmbientIntensity);
-						//Config.SetUpdateMode(Config.UpdateMode.LatestCameraImage);
-						Config.SetPlaneFindingMode(Config.PlaneFindingMode.Horizontal);
+						throw new Exception("AR is not supported on this device with given config");
 					}
+					Config.SetLightEstimationMode(Config.LightEstimationMode.AmbientIntensity);
+					//Config.SetUpdateMode(Config.UpdateMode.LatestCameraImage);
+					Config.SetPlaneFindingMode(Config.PlaneFindingMode.Horizontal);
+					
 					paused = false;
 					//TODO: check Camera permissions?
-					session.Resume(Config);
+					session.Resume();
 					Session = session;
 				});
 
@@ -77,7 +81,7 @@ namespace Urho.Droid
 		void OnResume()
 		{
 			paused = false;
-			Session?.Resume(Config);
+			Session?.Resume();
 		}
 
 		protected override void OnDeleted()
@@ -110,14 +114,15 @@ namespace Urho.Droid
 				if (paused) //in case if Config.UpdateMode.LatestCameraImage is not used
 					return;
 
-				if (frame.GetTrackingState() != Frame.TrackingState.Tracking)
+				var camera = frame.Camera;
+				if (camera.TrackingState != TrackableTrackingState.Tracking)
 					return;
 
 				var far = 100f;
 				var near = 0.01f;
 
 				float[] projmx = new float[16];
-				Session.GetProjectionMatrix(projmx, 0, near, far);
+				camera.GetProjectionMatrix(projmx, 0, near, far);
 
 				var prj = new Urho.Matrix4(
 					projmx[0], projmx[4], projmx[8], projmx[12],
@@ -136,7 +141,7 @@ namespace Urho.Droid
 				Camera.SetProjection(prj);
 
 				float[] viewmx = new float[16];
-				frame.GetViewMatrix(viewmx, 0);
+				camera.GetViewMatrix(viewmx, 0);
 
 				var view = new Urho.Matrix4(
 					viewmx[0], viewmx[4], viewmx[8], viewmx[12],
