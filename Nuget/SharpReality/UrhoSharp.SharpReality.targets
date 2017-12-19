@@ -2,7 +2,7 @@
   <Target Name="CheckNonStoreApp" Condition="'$(WindowsAppContainer)' != 'true'" BeforeTargets="PrepareForBuild">
     <Error Text="Only Universal Windows Apps are supported." />
   </Target>
-  <Target Name="CheckAnyCPU" Condition="('$(PlatformTarget)' != 'x86') AND ('$(PlatformTarget)' != 'x64')" BeforeTargets="PrepareForBuild">
+  <Target Name="CheckAnyCPU" Condition="('$(PlatformTarget)' != 'x86') AND ('$(PlatformTarget)' != 'x64') AND ('$(PlatformTarget)' != 'AnyCPU')" BeforeTargets="PrepareForBuild">
     <Error Text="The $(Platform) target platform is not supported." />
   </Target> 
   <ItemGroup Condition=" '$(Platform)' == 'x86' ">
