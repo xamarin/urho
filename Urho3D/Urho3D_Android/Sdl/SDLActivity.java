@@ -499,6 +499,8 @@ public class SDLActivity {
      * This method is called by SDL using JNI.
      */
     public static void audioWriteShortBuffer(short[] buffer) {
+        if (mAudioTrack == null)
+            return;
         for (int i = 0; i < buffer.length; ) {
             int result = mAudioTrack.write(buffer, i, buffer.length - i);
             if (result > 0) {
@@ -520,6 +522,8 @@ public class SDLActivity {
      * This method is called by SDL using JNI.
      */
     public static void audioWriteByteBuffer(byte[] buffer) {
+        if (mAudioTrack == null)
+            return;
         for (int i = 0; i < buffer.length; ) {
             int result = mAudioTrack.write(buffer, i, buffer.length - i);
             if (result > 0) {

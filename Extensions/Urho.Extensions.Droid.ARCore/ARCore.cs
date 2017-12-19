@@ -18,11 +18,12 @@ namespace Urho.Droid
 
 		public Texture2D CameraTexture { get; private set; }
 		public Viewport Viewport { get; private set; }
+		public Session Session { get; private set; }
+		public Config Config { get; private set; }
 		public Camera Camera { get; set; }
-		public Session Session { get; set; }
-		public Config Config { get; set; }
 
-		public Action<Frame> ARFrameUpdated;
+		public event Action<Frame> ARFrameUpdated;
+		public event Action<Config> ConfigRequested;
 
 		public ARCoreComponent() { ReceiveSceneUpdates = true; }
 		public ARCoreComponent(IntPtr handle) : base(handle) { ReceiveSceneUpdates = true; }
@@ -57,17 +58,19 @@ namespace Urho.Droid
 
 					var session = new Session(activity);
 					session.SetCameraTextureName((int)CameraTexture.AsGPUObject().GPUObjectName);
-					session.SetDisplayGeometry((int)SurfaceOrientation.Rotation0 /*windowManager.DefaultDisplay.Rotation*/, Application.Graphics.Width, Application.Graphics.Height);
+					session.SetDisplayGeometry((int)SurfaceOrientation.Rotation0 /*windowManager.DefaultDisplay.Rotation*/, 
+						Application.Graphics.Width, Application.Graphics.Height);
 
 					Config = new Config(session);
+					Config.SetLightEstimationMode(Config.LightEstimationMode.AmbientIntensity);
+					//Config.SetUpdateMode(Config.UpdateMode.LatestCameraImage);
+					Config.SetPlaneFindingMode(Config.PlaneFindingMode.Horizontal);
+					ConfigRequested?.Invoke(Config);
 					if (!session.IsSupported(Config))
 					{
 						throw new Exception("AR is not supported on this device with given config");
 					}
-					Config.SetLightEstimationMode(Config.LightEstimationMode.AmbientIntensity);
-					//Config.SetUpdateMode(Config.UpdateMode.LatestCameraImage);
-					Config.SetPlaneFindingMode(Config.PlaneFindingMode.Horizontal);
-					
+
 					paused = false;
 					session.Resume();
 					Session = session;

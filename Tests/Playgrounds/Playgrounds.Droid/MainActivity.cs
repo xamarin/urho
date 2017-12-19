@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Android;
 using Android.App;
+using Android.Content.PM;
 using Android.OS;
+using Android.Support.V4.App;
+using Android.Support.V4.Content;
 using Android.Views;
 using Android.Widget;
 using Org.Libsdl.App;
@@ -15,13 +19,12 @@ namespace Playgrounds.Droid
 	public class MainActivity : Activity
 	{
 		AbsoluteLayout placeholder;
-		Game game;
+		ARCoreSample game;
 		UrhoSurfacePlaceholder surface;
 
 		protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
-
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 			FindViewById<Button>(Resource.Id.restartBtn).Click += OnRestart;
@@ -29,7 +32,9 @@ namespace Playgrounds.Droid
 			FindViewById<Button>(Resource.Id.spawnBtn).Click += OnSpawn;
 			FindViewById<Button>(Resource.Id.pauseBtn).Click += OnPause;
 			placeholder = FindViewById<AbsoluteLayout>(Resource.Id.UrhoSurfacePlaceHolder);
-			OnRestart(null, null);
+
+			if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.Camera) != Permission.Granted)
+				ActivityCompat.RequestPermissions(this, new []{ Manifest.Permission.Camera}, 42);
 		}
 
 		protected override void OnPause()
@@ -100,7 +105,8 @@ namespace Playgrounds.Droid
 			}
 			surface = UrhoSurface.CreateSurface(this);
 			placeholder.AddView(surface);
-			game = await surface.Show<Game>(new Urho.ApplicationOptions());
+			//game = await surface.Show<Game>(new Urho.ApplicationOptions());
+			game = await surface.Show<ARCoreSample>(new Urho.ApplicationOptions());
 		}
 	}
 }

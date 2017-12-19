@@ -102,6 +102,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Playgrounds.Forms.Shared", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Extensions.Droid.ARCore", "Extensions\Urho.Extensions.Droid.ARCore\Urho.Extensions.Droid.ARCore.csproj", "{8FBE882F-926B-4822-8CCB-035D6544CE31}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.Droid.CoreAR", "Bindings\Android\Urho.Droid.CoreAR\Urho.Droid.CoreAR.csproj", "{B29BABD8-A0D8-460D-9179-F2EB2A5B2DAA}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Bindings\Urho.Shared.projitems*{048373c2-b60a-4f61-b095-287c57437efb}*SharedItemsImports = 4
