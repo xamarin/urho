@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>Urho.Extensions.Droid.ARCore</id>
-       <version>1.8.0</version>
+       <version>1.8</version>
        <title>UrhoSharp.Droid.ARCore</title>
        <authors>Xamarin Inc.</authors>
        <owners>Xamarin</owners>
@@ -15,10 +15,11 @@
 	   <releaseNotes></releaseNotes>
        <tags>ARCore Urho Urho3D Android UrhoSharp Xamarin 2D 3D games engine</tags>
        <dependencies>
-         <dependency id="UrhoSharp" version="1.8.0" />
+         <dependency id="UrhoSharp" version="1.8" />
        </dependencies>
    </metadata>
    <files>
      <file src="Bin/Extensions/ARCore/Urho.Extensions.Droid.ARCore.dll" target="lib/monoandroid80/Urho.Extensions.Droid.ARCore.dll" />
+     <file src="Bin/Extensions/ARCore/Xamarin.Google.ARCore.dll" target="lib/monoandroid80/Xamarin.Google.ARCore.dll" />
    </files>
 </package>
