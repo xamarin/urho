@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Urho.Droid</RootNamespace>
-    <AssemblyName>Urho.Droid.ARCore</AssemblyName>
+    <AssemblyName>Urho.Extensions.Droid.ARCore</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>

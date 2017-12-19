@@ -1,8 +1,10 @@
 ﻿using System;
+using Android;
 using Urho;
 using Urho.Urho2D;
 using Urho.IO;
 using Android.App;
+using Android.Content.PM;
 using Android.Runtime;
 using Android.Views;
 using Com.Google.AR.Core;
@@ -49,6 +51,10 @@ namespace Urho.Droid
 			var activity = (Activity)Urho.Application.CurrentWindow.Target;
 			activity.RunOnUiThread(() =>
 				{
+					var cameraAllowed = activity.CheckSelfPermission(Manifest.Permission.Camera);
+					if (cameraAllowed != Permission.Granted)
+						throw new InvalidOperationException("Camera permission: Denied");
+
 					var session = new Session(activity);
 					session.SetCameraTextureName((int)CameraTexture.AsGPUObject().GPUObjectName);
 					session.SetDisplayGeometry((int)SurfaceOrientation.Rotation0 /*windowManager.DefaultDisplay.Rotation*/, Application.Graphics.Width, Application.Graphics.Height);
@@ -63,7 +69,6 @@ namespace Urho.Droid
 					Config.SetPlaneFindingMode(Config.PlaneFindingMode.Horizontal);
 					
 					paused = false;
-					//TODO: check Camera permissions?
 					session.Resume();
 					Session = session;
 				});
