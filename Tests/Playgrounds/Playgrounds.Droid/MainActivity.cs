@@ -15,7 +15,7 @@ using Urho.Droid;
 
 namespace Playgrounds.Droid
 {
-	[Activity(Label = "Playgrounds.Droid", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity(Label = "Playgrounds.Droid", MainLauncher = true, Icon = "@drawable/icon", Theme = "@android:style/Theme.NoTitleBar")]
 	public class MainActivity : Activity
 	{
 		AbsoluteLayout placeholder;

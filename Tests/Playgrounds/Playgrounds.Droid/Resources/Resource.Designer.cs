@@ -246,8 +246,8 @@ namespace Playgrounds.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0a000e
-			public const int UrhoSurfacePlaceHolder = 2131361806;
+			// aapt resource value: 0x7f0a000a
+			public const int UrhoSurfacePlaceHolder = 2131361802;
 			
 			// aapt resource value: 0x7f0a0012
 			public const int action0 = 2131361810;
@@ -318,11 +318,11 @@ namespace Playgrounds.Droid
 			// aapt resource value: 0x7f0a0017
 			public const int notification_main_column_container = 2131361815;
 			
-			// aapt resource value: 0x7f0a000d
-			public const int pauseBtn = 2131361805;
+			// aapt resource value: 0x7f0a000e
+			public const int pauseBtn = 2131361806;
 			
-			// aapt resource value: 0x7f0a000a
-			public const int restartBtn = 2131361802;
+			// aapt resource value: 0x7f0a000b
+			public const int restartBtn = 2131361803;
 			
 			// aapt resource value: 0x7f0a001e
 			public const int right_icon = 2131361822;
@@ -330,14 +330,14 @@ namespace Playgrounds.Droid
 			// aapt resource value: 0x7f0a0019
 			public const int right_side = 2131361817;
 			
-			// aapt resource value: 0x7f0a000c
-			public const int spawnBtn = 2131361804;
+			// aapt resource value: 0x7f0a000d
+			public const int spawnBtn = 2131361805;
 			
 			// aapt resource value: 0x7f0a0014
 			public const int status_bar_latest_event_content = 2131361812;
 			
-			// aapt resource value: 0x7f0a000b
-			public const int stopBtn = 2131361803;
+			// aapt resource value: 0x7f0a000c
+			public const int stopBtn = 2131361804;
 			
 			// aapt resource value: 0x7f0a0002
 			public const int text = 2131361794;

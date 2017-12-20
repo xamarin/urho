@@ -43,7 +43,7 @@ namespace Urho.Droid
 			Viewport = Application.Renderer.GetViewport(0);
 
 			var videoRp = new RenderPathCommand(RenderCommandType.Quad);
-			videoRp.PixelShaderName = (UrhoString)"ARCore";
+			videoRp.PixelShaderName = (UrhoString)"ARCore"; //see CoreData/Shaders/GLSL/ARCore.glsl
 			videoRp.VertexShaderName = (UrhoString)"ARCore";
 			videoRp.SetOutput(0, "viewport");
 			videoRp.SetTextureName(TextureUnit.Diffuse, CameraTexture.Name);
