@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using ARKit;
+using CoreMedia;
 using UIKit;
 using Urho;
-using Urho.Physics;
 using Urho.Urho2D;
 
 namespace Playgrounds.iOS
@@ -25,15 +25,10 @@ namespace Playgrounds.iOS
 		public UIInterfaceOrientation Orientation { get; set; }
 		public Camera Camera { get; set; }
 		public ARSession ARSession { get; private set; }
-		public Node AnchorsNode { get; private set; }
-		public bool ContinuesHitTestAtCenter { get; set; }
-		public Vector3? LastHitTest { get; private set; }
-		public bool PlaneDetectionEnabled { get; set; } = true;
 
 		public override void OnAttachedToNode(Node node)
 		{
 			base.OnAttachedToNode(node);
-			AnchorsNode = Scene.CreateChild();
 		}
 
 		public void Run()
@@ -79,12 +74,11 @@ namespace Playgrounds.iOS
 			urhoProjection.M34 *= -1;
 			//prj.M13 = 0; //center of projection
 			//prj.M23 = 0;
-
 			//urhoProjection.Row2 *= -1;
 			urhoProjection.Transpose();
 
 			Camera.SetProjection(urhoProjection);
-			ApplyTransform(Camera.Node, transform);
+			ApplyOpenTkTransform(Camera.Node, transform);
 
 			if (!yuvTexturesInited)
 			{
@@ -138,9 +132,6 @@ namespace Playgrounds.iOS
 				yuvTexturesInited = true;
 			}
 
-			if (ContinuesHitTestAtCenter)
-				LastHitTest = HitTest();
-
 			if (yuvTexturesInited)
 				UpdateBackground(frame);
 
@@ -153,7 +144,7 @@ namespace Playgrounds.iOS
 		public Vector3? HitTest(float screenX = 0.5f, float screenY = 0.5f) =>
 			HitTest(ARSession?.CurrentFrame, screenX, screenY);
 
-		Vector3? HitTest(ARFrame frame, float screenX = 0.5f, float screenY = 0.5f)
+		public Vector3? HitTest(ARFrame frame, float screenX = 0.5f, float screenY = 0.5f)
 		{
 			var result = frame?.HitTest(new CoreGraphics.CGPoint(screenX, screenY),
 				ARHitTestResultType.ExistingPlaneUsingExtent)?.FirstOrDefault();
@@ -166,7 +157,7 @@ namespace Playgrounds.iOS
 			return null;
 		}
 
-		unsafe public void ApplyTransform(Node node, OpenTK.NMatrix4 matrix, bool rot = false)
+		unsafe public void ApplyOpenTkTransform(Node node, OpenTK.NMatrix4 matrix, bool rot = false)
 		{
 			Matrix4 urhoTransform = *(Matrix4*)(void*)&matrix;
 			var rotation = urhoTransform.Rotation;
@@ -201,100 +192,37 @@ namespace Playgrounds.iOS
 			}
 		}
 
-		internal void DidAddAnchors(ARAnchor[] anchors)
-		{
-			if (!PlaneDetectionEnabled)
-				return;
+		public event Action<ARAnchor[]> DidAddAnchors;
+		internal void OnDidAddAnchors(ARAnchor[] anchors)
+			=> DidAddAnchors?.Invoke(anchors);
 
-			foreach (var anchor in anchors)
-			{
-				UpdateAnchor(null, anchor);
-			}
-		}
+		public event Action<ARAnchor[]> DidRemoveAnchors;
+		internal void OnDidRemoveAnchors(ARAnchor[] anchors)
+			=> DidRemoveAnchors?.Invoke(anchors);
 
-		internal void DidRemoveAnchors(ARAnchor[] anchors)
-		{
-			if (!PlaneDetectionEnabled)
-				return;
+		public event Action<ARAnchor[]> DidUpdateAnchors;
+		internal void OnDidUpdateAnchors(ARAnchor[] anchors)
+			=> DidUpdateAnchors?.Invoke(anchors);
 
-			foreach (var anchor in anchors)
-			{
-				AnchorsNode.GetChild(anchor.Identifier.ToString())?.Remove();
-			}
-		}
+		public event Action<CMSampleBuffer> DidOutputAudioSampleBuffer;
+		internal void OnDidOutputAudioSampleBuffer(CMSampleBuffer audioSampleBuffer)
+			=> DidOutputAudioSampleBuffer?.Invoke(audioSampleBuffer);
 
-		internal void DidUpdateAnchors(ARAnchor[] anchors)
-		{
-			if (!PlaneDetectionEnabled)
-				return;
+		public event Action<Foundation.NSError> DidFail;
+		internal void OnDidFail(Foundation.NSError error)
+			=> DidFail?.Invoke(error);
 
-			foreach (var anchor in anchors)
-			{
-				var node = AnchorsNode.GetChild(anchor.Identifier.ToString());
-				UpdateAnchor(node, anchor);
-			}
-		}
+		public event Action WasInterrupted;
+		internal void OnWasInterrupted()
+			=> WasInterrupted?.Invoke();
 
-		public event Action<Node> PlaneUpdated;
+		public event Action InterruptionEnded;
+		internal void OnInterruptionEnded()
+			=> InterruptionEnded?.Invoke();
 
-		unsafe void UpdateAnchor(Node node, ARAnchor anchor)
-		{
-			if (anchor is ARPlaneAnchor planeAnchor)
-			{
-				Material tileMaterial = null;
-				Node planeNode = null;
-				if (node == null)
-				{
-					var id = planeAnchor.Identifier.ToString();
-					node = AnchorsNode.CreateChild(id);
-					planeNode = node.CreateChild("SubPlane");
-					var plane = planeNode.CreateComponent<StaticModel>();
-					planeNode.Position = new Vector3();
-					plane.Model = CoreAssets.Models.Plane;
-					plane.Material = Material.FromColor(Color.Transparent);
-
-					/*tileMaterial = new Material();
-					tileMaterial.SetTexture(TextureUnit.Diffuse, Application.ResourceCache.GetTexture2D("Textures/PlaneTile.png"));
-					var tech = new Technique();
-					var pass = tech.CreatePass("alpha");
-					pass.DepthWrite = false;
-					pass.BlendMode = BlendMode.Alpha;
-					pass.PixelShader = "PlaneTile";
-					pass.VertexShader = "PlaneTile";
-					tileMaterial.SetTechnique(0, tech);
-					tileMaterial.SetShaderParameter("MeshColor", Color.White);
-					tileMaterial.SetShaderParameter("MeshAlpha", 0.8f); // set 0.0f if you want to hide them
-					tileMaterial.SetShaderParameter("MeshScale", 15.0f);
-
-					var planeRb = planeNode.CreateComponent<RigidBody>();
-					planeRb.Friction = 1.5f;
-					CollisionShape shape = planeNode.CreateComponent<CollisionShape>();
-					shape.SetBox(Vector3.One, Vector3.Zero, Quaternion.Identity);
-					plane.Material = tileMaterial;
-					*/
-				}
-				else
-				{
-					planeNode = node.GetChild("SubPlane");
-					//tileMaterial = planeNode.GetComponent<StaticModel>().Material;
-				}
-
-				ApplyTransform(node, planeAnchor.Transform, true);
-				planeNode.Scale = new Vector3(planeAnchor.Extent.X, 0.1f, planeAnchor.Extent.Z);
-				planeNode.Position = new Vector3(planeAnchor.Center.X, planeAnchor.Center.Y, -planeAnchor.Center.Z);
-
-				PlaneUpdated?.Invoke(planeNode);
-
-				/*var animation = new ValueAnimation();
-				animation.SetKeyFrame(0.0f, 0.8f);
-				animation.SetKeyFrame(0.5f, 0.0f);
-				tileMaterial.SetShaderParameterAnimation("MeshAlpha", animation, WrapMode.Once, 1.0f);*/
-				//Debug.WriteLine($"ARPlaneAnchor  Extent({planeAnchor.Extent}), Center({planeAnchor.Center}), Position({planeAnchor.Transform.Row3}");
-			}
-			if (anchor is ARFaceAnchor faceAnchor)
-			{
-			}
-		}
+		public event Action<ARCamera> CameraDidChangeTrackingState;
+		internal void OnCameraDidChangeTrackingState(ARCamera camera)
+			=> CameraDidChangeTrackingState?.Invoke(camera);
 	}
 
 	class UrhoARSessionDelegate : ARSessionDelegate
@@ -308,48 +236,58 @@ namespace Playgrounds.iOS
 
 		public override void CameraDidChangeTrackingState(ARSession session, ARCamera camera)
 		{
-			Console.WriteLine("CameraDidChangeTrackingState");
+			if (arkit.TryGetTarget(out var ap) && ap.Application.IsActive)
+				Urho.Application.InvokeOnMain(() => ap.OnCameraDidChangeTrackingState(camera));
 		}
 
 		public override void DidUpdateFrame(ARSession session, ARFrame frame)
 		{
-			if (arkit.TryGetTarget(out var ap))
+			if (arkit.TryGetTarget(out var ap) && ap.Application.IsActive)
 			{
 				Urho.Application.InvokeOnMain(() => ap.ProcessARFrame(session, frame));
 			}
 		}
 
+		public override void DidOutputAudioSampleBuffer(ARSession session, CMSampleBuffer audioSampleBuffer)
+		{
+			if (arkit.TryGetTarget(out var ap) && ap.Application.IsActive)
+				Urho.Application.InvokeOnMain(() => ap.OnDidOutputAudioSampleBuffer(audioSampleBuffer));
+		}
+
 		public override void DidFail(ARSession session, Foundation.NSError error)
 		{
-			Console.WriteLine("DidFail");
+			if (arkit.TryGetTarget(out var ap) && ap.Application.IsActive)
+				Urho.Application.InvokeOnMain(() => ap.OnDidFail(error));
 		}
 
 		public override void WasInterrupted(ARSession session)
 		{
-			Console.WriteLine("WasInterrupted");
+			if (arkit.TryGetTarget(out var ap) && ap.Application.IsActive)
+				Urho.Application.InvokeOnMain(() => ap.OnWasInterrupted());
 		}
 
 		public override void InterruptionEnded(ARSession session)
 		{
-			Console.WriteLine("InterruptionEnded");
+			if (arkit.TryGetTarget(out var ap) && ap.Application.IsActive)
+				Urho.Application.InvokeOnMain(() => ap.OnInterruptionEnded());
 		}
 
 		public override void DidAddAnchors(ARSession session, ARAnchor[] anchors)
 		{
-			if (arkit.TryGetTarget(out var ap))
-				Urho.Application.InvokeOnMain(() => ap.DidAddAnchors(anchors));
+			if (arkit.TryGetTarget(out var ap) && ap.Application.IsActive)
+				Urho.Application.InvokeOnMain(() => ap.OnDidAddAnchors(anchors));
 		}
 
 		public override void DidRemoveAnchors(ARSession session, ARAnchor[] anchors)
 		{
-			if (arkit.TryGetTarget(out var ap))
-				Urho.Application.InvokeOnMain(() => ap.DidRemoveAnchors(anchors));
+			if (arkit.TryGetTarget(out var ap) && ap.Application.IsActive)
+				Urho.Application.InvokeOnMain(() => ap.OnDidRemoveAnchors(anchors));
 		}
 
 		public override void DidUpdateAnchors(ARSession session, ARAnchor[] anchors)
 		{
-			if (arkit.TryGetTarget(out var ap))
-				Urho.Application.InvokeOnMain(() => ap.DidUpdateAnchors(anchors));
+			if (arkit.TryGetTarget(out var ap) && ap.Application.IsActive)
+				Urho.Application.InvokeOnMain(() => ap.OnDidUpdateAnchors(anchors));
 		}
 	}
 }
