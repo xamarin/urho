@@ -20,6 +20,6 @@
    </metadata>
    <files>
      <file src="Bin/Extensions/ARCore/Urho.Extensions.Droid.ARCore.dll" target="lib/monoandroid80/Urho.Extensions.Droid.ARCore.dll" />
-     <file src="Bin/Extensions/ARCore/Xamarin.Google.ARCore.dll" target="lib/monoandroid80/Xamarin.Google.ARCore.dll" />
+     <file src="Bin/Extensions/ARCore/Urho.Droid.CoreAR.dll" target="lib/monoandroid80/Urho.Droid.CoreAR.dll" />
    </files>
 </package>

@@ -4,8 +4,10 @@ namespace Urho.SharpReality
 {
 	public class TransparentPlaneWithShadows : Component
 	{
+		[Preserve]
 		public TransparentPlaneWithShadows() {}
 
+		[Preserve]
 		public TransparentPlaneWithShadows(IntPtr handle) : base(handle) {}
 
 		public override void OnAttachedToNode(Node node)
