@@ -113,8 +113,8 @@ namespace Playgrounds.iOS
 				var viewport = Application.Renderer.GetViewport(0);
 
 				var videoRp = new RenderPathCommand(RenderCommandType.Quad);
-				videoRp.PixelShaderName = (UrhoString)"ARCopyFramebuffer";
-				videoRp.VertexShaderName = (UrhoString)"ARCopyFramebuffer";
+				videoRp.PixelShaderName = (UrhoString)"ARKit";
+				videoRp.VertexShaderName = (UrhoString)"ARKit";
 				videoRp.SetOutput(0, "viewport");
 				videoRp.SetTextureName(TextureUnit.Diffuse, cameraYtexture.Name); //sDiffMap
 				videoRp.SetTextureName(TextureUnit.Normal, cameraUVtexture.Name); //sNormalMap
