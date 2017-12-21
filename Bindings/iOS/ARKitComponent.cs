@@ -15,7 +15,10 @@ namespace Playgrounds.iOS
 		bool yuvTexturesInited;
 		ARSessionDelegate arSessionDelegate;
 
+		[Preserve]
 		public ARKitComponent() { ReceiveSceneUpdates = true; }
+
+		[Preserve]
 		public ARKitComponent(IntPtr handle) : base(handle) { ReceiveSceneUpdates = true; }
 
 		public ARConfiguration ARConfiguration { get; set; }

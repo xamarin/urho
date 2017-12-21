@@ -25,7 +25,10 @@ namespace Urho.Droid
 		public event Action<Frame> ARFrameUpdated;
 		public event Action<Config> ConfigRequested;
 
+		[Preserve]
 		public ARCoreComponent() { ReceiveSceneUpdates = true; }
+
+		[Preserve]
 		public ARCoreComponent(IntPtr handle) : base(handle) { ReceiveSceneUpdates = true; }
 
 		public override unsafe void OnAttachedToNode(Node node)
