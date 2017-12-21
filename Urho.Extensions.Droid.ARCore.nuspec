@@ -12,7 +12,7 @@
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <summary>ARCore support for UrhoSharp</summary>
        <description></description>
-	   <releaseNotes></releaseNotes>
+       <releaseNotes></releaseNotes>
        <tags>ARCore Urho Urho3D Android UrhoSharp Xamarin 2D 3D games engine</tags>
        <dependencies>
          <dependency id="UrhoSharp" version="1.8" />
