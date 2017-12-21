@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
-       <id>Urho.Extensions.Droid.ARCore</id>
+       <id>UrhoSharp.ARCore</id>
        <version>1.8</version>
-       <title>UrhoSharp.Droid.ARCore</title>
+       <title>UrhoSharp.ARCore</title>
        <authors>Xamarin Inc.</authors>
        <owners>Xamarin</owners>
        <licenseUrl>https://github.com/xamarin/urho/blob/master/LICENSE</licenseUrl>
