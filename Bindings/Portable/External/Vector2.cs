@@ -882,19 +882,49 @@ namespace Urho
 			Add(ref result, ref temp, out result);
 		}
 
-		#endregion
+        #endregion
 
-		#endregion
+        #region CalculateAngle
 
-		#region Operators
+        /// <summary>
+        /// Calculate the angle (in radians) between the two inputs
+        /// </summary>
+        /// <param name="left">First operand</param>
+        /// <param name="right">Second operand</param>
+        /// <returns>The angle (in radians)  between the two inputs</returns>
+        /// <remarks>Note that the returned angle is never bigger than the constant Pi.</remarks>
+        public static float Angle(Vector2 left, Vector2 right)
+	    {
+	        return (float)System.Math.Acos(Dot(left, right) / (left.Length * right.Length));
+	    }
 
-		/// <summary>
-		/// Adds the specified instances.
-		/// </summary>
-		/// <param name="left">Left operand.</param>
-		/// <param name="right">Right operand.</param>
-		/// <returns>Result of addition.</returns>
-		public static Vector2 operator +(Vector2 left, Vector2 right)
+        /// <summary>
+        /// Calculate the angle (in radians) between the two inputs
+        /// </summary>
+        /// <param name="left">First operand</param>
+        /// <param name="right">Second operand</param>
+        /// <param name="result">The angle (in radians) between the two inputs</param>
+        /// <remarks>Note that the returned angle is never bigger than the constant Pi.</remarks>
+        public static void Angle(ref Vector2 left, ref Vector2 right, out float result)
+	    {
+	        float temp;
+	        Vector2.Dot(ref left, ref right, out temp);
+            result = (float)System.Math.Acos(temp / (left.Length * right.Length));
+        }
+
+	    #endregion
+
+        #endregion
+
+        #region Operators
+
+        /// <summary>
+        /// Adds the specified instances.
+        /// </summary>
+        /// <param name="left">Left operand.</param>
+        /// <param name="right">Right operand.</param>
+        /// <returns>Result of addition.</returns>
+        public static Vector2 operator +(Vector2 left, Vector2 right)
 		{
 			left.X += right.X;
 			left.Y += right.Y;
