@@ -6,7 +6,7 @@ using UIKit;
 using Urho;
 using Urho.Urho2D;
 
-namespace Playgrounds.iOS
+namespace Urho.iOS
 {
 	public class ARKitComponent : Component
 	{

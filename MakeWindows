@@ -1,5 +1,5 @@
 URHO3D_SRC_DIR=Urho3D/Source
-VS_VER=14
+VS_VER=15
 ARCH=Win64
 TARGET=Visual Studio $(VS_VER) $(ARCH)
 TOOLS_DIR=../../Bin/Tools/Win64

@@ -1,6 +1,6 @@
 ﻿URHO3D_SRC_DIR=Urho3D/Source
 ARCH=x86
-VS_VER=14
+VS_VER=15
 CONFIG=Release
 
 ifeq ($(ARCH), x64)
