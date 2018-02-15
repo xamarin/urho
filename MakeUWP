@@ -1,10 +1,20 @@
-# 1 for 64bit, 0 for 32bit:
 URHO3D_SRC_DIR=Urho3D/Source
-TARGET=Visual Studio 14
+ARCH=x86
+VS_VER=15
 CONFIG=Debug
 
+ifeq ($(ARCH), x64)
+TARGET=Visual Studio $(VS_VER) Win64
+else
+TARGET=Visual Studio $(VS_VER)
+endif
+
+ifeq ($(CONFIG), Debug)
+LIB_PREFIX=_d
+endif
+
 Urho3D_UWP:
-	rm -rf Urho3D/Urho3D_UWP/CMakeFiles && rm -rf Urho3D/Urho3D_UWP/CMakeCache.txt && cd $(URHO3D_SRC_DIR) && cmake -E make_directory ../Urho3D_UWP && cmake -E chdir ../Urho3D_UWP cmake -G "$(TARGET)" ../Urho3D_UWP -DURHO3D_D3D11=1 -DUWP=1 -DURHO3D_NEON=0 -DURHO3D_WIN32_CONSOLE=0 -DURHO3D_NETWORK=1 -DURHO3D_FILEWATCHER=0 -DURHO3D_PROFILING=0 -DURHO3D_THREADING=0 -DURHO3D_PCH=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -VS=14 ../../$(URHO3D_SRC_DIR)/
+	rm -rf Urho3D/Urho3D_UWP/CMakeFiles && rm -rf Urho3D/Urho3D_UWP/CMakeCache.txt && cd $(URHO3D_SRC_DIR) && cmake -E make_directory ../Urho3D_UWP && cmake -E chdir ../Urho3D_UWP cmake -G "$(TARGET)" ../Urho3D_UWP -DURHO3D_D3D11=1 -DUWP=1 -DURHO3D_NEON=0 -DURHO3D_WIN32_CONSOLE=0 -DURHO3D_NETWORK=1 -DURHO3D_FILEWATCHER=0 -DURHO3D_PROFILING=0 -DURHO3D_THREADING=0 -DURHO3D_PCH=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -VS=$(VS_VER) ../../$(URHO3D_SRC_DIR)/
 
 libUrho3D.a: Urho3D_UWP
-	cd Urho3D/Urho3D_UWP && cp -r MonoUrho.UWP/SdlStub/SDL include/Urho3D/ThirdParty && cmake --build . --target Urho3D --config $(CONFIG)
+	cp -r Urho3D/Urho3D_UWP/MonoUrho.UWP/SdlStub/SDL Urho3D/Urho3D_UWP/include/Urho3D/ThirdParty && cd Urho3D/Urho3D_UWP && cmake --build . --target Urho3D --config $(CONFIG) && cp lib/Urho3D$(LIB_PREFIX).lib lib/Urho3D$(LIB_PREFIX)_$(ARCH).lib

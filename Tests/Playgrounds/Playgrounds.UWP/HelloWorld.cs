@@ -1,10 +1,14 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Urho;
+using Urho.Actions;
 
 namespace Playgrounds.UWP
 {
 	public class HelloWorld : Application
 	{
+		MonoDebugHud debugHud;
+
 		public HelloWorld(ApplicationOptions options = null) : base(options) { }
 
 		protected override async void Start()
@@ -21,8 +25,9 @@ namespace Playgrounds.UWP
 			var modelObject = boxNode.CreateComponent<StaticModel>();
 			modelObject.Model = ResourceCache.GetModel("Models/Box.mdl");
 
-			await Task.Delay(1000);
-			await ToMainThreadAsync();
+			boxNode.RunActions(new RepeatForever(new RotateBy(1,0, 90, 0)));
+			//await Task.Delay(1000);
+			//await ToMainThreadAsync();
 
 			// Light
 			var lightNode = scene.CreateChild(name: "light");
@@ -37,8 +42,31 @@ namespace Playgrounds.UWP
 			Renderer.SetViewport(0, new Viewport(scene, camera, null));
 
 			// DebugHud
-			var debugHud = new MonoDebugHud(this);
+			debugHud = new MonoDebugHud(this);
 			debugHud.Show();
+
+			Input.TouchMove += Input_TouchMove;
+			Input.TouchBegin += InputOnTouchBegin;
+			Input.MouseMoved += Input_MouseMove;
+			Input.MouseButtonDown += InputOnMouseButtonDown;
+		}
+
+		void InputOnTouchBegin(TouchBeginEventArgs touchBeginEventArgs)
+		{
+		}
+
+		void InputOnMouseButtonDown(MouseButtonDownEventArgs mouseButtonDownEventArgs)
+		{
+		}
+
+		void Input_MouseMove(MouseMovedEventArgs e)
+		{
+			debugHud.AdditionalText = $"Mouse: {e.X};{e.Y}";
+		}
+
+		void Input_TouchMove(TouchMoveEventArgs e)
+		{
+			debugHud.AdditionalText = $"Touch: {e.X};{e.Y}";
 		}
 	}
 }

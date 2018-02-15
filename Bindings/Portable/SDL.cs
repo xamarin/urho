@@ -18,6 +18,12 @@ namespace Urho
 		static extern void SDL_SetMainReady();
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		static extern void SDL_WINRT_InitSdl();
+
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		static extern void SDL_WINRT_SubscribeToWindowEvents();
+
+		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		static extern void SDL_AudioQuit();
 
 		[DllImport(Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
@@ -28,6 +34,13 @@ namespace Urho
 		public static void Quit() => SDL_Quit();
 
 		public static void SetMainReady() => SDL_SetMainReady();
+
+		public static void InitUwp()
+		{
+			SDL_WINRT_InitSdl();
+			SDL_WINRT_SubscribeToWindowEvents();
+		}
+
 
 		public static void SendWindowEvent(SdlWindowEvent wndEvent, int data1 = 0, int data2 = 0)
 		{

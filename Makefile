@@ -57,8 +57,11 @@ Windows32_D3D11:
 Windows64_D3D11:
 	make -j1 libUrho3D.a -f MakeWindows ARCH="Win64" RENDERER=D3D11
 
+UWP: UWP32 UWP64
 UWP32:
-	make -j1 libUrho3D.a -f MakeUWP TARGET="Visual Studio 15"
+	make -j1 libUrho3D.a -f MakeUWP ARCH=x86
+UWP64:
+	make -j1 libUrho3D.a -f MakeUWP ARCH=x64
 
 SharpReality: SharpReality32 SharpReality64
 SharpReality32:
