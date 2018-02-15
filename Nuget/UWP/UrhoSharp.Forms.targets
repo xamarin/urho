@@ -1,10 +1,4 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <ItemGroup>
-        <Content Include="$(MSBuildThisFileDirectory)\..\..\native\UWP32\mono-urho.dll">
-            <Link>mono-urho.dll</Link>
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
-    </ItemGroup>
 	<ItemGroup>
 		<Content Include="$(MSBuildThisFileDirectory)\..\..\native\CoreData.pak">
 			<Link>CoreData.pak</Link>

@@ -59,6 +59,7 @@
      <file src="Nuget/UWP/UrhoSharp.targets" target="build/uap10.0" />
      <file src="docs/Urho.XML" target="lib/uap10.0/Urho.XML" />
      <file src="Bin/UWP/Urho.dll" target="lib/uap10.0/Urho.dll" />
-     <file src="Bin/UWP/mono-urho.dll" target="native/UWP32/mono-urho.dll" />
+     <file src="Bin/UWP/Win32/UrhoSharp.UWP/mono-urho.dll" target="runtimes\win10-x86\native\mono-urho.dll" />
+     <file src="Bin/UWP/x64/UrhoSharp.UWP/mono-urho.dll" target="runtimes\win10-x64\native\mono-urho.dll" />
    </files>
 </package>
