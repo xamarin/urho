@@ -12,6 +12,7 @@ using Android.Widget;
 using Com.Google.AR.Core;
 using Urho;
 using Urho.Droid;
+using Urho.Shapes;
 
 namespace Playgrounds.Droid
 {
@@ -27,12 +28,16 @@ namespace Playgrounds.Droid
 		{
 			base.Start();
 
-			arCore = Scene.CreateComponent<ARCoreComponent>();
+			/*arCore = Scene.CreateComponent<ARCoreComponent>();
 			arCore.ARFrameUpdated += OnARFrameUpdated;
-			arCore.Camera = Camera;
-		}
+			arCore.Camera = Camera;*/
 
-		private void OnARFrameUpdated(Frame frame)
+			var boxNode = Scene.CreateChild();
+			boxNode.Position = new Vector3(0, 0, 0.5f);
+			boxNode.CreateComponent<Pyramid>();
+			boxNode.SetScale(0.1f);
+		}
+		void OnARFrameUpdated(Frame frame)
 		{
 		}
 	}

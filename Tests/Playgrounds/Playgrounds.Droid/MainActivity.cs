@@ -37,6 +37,19 @@ namespace Playgrounds.Droid
 				ActivityCompat.RequestPermissions(this, new []{ Manifest.Permission.Camera}, 42);
 		}
 
+		public override bool DispatchKeyEvent(KeyEvent e)
+		{
+			if (e.KeyCode == Keycode.Back)
+			{
+				this.Finish();
+				return false;
+			}
+
+			if (!UrhoSurface.DispatchKeyEvent(e))
+				return false;
+			return base.DispatchKeyEvent(e);
+		}
+
 		protected override void OnPause()
 		{
 			UrhoSurface.OnPause();
@@ -79,6 +92,9 @@ namespace Playgrounds.Droid
 
 		async void OnSpawn(object sender, EventArgs e)
 		{
+			if (surface == null)
+				return;
+
 			surface.Stop();
 			if (surface.Parent is ViewGroup)
 				((ViewGroup)surface.Parent).RemoveView(surface);
@@ -87,6 +103,9 @@ namespace Playgrounds.Droid
 
 		async void OnStop(object sender, EventArgs e)
 		{
+			if (surface == null)
+				return;
+
 			surface.Stop();
 			if (surface.Parent is ViewGroup)
 				((ViewGroup)surface.Parent).RemoveView(surface);
@@ -94,9 +113,6 @@ namespace Playgrounds.Droid
 
 		async void OnRestart(object sender, EventArgs e)
 		{
-			//UrhoSurface.RunInActivity<Game>(new ApplicationOptions(null));
-			//return;
-
 			if (surface != null)
 			{
 				surface.Stop();

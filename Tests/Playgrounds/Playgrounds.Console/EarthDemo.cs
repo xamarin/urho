@@ -9,6 +9,7 @@ namespace Playgrounds.Console
 	public class EarthDemo : SimpleApplication
 	{
 		Node earthNode;
+		MonoDebugHud hud;
 
 		[Preserve]
 		public EarthDemo(ApplicationOptions options) : base(options) { }
@@ -26,6 +27,9 @@ namespace Playgrounds.Console
 		protected override async void Start()
 		{
 			base.Start();
+
+			hud = new MonoDebugHud(this);
+			hud.Show(Color.Yellow, 24);
 
 			var timeLabel = new Text {
 				HorizontalAlignment = HorizontalAlignment.Center,
