@@ -369,7 +369,7 @@
 /* Platform specific definitions */
 #if !defined(__WIN32__)
 #  if !defined(_STDINT_H_) && !defined(_STDINT_H) && !defined(HAVE_STDINT_H) && !defined(_HAVE_STDINT_H)
-#if !defined(UWP_HOLO) || !defined(_WIN64)
+#if !defined(UWP) || !defined(_WIN64)
 typedef unsigned int size_t;
 #endif
 typedef signed char int8_t;
@@ -380,7 +380,7 @@ typedef signed int int32_t;
 typedef unsigned int uint32_t;
 typedef signed long long int64_t;
 typedef unsigned long long uint64_t;
-#if !defined(UWP_HOLO)
+#if !defined(UWP)
 typedef unsigned long uintptr_t;
 #endif
 #  endif /* if (stdint.h isn't available) */
