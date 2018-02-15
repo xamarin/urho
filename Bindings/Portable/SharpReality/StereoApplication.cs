@@ -231,7 +231,7 @@ namespace Urho.SharpReality
 		/// </summary>
 		public virtual Model GenerateModelFromSpatialSurface(SpatialMeshInfo surface)
 		{
-			return CreateModelFromVertexData(surface.VertexData, surface.IndexData);
+			return CreateModelFromVertexData(surface.VertexData, surface.IndexData, surface.BoundsRotation);
 		}
 
 		internal void HandleSurfaceUpdated(SpatialMeshInfo surface)
@@ -258,7 +258,10 @@ namespace Urho.SharpReality
 				{
 					var position = rotation * vertexData[i].Position;
 					vertexData[i].Position = position;
-					boundingBox.Merge(boundingBox);
+					boundingBox.Merge(position);
+
+					var normal = rotation * vertexData[i].Normal;
+					vertexData[i].Normal = normal;
 				}
 			}
 			else
