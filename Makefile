@@ -47,11 +47,13 @@ iOS:
 tvOS:
 	make -j1 fat-libmono-urho.dylib -f MaketvOS
 
+Windows: Windows32 Windows64
 Windows32:
 	make -j1 libUrho3D.a -f MakeWindows ARCH="Win32" RENDERER=OPENGL
 Windows64:
 	make -j1 libUrho3D.a -f MakeWindows ARCH="Win64" RENDERER=OPENGL
 
+Windows_D3D11: Windows32_D3D11 Windows64_D3D11
 Windows32_D3D11:
 	make -j1 libUrho3D.a -f MakeWindows ARCH="Win32" RENDERER=D3D11
 Windows64_D3D11:
@@ -74,8 +76,6 @@ HoloLens64: HoloLens
 HoloLens:
 	@echo "HoloLens was renamed to SharpReality"
 
-Windows: Windows32 Windows64
-Windows_D3D11: Windows32_D3D11 Windows64_D3D11
 All-Macos: Android Mac iOS
 All-Windows: Android Windows
 
