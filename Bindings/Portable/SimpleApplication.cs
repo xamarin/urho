@@ -182,9 +182,16 @@ namespace Urho
 				Viewport.RenderPath.Append(CoreAssets.PostProcess.FXAA3);
 			}
 
+#if DESKTOP
 			Input.SubscribeToMouseWheel(args => CameraNode.Translate(-Vector3.UnitZ * 1f * args.Wheel * -1));
 			Input.SetMouseVisible(true, true);
-			Input.SubscribeToKeyDown(args => { if (args.Key == Key.Esc) Exit(); });
+			Input.SubscribeToKeyDown(args => {
+				if (args.Key == Key.Esc)
+				{
+					Exit();
+				}
+			});
+#endif
 		}
 
 		public float MoveSpeed { get; set; } = 10f;

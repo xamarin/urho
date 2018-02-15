@@ -250,25 +250,25 @@ public class SDLSurface extends SurfaceView implements SurfaceHolder.Callback,
             // Note that we process events with specific key codes here
             if (event.getAction() == KeyEvent.ACTION_DOWN) {
                 if (SDLActivity.onNativePadDown(event.getDeviceId(), keyCode) == 0) {
-                    return true;
+                    return false;
                 }
             } else if (event.getAction() == KeyEvent.ACTION_UP) {
                 if (SDLActivity.onNativePadUp(event.getDeviceId(), keyCode) == 0) {
-                    return true;
+                    return false;
                 }
             }
         }
 
         if ((event.getSource() & InputDevice.SOURCE_KEYBOARD) != 0) {
             if (event.getAction() == KeyEvent.ACTION_DOWN) {
-                //Log.v("SDL", "key down: " + keyCode);
+                Log.i("SDL", "key down: " + keyCode);
                 SDLActivity.onNativeKeyDown(keyCode);
-                return true;
+                return false;
             }
             else if (event.getAction() == KeyEvent.ACTION_UP) {
-                //Log.v("SDL", "key up: " + keyCode);
+                Log.i("SDL", "key up: " + keyCode);
                 SDLActivity.onNativeKeyUp(keyCode);
-                return true;
+                return false;
             }
         }
 
@@ -281,7 +281,7 @@ public class SDLSurface extends SurfaceView implements SurfaceHolder.Callback,
                     case KeyEvent.ACTION_UP:
                         // mark the event as handled or it will be handled by system
                         // handling KEYCODE_BACK by system will call onBackPressed()
-                        return true;
+                        return false;
                 }
             }
         }
