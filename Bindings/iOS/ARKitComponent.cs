@@ -25,6 +25,7 @@ namespace Urho.iOS
 		public UIInterfaceOrientation Orientation { get; set; }
 		public Camera Camera { get; set; }
 		public ARSession ARSession { get; private set; }
+		public string ArkitShader { get; set; } = "ARKit";
 
 		public override void OnAttachedToNode(Node node)
 		{
@@ -107,15 +108,13 @@ namespace Urho.iOS
 				var viewport = Application.Renderer.GetViewport(0);
 
 				var videoRp = new RenderPathCommand(RenderCommandType.Quad);
-				videoRp.PixelShaderName = (UrhoString)"ARKit";
-				videoRp.VertexShaderName = (UrhoString)"ARKit";
+				videoRp.PixelShaderName = (UrhoString)ArkitShader;
+				videoRp.VertexShaderName = (UrhoString)ArkitShader;
 				videoRp.SetOutput(0, "viewport");
 				videoRp.SetTextureName(TextureUnit.Diffuse, cameraYtexture.Name); //sDiffMap
 				videoRp.SetTextureName(TextureUnit.Normal, cameraUVtexture.Name); //sNormalMap
 
-				if (ARConfiguration is ARFaceTrackingConfiguration)
-					videoRp.PixelShaderDefines = new UrhoString("ARKIT_FACEX");
-				else if (Orientation != UIInterfaceOrientation.Portrait)
+				if (Orientation != UIInterfaceOrientation.Portrait)
 					videoRp.PixelShaderDefines = new UrhoString("ARKIT_LANDSCAPE");
 
 				viewport.RenderPath.InsertCommand(1, videoRp);
@@ -128,6 +127,14 @@ namespace Urho.iOS
 				vrp->SetShaderParameter("ScaleYX", (float)dt.yx);
 				vrp->SetShaderParameter("ScaleXY", (float)dt.xy);
 
+				float imageAspect = (float)img.Width / img.Height;
+
+				float yoffset;
+				if (ARConfiguration is ARFaceTrackingConfiguration)
+					yoffset = 0.013f;
+				else
+					yoffset = 64.0f / Math.Max(img.Width, img.Height);
+				vrp->SetShaderParameter("YOffset", yoffset);
 
 				yuvTexturesInited = true;
 			}

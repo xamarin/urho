@@ -12,6 +12,7 @@ uniform float cScaleX;
 uniform float cScaleY;
 uniform float cScaleXY;
 uniform float cScaleYX;
+uniform float cYOffset;
 
 void VS()
 
@@ -24,17 +25,11 @@ void VS()
 
 void PS()
 {
-#if defined(ARKIT_FACEX)
-    float yoffset = 0.013;
-#else
-    float yoffset = 0.05;
-#endif
-
     vec2 center = vec2(0.5, 0.5);
 
 #if defined(ARKIT_LANDSCAPE)
     // TODO: remove this hack 
-    float x = vScreenPos.x + yoffset * cScaleX;
+    float x = vScreenPos.x + cYOffset * cScaleX;
     if (x > 1.0 && cScaleX <= 1.0)
         x -= 1.0;
 
@@ -42,7 +37,7 @@ void PS()
     vec2 vTexCoordUV = vec2(vScreenPos.x, 1.0 - vScreenPos.y);
     vec2 scale = vec2(1.0 / cScaleX, 1.0 / cScaleY);
 #else
-    float y = vScreenPos.y - yoffset * cScaleYX;
+    float y = vScreenPos.y - cYOffset * cScaleYX;
     if (y < 0.0 && cScaleYX <= 1.0)
         y = 1.0 + y;
 
