@@ -1,7 +1,7 @@
 URHO3D_SRC_DIR=Urho3D/Source
 ARCH=x86
 VS_VER=15
-CONFIG=Debug
+CONFIG=Release
 
 ifeq ($(ARCH), x64)
 TARGET=Visual Studio $(VS_VER) Win64
