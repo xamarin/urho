@@ -36,10 +36,16 @@ namespace Urho
 				if (FpsOnly)
 					text.Value = $"{(int)fps} FPS\n{AdditionalText}";
 				else if (!InnerCacheDetails)
-					text.Value = $"{(int)fps} FPS\n{graphics.NumBatches} batches\n{Runtime.RefCountedCache.Count} MCW\n{graphics.ApiName}\n{AdditionalText}";
+					text.Value = $"{(int)fps} FPS\n{graphics.NumBatches} batches\n{Runtime.RefCountedCache.Count} MCW\n{GetEngineInfo()}\n{AdditionalText}";
 				else
 					text.Value = $"{(int)fps} FPS\n{graphics.NumBatches} batches\n{Runtime.RefCountedCache.GetCacheStatus()}\n{AdditionalText}";
 			}
+		}
+
+		string GetEngineInfo()
+		{
+			var graphics = application.Graphics;
+			return $"{graphics.Width}x{graphics.Height}\n{graphics.ApiName}"; //TODO: commit
 		}
 
 		public bool InnerCacheDetails { get; set; }

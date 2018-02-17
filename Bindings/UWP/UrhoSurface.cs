@@ -56,6 +56,9 @@ namespace Urho.UWP
 		{
 			Opacity = 0;
 			Application.StopCurrent().Wait();
+			options = options ?? new ApplicationOptions();
+			options.Width = DipsToPixels(ActualWidth);
+			options.Height = DipsToPixels(ActualHeight);
 			stop = false;
 			paused = false;
 			inited = false;
