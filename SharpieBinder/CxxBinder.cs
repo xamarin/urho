@@ -1496,6 +1496,7 @@ namespace SharpieBinder
 						{"const class Urho3D::Matrix4 &", "Matrix4"},
 						{"const class Urho3D::Matrix3x4 &", "Matrix3x4"},
 						{"int", "int"},
+						{"int&", "ref int"},
 						{"float", "float"},
 						{"const char *", "string"},
 						{"bool", "bool"},
