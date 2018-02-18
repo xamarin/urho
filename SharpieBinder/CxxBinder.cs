@@ -439,8 +439,10 @@ namespace SharpieBinder
 			case "const struct Urho3D::CrowdObstacleAvoidanceParams &":
 			case "class Urho3D::Serializer &":
 			case "class Urho3D::Deserializer &":
-				case "const class Urho3D::Variant &":
-					return false;
+			case "const class Urho3D::Variant &":
+			case "int &":
+			case "float &":
+				return false;
 			}
 
 			if (returnType) {
@@ -589,6 +591,15 @@ namespace SharpieBinder
 				highLevel = new SimpleType (simpleType);
 				lowLevel = new SimpleType (simpleType);
 				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
+				wrapKind = WrapKind.RefBlittable;
+				return;
+			case "int &":
+			case "float &":
+				var primitiveType = cleanTypeStr.DropConstAndReference();
+				highLevel = new PrimitiveType(primitiveType);
+				lowLevel = new PrimitiveType(primitiveType);
+				lowLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
+				highLevelParameterMod = ICSharpCode.NRefactory.CSharp.ParameterModifier.Ref;
 				wrapKind = WrapKind.RefBlittable;
 				return;
 			case "Image &":
@@ -818,7 +829,7 @@ namespace SharpieBinder
 		bool SkipMethod (CXXMethodDecl decl)
 		{
 			//DEBUG specific method
-			//if (currentType.Name == "File" && decl.Name == "Write")
+			//if (currentType.Name == "TileMap2D" && decl.Name == "PositionToTileIndex")
 			//	return false;
 			//return true;
 

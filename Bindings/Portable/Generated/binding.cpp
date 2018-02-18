@@ -13778,6 +13778,13 @@ Texture2D_Release (Urho3D::Texture2D *_target)
 }
 
 
+DllExport void
+Texture2D_SetCustomTarget (Urho3D::Texture2D *_target, unsigned int target)
+{
+	_target->SetCustomTarget (target);
+}
+
+
 DllExport int
 Texture2D_SetSize (Urho3D::Texture2D *_target, int width, int height, unsigned int format, enum Urho3D::TextureUsage usage, int multiSample, bool autoResolve)
 {
@@ -13821,13 +13828,6 @@ Texture2D_GetImage1 (Urho3D::Texture2D *_target)
 	copy.Detach();
 	delete copy;
 	return plain;
-}
-
-
-DllExport void
-Texture2D_SetCustomTarget (Urho3D::Texture2D *_target, unsigned int target)
-{
-	_target->SetCustomTarget (target);
 }
 
 
@@ -24677,6 +24677,13 @@ DllExport int
 NetworkPriority_GetAlwaysUpdateOwner (Urho3D::NetworkPriority *_target)
 {
 	return _target->GetAlwaysUpdateOwner ();
+}
+
+
+DllExport int
+NetworkPriority_CheckUpdate (Urho3D::NetworkPriority *_target, float distance, float & accumulator)
+{
+	return _target->CheckUpdate (distance, accumulator);
 }
 
 
@@ -36429,6 +36436,13 @@ DllExport Interop::Vector2
 TileMap2D_TileIndexToPosition (Urho3D::TileMap2D *_target, int x, int y)
 {
 	return *((Interop::Vector2  *) &(_target->TileIndexToPosition (x, y)));
+}
+
+
+DllExport int
+TileMap2D_PositionToTileIndex (Urho3D::TileMap2D *_target, int & x, int & y, const class Urho3D::Vector2 & position)
+{
+	return _target->PositionToTileIndex (x, y, position);
 }
 
 

@@ -199,6 +199,18 @@ namespace Urho.Urho2D
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool TileMap2D_PositionToTileIndex (IntPtr handle, ref int x, ref int y, ref Urho.Vector2 position);
+
+		/// <summary>
+		/// Convert position to tile index, if out of map return false.
+		/// </summary>
+		public bool PositionToTileIndex (ref int x, ref int y, Urho.Vector2 position)
+		{
+			Runtime.ValidateRefCounted (this);
+			return TileMap2D_PositionToTileIndex (handle, ref x, ref y, ref position);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern ResourceRef TileMap2D_GetTmxFileAttr (IntPtr handle);
 
 		/// <summary>

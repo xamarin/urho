@@ -198,6 +198,18 @@ namespace Urho.Network
 			return NetworkPriority_GetAlwaysUpdateOwner (handle);
 		}
 
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool NetworkPriority_CheckUpdate (IntPtr handle, float distance, ref float accumulator);
+
+		/// <summary>
+		/// Increment and check priority accumulator. Return true if should update. Called by Connection.
+		/// </summary>
+		public bool CheckUpdate (float distance, ref float accumulator)
+		{
+			Runtime.ValidateRefCounted (this);
+			return NetworkPriority_CheckUpdate (handle, distance, ref accumulator);
+		}
+
 		public override StringHash Type {
 			get {
 				return UrhoGetType ();
