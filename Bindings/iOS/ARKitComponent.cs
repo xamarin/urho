@@ -32,12 +32,15 @@ namespace Urho.iOS
 			base.OnAttachedToNode(node);
 		}
 
-		public void Run()
+		public void Run(bool runEngineFramesInArkitCallbacks = true)
 		{
 			if (Camera == null)
 				throw new InvalidOperationException("Camera was not set.");
 
-			arSessionDelegate = new UrhoARSessionDelegate(this);
+			if (runEngineFramesInArkitCallbacks && !Application.Options.DelayedStart)
+				throw new InvalidOperationException("ApplicationOptions.DelayedStart should be true if runEngineFramesInArkitCallbacks flag is set");
+
+			arSessionDelegate = new UrhoARSessionDelegate(this, runEngineFramesInArkitCallbacks);
 			ARSession = new ARSession { Delegate = arSessionDelegate };
 			ARConfiguration = ARConfiguration ?? new ARWorldTrackingConfiguration();
 			ARConfiguration.LightEstimationEnabled = true;
@@ -148,10 +151,12 @@ namespace Urho.iOS
 			frame.Dispose();
 		}
 
-		public Vector3? HitTest(float screenX = 0.5f, float screenY = 0.5f) =>
-			HitTest(ARSession?.CurrentFrame, screenX, screenY);
+		public Vector3? HitTest(float screenX = 0.5f, float screenY = 0.5f, 
+			ARHitTestResultType hitTestType = ARHitTestResultType.ExistingPlaneUsingExtent) 
+				=> HitTest(ARSession?.CurrentFrame, screenX, screenY, hitTestType);
 
-		public Vector3? HitTest(ARFrame frame, float screenX = 0.5f, float screenY = 0.5f)
+		public Vector3? HitTest(ARFrame frame, float screenX = 0.5f, float screenY = 0.5f, 
+            ARHitTestResultType hitTestType = ARHitTestResultType.ExistingPlaneUsingExtent)
 		{
 			var result = frame?.HitTest(new CoreGraphics.CGPoint(screenX, screenY),
 				ARHitTestResultType.ExistingPlaneUsingExtent)?.FirstOrDefault();
@@ -235,9 +240,11 @@ namespace Urho.iOS
 	class UrhoARSessionDelegate : ARSessionDelegate
 	{
 		WeakReference<ARKitComponent> arkit;
+		bool runFrames;
 
-		public UrhoARSessionDelegate(ARKitComponent arkit)
+		public UrhoARSessionDelegate(ARKitComponent arkit, bool runFrames)
 		{
+			this.runFrames = runFrames;
 			this.arkit = new WeakReference<ARKitComponent>(arkit);
 		}
 
@@ -249,9 +256,17 @@ namespace Urho.iOS
 
 		public override void DidUpdateFrame(ARSession session, ARFrame frame)
 		{
-			if (arkit.TryGetTarget(out var ap) && ap.Application.IsActive)
+			if (arkit.TryGetTarget(out var ap))
 			{
+				var app = ap.Application;
+				if (!app.IsActive)
+					return;
+
 				Urho.Application.InvokeOnMain(() => ap.ProcessARFrame(session, frame));
+				if (runFrames)
+				{
+					app.Engine.RunFrame();
+				}
 			}
 		}
 
