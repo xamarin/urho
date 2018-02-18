@@ -35,6 +35,8 @@ namespace Playgrounds.Forms
 		{
 			Input.SubscribeToTouchEnd(OnTouched);
 
+
+			new MonoDebugHud(this).Show();
 			var cache = ResourceCache;
 			scene = new Scene ();
 			octree = scene.CreateComponent<Octree> ();

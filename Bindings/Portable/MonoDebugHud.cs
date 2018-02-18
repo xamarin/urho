@@ -45,7 +45,7 @@ namespace Urho
 		string GetEngineInfo()
 		{
 			var graphics = application.Graphics;
-			return $"{graphics.Width}x{graphics.Height}\n{graphics.ApiName}"; //TODO: commit
+			return $"{graphics.Width}x{graphics.Height}\n{graphics.ApiName} {(IntPtr.Size == 8 ? "x64" : "x86")}"; //TODO: commit
 		}
 
 		public bool InnerCacheDetails { get; set; }
