@@ -23,19 +23,19 @@ on the LICENSE file.
 - macOS
 - Android
 - UWP
-- AR: HoloLens, ARKit, ARCore
+- **AR: HoloLens, ARKit, ARCore**
 - Mixed Reality
 - Xamarin.Forms (iOS, Android, UWP)
+
+![Sample](Screenshots/Android.gif) ![Sample](Screenshots/SamplyGame.gif)
+
+![Sample](Screenshots/ARKit.gif)
 
 Samples
 =======
 
 Sample code lives in https://github.com/xamarin/urho-samples and
 repository has them as a git submodule. Samples use UrhoSharp via nuget.
-
-![Sample](Screenshots/Android.gif) ![Sample](Screenshots/SamplyGame.gif)
-
-![Sample](Screenshots/ARKit.gif)
 
 # Setup
 
