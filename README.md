@@ -112,11 +112,12 @@ Obviously you can't do it on OS X so you have to switch to Windows
 environment. Make sure you have installed:
 
 - Visual Studio 2017
-- CMake 3.10
+- [CMake 3.10](https://cmake.org/download)
 - GNU make (cygwin) - the easiest way to install it is to follow instructions to install mono:
-   - Download Cygwin from www.cygwin.com (setup-x86-64.exe)
+   - Download Cygwin from www.cygwin.com ([setup-x86-64.exe](https://www.cygwin.com/setup-x86_64.exe))
    - Run the following command in cmd.exe to install the required packages: 
 `setup-x86_64.exe -P autoconf,automake,bison,gcc-core,gcc-g++,mingw64-i686-runtime,mingw64-i686-binutils,mingw64-i686-gcc-core,mingw64-i686-gcc-g++,mingw64-i686-pthreads,mingw64-i686-w32api,mingw64-x86_64-runtime,mingw64-x86_64-binutils,mingw64-x86_64-gcc-core,mingw64-x86_64-gcc-g++,mingw64-x86_64-pthreads,mingw64-x86_64-w32api,libtool,make,python,gettext-devel,gettext,intltool,libiconv,pkg-config,git,curl,wget,libxslt,bc,patch`
+   - Execute `Cygwin.bat` and navigate to the folder where UrhoSharp is located (e.g. `cd /cygdrive/c/projects/urho`)
 
 Execute:
 ```
