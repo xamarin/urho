@@ -2,6 +2,7 @@
 ARCH=i386
 SDK_VER=11.2
 MIN_IOS_VER=8.0
+# MIN_IOS_VER must be 8.0 or higher
 OUTPUT_DIR=Bin/iOS
 URHO_DIR=Urho3D/Urho3D_iOS
 URHO_SOURCE_DIR=Urho3D/Source
