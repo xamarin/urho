@@ -1,6 +1,7 @@
 URHO3D_SRC_DIR=Urho3D/Source
 VS_VER=15
 ARCH=Win64
+RENDERER=OPENGL
 TARGET=Visual Studio $(VS_VER) $(ARCH)
 TOOLS_DIR=../../Bin/Tools/Win64
 
@@ -12,8 +13,6 @@ endif
 
 ifeq ($(RENDERER), D3D11)
 RENDERER_FLAGS=-DURHO3D_OPENGL=0 -DURHO3D_D3D11=1
-else ifeq ($(RENDERER), D3D9)
-RENDERER_FLAGS=-DURHO3D_OPENGL=0 -DURHO3D_D3D11=0
 else 
 RENDERER_FLAGS=-DURHO3D_OPENGL=1
 endif
@@ -22,7 +21,7 @@ Urho3D_Windows:
 	rm -rf Urho3D/Urho3D_Windows/CMakeFiles && rm -rf Urho3D/Urho3D_Windows/CMakeCache.txt && cd $(URHO3D_SRC_DIR) && cmake -E make_directory ../Urho3D_Windows && cmake -E chdir ../Urho3D_Windows cmake -G "$(TARGET)" ../Urho3D_Windows $(RENDERER_FLAGS) -DURHO3D_PCH=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -VS=$(VS_VER) ../../$(URHO3D_SRC_DIR)
 
 libUrho3D.a: Urho3D_Windows
-	cd Urho3D/Urho3D_Windows && cmake --build . --target Urho3D --config Debug && cmake --build . --target Urho3D --config Release && cmake --build . --target PackageTool --config Release && cp lib/Urho3D.lib lib/Urho3D_$(ARCH).lib && cp lib/Urho3D_d.lib lib/Urho3D_d_$(ARCH).lib
+	cd Urho3D/Urho3D_Windows && cmake --build . --target Urho3D --config Debug && cmake --build . --target Urho3D --config Release && cmake --build . --target PackageTool --config Release && cp lib/Urho3D.lib lib/Urho3D_$(ARCH)_$(RENDERER).lib && cp lib/Urho3D_d.lib lib/Urho3D_d_$(ARCH)_$(RENDERER).lib
 
 CoreData.pak:
 	Urho3D/Urho3D_Windows/bin/tool/PackageTool.exe Urho3D/CoreData Urho3D/CoreData.pak -q

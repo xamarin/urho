@@ -12,6 +12,14 @@
 					<Link>mono-urho_32bit.dll</Link>
 					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 				</None>
+				<None Include="$(MSBuildThisFileDirectory)\..\..\native\Win64\mono-urho-d3d.dll">
+					<Link>mono-urho-d3d.dll</Link>
+					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+				</None>
+				<None Include="$(MSBuildThisFileDirectory)\..\..\native\Win32\mono-urho-d3d.dll">
+					<Link>mono-urho_32bit-d3d.dll</Link>
+					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+				</None>
 				<None Include="$(MSBuildThisFileDirectory)\..\..\native\CoreData.pak">
 					<Link>CoreData.pak</Link>
 					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -53,6 +53,8 @@
      <file src="docs/Urho.XML" target="lib/net45/Urho.XML" />
      <file src="Bin/Desktop/Win64/mono-urho.dll" target="native/Win64/mono-urho.dll" />
      <file src="Bin/Desktop/Win32/mono-urho.dll" target="native/Win32/mono-urho.dll" />
+     <file src="Bin/Desktop/Win64/mono-urho-d3d.dll" target="native/Win64/mono-urho-d3d.dll" />
+     <file src="Bin/Desktop/Win32/mono-urho-d3d.dll" target="native/Win32/mono-urho-d3d.dll" />
      <file src="Bin/Desktop/libmono-urho.dylib" target="native/Mac/libmono-urho.dylib" />
 	 
 	 <!--UWP-->

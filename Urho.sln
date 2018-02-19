@@ -1411,7 +1411,9 @@ Global
 		{331CB939-16E1-4753-91B1-A0B5C04D3121}.Package|iPhoneSimulator.ActiveCfg = Release|x64
 		{331CB939-16E1-4753-91B1-A0B5C04D3121}.Package|iPhoneSimulator.Build.0 = Release|x64
 		{331CB939-16E1-4753-91B1-A0B5C04D3121}.Package|x64.ActiveCfg = Release|x64
+		{331CB939-16E1-4753-91B1-A0B5C04D3121}.Package|x64.Build.0 = Release|x64
 		{331CB939-16E1-4753-91B1-A0B5C04D3121}.Package|x86.ActiveCfg = Release|Win32
+		{331CB939-16E1-4753-91B1-A0B5C04D3121}.Package|x86.Build.0 = Release|Win32
 		{331CB939-16E1-4753-91B1-A0B5C04D3121}.Release|Any CPU.ActiveCfg = Release|Win32
 		{331CB939-16E1-4753-91B1-A0B5C04D3121}.Release|ARM.ActiveCfg = Release|Win32
 		{331CB939-16E1-4753-91B1-A0B5C04D3121}.Release|iPhone.ActiveCfg = Release|Win32
