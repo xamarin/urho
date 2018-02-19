@@ -106,7 +106,7 @@ make -j5 Android
 -j5 means a job per ABI. Make sure you have installed Android SDK and NDK (see MakeAndroid file)
 This target can also be executed on Windows.
 
-**7. Compile UrhoSharp for Windows (64 bit)**
+**Compile UrhoSharp on Windows**
 
 Obviously you can't do it on OS X so you have to switch to Windows
 environment. Make sure you have installed:
@@ -132,7 +132,7 @@ make Windows_D3D11
 And compile `UrhoSharp.WindowsD3D' project.
 All compiled binaries could be found in the Bin/{platform} folder.
 
-**8. Compile UrhoSharp for UWP and HoloLens**
+**Compile UrhoSharp for UWP and HoloLens**
 
 Execute:
 ```
