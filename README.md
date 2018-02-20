@@ -28,7 +28,8 @@ on the LICENSE file.
 - Mixed Reality
 - Xamarin.Forms (iOS, Android, UWP)
 - Ubuntu
-
+  
+  
 ![Sample](Screenshots/Android.gif) ![Sample](Screenshots/SamplyGame.gif)
 
 ![Sample](Screenshots/ARKit.gif)
@@ -152,7 +153,7 @@ make SharpReality
 And compile UrhoSharp.UWP and UrhoSharp.SharpRealitys projects in Release configuration.
 
 ## Compile UrhoSharp on Ubuntu or WSL (Windows Subsystem for Linux)
-Special thanks to @aktowns
+Special thanks to https://gist.github.com/aktowns  
 Disclaimer: I am not a linux guy so I am not sure which packages from the following list
 are required, probably some of them are not:
 ```
