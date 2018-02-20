@@ -25,7 +25,7 @@ cd %URHO3D_SRC_DIR%
 @echo on
 
 cmake -E make_directory ../Urho3D_Windows
-cmake -E chdir ../Urho3D_Windows cmake -G "%TARGET%" ../Urho3D_Windows -DURHO3D_OPENGL=1 -DURHO3D_PCH=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -VS=%VS_VER% ../../%URHO3D_SRC_DIR%/
+cmake -E chdir ../Urho3D_Windows cmake -G "%TARGET%" ../Urho3D_Windows -DURHO3D_OPENGL=1 -DURHO3D_WEBP=0 -DURHO3D_PCH=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -VS=%VS_VER% ../../%URHO3D_SRC_DIR%/
 
 cd ../Urho3D_Windows
 

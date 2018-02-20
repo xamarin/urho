@@ -18,7 +18,7 @@ RENDERER_FLAGS=-DURHO3D_OPENGL=1
 endif
 
 Urho3D_Windows:
-	rm -rf Urho3D/Urho3D_Windows/CMakeFiles && rm -rf Urho3D/Urho3D_Windows/CMakeCache.txt && cd $(URHO3D_SRC_DIR) && cmake -E make_directory ../Urho3D_Windows && cmake -E chdir ../Urho3D_Windows cmake -G "$(TARGET)" ../Urho3D_Windows $(RENDERER_FLAGS) -DURHO3D_PCH=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -VS=$(VS_VER) ../../$(URHO3D_SRC_DIR)
+	rm -rf Urho3D/Urho3D_Windows/CMakeFiles && rm -rf Urho3D/Urho3D_Windows/CMakeCache.txt && cd $(URHO3D_SRC_DIR) && cmake -E make_directory ../Urho3D_Windows && cmake -E chdir ../Urho3D_Windows cmake -G "$(TARGET)" ../Urho3D_Windows $(RENDERER_FLAGS) -DURHO3D_WEBP=0 -DURHO3D_PCH=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -VS=$(VS_VER) ../../$(URHO3D_SRC_DIR)
 
 libUrho3D.a: Urho3D_Windows
 	cd Urho3D/Urho3D_Windows && cmake --build . --target Urho3D --config Debug && cmake --build . --target Urho3D --config Release && cmake --build . --target PackageTool --config Release && cp lib/Urho3D.lib lib/Urho3D_$(ARCH)_$(RENDERER).lib && cp lib/Urho3D_d.lib lib/Urho3D_d_$(ARCH)_$(RENDERER).lib

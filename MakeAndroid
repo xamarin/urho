@@ -60,7 +60,7 @@ C_FLAGS=-fexceptions -fPIC --sysroot=$(ANDK_DIR)/platforms/$(ANDROID_API)/arch-$
 
 CXX_FLAGS = --sysroot=$(ANDK_DIR)/platforms/$(ANDROID_API)/arch-$(PLATFORM) $(ABI_FLAGS) -fpermissive -fsigned-char -funwind-tables -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -fdata-sections -ffunction-sections -frtti -funswitch-loops -finline-limit=300 -fstack-protector -fomit-frame-pointer -fstrict-aliasing -fexceptions -std=gnu++11 -Wno-invalid-offsetof -O3 -DNDEBUG -fPIC -isystem $(ANDK_DIR)/platforms/$(ANDROID_API)/arch-$(PLATFORM)/usr/include -isystem $(ANDK_DIR)/sources/cxx-stl/gnu-libstdc++/$(TOOLCHAINS_VER)/include -isystem $(ANDK_DIR)/sources/cxx-stl/gnu-libstdc++/$(TOOLCHAINS_VER)/libs/$(ABI)/include -isystem $(ANDK_DIR)/sources/cxx-stl/gnu-libstdc++/$(TOOLCHAINS_VER)/include/backward
 
-CXX_DEFINES = -DANDROID -DURHO3D_FILEWATCHER -DURHO3D_IK -DURHO3D_LOGGING -DURHO3D_NAVIGATION -DURHO3D_NETWORK -DURHO3D_PHYSICS -DURHO3D_PROFILING -DURHO3D_STATIC_DEFINE -DURHO3D_THREADING -DURHO3D_URHO2D -DURHO3D_WEBP
+CXX_DEFINES = -DANDROID -DURHO3D_FILEWATCHER -DURHO3D_IK -DURHO3D_LOGGING -DURHO3D_NAVIGATION -DURHO3D_NETWORK -DURHO3D_PHYSICS -DURHO3D_PROFILING -DURHO3D_STATIC_DEFINE -DURHO3D_THREADING -DURHO3D_URHO2D
 
 CXX_INCLUDES = -isystem $(ANDK_DIR)/sources/cxx-stl/llvm-libc++/include -isystem $(ANDK_DIR)/sources/cxx-stl/llvm-libc++abi/include -isystem $(ANDK_DIR)/sources/android/support/include -IC:/prj/urho/Urho3D/Urho3D_Android/armeabi/include -I$(URHO3D_ANDROID_DIR)/include -I$(URHO3D_ANDROID_DIR)/include/Urho3D/ThirdParty -I$(URHO3D_ANDROID_DIR)/include/Urho3D/ThirdParty/Bullet -I$(URHO3D_SRC_DIR)/Source/Samples
 
@@ -83,7 +83,7 @@ SDL.o:
 	$(ANDK_GCC) $(CXX_DEFINES) $(C_FLAGS) -o $(OUTPUT_DIR)/SDL_android_main.c.o -c $(URHO3D_SRC_DIR)/Source/ThirdParty/SDL/src/main/android/SDL_android_main.c
 
 Urho3D_Android:
-	rm -rf $(URHO3D_ANDROID_DIR) && mkdir -p $(URHO3D_ANDROID_DIR) && cd $(URHO3D_SRC_DIR) && cmake -E make_directory ../Urho3D_Android/$(ABI) && cmake -E chdir ../Urho3D_Android/$(ABI) cmake -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE=../../$(URHO3D_SRC_DIR)/CMake/Toolchains/Android.cmake .../Urho3D_Android/$(ABI) -DANDROID=1 -DANDROID_ABI=$(ABI) -DANDROID_NATIVE_API_LEVEL=$(ANDROID_API) -DANDROID_TOOLCHAIN_NAME=$(TOOLCHAIN_NAME) -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) -DURHO3D_PCH=0 -DURHO3D_C++11=0 -DURHO3D_TOOLS=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -DURHO3D_SSE=0 ../../../$(URHO3D_SRC_DIR)/
+	rm -rf $(URHO3D_ANDROID_DIR) && mkdir -p $(URHO3D_ANDROID_DIR) && cd $(URHO3D_SRC_DIR) && cmake -E make_directory ../Urho3D_Android/$(ABI) && cmake -E chdir ../Urho3D_Android/$(ABI) cmake -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE=../../$(URHO3D_SRC_DIR)/CMake/Toolchains/Android.cmake .../Urho3D_Android/$(ABI) -DANDROID=1 -DANDROID_ABI=$(ABI) -DANDROID_NATIVE_API_LEVEL=$(ANDROID_API) -DANDROID_TOOLCHAIN_NAME=$(TOOLCHAIN_NAME) -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) -DURHO3D_PCH=0 -DURHO3D_C++11=0 -DURHO3D_TOOLS=0 -DURHO3D_LUA=0 -DURHO3D_WEBP=0 -DURHO3D_ANGELSCRIPT=0 -DURHO3D_SSE=0 ../../../$(URHO3D_SRC_DIR)/
 	
 libUrho3D.a: Urho3D_Android
 	cd $(URHO3D_ANDROID_DIR) && make Urho3D

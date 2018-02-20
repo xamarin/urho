@@ -28,7 +28,7 @@ XCODE_SDK=$(XCODE_BASE)/Developer/Platforms/$(TARGET).platform/Developer/SDKs/$(
 CPP=clang++ -arch $(ARCH) -F$(XCODE_FRAMEWORKS) -I$(XCODE_INCLUDES) -fapplication-extension -mios-simulator-version-min=$(MIN_IOS_VER) -miphoneos-version-min=$(MIN_IOS_VER) -isysroot $(XCODE_SDK) $(CXXFLAGS) -msse3
 
 Urho3D_IOS:
-	rm -rf $(URHO_DIR) && mkdir -p $(URHO_DIR) && $(URHO_SOURCE_DIR)/./cmake_ios.sh $(URHO_DIR) -DURHO3D_PCH=0 -DURHO3D_TOOLS=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -DURHO3D_C++11=1
+	rm -rf $(URHO_DIR) && mkdir -p $(URHO_DIR) && $(URHO_SOURCE_DIR)/./cmake_ios.sh $(URHO_DIR) -DURHO3D_PCH=0 -DURHO3D_TOOLS=0 -DURHO3D_LUA=0 -DURHO3D_WEBP=0 -DURHO3D_ANGELSCRIPT=0 -DURHO3D_C++11=1
 	
 libUrho3D.a: Urho3D_IOS
 ifeq ($(ARCH), i386)
