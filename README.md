@@ -16,6 +16,7 @@ on the LICENSE file.
 - Open-source - C# bindings and the underlying C++ engine Urho3D are licensed under the MIT License
 - Powerfull 3rd parties: Bullet, Box2D, Recast/Detour, kNet, FreeType
 - PBR, Skeletal animation, Inverse Kinematics
+- Code first, [Previewer](https://github.com/EgorBo/UrhoAssetImporter), Editor, [AssetImporter](https://urho3d.github.io/documentation/1.4/_tools.html), [Blender add-in](https://github.com/reattiva/Urho3D-Blender)
 
 **Supported platforms:**
 - Windows, WPF, WinForms
@@ -39,9 +40,16 @@ repository has them as a git submodule. Samples use UrhoSharp via nuget.
 
 # Setup
 
-* Available on NuGet: http://www.nuget.org/packages/UrhoSharp
-* Install into your PCL project and Client projects.
-
+Available on NuGet: 
+* [UrhoSharp](http://www.nuget.org/packages/UrhoSharp) - the main package,
+contains implementations for all platforms including native binaries and basic assets
+* [UrhoSharp.Tools](http://www.nuget.org/packages/UrhoSharp.Tools) - contains compiled binaries for AssetImporter and PackageTool for Windows and macOS
+* [UrhoSharp.WinForms](http://www.nuget.org/packages/UrhoSharp.WinForms) - WinForms control
+* [UrhoSharp.WPF](http://www.nuget.org/packages/UrhoSharp.WPF) - WPF control
+* [UrhoSharp.Cocoa](http://www.nuget.org/packages/UrhoSharp.Cocoa) - Cocoa control (macOS)
+* [UrhoSharp.Forms](http://www.nuget.org/packages/UrhoSharp.Forms) - Xamarin.Forms support for iOS, Android and UWP
+* [UrhoSharp.SharpReality](http://www.nuget.org/packages/UrhoSharp.SharpReality) - HoloLens and Mixed Reality platforms
+* [UrhoSharp.HoloLens](http://www.nuget.org/packages/UrhoSharp.HoloLens) - deprecated. Was renamed to UrhoSharp.SharpReality
 
 Quick start
 ===========
