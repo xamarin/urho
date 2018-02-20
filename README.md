@@ -27,6 +27,7 @@ on the LICENSE file.
 - **AR: HoloLens, ARKit, ARCore**
 - Mixed Reality
 - Xamarin.Forms (iOS, Android, UWP)
+- Ubuntu
 
 ![Sample](Screenshots/Android.gif) ![Sample](Screenshots/SamplyGame.gif)
 
@@ -71,7 +72,7 @@ This is currently a little messy, so YMMV.
 In order to compile binaries for all platforms you will need both
 Windows and OS X environment.  Please follow these steps:
 
-**1. Install:**
+## Compile UrhoSharp on macOS
 
 - XCode
 - Visual Studio for Mac
@@ -79,13 +80,13 @@ Windows and OS X environment.  Please follow these steps:
 - Command Line tools (`xcode-select --install`)
 - Android NDK + ANDROID_NDK_HOME environment variable
 
-**2. Clone the repository including submodules**
+**1. Clone the repository including submodules**
 
 ```
 git clone git@github.com:xamarin/urho.git --recursive
 ```
 
-**3. Compile Urho.pch, SharpieBinder and generate bindigs**
+**2. Compile Urho.pch, SharpieBinder and generate bindigs**
 
 The following command will download Clang 3.7.0 if you do not have it
 installed, and use this to scan the Urho header files, then compile the sources
@@ -96,25 +97,25 @@ there is a perl script to generate bindings to Urho3D events.
 make Generated
 ```
 
-**4. Compile UrhoSharp for Mac (fat dylib)**
+**3. Compile UrhoSharp for Mac (fat dylib)**
 ```
 make Mac
 ```
 it takes 5-10 minutes.
 
-**5. Compile UrhoSharp for iOS (fat dylib: i386, x86_64, armv7, arm64)**
+**4. Compile UrhoSharp for iOS (fat dylib: i386, x86_64, armv7, arm64)**
 ```
 make iOS SDK_VER=11.2
 ```
 
-**6. Compile UrhoSharp for Android (armeabi, armeabi-v7a, arm64, x86, x86_64)** 
+**5. Compile UrhoSharp for Android (armeabi, armeabi-v7a, arm64, x86, x86_64)** 
 ```
 make -j5 Android
 ```
 -j5 means a job per ABI. Make sure you have installed Android SDK and NDK (see MakeAndroid file)
 This target can also be executed on Windows.
 
-**Compile UrhoSharp on Windows**
+## Compile UrhoSharp on Windows
 
 Obviously you can't do it on OS X so you have to switch to Windows
 environment. Make sure you have installed:
@@ -149,6 +150,18 @@ make SharpReality
 ```
 
 And compile UrhoSharp.UWP and UrhoSharp.SharpRealitys projects in Release configuration.
+
+## Compile UrhoSharp on Ubuntu or WSL (Windows Subsystem for Linux)
+Special thanks to @aktowns
+Disclaimer: I am not a linux guy so I am not sure which packages from the following list
+are required, probably some of them are not:
+```
+sudo apt-get install cmake clang-3.7 avr-libc libglew-dev libsdl2-dev libsdl2-image-dev libglm-dev libfreetype6-dev libgl1-mesa-dev libx11-dev
+```
+Then just execute:
+```
+make Linux
+```
 
 Updating Documentation
 ======================

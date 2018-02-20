@@ -27,6 +27,7 @@ packages/
 /Urho3D/Urho3D_IOS
 /Urho3D/Urho3D_SharpReality
 /Urho3D/Urho3D_UWP
+/Urho3D/Urho3D_Linux
 clang+llvm-3.7.0-x86_64-apple-darwin*
 /UpgradeLog.htm
 /docsync.log
