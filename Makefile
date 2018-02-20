@@ -77,7 +77,7 @@ HoloLens:
 	@echo "HoloLens was renamed to SharpReality"
 
 All-Macos: Android Mac iOS
-All-Windows: Android Windows
+All-Windows: Windows Windows_D3D11 UWP SharpReality
 
 UpdateCoreDataPak:
 	make -j1 CoreData.pak -f MakeWindows
