@@ -14,9 +14,9 @@ on the LICENSE file.
 - Lightweight - ~10mb per platform including basic assets
 - Embeddable - can be embedded into any app as a subview (UIView, NSView, Panel, etc).
 - Open-source - C# bindings and the underlying C++ engine Urho3D are licensed under the MIT License
-- Powerfull 3rd parties: Bullet, Box2D, Recast/Detour, kNet, FreeType
-- PBR, Skeletal animation, Inverse Kinematics
-- Code first, [Previewer](https://github.com/EgorBo/UrhoAssetImporter), Editor, [AssetImporter](https://urho3d.github.io/documentation/1.4/_tools.html), [Blender add-in](https://github.com/reattiva/Urho3D-Blender)
+- Powerful 3rd parties - Bullet, Box2D, Recast/Detour, kNet, FreeType
+- Advanced graphics using physically based rendering (PBR), Skeletal animation, Inverse Kinematics etc
+- Simple code-first approach (however, it still supports native Urho3D editor)
 
 **Supported platforms:**
 - Windows, WPF, WinForms
@@ -28,6 +28,7 @@ on the LICENSE file.
 - Mixed Reality
 - Xamarin.Forms (iOS, Android, UWP)
 - Ubuntu
+  
   
   
 ![Sample](Screenshots/Android.gif) ![Sample](Screenshots/SamplyGame.gif)
