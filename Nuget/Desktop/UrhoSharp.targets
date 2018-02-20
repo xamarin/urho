@@ -4,6 +4,10 @@
 					<Link>libmono-urho.dylib</Link>
 					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 				</Content>
+				<!--Content Include="$(MSBuildThisFileDirectory)\..\..\native\Linux\libmono-urho.so">
+					<Link>libmono-urho.so</Link>
+					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+				</Content-->
 				<None Include="$(MSBuildThisFileDirectory)\..\..\native\Win64\mono-urho.dll">
 					<Link>mono-urho.dll</Link>
 					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

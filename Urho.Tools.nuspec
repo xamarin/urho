@@ -4,12 +4,13 @@
        <id>UrhoSharp.Tools</id>
        <version>1.8</version>
        <title>UrhoSharp.Tools</title>
-       <authors>Xamarin Inc.</authors>
-       <owners>Xamarin</owners>
+       <authors>Xamarin,Microsoft</authors>
+       <owners>Xamarin,Microsoft</owners>
+       <copyright>© Microsoft Corporation. All rights reserved.</copyright>
        <licenseUrl>https://github.com/xamarin/urho/blob/master/LICENSE</licenseUrl>
        <projectUrl>http://developer.xamarin.com/guides/cross-platform/urho/</projectUrl>
        <iconUrl>http://developer.xamarin.com/guides/cross-platform/urho/introduction/Images/UrhoSharp_icon.png</iconUrl>
-       <requireLicenseAcceptance>false</requireLicenseAcceptance>
+       <requireLicenseAcceptance>true</requireLicenseAcceptance>
        <summary>Tools for UrhoSharp</summary>
        <description>Tools for UrhoSharp: AssetImporter, PackageTool</description>
 	   <releaseNotes></releaseNotes>

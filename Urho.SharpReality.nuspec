@@ -4,17 +4,20 @@
        <id>UrhoSharp.SharpReality</id>
        <version>1.8</version>
        <title>UrhoSharp.SharpReality</title>
-       <authors>Xamarin Inc.</authors>
-       <owners>Xamarin</owners>
+       <authors>Xamarin,Microsoft</authors>
+       <owners>Xamarin,Microsoft</owners>
+       <copyright>© Microsoft Corporation. All rights reserved.</copyright>
        <licenseUrl>https://github.com/xamarin/urho/blob/master/LICENSE</licenseUrl>
        <projectUrl>http://developer.xamarin.com/guides/cross-platform/urho/</projectUrl>
        <iconUrl>http://developer.xamarin.com/guides/cross-platform/urho/introduction/Images/UrhoSharp_icon.png</iconUrl>
-       <requireLicenseAcceptance>false</requireLicenseAcceptance>
+       <requireLicenseAcceptance>true</requireLicenseAcceptance>
        <summary>Cross Platform, 2D and 3D Game Engine for C# (This package contains extensions for SharpReality).</summary>
        <description>UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games that run on Android, iOS, Mac, Windows and Unix. The game engine is available as a portable class library, allowing your game code to be written once and shared across all platforms. UrhoSharp is powered by Urho3D (http://urho3d.github.io/), a game engine that has been under development for more than a decade.   All the samples from Urho3D have been ported to C# to help you get started: https://github.com/xamarin/urho-samples</description>
 	   <releaseNotes>- Updated to Urho3D 1.7
-- Built-in ARKit (including ARFaceTracking) and ARCore support
+- ARKit and ARCore components
 - Fixed major Android and iOS crashes
+- Optional DirectX11 backend for Windows
+- UWP 64bit support (and .NET Native toolchain)
 - Added IndexBuffer SetData overload for large indices
 - Minor fixes in Actions
 - Added Graphics.GetMultiSampleLevels</releaseNotes>
