@@ -414,6 +414,10 @@ namespace Urho
 				return Platforms.Android;
 #elif IOS
 				return Platforms.iOS;
+#elif UWP_HOLO
+				return Platforms.SharpReality;
+#elif UWP
+				return Platforms.UWP;
 #endif
 				Runtime.Validate(typeof(Application));
 				if (platform == Platforms.Unknown)
@@ -636,7 +640,7 @@ namespace Urho
 #elif iOS
 							$"\n Assets must be located in '/Resources/{assetDir}' with 'BundleResource' Build Action.";
 #elif WINDOWS_UWP || UWP_HOLO
-							$"\n Assets must be located in '/{assetDir}' with 'Resource' Build Action"; 
+							$"\n Assets must be located in '/{assetDir}' with 'Content' Build Action"; 
 #else
 							$"\n Assets must be located in '/{assetDir}'";
 #endif
