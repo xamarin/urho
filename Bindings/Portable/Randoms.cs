@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Urho
 {
@@ -14,6 +15,21 @@ namespace Urho
 		public static float Next(float min, float max)
 		{
 			return (float)((random.NextDouble() * (max - min)) + min);
+		}
+
+		public static bool NextBoolean()
+		{
+			return random.NextDouble() > 0.5f;
+		}
+
+		public static T GetRandomElement<T>(this IList<T> collection)
+		{
+			return collection[random.Next(0, collection.Count)];
+		}
+
+		public static T GetRandomElement<T>(this T[] collection)
+		{
+			return collection[random.Next(0, collection.Length)];
 		}
 
 		public static float NextNormal()
