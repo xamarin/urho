@@ -1,0 +1,7 @@
+﻿<material>
+	<technique name="Techniques/DiffSpec.xml" quality="0" />
+	<texture unit="diffuse" name="Textures/Earth.jpg" />
+	<texture unit="normal" name="Textures/Earth_NormalsMap.png" /> <!--Normal is ignored, set technique to Techniques/DiffNormalSpec.xml-->
+	<texture unit="spec" name="Textures/Earth_SpecularMap.png" />
+	<parameter name="SpecColor" value="0.2 0.2 0.2 0.7" />
+</material>

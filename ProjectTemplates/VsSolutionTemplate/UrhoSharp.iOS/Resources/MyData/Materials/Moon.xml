@@ -1,0 +1,6 @@
+﻿<material>
+	<!--Unlike Earth.xml, this material uses built-in DiffNormal technique-->
+	<technique name="Techniques/DiffNormal.xml" quality="0" />
+	<texture unit="diffuse" name="Textures/Moon.jpg" />
+	<texture unit="normal" name="Textures/Moon_NormalsMap.png" />
+</material>

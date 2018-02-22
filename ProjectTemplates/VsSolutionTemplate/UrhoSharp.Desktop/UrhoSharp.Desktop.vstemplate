@@ -16,19 +16,22 @@
   <TemplateContent>
     <Project TargetFileName="$saferootprojectname$.Desktop.csproj" File="UrhoSharp.Desktop.csproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true" TargetFileName="App.config">App.config</ProjectItem>
-      <Folder Name="Data" TargetFolderName="Data">
-        <Folder Name="Fonts" TargetFolderName="Fonts">
-          <ProjectItem ReplaceParameters="false" TargetFileName="Font.ttf">Font.ttf</ProjectItem>
+      <Folder Name="MyData" TargetFolderName="MyData">
+        <Folder Name="Materials" TargetFolderName="Materials">
+          <ProjectItem ReplaceParameters="false" TargetFileName="Earth.xml">Earth.xml</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="Moon.xml">Moon.xml</ProjectItem>
         </Folder>
-        <Folder Name="Models" TargetFolderName="Models">
-          <ProjectItem ReplaceParameters="false" TargetFileName="Box.mdl">Box.mdl</ProjectItem>
-          <ProjectItem ReplaceParameters="false" TargetFileName="Sphere.mdl">Sphere.mdl</ProjectItem>
-        </Folder>
-		<Folder Name="Materials" TargetFolderName="Materials">
-          <ProjectItem ReplaceParameters="false" TargetFileName="BoxMaterial.xml">BoxMaterial.xml</ProjectItem>
-        </Folder>
-		<Folder Name="Textures" TargetFolderName="Textures">
+        <Folder Name="Textures" TargetFolderName="Textures">
+          <ProjectItem ReplaceParameters="false" TargetFileName="Earth.jpg">Earth.jpg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="Earth_Clouds.jpg">Earth_Clouds.jpg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="Earth_Night.jpg">Earth_Night.jpg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="Earth_NormalsMap.png">Earth_NormalsMap.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="Earth_SpecularMap.png">Earth_SpecularMap.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="Moon.jpg">Moon.jpg</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="Moon_NormalsMap.png">Moon_NormalsMap.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="Space.png">Space.png</ProjectItem>
           <ProjectItem ReplaceParameters="false" TargetFileName="xamarin.png">xamarin.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="License.txt">License.txt</ProjectItem>
         </Folder>
       </Folder>
       <ProjectItem ReplaceParameters="true" TargetFileName="packages.config">packages.config</ProjectItem>

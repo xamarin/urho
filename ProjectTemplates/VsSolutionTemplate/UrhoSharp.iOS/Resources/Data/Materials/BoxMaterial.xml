@@ -1,4 +1,0 @@
-<material>
-	<technique name="Techniques/Diff.xml"/>
-	<texture name="Textures/xamarin.png" unit="diffuse"/>
-</material>

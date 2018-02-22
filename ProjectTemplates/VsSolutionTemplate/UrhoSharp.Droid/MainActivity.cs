@@ -15,17 +15,18 @@ namespace $safeprojectname$
         ScreenOrientation = ScreenOrientation.Landscape)]
     public class MainActivity : Activity
     {
-		MyGame myGame;
-		
+        MyGame myGame;
+        UrhoSurfacePlaceholder surface;
+
         protected override async void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            var layout = new AbsoluteLayout(this);
-            var surface = UrhoSurface.CreateSurface<MyGame>(this);
+            var layout = new FrameLayout(this);
+            surface = UrhoSurface.CreateSurface(this);
             layout.AddView(surface);
             SetContentView(layout);
-			myGame = await surface.Show<MyGame>(new ApplicationOptions("Data"));
-			//to stop the game use await surface.Stop().
+            myGame = await surface.Show<MyGame>(new ApplicationOptions("MyData"));
+            //to stop the game use await surface.Stop().
         }
 
         protected override void OnResume()
@@ -54,11 +55,11 @@ namespace $safeprojectname$
 
         public override bool DispatchKeyEvent(KeyEvent e)
         {
-			if (e.KeyCode == Android.Views.Keycode.Back)
-			{
-				this.Finish();
-				return false;
-			}
+            if (e.KeyCode == Android.Views.Keycode.Back)
+            {
+                this.Finish();
+                return false;
+            }
 
             return base.DispatchKeyEvent(e);
         }

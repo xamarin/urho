@@ -20,7 +20,8 @@ namespace $safeprojectname$
         async void LaunchGame()
         {
             await Task.Yield();
-            new MyGame(new ApplicationOptions("Data")).Run();
+            new MyGame(new ApplicationOptions("MyData")).Run();
+            //Also, there is an UIView - UrhoSurface
         }
     }
 }
