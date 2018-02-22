@@ -416,7 +416,7 @@ namespace Urho
 				return Platforms.iOS;
 #elif UWP_HOLO
 				return Platforms.SharpReality;
-#elif UWP
+#elif WINDOWS_UWP
 				return Platforms.UWP;
 #endif
 				Runtime.Validate(typeof(Application));
