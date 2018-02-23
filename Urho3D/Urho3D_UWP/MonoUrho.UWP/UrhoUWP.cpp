@@ -111,9 +111,13 @@ void SetSwapChainPanel(int width, int height, ID3D11Device** d3d_device, IDXGISw
 	}
 }
 
-
 extern "C"
 {
+	char *getenvCompat(const char *name)
+	{
+		return NULL;
+	}
+
 	const wchar_t* SDL_UWP_GetResourceDir()
 	{
 		return Windows::ApplicationModel::Package::Current->InstalledLocation->Path->Data();

@@ -30,6 +30,10 @@ extern "C"
 		return -1; //TODO
 	}
 
+	char *getenvCompat(const char *name)
+	{
+		return NULL;
+	}
 
 	ComPtr<ID3D11Device> d3ddevice;
 	ComPtr<ID3D11DeviceContext> context;
