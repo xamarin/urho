@@ -2,11 +2,11 @@ URHO3D_SRC_DIR=Urho3D/Source
 URHO3D_LINUX_DIR=Urho3D/Urho3D_Linux
 OUTPUT_DIR=Bin/Desktop/Linux
 TOOLS_DIR=../../Bin/Tools/Linux
-CLANG=clang++-3.7
+CLANG=g++
 
 URHO_FLAGS=-I$(URHO3D_LINUX_DIR)/include -I$(URHO3D_LINUX_DIR)/include/kNet -I$(URHO3D_LINUX_DIR)/include/Urho3D/ThirdParty -DURHO3D_OPENGL
 URHO_LIBS=-L$(URHO3D_LINUX_DIR)/lib -lUrho3D -ldl -lpthread -lGL
-CXXFLAGS=-g -fPIC -std=c++11 -Wno-address-of-temporary -Wno-return-type-c-linkage -Wno-c++11-extensions $(URHO_FLAGS)
+CXXFLAGS=-g -fPIC -fpermissive -fsigned-char -funwind-tables -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security -fdata-sections -ffunction-sections -frtti -funswitch-loops -finline-limit=300 -fstack-protector -fomit-frame-pointer -fstrict-aliasing -fexceptions -std=gnu++11 -Wno-invalid-offsetof -O3 -DNDEBUG -fPIC -isystem -Wno-address-of-temporary -Wno-return-type-c-linkage -Wno-c++11-extensions $(URHO_FLAGS) -lgcc_s -lgcc
 
 Urho3D_Linux:
 	$(URHO3D_SRC_DIR)/./cmake_generic.sh $(URHO3D_LINUX_DIR) -DURHO3D_PCH=0 -DURHO3D_WEBP=0 -DURHO3D_TOOLS=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -DURHO3D_LIB_TYPE=STATIC -DCMAKE_C_FLAGS=-fPIC -DCMAKE_CXX_FLAGS=-fPIC -DURHO3D_CXX11=1
@@ -14,27 +14,23 @@ Urho3D_Linux:
 libUrho3D.a: Urho3D_Linux
 	cd $(URHO3D_LINUX_DIR) && make -j8
 
-libmono-urho.so: MakeBinDirectory binding.o glue.o events.o ApplicationProxy.o vector.o
-	mkdir -p $(OUTPUT_DIR) && $(CLANG) -g -shared -Wl,-soname,libmono-urho -Wl,-rpath -Wl,\$$ORIGIN -o $(OUTPUT_DIR)/libmono-urho.so -g -DURHO3D_OPENGL $(OUTPUT_DIR)/binding.o $(OUTPUT_DIR)/glue.o $(OUTPUT_DIR)/vector.o $(OUTPUT_DIR)/events.o $(OUTPUT_DIR)/ApplicationProxy.o $(URHO_LIBS)
-
-# doesn't work yet
-Pch:
-	$(CLANG) -stdlib=libc++ -std=c++11 -emit-pch -DURHO3D_OPENGL -DURHO3D_CXX11=1 -o Bindings/Urho.pch Bindings/Native/all-urho.cpp  -I$(URHO3D_LINUX_DIR)/include -I$(URHO3D_LINUX_DIR)/include/Urho3D/ThirdParty
+libmono-urho.so: MakeBinDirectory libUrho3D.a binding.o glue.o events.o ApplicationProxy.o vector.o
+	mkdir -p $(OUTPUT_DIR) && g++ -fpermissive -g -shared -Wl,-soname,libmono-urho -Wl,-rpath -Wl,\$$ORIGIN -o $(OUTPUT_DIR)/libmono-urho.so -g -DURHO3D_OPENGL $(OUTPUT_DIR)/binding.o $(OUTPUT_DIR)/glue.o $(OUTPUT_DIR)/vector.o $(OUTPUT_DIR)/events.o $(OUTPUT_DIR)/ApplicationProxy.o $(URHO_LIBS) -lgcc_s -lgcc
 
 MakeBinDirectory:
 	mkdir -p $(OUTPUT_DIR)
 
 binding.o: $(OUTPUT_DIR)/binding.o
-	$(CLANG) -g -c $(CXXFLAGS) -o $(OUTPUT_DIR)/binding.o Bindings/Portable/Generated/binding.cpp
+	g++ -g -c $(CXXFLAGS) -o $(OUTPUT_DIR)/binding.o Bindings/Portable/Generated/binding.cpp
 
 glue.o: $(OUTPUT_DIR)/glue.o
-	$(CLANG) -c $(CXXFLAGS) -o $(OUTPUT_DIR)/glue.o Bindings/Native/glue.cpp
+	g++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/glue.o Bindings/Native/glue.cpp
 
 vector.o: $(OUTPUT_DIR)/vector.o
-	$(CLANG) -c $(CXXFLAGS) -o $(OUTPUT_DIR)/vector.o Bindings/Native/vector.cpp
+	g++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/vector.o Bindings/Native/vector.cpp
 
 events.o: $(OUTPUT_DIR)/events.o
-	$(CLANG) -c $(CXXFLAGS) -o $(OUTPUT_DIR)/events.o Bindings/Portable/Generated/events.cpp
+	g++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/events.o Bindings/Portable/Generated/events.cpp
 
 ApplicationProxy.o: $(OUTPUT_DIR)/ApplicationProxy.o
-	$(CLANG) -c $(CXXFLAGS) -o $(OUTPUT_DIR)/ApplicationProxy.o Bindings/Native/ApplicationProxy.cpp
+	g++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/ApplicationProxy.o Bindings/Native/ApplicationProxy.cpp

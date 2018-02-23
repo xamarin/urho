@@ -85,6 +85,9 @@ UpdateCoreDataPak:
 Tools:
 	make -j1 Tools -f Make$(OSNAME)
 
+Linux:
+	make -j1 libmono-urho.so -f MakeLinux
+
 $(LOCAL_CLANG): 
 	if test ! -e clang+llvm-3.7.0-x86_64-apple-darwin.tar.xz; then curl -O http://releases.llvm.org/3.7.0/clang+llvm-3.7.0-x86_64-apple-darwin.tar.xz; fi
 	tar xzvf clang+llvm-3.7.0-x86_64-apple-darwin.tar.xz

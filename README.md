@@ -153,10 +153,9 @@ make SharpReality
 
 And compile UrhoSharp.UWP and UrhoSharp.SharpRealitys projects in Release configuration.
 
-## Compile UrhoSharp on Ubuntu or WSL (Windows Subsystem for Linux)
-Special thanks to https://gist.github.com/aktowns  
-Disclaimer: I am not a linux guy so I am not sure which packages from the following list
-are required, probably some of them are not:
+## Compile UrhoSharp on Linux*
+Special thanks to [@aktowns](https://gist.github.com/aktowns)
+Prerequisites for Ubuntu 16.06
 ```
 sudo apt-get install cmake clang-3.7 avr-libc libglew-dev libsdl2-dev libsdl2-image-dev libglm-dev libfreetype6-dev libgl1-mesa-dev libx11-dev
 ```
@@ -164,6 +163,7 @@ Then just execute:
 ```
 make Linux
 ```
+*Tested on Ubuntu 16.06, Fedora 25 and WSL
 
 Updating Documentation
 ======================
