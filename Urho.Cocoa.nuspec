@@ -13,14 +13,10 @@
        <requireLicenseAcceptance>true</requireLicenseAcceptance>
        <summary>macOS Cocoa control (UrhoSurface) for UrhoSharp</summary>
        <description>UrhoSharp is a lightweight Game Engine suitable for using with C# and F# to create games that run on Android, iOS, Mac, Windows and Unix. The game engine is available as a portable class library, allowing your game code to be written once and shared across all platforms. UrhoSharp is powered by Urho3D (http://urho3d.github.io/), a game engine that has been under development for more than a decade.   All the samples from Urho3D have been ported to C# to help you get started: https://github.com/xamarin/urho-samples</description>
-	   <releaseNotes>- Updated to Urho3D 1.7
-- ARKit and ARCore components
-- Fixed major Android and iOS crashes
-- Optional DirectX11 backend for Windows
-- UWP 64bit support (and .NET Native toolchain)
-- Added IndexBuffer SetData overload for large indices
-- Minor fixes in Actions
-- Added Graphics.GetMultiSampleLevels</releaseNotes>
+       <releaseNotes>- Fixed UWP app validation error
+- ARCore updated to 1.0
+- Added Randoms.NextBoolean and GetRandomElement
+- app.Platform returns UWP instead of Windows for UWP</releaseNotes>
        <tags>Urho Urho3D Cocoa UrhoSharp Xamarin 2D 3D games engine</tags>
        <dependencies>
          <dependency id="UrhoSharp" version="1.8" />

@@ -131,7 +131,7 @@ namespace Urho.Droid
 					return;
 
 				var camera = frame.Camera;
-				if (camera.TrackingState != TrackableTrackingState.Tracking)
+				if (camera.TrackingState != TrackingState.Tracking)
 					return;
 
 				var far = 100f;
