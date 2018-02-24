@@ -246,26 +246,35 @@ namespace Playgrounds.Droid
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f0a000d
+			public const int UrhoSurfacePlaceHolder = 2131361805;
+			
+			// aapt resource value: 0x7f0a000b
+			public const int @__arcore_cancelButton = 2131361803;
+			
+			// aapt resource value: 0x7f0a000c
+			public const int @__arcore_continueButton = 2131361804;
+			
 			// aapt resource value: 0x7f0a000a
-			public const int UrhoSurfacePlaceHolder = 2131361802;
+			public const int @__arcore_messageText = 2131361802;
+			
+			// aapt resource value: 0x7f0a0015
+			public const int action0 = 2131361813;
 			
 			// aapt resource value: 0x7f0a0012
-			public const int action0 = 2131361810;
+			public const int action_container = 2131361810;
 			
-			// aapt resource value: 0x7f0a000f
-			public const int action_container = 2131361807;
+			// aapt resource value: 0x7f0a0019
+			public const int action_divider = 2131361817;
 			
-			// aapt resource value: 0x7f0a0016
-			public const int action_divider = 2131361814;
+			// aapt resource value: 0x7f0a0013
+			public const int action_image = 2131361811;
 			
-			// aapt resource value: 0x7f0a0010
-			public const int action_image = 2131361808;
+			// aapt resource value: 0x7f0a0014
+			public const int action_text = 2131361812;
 			
-			// aapt resource value: 0x7f0a0011
-			public const int action_text = 2131361809;
-			
-			// aapt resource value: 0x7f0a0020
-			public const int actions = 2131361824;
+			// aapt resource value: 0x7f0a0023
+			public const int actions = 2131361827;
 			
 			// aapt resource value: 0x7f0a0005
 			public const int async = 2131361797;
@@ -273,26 +282,26 @@ namespace Playgrounds.Droid
 			// aapt resource value: 0x7f0a0006
 			public const int blocking = 2131361798;
 			
-			// aapt resource value: 0x7f0a0013
-			public const int cancel_action = 2131361811;
+			// aapt resource value: 0x7f0a0016
+			public const int cancel_action = 2131361814;
 			
-			// aapt resource value: 0x7f0a001b
-			public const int chronometer = 2131361819;
+			// aapt resource value: 0x7f0a001e
+			public const int chronometer = 2131361822;
 			
-			// aapt resource value: 0x7f0a0022
-			public const int end_padder = 2131361826;
+			// aapt resource value: 0x7f0a0025
+			public const int end_padder = 2131361829;
 			
 			// aapt resource value: 0x7f0a0007
 			public const int forever = 2131361799;
 			
-			// aapt resource value: 0x7f0a001d
-			public const int icon = 2131361821;
+			// aapt resource value: 0x7f0a0020
+			public const int icon = 2131361824;
 			
-			// aapt resource value: 0x7f0a0021
-			public const int icon_group = 2131361825;
+			// aapt resource value: 0x7f0a0024
+			public const int icon_group = 2131361828;
 			
-			// aapt resource value: 0x7f0a001c
-			public const int info = 2131361820;
+			// aapt resource value: 0x7f0a001f
+			public const int info = 2131361823;
 			
 			// aapt resource value: 0x7f0a0008
 			public const int italic = 2131361800;
@@ -303,41 +312,41 @@ namespace Playgrounds.Droid
 			// aapt resource value: 0x7f0a0001
 			public const int line3 = 2131361793;
 			
-			// aapt resource value: 0x7f0a0015
-			public const int media_actions = 2131361813;
+			// aapt resource value: 0x7f0a0018
+			public const int media_actions = 2131361816;
 			
 			// aapt resource value: 0x7f0a0009
 			public const int normal = 2131361801;
 			
-			// aapt resource value: 0x7f0a001f
-			public const int notification_background = 2131361823;
+			// aapt resource value: 0x7f0a0022
+			public const int notification_background = 2131361826;
 			
-			// aapt resource value: 0x7f0a0018
-			public const int notification_main_column = 2131361816;
+			// aapt resource value: 0x7f0a001b
+			public const int notification_main_column = 2131361819;
 			
-			// aapt resource value: 0x7f0a0017
-			public const int notification_main_column_container = 2131361815;
+			// aapt resource value: 0x7f0a001a
+			public const int notification_main_column_container = 2131361818;
+			
+			// aapt resource value: 0x7f0a0011
+			public const int pauseBtn = 2131361809;
 			
 			// aapt resource value: 0x7f0a000e
-			public const int pauseBtn = 2131361806;
+			public const int restartBtn = 2131361806;
 			
-			// aapt resource value: 0x7f0a000b
-			public const int restartBtn = 2131361803;
+			// aapt resource value: 0x7f0a0021
+			public const int right_icon = 2131361825;
 			
-			// aapt resource value: 0x7f0a001e
-			public const int right_icon = 2131361822;
+			// aapt resource value: 0x7f0a001c
+			public const int right_side = 2131361820;
 			
-			// aapt resource value: 0x7f0a0019
-			public const int right_side = 2131361817;
+			// aapt resource value: 0x7f0a0010
+			public const int spawnBtn = 2131361808;
 			
-			// aapt resource value: 0x7f0a000d
-			public const int spawnBtn = 2131361805;
+			// aapt resource value: 0x7f0a0017
+			public const int status_bar_latest_event_content = 2131361815;
 			
-			// aapt resource value: 0x7f0a0014
-			public const int status_bar_latest_event_content = 2131361812;
-			
-			// aapt resource value: 0x7f0a000c
-			public const int stopBtn = 2131361804;
+			// aapt resource value: 0x7f0a000f
+			public const int stopBtn = 2131361807;
 			
 			// aapt resource value: 0x7f0a0002
 			public const int text = 2131361794;
@@ -345,8 +354,8 @@ namespace Playgrounds.Droid
 			// aapt resource value: 0x7f0a0003
 			public const int text2 = 2131361795;
 			
-			// aapt resource value: 0x7f0a001a
-			public const int time = 2131361818;
+			// aapt resource value: 0x7f0a001d
+			public const int time = 2131361821;
 			
 			// aapt resource value: 0x7f0a0004
 			public const int title = 2131361796;
@@ -384,52 +393,55 @@ namespace Playgrounds.Droid
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Main = 2130903040;
+			public const int @__arcore_education = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int notification_action = 2130903041;
+			public const int Main = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int notification_action_tombstone = 2130903042;
+			public const int notification_action = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int notification_media_action = 2130903043;
+			public const int notification_action_tombstone = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int notification_media_cancel_action = 2130903044;
+			public const int notification_media_action = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int notification_template_big_media = 2130903045;
+			public const int notification_media_cancel_action = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int notification_template_big_media_custom = 2130903046;
+			public const int notification_template_big_media = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int notification_template_big_media_narrow = 2130903047;
+			public const int notification_template_big_media_custom = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int notification_template_big_media_narrow_custom = 2130903048;
+			public const int notification_template_big_media_narrow = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int notification_template_custom_big = 2130903049;
+			public const int notification_template_big_media_narrow_custom = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int notification_template_icon_group = 2130903050;
+			public const int notification_template_custom_big = 2130903050;
 			
 			// aapt resource value: 0x7f03000b
-			public const int notification_template_lines_media = 2130903051;
+			public const int notification_template_icon_group = 2130903051;
 			
 			// aapt resource value: 0x7f03000c
-			public const int notification_template_media = 2130903052;
+			public const int notification_template_lines_media = 2130903052;
 			
 			// aapt resource value: 0x7f03000d
-			public const int notification_template_media_custom = 2130903053;
+			public const int notification_template_media = 2130903053;
 			
 			// aapt resource value: 0x7f03000e
-			public const int notification_template_part_chronometer = 2130903054;
+			public const int notification_template_media_custom = 2130903054;
 			
 			// aapt resource value: 0x7f03000f
-			public const int notification_template_part_time = 2130903055;
+			public const int notification_template_part_chronometer = 2130903055;
+			
+			// aapt resource value: 0x7f030010
+			public const int notification_template_part_time = 2130903056;
 			
 			static Layout()
 			{
@@ -444,11 +456,29 @@ namespace Playgrounds.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f070008
+			public const int ApplicationName = 2131165192;
+			
+			// aapt resource value: 0x7f070007
+			public const int Hello = 2131165191;
+			
 			// aapt resource value: 0x7f070002
-			public const int ApplicationName = 2131165186;
+			public const int @__arcore_cancel = 2131165186;
+			
+			// aapt resource value: 0x7f070003
+			public const int @__arcore_continue = 2131165187;
+			
+			// aapt resource value: 0x7f070004
+			public const int @__arcore_install_app = 2131165188;
+			
+			// aapt resource value: 0x7f070005
+			public const int @__arcore_install_feature = 2131165189;
+			
+			// aapt resource value: 0x7f070006
+			public const int @__arcore_installing = 2131165190;
 			
 			// aapt resource value: 0x7f070001
-			public const int Hello = 2131165185;
+			public const int app_name = 2131165185;
 			
 			// aapt resource value: 0x7f070000
 			public const int status_bar_notification_info_overflow = 2131165184;

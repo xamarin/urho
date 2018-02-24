@@ -66,13 +66,15 @@ namespace Urho.Droid
 
 					Config = new Config(session);
 					Config.SetLightEstimationMode(Config.LightEstimationMode.AmbientIntensity);
-					//Config.SetUpdateMode(Config.UpdateMode.LatestCameraImage);
+					Config.SetUpdateMode(Config.UpdateMode.LatestCameraImage);
 					Config.SetPlaneFindingMode(Config.PlaneFindingMode.Horizontal);
 					ConfigRequested?.Invoke(Config);
+
 					if (!session.IsSupported(Config))
 					{
 						throw new Exception("AR is not supported on this device with given config");
 					}
+					session.Configure(Config);
 
 					paused = false;
 					session.Resume();
@@ -121,6 +123,9 @@ namespace Urho.Droid
 
 			try
 			{
+				if (Session == null)
+					return;
+
 				var frame = Session.Update();
 				if (paused) //in case if Config.UpdateMode.LatestCameraImage is not used
 					return;

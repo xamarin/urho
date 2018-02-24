@@ -28,15 +28,24 @@ namespace Playgrounds.Droid
 		{
 			base.Start();
 
-			/*arCore = Scene.CreateComponent<ARCoreComponent>();
+			arCore = Scene.CreateComponent<ARCoreComponent>();
 			arCore.ARFrameUpdated += OnARFrameUpdated;
-			arCore.Camera = Camera;*/
+			arCore.ConfigRequested += this.ArCore_ConfigRequested;
+			arCore.Camera = Camera;
 
 			var boxNode = Scene.CreateChild();
 			boxNode.Position = new Vector3(0, 0, 0.5f);
 			boxNode.CreateComponent<Pyramid>();
 			boxNode.SetScale(0.1f);
+
+			new MonoDebugHud(this).Show(Color.Green, 16);
 		}
+
+		void ArCore_ConfigRequested(Config config)
+		{
+			config.SetPlaneFindingMode(Config.PlaneFindingMode.Horizontal);
+		}
+
 		void OnARFrameUpdated(Frame frame)
 		{
 		}
