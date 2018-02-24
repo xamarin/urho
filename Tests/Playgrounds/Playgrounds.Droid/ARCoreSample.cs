@@ -13,12 +13,14 @@ using Com.Google.AR.Core;
 using Urho;
 using Urho.Droid;
 using Urho.Shapes;
+using static Com.Google.AR.Core.Point;
 
 namespace Playgrounds.Droid
 {
 	public class ARCoreSample : SimpleApplication
 	{
 		ARCoreComponent arCore;
+		MonoDebugHud hud;
 
 		public ARCoreSample(ApplicationOptions options) : base(options)
 		{
@@ -38,7 +40,18 @@ namespace Playgrounds.Droid
 			boxNode.CreateComponent<Pyramid>();
 			boxNode.SetScale(0.1f);
 
-			new MonoDebugHud(this).Show(Color.Green, 16);
+			hud = new MonoDebugHud(this);
+			hud.Show(Color.Green, 40);
+
+			Input.TouchEnd += Input_TouchEnd;
+		}
+
+		float touchX, touchY;
+
+		void Input_TouchEnd(TouchEndEventArgs e)
+		{
+			touchX = e.X;
+			touchY = e.Y;
 		}
 
 		void ArCore_ConfigRequested(Config config)
@@ -48,6 +61,28 @@ namespace Playgrounds.Droid
 
 		void OnARFrameUpdated(Frame frame)
 		{
+			if (touchX != 0)
+			{
+				var hitResult = frame.HitTest(touchX, touchY);
+				foreach (var hit in hitResult.Take(1))
+				{
+					var track = hit.Trackable;
+					if ((track is Com.Google.AR.Core.Plane plane && plane.IsPoseInPolygon(hit.HitPose)) ||
+						(track is Com.Google.AR.Core.Point point && point.GetOrientationMode() == OrientationMode.EstimatedSurfaceNormal))
+					{
+						var anchor = hit.CreateAnchor();
+
+						var testNode = Scene.CreateChild();
+						testNode.CreateComponent<Urho.Shapes.Cylinder>().Color = Color.Green;
+						var pose = hit.HitPose;
+						testNode.Scale = new Vector3(0.1f, 0.2f, 0.1f);
+
+						ARCoreComponent.TransformByPose(testNode, pose);
+
+					}
+				}
+				touchX = touchY = 0;
+			}
 		}
 	}
 }

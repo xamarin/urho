@@ -45,6 +45,11 @@ namespace Urho.Droid
 
 			Viewport = Application.Renderer.GetViewport(0);
 
+			if (base.Application is SimpleApplication simpleApp)
+			{
+				simpleApp.MoveCamera = false;
+			}
+
 			var videoRp = new RenderPathCommand(RenderCommandType.Quad);
 			videoRp.PixelShaderName = (UrhoString)"ARCore"; //see CoreData/Shaders/GLSL/ARCore.glsl
 			videoRp.VertexShaderName = (UrhoString)"ARCore";
@@ -156,33 +161,20 @@ namespace Urho.Droid
 
 				Camera.SetProjection(prj);
 
-				float[] viewmx = new float[16];
-				camera.GetViewMatrix(viewmx, 0);
-
-				var view = new Urho.Matrix4(
-					viewmx[0], viewmx[4], viewmx[8], viewmx[12],
-					viewmx[1], viewmx[5], viewmx[9], viewmx[13],
-					viewmx[2], viewmx[6], viewmx[10], viewmx[14],
-					viewmx[3], viewmx[7], viewmx[11], viewmx[15]);
-
-				// some magic:
-				view.Invert();
-				view.Transpose();
-
-				var rot = view.Rotation;
-				rot.Z *= -1;
-
-				var cameraNode = Camera.Node;
-
-				cameraNode.Position = new Vector3(view.Row3.X, view.Row3.Y, -view.Row3.Z);
-				cameraNode.Rotation = rot;
-
+				TransformByPose(Camera.Node, camera.DisplayOrientedPose);
 				ARFrameUpdated?.Invoke(frame);
 			}
 			catch (Exception exc)
 			{
 				Log.Write(LogLevel.Warning, "ARCore error: " + exc);
 			}
+		}
+
+		public static void TransformByPose(Node node, Pose pose)
+		{
+			// Right-Handed coordinate system to Left-Handed
+			node.Rotation = new Quaternion(pose.Qx(), pose.Qy(), -pose.Qz(), -pose.Qw());
+			node.Position = new Vector3(pose.Tx(), pose.Ty(), -pose.Tz());
 		}
 	}
 }

@@ -46,6 +46,11 @@ namespace Urho.iOS
 			ARConfiguration.LightEstimationEnabled = true;
 			ARSession.Run(ARConfiguration, ARSessionRunOptions.RemoveExistingAnchors);
 
+			if (base.Application is SimpleApplication simpleApp)
+			{
+				simpleApp.MoveCamera = false;
+			}
+
 			if ((Orientation == UIInterfaceOrientation.LandscapeRight ||
 				 Orientation == UIInterfaceOrientation.LandscapeLeft) && ARConfiguration is ARFaceTrackingConfiguration)
 			{
