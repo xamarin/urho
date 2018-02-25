@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+   <metadata minClientVersion="2.8.1">
+       <id>UrhoSharp.Tools</id>
+       <version>1.8</version>
+       <title>UrhoSharp.Tools</title>
+       <authors>Xamarin,Microsoft</authors>
+       <owners>Xamarin,Microsoft</owners>
+       <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+       <licenseUrl>https://github.com/xamarin/urho/blob/master/LICENSE</licenseUrl>
+       <projectUrl>http://developer.xamarin.com/guides/cross-platform/urho/</projectUrl>
+       <iconUrl>http://developer.xamarin.com/guides/cross-platform/urho/introduction/Images/UrhoSharp_icon.png</iconUrl>
+       <requireLicenseAcceptance>true</requireLicenseAcceptance>
+       <summary>Tools for UrhoSharp</summary>
+       <description>Tools for UrhoSharp: AssetImporter, PackageTool</description>
+	   <releaseNotes></releaseNotes>
+       <tags>Urho Urho3D UrhoSharp Xamarin 2D 3D games engine</tags>
+   </metadata>
+   <files>
+     <file src="../Bin/Tools/Win64/AssetImporter_Win64.exe" target="Tools/Win64/AssetImporter_Win64.exe" />
+     <file src="../Bin/Tools/Win64/PackageTool_Win64.exe" target="Tools/Win64/PackageTool_Win64.exe" />
+     <file src="../Bin/Tools/macOS/AssetImporter_macOS" target="Tools/macOS/AssetImporter_macOS" />
+     <file src="../Bin/Tools/macOS/PackageTool_macOS" target="Tools/macOS/PackageTool_macOS" />
+	 
+     <file src="../Nuget/Tools/UrhoSharp.Tools.targets" target="build" />
+   </files>
+</package>

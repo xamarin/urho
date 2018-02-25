@@ -5,23 +5,6 @@ VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho", "bindings\Portable\Urho.csproj", "{641886DB-2C6C-4D33-88DA-97BEC0EC5F86}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{ED29FA71-95CA-4E72-92F8-813A25C81218}"
-	ProjectSection(SolutionItems) = preProject
-		MakeAndroid = MakeAndroid
-		Makefile = Makefile
-		MakeiOS = MakeiOS
-		MakeMac = MakeMac
-		Urho.nuspec = Urho.nuspec
-		Urho.SharpReality.nuspec = Urho.SharpReality.nuspec
-		Nuget\SharpReality\UrhoSharp.SharpReality.targets = Nuget\SharpReality\UrhoSharp.SharpReality.targets
-		Nuget\Android\UrhoSharp.targets = Nuget\Android\UrhoSharp.targets
-		Nuget\Desktop\UrhoSharp.targets = Nuget\Desktop\UrhoSharp.targets
-		Nuget\iOS\UrhoSharp.targets = Nuget\iOS\UrhoSharp.targets
-		Nuget\Android\UrhoSharpReadme.txt = Nuget\Android\UrhoSharpReadme.txt
-		Nuget\Desktop\UrhoSharpReadme.txt = Nuget\Desktop\UrhoSharpReadme.txt
-		Nuget\iOS\UrhoSharpReadme.txt = Nuget\iOS\UrhoSharpReadme.txt
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Native", "Native", "{02DFD71E-AC0B-4D8A-9038-CD4EE9ED7209}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urho.iOS", "bindings\iOS\Urho.iOS.csproj", "{048373C2-B60A-4F61-B095-287C57437EFB}"
