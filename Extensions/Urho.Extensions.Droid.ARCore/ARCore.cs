@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Android;
 using Urho;
 using Urho.Urho2D;
@@ -20,7 +21,8 @@ namespace Urho.Droid
 		public Viewport Viewport { get; private set; }
 		public Session Session { get; private set; }
 		public Config Config { get; private set; }
-		public Camera Camera { get; set; }
+		public Camera Camera { get; private set; }
+		public string ARCoreShader { get; set; } = "ARCore";
 
 		public event Action<Frame> ARFrameUpdated;
 		public event Action<Config> ConfigRequested;
@@ -33,6 +35,22 @@ namespace Urho.Droid
 
 		public override unsafe void OnAttachedToNode(Node node)
 		{
+			Application.Paused += OnPause;
+			Application.Resumed += OnResume;
+		}
+
+		public Task Run(Camera camera = null)
+		{
+			if (CameraTexture != null)
+				throw new InvalidOperationException("ARCore component is already initialized, if you want to re-configure ARCore session - use Session property.");
+
+			Camera = camera;
+			if (Camera == null)
+				Camera = base.Scene.GetComponent<Camera>(true);
+
+			if (Camera == null)
+				throw new InvalidOperationException("Camera component was not found.");
+
 			CameraTexture = new Texture2D();
 			CameraTexture.SetCustomTarget(GL_TEXTURE_EXTERNAL_OES);
 			CameraTexture.SetNumLevels(1);
@@ -51,43 +69,43 @@ namespace Urho.Droid
 			}
 
 			var videoRp = new RenderPathCommand(RenderCommandType.Quad);
-			videoRp.PixelShaderName = (UrhoString)"ARCore"; //see CoreData/Shaders/GLSL/ARCore.glsl
-			videoRp.VertexShaderName = (UrhoString)"ARCore";
+			videoRp.PixelShaderName = (UrhoString)ARCoreShader; //see CoreData/Shaders/GLSL/ARCore.glsl
+			videoRp.VertexShaderName = (UrhoString)ARCoreShader;
 			videoRp.SetOutput(0, "viewport");
 			videoRp.SetTextureName(TextureUnit.Diffuse, CameraTexture.Name);
 			Viewport.RenderPath.InsertCommand(1, videoRp);
 
+			var tcs = new TaskCompletionSource<bool>();
 			var activity = (Activity)Urho.Application.CurrentWindow.Target;
 			activity.RunOnUiThread(() =>
+			{
+				var cameraAllowed = activity.CheckSelfPermission(Manifest.Permission.Camera);
+				if (cameraAllowed != Permission.Granted)
+					throw new InvalidOperationException("Camera permission: Denied");
+
+				var session = new Session(activity);
+				session.SetCameraTextureName((int)CameraTexture.AsGPUObject().GPUObjectName);
+				session.SetDisplayGeometry((int)SurfaceOrientation.Rotation0 /*windowManager.DefaultDisplay.Rotation*/,
+					Application.Graphics.Width, Application.Graphics.Height);
+
+				Config = new Config(session);
+				Config.SetLightEstimationMode(Config.LightEstimationMode.AmbientIntensity);
+				Config.SetUpdateMode(Config.UpdateMode.LatestCameraImage);
+				Config.SetPlaneFindingMode(Config.PlaneFindingMode.Horizontal);
+				ConfigRequested?.Invoke(Config);
+
+				if (!session.IsSupported(Config))
 				{
-					var cameraAllowed = activity.CheckSelfPermission(Manifest.Permission.Camera);
-					if (cameraAllowed != Permission.Granted)
-						throw new InvalidOperationException("Camera permission: Denied");
+					throw new Exception("AR is not supported on this device with given config");
+				}
+				session.Configure(Config);
 
-					var session = new Session(activity);
-					session.SetCameraTextureName((int)CameraTexture.AsGPUObject().GPUObjectName);
-					session.SetDisplayGeometry((int)SurfaceOrientation.Rotation0 /*windowManager.DefaultDisplay.Rotation*/, 
-						Application.Graphics.Width, Application.Graphics.Height);
-
-					Config = new Config(session);
-					Config.SetLightEstimationMode(Config.LightEstimationMode.AmbientIntensity);
-					Config.SetUpdateMode(Config.UpdateMode.LatestCameraImage);
-					Config.SetPlaneFindingMode(Config.PlaneFindingMode.Horizontal);
-					ConfigRequested?.Invoke(Config);
-
-					if (!session.IsSupported(Config))
-					{
-						throw new Exception("AR is not supported on this device with given config");
-					}
-					session.Configure(Config);
-
-					paused = false;
-					session.Resume();
-					Session = session;
-				});
-
-			Application.Paused += OnPause;
-			Application.Resumed += OnResume;
+				paused = false;
+				session.Resume();
+				Session = session;
+				Urho.Application.InvokeOnMain(() => tcs.TrySetResult(true));
+			});
+			return tcs.Task;
 		}
 
 		void OnPause()

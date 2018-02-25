@@ -1201,6 +1201,15 @@ namespace Urho
 			return String.Format("{0}\n{1}\n{2}\n{3}", Row0, Row1, Row2, Row3);
 		}
 
+		public string ToString(int cellSize, int precision = 2, string separator = " | ")
+		{
+			return String.Format("{0}\n{1}\n{2}\n{3}", 
+				Row0.ToString(cellSize, precision, separator), 
+				Row1.ToString(cellSize, precision, separator), 
+				Row2.ToString(cellSize, precision, separator), 
+				Row3.ToString(cellSize, precision, separator));
+		}
+
 		#endregion
 
 		#region public override int GetHashCode()

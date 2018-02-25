@@ -1294,6 +1294,13 @@ namespace Urho
 			return String.Format("({0}, {1}, {2})", X, Y, Z);
 		}
 
+		public string ToString(int cellSize, int precision = 2, string separator = " | ")
+		{
+			return  ($"{separator}{MathHelper.ToFixedSizeString(X, cellSize, precision)}" +
+					$"{separator}{MathHelper.ToFixedSizeString(Y, cellSize, precision)}" +
+					$"{separator}{MathHelper.ToFixedSizeString(Z, cellSize, precision)}{separator}").Trim();
+		}
+
 		#endregion
 
 		#region public override int GetHashCode()

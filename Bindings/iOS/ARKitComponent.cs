@@ -22,28 +22,35 @@ namespace Urho.iOS
 		public ARKitComponent(IntPtr handle) : base(handle) { ReceiveSceneUpdates = true; }
 
 		public ARConfiguration ARConfiguration { get; set; }
-		public UIInterfaceOrientation Orientation { get; set; }
-		public Camera Camera { get; set; }
+		public UIInterfaceOrientation? Orientation { get; set; }
+		public Camera Camera { get; private set; }
 		public ARSession ARSession { get; private set; }
 		public string ArkitShader { get; set; } = "ARKit";
+		public bool RunEngineFramesInARKitCallbakcs { get; set; }
 
 		public override void OnAttachedToNode(Node node)
 		{
 			base.OnAttachedToNode(node);
 		}
 
-		public void Run(bool runEngineFramesInArkitCallbacks = true)
+		public void Run(Camera camera = null)
 		{
+			if (Camera == null)
+				Camera = base.Scene.GetComponent<Camera>(true);
 			if (Camera == null)
 				throw new InvalidOperationException("Camera was not set.");
 
-			if (runEngineFramesInArkitCallbacks && !Application.Options.DelayedStart)
+			if (RunEngineFramesInARKitCallbakcs && !Application.Options.DelayedStart)
 				throw new InvalidOperationException("ApplicationOptions.DelayedStart should be true if runEngineFramesInArkitCallbacks flag is set");
 
-			arSessionDelegate = new UrhoARSessionDelegate(this, runEngineFramesInArkitCallbacks);
+			if (Orientation == null)
+				Orientation = base.Application.Options.Orientation == ApplicationOptions.OrientationType.Landscape ?
+					UIInterfaceOrientation.LandscapeRight :
+					UIInterfaceOrientation.Portrait;
+
+			arSessionDelegate = new UrhoARSessionDelegate(this, RunEngineFramesInARKitCallbakcs);
 			ARSession = new ARSession { Delegate = arSessionDelegate };
 			ARConfiguration = ARConfiguration ?? new ARWorldTrackingConfiguration();
-			ARConfiguration.LightEstimationEnabled = true;
 			ARSession.Run(ARConfiguration, ARSessionRunOptions.RemoveExistingAnchors);
 
 			if (base.Application is SimpleApplication simpleApp)
@@ -74,8 +81,8 @@ namespace Urho.iOS
 			var viewportSize = new CoreGraphics.CGSize(Application.Graphics.Width, Application.Graphics.Height);
 			float near = 0.001f;
 			float far = 1000f;
-			var prj = arcamera.GetProjectionMatrix(Orientation, viewportSize, near, far);
-			var dt = frame.GetDisplayTransform(Orientation, viewportSize);
+			var prj = arcamera.GetProjectionMatrix(Orientation.Value, viewportSize, near, far);
+			var dt = frame.GetDisplayTransform(Orientation.Value, viewportSize);
 
 			var urhoProjection = *(Matrix4*)(void*)&prj;
 			urhoProjection.M43 /= 2f;

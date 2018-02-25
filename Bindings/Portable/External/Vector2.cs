@@ -1032,6 +1032,11 @@ namespace Urho
 		{
 			return String.Format("({0}, {1})", X, Y);
 		}
+		public string ToString(int cellSize, int precision = 2, string separator = " | ")
+		{
+			return  ($"{separator}{MathHelper.ToFixedSizeString(X, cellSize, precision)}" +
+					$"{separator}{MathHelper.ToFixedSizeString(Y, cellSize, precision)}{separator}").Trim();
+		}
 
 		#endregion
 

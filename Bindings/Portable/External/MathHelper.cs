@@ -316,5 +316,19 @@ namespace Urho
 		{
 			return lhs * (1.0f - t) + rhs * t;
 		}
+
+		public static string ToFixedSizeString(float number, int cellSize, int precision)
+		{
+			// Similiar to "G{cellSize}" format but without exponential format
+			var value = number.ToString($"F{precision}");
+			if (value.Length > cellSize + precision + 1)
+				return value.Substring(0, cellSize - 2) + "..";
+			else if (value.Length == cellSize + precision)
+				return " " + value.Substring(0, cellSize - 1);
+			else if (value.Length > cellSize)
+				return value.Substring(0, cellSize);
+			else
+				return new string(' ', cellSize - value.Length) + value;
+		}
 	}
 }

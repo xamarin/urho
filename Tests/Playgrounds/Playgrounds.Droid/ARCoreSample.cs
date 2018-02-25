@@ -26,14 +26,11 @@ namespace Playgrounds.Droid
 		{
 		}
 
-		protected override void Start()
+		protected override async void Start()
 		{
 			base.Start();
 
 			arCore = Scene.CreateComponent<ARCoreComponent>();
-			arCore.ARFrameUpdated += OnARFrameUpdated;
-			arCore.ConfigRequested += this.ArCore_ConfigRequested;
-			arCore.Camera = Camera;
 
 			var boxNode = Scene.CreateChild();
 			boxNode.Position = new Vector3(0, 0, 0.5f);
@@ -44,6 +41,7 @@ namespace Playgrounds.Droid
 			hud.Show(Color.Green, 40);
 
 			Input.TouchEnd += Input_TouchEnd;
+			await arCore.Run(Camera);
 		}
 
 		float touchX, touchY;
