@@ -317,7 +317,7 @@ namespace Urho
 			return lhs * (1.0f - t) + rhs * t;
 		}
 
-		public static string ToFixedSizeString(float number, int cellSize, int precision)
+		public static string ToFixedSizeString(this float number, int cellSize, int precision)
 		{
 			// Similiar to "G{cellSize}" format but without exponential format
 			var value = number.ToString($"F{precision}");

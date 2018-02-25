@@ -483,6 +483,14 @@ namespace Urho {
 				left.M41 * rhs.m03 + left.M42 * rhs.m13 + left.M43 * rhs.m23 + left.M44
 			);
 		}
+
+		public override string ToString()
+		{
+			const int cellSize = 6, prec = 2;
+			return  $"| {m00.ToFixedSizeString(cellSize, prec)} | {m01.ToFixedSizeString(cellSize, prec)} | {m02.ToFixedSizeString(cellSize, prec)} | {m03.ToFixedSizeString(cellSize, prec)} |\n" +
+					$"| {m10.ToFixedSizeString(cellSize, prec)} | {m11.ToFixedSizeString(cellSize, prec)} | {m12.ToFixedSizeString(cellSize, prec)} | {m13.ToFixedSizeString(cellSize, prec)} |\n" +
+					$"| {m20.ToFixedSizeString(cellSize, prec)} | {m21.ToFixedSizeString(cellSize, prec)} | {m22.ToFixedSizeString(cellSize, prec)} | {m23.ToFixedSizeString(cellSize, prec)} |";
+		}
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
