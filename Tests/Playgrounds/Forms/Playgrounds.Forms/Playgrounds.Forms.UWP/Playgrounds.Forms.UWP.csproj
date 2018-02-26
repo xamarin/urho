@@ -90,7 +90,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <Content Include="..\..\..\..\..\Bin\UWP\mono-urho.dll">
+    <Content Include="..\..\..\..\..\Bin\UWP\x64\UrhoSharp.UWP\mono-urho.dll">
       <Link>mono-urho.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

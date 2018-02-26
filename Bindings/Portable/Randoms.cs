@@ -19,7 +19,7 @@ namespace Urho
 
 		public static bool NextBoolean()
 		{
-			return random.NextDouble() > 0.5f;
+			return random.NextDouble() >= 0.5f;
 		}
 
 		public static T GetRandomElement<T>(this IList<T> collection)
