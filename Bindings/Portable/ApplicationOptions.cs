@@ -15,7 +15,10 @@ namespace Urho
 		{
 			if (assetsFolder != null)
 			{
-				ResourcePaths = new[] { assetsFolder };
+				if (assetsFolder.Contains(";"))
+					ResourcePaths = assetsFolder.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries).ToArray();
+				else
+					ResourcePaths = new[] { assetsFolder };
 			}
 		}
 
