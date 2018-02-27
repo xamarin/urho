@@ -10,6 +10,20 @@ namespace Urho.Extensions.Wpf
 		public UrhoSurface()
 		{
 			InitializeComponent();
+			GotFocus += UrhoSurface_GotFocus;
+			LostFocus += UrhoSurface_LostFocus;
+		}
+
+		void UrhoSurface_LostFocus(object sender, RoutedEventArgs e)
+		{
+			if (WfUrhoSurface != null)
+				WfUrhoSurface.ForceFocus = false;
+		}
+
+		void UrhoSurface_GotFocus(object sender, RoutedEventArgs e)
+		{
+			if (WfUrhoSurface != null)
+				WfUrhoSurface.ForceFocus = true;
 		}
 
 		void UserControl_Loaded(object sender, RoutedEventArgs e) {}

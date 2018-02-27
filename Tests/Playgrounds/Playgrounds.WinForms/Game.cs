@@ -55,7 +55,10 @@ namespace Playgrounds
 
 			// Viewport
 			Viewport = new Viewport(Context, Scene, camera, null);
-			//Viewport.RenderPath.Append(CoreAssets.PostProcess.FXAA2);
+
+			if (Platform == Platforms.Windows)
+				Viewport.RenderPath.Append(CoreAssets.PostProcess.FXAA2);
+
 			Viewport.SetClearColor(BackgroundColor);
 			Renderer.SetViewport(0, Viewport);
 

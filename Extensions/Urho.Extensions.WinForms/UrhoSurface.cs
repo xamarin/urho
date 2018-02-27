@@ -46,6 +46,8 @@ namespace Urho.Extensions.WinForms
 			}
 		}
 
+		public bool ForceFocus { get; set; }
+
 		public int FpsLimit { get; set; } = 60;
 
 		public static Color ConvertColor(System.Drawing.Color color)
@@ -100,16 +102,11 @@ namespace Urho.Extensions.WinForms
 					await Task.Yield();
 				else
 				{
-					var ts = TimeSpan.FromMilliseconds((targetMax - elapsed) / 1000d);
-					await Task.Delay(ts);
+					await Task.Delay(TimeSpan.FromMilliseconds((targetMax - elapsed) / 1000d));
 				}
-				System.Windows.Forms.Application.DoEvents();
+				if (!UnderlyingPanel.Focused && ForceFocus)
+					UnderlyingPanel.Focus();
 			}
-		}
-
-		void UrhoSurface_MouseDown(object sender, MouseEventArgs e)
-		{
-			UnderlyingPanel?.Focus();
 		}
 	}
 }
