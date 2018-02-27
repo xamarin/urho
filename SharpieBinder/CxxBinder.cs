@@ -811,7 +811,7 @@ namespace SharpieBinder
 			{ "ConstantBuffer",		new[] { "OnDeviceReset" } },
 			{ "Graphics",			new[] { "CleanupRenderSurface","CleanupShaderPrograms","GetAnisotropySupport","GetDepthTexture","GetForceGL2","GetGL3Support","GetGL3Support","GetOrCreateConstantBuffer","GetShaderProgram","MarkFBODirty","MarkFBODirty","Release","Restore","SetForceGL2","SetTextureForUpdate","SetUBO","SetVBO" } },
 			{ "IndexBuffer",		new[] { "OnDeviceReset" } },
-			{ "RenderSurface",		new[] { "CreateRenderBuffer","GetRenderBuffer","GetTarget","OnDeviceLost","SetTarget" } },
+			{ "RenderSurface",		new[] { "OnDeviceLost" } },
 			{ "ShaderProgram",		new[] { "GetUsedVertexAttributes", "ClearGlobalParameterSource","ClearGlobalParameterSource","ClearParameterSource","ClearParameterSources","ClearParameterSources","GetLinkerOutput","GetParameter","GetPixelShader","GetVertexShader","HasParameter","HasTextureUnit","Link","NeedParameterUpdate","OnDeviceLost","Release" } },
 			{ "ShaderVariation",	new[] { "OnDeviceLost" } },
 			{ "Texture",			new[] { "GetDataType","GetDataType","GetExternalFormat","GetExternalFormat","GetTarget" } },
@@ -983,7 +983,7 @@ namespace SharpieBinder
 
 				if (IsUnsupportedType(p.QualType, returnType: false) && !isVariantArgument)
 				{
-					//Console.WriteLine($"Bailing out on {p.QualType} from {decl.QualifiedName}");
+					Console.WriteLine($"Bailing out on {p.QualType} from {decl.QualifiedName}");
 					return false;
 				}
 			}
@@ -992,7 +992,7 @@ namespace SharpieBinder
 				return false; //it won't be easy to handle if it has more than one Variant argument
 
 			if (IsUnsupportedType(decl.ReturnQualType, returnType: true)) {//variant return type is not support yet
-				//Console.WriteLine($"RETURN Bailing out on {decl.ReturnQualType} from {decl.QualifiedName}");
+				Console.WriteLine($"RETURN Bailing out on {decl.ReturnQualType} from {decl.QualifiedName}");
 				return false;
 			}
 			return true;

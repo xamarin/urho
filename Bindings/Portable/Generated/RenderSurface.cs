@@ -134,6 +134,18 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern bool RenderSurface_CreateRenderBuffer (IntPtr handle, uint width, uint height, uint format, int multiSample);
+
+		/// <summary>
+		/// Create renderbuffer that cannot be sampled as a texture. Only used on OpenGL.
+		/// </summary>
+		public bool CreateRenderBuffer (uint width, uint height, uint format, int multiSample)
+		{
+			Runtime.ValidateRefCounted (this);
+			return RenderSurface_CreateRenderBuffer (handle, width, height, format, multiSample);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern int RenderSurface_GetWidth (IntPtr handle);
 
 		/// <summary>
@@ -326,6 +338,30 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern uint RenderSurface_GetTarget (IntPtr handle);
+
+		/// <summary>
+		/// Return surface's OpenGL target.
+		/// </summary>
+		private uint GetTarget ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return RenderSurface_GetTarget (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern uint RenderSurface_GetRenderBuffer (IntPtr handle);
+
+		/// <summary>
+		/// Return OpenGL renderbuffer if created.
+		/// </summary>
+		private uint GetRenderBuffer ()
+		{
+			Runtime.ValidateRefCounted (this);
+			return RenderSurface_GetRenderBuffer (handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
 		internal static extern bool RenderSurface_IsResolveDirty (IntPtr handle);
 
 		/// <summary>
@@ -492,6 +528,24 @@ namespace Urho
 		public IntPtr ReadOnlyView {
 			get {
 				return GetReadOnlyView ();
+			}
+		}
+
+		/// <summary>
+		/// Return surface's OpenGL target.
+		/// </summary>
+		public uint Target {
+			get {
+				return GetTarget ();
+			}
+		}
+
+		/// <summary>
+		/// Return OpenGL renderbuffer if created.
+		/// </summary>
+		public uint RenderBuffer {
+			get {
+				return GetRenderBuffer ();
 			}
 		}
 

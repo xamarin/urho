@@ -13583,6 +13583,13 @@ RenderSurface_Release (Urho3D::RenderSurface *_target)
 
 
 DllExport int
+RenderSurface_CreateRenderBuffer (Urho3D::RenderSurface *_target, unsigned int width, unsigned int height, unsigned int format, int multiSample)
+{
+	return _target->CreateRenderBuffer (width, height, format, multiSample);
+}
+
+
+DllExport int
 RenderSurface_GetWidth (Urho3D::RenderSurface *_target)
 {
 	return _target->GetWidth ();
@@ -13691,6 +13698,20 @@ DllExport void *
 RenderSurface_GetReadOnlyView (Urho3D::RenderSurface *_target)
 {
 	return _target->GetReadOnlyView ();
+}
+
+
+DllExport unsigned int
+RenderSurface_GetTarget (Urho3D::RenderSurface *_target)
+{
+	return _target->GetTarget ();
+}
+
+
+DllExport unsigned int
+RenderSurface_GetRenderBuffer (Urho3D::RenderSurface *_target)
+{
+	return _target->GetRenderBuffer ();
 }
 
 
