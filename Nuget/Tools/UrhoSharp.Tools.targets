@@ -1,10 +1,10 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 		<ItemGroup>
-				<None Include="$(MSBuildThisFileDirectory)\..\Tools\macOS\AssetImporter_macOS.exe">
+				<None Include="$(MSBuildThisFileDirectory)\..\Tools\macOS\AssetImporter_macOS">
 					<Link>AssetImporter_macOS</Link>
 					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 				</None>
-				<None Include="$(MSBuildThisFileDirectory)\..\Tools\macOS\PackageTool_macOS.exe">
+				<None Include="$(MSBuildThisFileDirectory)\..\Tools\macOS\PackageTool_macOS">
 					<Link>PackageTool_macOS</Link>
 					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 				</None>
@@ -33,13 +33,13 @@
 				</EmbeddedResource>
 		</ItemGroup>
 		<ItemGroup Condition="$(DefineConstants.Contains('MACOS_ASSETIMPORTER'))">
-				<EmbeddedResource Include="$(MSBuildThisFileDirectory)\..\Tools\macOS\AssetImporter_macOS.exe">
+				<EmbeddedResource Include="$(MSBuildThisFileDirectory)\..\Tools\macOS\AssetImporter_macOS">
 					<Link>AssetImporter_macOS</Link>
 					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 				</EmbeddedResource>
 		</ItemGroup>
 		<ItemGroup Condition="$(DefineConstants.Contains('MACOS_PACKAGETOOL'))">
-				<EmbeddedResource Include="$(MSBuildThisFileDirectory)\..\Tools\macOS\PackageTool_macOS.exe">
+				<EmbeddedResource Include="$(MSBuildThisFileDirectory)\..\Tools\macOS\PackageTool_macOS">
 					<Link>PackageTool_macOS</Link>
 					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 				</EmbeddedResource>
