@@ -753,6 +753,7 @@ namespace Urho {
 
 		public UrhoString Name { get { return b->Name; } set { b->Name = value; } }
 		public int NameHash { get { return b->NameHash; } set { b->NameHash = value; } }
+		public StringHash NameStringHash { get { return new StringHash(b->NameHash); } set { b->NameHash = value.Code; } }
 		public uint ParentIndex { get { return b->ParentIndex; } set { b->ParentIndex = value; } }
 		public Vector3 InitialPosition { get { return b->InitialPosition; } set { b->InitialPosition = value; } }
 		public Quaternion InitialRotation { get { return b->InitialRotation; } set { b->InitialRotation = value; } }
