@@ -8,20 +8,20 @@
 					<Link>libmono-urho.so</Link>
 					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 				</Content-->
-				<None Include="$(MSBuildThisFileDirectory)\..\..\native\Win64\mono-urho.dll">
-					<Link>mono-urho.dll</Link>
+				<None Include="$(MSBuildThisFileDirectory)\..\..\native\Win64_OpenGL\mono-urho.dll">
+					<Link>Win64_OpenGL\mono-urho.dll</Link>
 					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 				</None>
-				<None Include="$(MSBuildThisFileDirectory)\..\..\native\Win32\mono-urho.dll">
-					<Link>mono-urho_32bit.dll</Link>
+				<None Include="$(MSBuildThisFileDirectory)\..\..\native\Win32_OpenGL\mono-urho.dll">
+					<Link>Win32_OpenGL\mono-urho.dll</Link>
 					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 				</None>
-				<None Include="$(MSBuildThisFileDirectory)\..\..\native\Win64\mono-urho-d3d.dll">
-					<Link>mono-urho-d3d.dll</Link>
+				<None Include="$(MSBuildThisFileDirectory)\..\..\native\Win64_DirectX\mono-urho.dll">
+					<Link>Win64_DirectX\mono-urho.dll</Link>
 					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 				</None>
-				<None Include="$(MSBuildThisFileDirectory)\..\..\native\Win32\mono-urho-d3d.dll">
-					<Link>mono-urho_32bit-d3d.dll</Link>
+				<None Include="$(MSBuildThisFileDirectory)\..\..\native\Win32_DirectX\mono-urho.dll">
+					<Link>Win32_DirectX\mono-urho.dll</Link>
 					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 				</None>
 				<None Include="$(MSBuildThisFileDirectory)\..\..\native\CoreData.pak">

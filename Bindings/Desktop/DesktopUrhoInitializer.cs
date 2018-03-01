@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace Urho.Desktop
 {
@@ -34,6 +35,19 @@ namespace Urho.Desktop
 			}
 		}
 
-		internal static void OnInited() { }
+		[DllImport("kernel32.dll")]
+		static extern IntPtr LoadLibrary(string dllToLoad);
+
+		internal static void OnInited()
+		{
+			var isD3D = ApplicationOptions.LastUsedOptions?.UseDirectX11 == true;
+			var rootFolder = Path.GetDirectoryName(typeof(DesktopUrhoInitializer).Assembly.Location);
+			var relativePathToLib = Path.Combine($@"Win{(IntPtr.Size == 8 ? "64" : "32")}_{(isD3D ? "DirectX" : "OpenGL")}", $"{Consts.NativeImport}.dll");
+			var file = Path.Combine(rootFolder, relativePathToLib);
+			if (!File.Exists(file))
+				throw new InvalidOperationException("Native lib was not found at " + file);
+
+			LoadLibrary(file);
+		}
 	}
 }

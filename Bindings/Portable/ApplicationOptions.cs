@@ -10,6 +10,9 @@ namespace Urho
 	/// </summary>
 	public class ApplicationOptions
 	{
+		internal static ApplicationOptions LastUsedOptions { get; private set; }
+
+
 		/// <param name="assetsFolder">usually it's "Data". Can be null if built-in assets are enough for you</param>
 		public ApplicationOptions(string assetsFolder)
 		{
@@ -20,6 +23,8 @@ namespace Urho
 				else
 					ResourcePaths = new[] { assetsFolder };
 			}
+
+			LastUsedOptions = this;
 		}
 
 		public ApplicationOptions() {}
@@ -105,6 +110,8 @@ namespace Urho
 		public string[] ResourcePrefixPaths { get; set; }
 
 		public int Multisampling { get; set; }
+
+		public bool UseDirectX11 { get; set; }
 
 		public enum OrientationType
 		{
