@@ -7,6 +7,8 @@ set "PLATFORM=%~1"
 set "CONFIG=%~2"
 :: 2015 or 2017
 set "VSVER=%~3%"
+:: OpenGL or D3D
+set "RENDERER=%~4%"
 
 
 if "%PLATFORM%" == "" echo ERROR: PLATFORM is not set, example of usage: "MakeWindows.bat x64 Release 2017 OpenGL" && pause && exit /b
@@ -22,7 +24,6 @@ if "%RENDERER%" == "OpenGL" (set "RENDERER_FLAGS=-DURHO3D_OPENGL=1") else (set "
 if "%RENDERER%" == "OpenGL" (set "RENDERER_SUFFIX=OPENGL") else (set "RENDERER_SUFFIX=D3D11")
 
 
-set "RENDERER_FLAGS="
 set "URHO3D_SRC_DIR=Urho3D/Source"
 
 del Urho3D\Urho3D_Windows\CMakeCache.txt 2>NUL
@@ -31,7 +32,7 @@ cd %URHO3D_SRC_DIR%
 @echo on
 
 cmake -E make_directory ../Urho3D_Windows
-cmake -E chdir ../Urho3D_Windows cmake -G "%TARGET%" ../Urho3D_Windows %RENDERER% -DURHO3D_WEBP=0 -DURHO3D_PCH=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -VS=%VS_VER% ../../%URHO3D_SRC_DIR%/
+cmake -E chdir ../Urho3D_Windows cmake -G "%TARGET%" ../Urho3D_Windows %RENDERER_FLAGS% -DURHO3D_WEBP=0 -DURHO3D_PCH=0 -DURHO3D_LUA=0 -DURHO3D_ANGELSCRIPT=0 -VS=%VS_VER% ../../%URHO3D_SRC_DIR%/
 
 cd ../Urho3D_Windows
 
