@@ -25,6 +25,8 @@ namespace Urho
 			//Do nothing.
 #elif WINDOWS_UWP
 			UWP.UwpUrhoInitializer.OnInited();
+#elif NETCOREAPP2_0
+			NetCore.NetCoreUrhoInitializer.OnInited();
 #else
 			throw new Exception("Implementation assembly (iOS, Android or Desktop) is not referenced");
 #endif
