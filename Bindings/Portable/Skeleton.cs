@@ -8,7 +8,8 @@ namespace Urho {
 	// have dangling pointers, we only surface the constructor that retains a copy
 	// to the container
 	
-	public partial class Skeleton {
+	public partial class Skeleton 
+	{
 		IntPtr handle;
 
 		[Preserve]
@@ -29,17 +30,19 @@ namespace Urho {
 			}
 		}
 
-		public BoneWrapper GetBoneSafe(String name)
+		public BoneWrapper GetBoneSafe(StringHash nameHash)
 		{
 			Runtime.ValidateObject(this);
 			unsafe
 			{
-				Bone* result = Skeleton_GetBone0(handle, new StringHash(name).Code);
+				Bone* result = Skeleton_GetBone0(handle, nameHash.Code);
 				if (result == null)
 					return null;
 				return new BoneWrapper(this, result);
 			}
 		}
+
+		public BoneWrapper GetBoneSafe(string name) => GetBoneSafe(new StringHash(name));
 	}
 
 	public partial class AnimatedModel {

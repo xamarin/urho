@@ -9,6 +9,7 @@ namespace Playgrounds.NetCoreApp
 	{
 		static void Main(string[] args)
 		{
+			throw new NotImplementedException("Not fully implemented yet, requires changes in Urho3D (FileSystem)");
 			Console.WriteLine("Dir: " + Environment.CurrentDirectory);
 			// the current directory is not "bin" ?? https://github.com/dotnet/project-system/issues/589
 			// workaround:

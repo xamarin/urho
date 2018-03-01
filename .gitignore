@@ -37,3 +37,5 @@ clang+llvm-3.7.0-x86_64-apple-darwin*
 project.lock.json
 /ProjectTemplates/SharpRealityVsix/ProjectTemplates
 /ProjectTemplates/VSIX/ProjectTemplates
+/Tests/Playgrounds/Playgrounds.NetCoreApp/CoreData.pak
+/Tests/Playgrounds/Playgrounds.NetCoreApp/Urho3D.log
