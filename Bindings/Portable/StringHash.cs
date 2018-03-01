@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
+using System.Security.Policy;
 
 namespace Urho {
 
@@ -31,6 +32,16 @@ namespace Urho {
 		public static explicit operator StringHash(string s)
 		{
 			return new StringHash(s);
+		}
+
+		public static bool operator ==(StringHash hash1, StringHash hash2)
+		{
+			return hash1.Code.Equals(hash2.Code);
+		}
+
+		public static bool operator !=(StringHash hash1, StringHash hash2)
+		{
+			return !(hash1 == hash2);
 		}
 	}
 
