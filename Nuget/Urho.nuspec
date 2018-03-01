@@ -45,10 +45,10 @@
      <file src="../Nuget/Desktop/UrhoSharp.targets" target="build/net45" />
      <file src="../Bin/Desktop/Urho.dll" target="lib/net45/Urho.dll" />
      <file src="../docs/Urho.XML" target="lib/net45/Urho.XML" />
-     <file src="../Bin/Desktop/Win64_OpenGL/mono-urho.dll" target="native/Win64_OpenGL/mono-urho.dll" />
-     <file src="../Bin/Desktop/Win32_OpenGL/mono-urho.dll" target="native/Win32_OpenGL/mono-urho.dll" />
-     <file src="../Bin/Desktop/Win64_DirectX/mono-urho.dll" target="native/Win64_DirectX/mono-urho.dll" />
-     <file src="../Bin/Desktop/Win32_DirectX/mono-urho.dll" target="native/Win32_DirectX/mono-urho.dll" />
+     <file src="../Bin/Desktop/Win64/mono-urho.dll" target="native/Win64_OpenGL/mono-urho.dll" />
+     <file src="../Bin/Desktop/Win32/mono-urho.dll" target="native/Win32_OpenGL/mono-urho.dll" />
+     <file src="../Bin/Desktop/Win64/mono-urho-d3d.dll" target="native/Win64_DirectX/mono-urho.dll" />
+     <file src="../Bin/Desktop/Win32/mono-urho-d3d.dll" target="native/Win32_DirectX/mono-urho.dll" />
      <!--file src="../Bin/Desktop/Linux/libmono-urho.so" target="native/Linux/libmono-urho.so" /-->
      <file src="../Bin/Desktop/libmono-urho.dylib" target="native/Mac/libmono-urho.dylib" />
 	 
