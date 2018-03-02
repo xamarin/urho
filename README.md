@@ -76,6 +76,7 @@ Windows and OS X environment.  Please follow these steps:
 
 ## Compile UrhoSharp on macOS
 
+You will need:
 - XCode
 - Visual Studio for Mac
 - CMake (`brew install cmake`)
@@ -122,38 +123,24 @@ This target can also be executed on Windows.
 Obviously you can't do it on OS X so you have to switch to Windows
 environment. Make sure you have installed:
 
+You will need:
 - Visual Studio 2017
 - [CMake 3.10](https://cmake.org/download)
-- GNU make (cygwin) - the easiest way to install it is to follow instructions to install mono:
-   - Download Cygwin from www.cygwin.com ([setup-x86-64.exe](https://www.cygwin.com/setup-x86_64.exe))
-   - Run the following command in cmd.exe to install the required packages: 
-`setup-x86_64.exe -P autoconf,automake,bison,gcc-core,gcc-g++,mingw64-i686-runtime,mingw64-i686-binutils,mingw64-i686-gcc-core,mingw64-i686-gcc-g++,mingw64-i686-pthreads,mingw64-i686-w32api,mingw64-x86_64-runtime,mingw64-x86_64-binutils,mingw64-x86_64-gcc-core,mingw64-x86_64-gcc-g++,mingw64-x86_64-pthreads,mingw64-x86_64-w32api,libtool,make,python,gettext-devel,gettext,intltool,libiconv,pkg-config,git,curl,wget,libxslt,bc,patch`
-   - Execute `Cygwin.bat` and navigate to the folder where UrhoSharp is located (e.g. `cd /cygdrive/c/projects/urho`)
 
-Execute:
+Open "Command Prompt for Visual Studio" (or regular CMD with msbuild.exe added to the PATH)
+Go to the project root directory and execute
 ```
-make Windows
+MakeWindows.bat x64 Release 2017 OpenGL
 ```
-Then, open Urho.sln and compile `UrhoSharp.Windows` project in Release configuration.
-By default, Urho on windows uses OpenGL, but you can also use DirectX11. In order order 
-to use it, execute:
-```
-make Windows_D3D11
-```
-And compile `UrhoSharp.WindowsD3D' project.
 All compiled binaries could be found in the Bin/{platform} folder.
-
-**Compile UrhoSharp for UWP and HoloLens**
-
-Execute:
+You can also change the parameters, for example the following command:
 ```
-make UWP
-make SharpReality
+MakeWindows.bat x86 Debug 2017 DirectX
 ```
-
-And compile UrhoSharp.UWP and UrhoSharp.SharpRealitys projects in Release configuration.
+Compiles debug version of mono-urho.dll with DirectX as a backend.
 
 ## Compile UrhoSharp on Linux*
+
 Special thanks to [@aktowns](https://gist.github.com/aktowns)
 Prerequisites for Ubuntu 16.06
 ```
