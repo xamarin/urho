@@ -14,7 +14,7 @@ namespace Playgrounds.WinForms
 
 		async void restartButton_Click(object sender, EventArgs e)
 		{
-			game = await urhoSurface.Show<Game>(new Urho.ApplicationOptions());
+			game = await urhoSurface.Show<Game>(new Urho.ApplicationOptions() { UseDirectX11 = true });
 			if (game.IsActive) //in case if user clicks "restart" too quickly
 				game.Viewport.SetClearColor(Urho.Extensions.WinForms.UrhoSurface.ConvertColor(urhoSurface.BackColor));
 		}

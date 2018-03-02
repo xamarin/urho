@@ -17,9 +17,10 @@ namespace Playgrounds.Console
 		public static void RunApp()
 		{
 			var app = new EarthDemo(
-				new ApplicationOptions(@"..\..\..\..\..\Samples\HoloLens\02_HelloWorldAdvanced\Data") {
+				new ApplicationOptions(@"..\..\Samples\HoloLens\02_HelloWorldAdvanced\Data") {
 				Width = 960,
-				Height = 720
+				Height = 720,
+				UseDirectX11 = false
 			});
 			app.Run();
 		}

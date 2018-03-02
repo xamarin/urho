@@ -27,7 +27,7 @@ namespace Urho
 			LastUsedOptions = this;
 		}
 
-		public ApplicationOptions() {}
+		public ApplicationOptions() : this(null) {}
 
 		/// <summary>
 		/// Desktop only
