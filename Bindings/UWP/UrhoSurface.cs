@@ -29,15 +29,9 @@ namespace Urho.UWP
 			if (!inited)
 				return;
 
-			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_RESIZED, DipsToPixels(this.ActualWidth), DipsToPixels(this.ActualHeight));
+			Sdl.SendWindowEvent(SdlWindowEvent.SDL_WINDOWEVENT_RESIZED, (int)ActualWidth, (int)ActualHeight);
 		}
 
-		//see WINRT_DIPS_TO_PHYSICAL_PIXELS in SDL_winrtvideo_cpp.h:L90
-		static int DipsToPixels(double dips)
-		{
-			var dpi = Windows.Graphics.Display.DisplayInformation.GetForCurrentView().LogicalDpi;
-			return (int) (0.5f + (float)dips * dpi / 96.0f);
-		}
 
 		void UrhoSurface_Unloaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
 		{
@@ -57,8 +51,8 @@ namespace Urho.UWP
 			Opacity = 0;
 			Application.StopCurrent().Wait();
 			options = options ?? new ApplicationOptions();
-			options.Width = DipsToPixels(ActualWidth);
-			options.Height = DipsToPixels(ActualHeight);
+			options.Width = (int)ActualWidth;
+			options.Height = (int)ActualHeight;
 			stop = false;
 			paused = false;
 			inited = false;
