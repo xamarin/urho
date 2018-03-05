@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using Urho;
 using Urho.Gui;
 
@@ -7,6 +8,9 @@ namespace Playgrounds.NetCoreApp
 {
 	class Program
 	{
+		[DllImport("kernel32.dll")]
+		static extern IntPtr LoadLibrary(string dllToLoad);
+
 		static void Main(string[] args)
 		{
 			throw new NotImplementedException("Not fully implemented yet, requires changes in Urho3D (FileSystem)");
@@ -14,13 +18,6 @@ namespace Playgrounds.NetCoreApp
 			// the current directory is not "bin" ?? https://github.com/dotnet/project-system/issues/589
 			// workaround:
 			var coreDataPak = Path.Combine(Path.GetDirectoryName(typeof(Program).Assembly.Location), "CoreData.pak");
-
-
-			new HelloWorld(
-				new ApplicationOptions(@"C:\prj\urho\Urho3D\Source\bin")
-				{
-					AutoloadCoreData = false
-				}).Run();
 		}
 	}
 

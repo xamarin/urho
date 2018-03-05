@@ -7,12 +7,10 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>TRACE;DEBUG;NETCOREAPP2_0</DefineConstants>
+    <OutputPath>C:\prj\urho\Bin\Desktop\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\Bin\Desktop\Win64\mono-urho.dll" Link="mono-urho.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="..\..\..\Urho3D\CoreData.pak" Link="CoreData.pak">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
