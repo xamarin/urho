@@ -37,17 +37,8 @@ namespace Urho.Extensions.WinForms
 
 		public bool Paused
 		{
-			get { return paused; }
-			set
-			{
-				paused = value;
-				if (value)
-				{
-					Focuse();
-					UnderlyingPanel.Visible = true;
-					UnderlyingPanel.Focus();
-				}
-			}
+			get => paused;
+			set => paused = value;
 		}
 
 		async void Focuse()
@@ -75,8 +66,12 @@ namespace Urho.Extensions.WinForms
 			paused = false;
 			opts = opts ?? new ApplicationOptions();
 			await Semaphore.WaitAsync();
+
 			if (Application.HasCurrent)
-				await Application.Current.Exit();
+				Application.InvokeOnMain(async () => {
+				if (Application.HasCurrent)
+					await Application.Current.Exit();
+				});
 
 			RenderThread?.Join();
 
@@ -103,6 +98,7 @@ namespace Urho.Extensions.WinForms
 					var sw = new Stopwatch();
 
 					var engine = Application.Engine;
+					engine.RunFrame();
 					while (Application.IsActive)
 					{
 						if (!Paused)
@@ -132,7 +128,12 @@ namespace Urho.Extensions.WinForms
 		
 		public void Stop()
 		{
-			Application?.Exit();
+			Application.InvokeOnMain(async () => {
+				if (Application.HasCurrent)
+					await Application.Current.Exit();
+			});
+
+			RenderThread?.Join();
 			Controls.Clear();
 		}
 
