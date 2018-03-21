@@ -174,7 +174,7 @@ namespace Urho
 			{
 				Viewport.RenderPath.Append(CoreAssets.PostProcess.FXAA2);
 			}
-			else
+			else if (Platform != Platforms.UWP && Platform != Platforms.SharpReality)
 			{
 				ResourceCache.AutoReloadResources = true;
 				Renderer.HDRRendering = true;

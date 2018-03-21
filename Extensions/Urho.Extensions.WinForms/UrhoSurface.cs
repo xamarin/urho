@@ -99,7 +99,7 @@ namespace Urho.Extensions.WinForms
 
 					var engine = Application.Engine;
 					engine.RunFrame();
-					while (Application.IsActive)
+					while (Application != null && Application.IsActive)
 					{
 						if (!Paused)
 						{

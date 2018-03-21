@@ -33,9 +33,6 @@ namespace Urho
 		static TaskCompletionSource<bool> waitFrameEndTaskSource;
 		AutoResetEvent frameEndResetEvent;
 		static bool isExiting = false;
-		static List<Action> staticActionsToDispatch;
-		static List<DelayState> delayTasks;
-		List<Action> actionsToDispatch = new List<Action>();
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate void ActionIntPtr(IntPtr value);
@@ -124,59 +121,21 @@ namespace Urho
 		/// <summary>
 		/// Invoke actions in the Main Thread (the next Update call)
 		/// </summary>
-		public static void InvokeOnMain(Action action)
-		{
-			if (!HasCurrent)
-			{
-				if (staticActionsToDispatch == null)
-					staticActionsToDispatch = new List<Action>();
-				lock (staticActionsToDispatch)
-					staticActionsToDispatch.Add(action);
-
-				return;
-			}
-
-			var actions = Current.actionsToDispatch;
-			lock (actions)
-			{
-				actions.Add(action);
-			}
-		}
+		public static void InvokeOnMain(Action action) => MainLoopDispatcher.InvokeOnMain(action);
 
 		/// <summary>
 		/// Dispatch to OnUpdate
 		/// </summary>
-		public static ConfiguredTaskAwaitable<bool> ToMainThreadAsync()
-		{
-			var tcs = new TaskCompletionSource<bool>();
-			InvokeOnMain(() => tcs.TrySetResult(true));
-			return tcs.Task.ConfigureAwait(false);
-		}
+		public static ConfiguredTaskAwaitable<bool> ToMainThreadAsync() => MainLoopDispatcher.ToMainThreadAsync();
 
 		/// <summary>
 		/// Invoke actions in the Main Thread (the next Update call)
 		/// </summary>
-		public static Task<bool> InvokeOnMainAsync(Action action)
-		{
-			var tcs = new TaskCompletionSource<bool>();
-			InvokeOnMain(() =>
-				{
-					action?.Invoke();
-					tcs.TrySetResult(true);
-				});
-			return tcs.Task;
-		}
+		public static Task<bool> InvokeOnMainAsync(Action action) => MainLoopDispatcher.InvokeOnMainAsync(action);
 
-		public Task Delay(float seconds)
-		{
-			var tcs = new TaskCompletionSource<bool>();
-			if (delayTasks == null)
-				delayTasks = new List<DelayState>();
-			delayTasks.Add(new DelayState { Duration = seconds, Task = tcs });
-			return tcs.Task;
-		}
+		public ConfiguredTaskAwaitable<bool> Delay(float seconds) => MainLoopDispatcher.Delay(seconds);
 
-		public Task Delay(TimeSpan timeSpan) => Delay((float)timeSpan.TotalSeconds);
+		public ConfiguredTaskAwaitable<bool> Delay(TimeSpan timeSpan) => MainLoopDispatcher.Delay((float)timeSpan.TotalSeconds);
 
 		static Application GetApp(IntPtr h) => Runtime.LookupObject<Application>(h);
 
@@ -210,37 +169,7 @@ namespace Urho
 			ActionManager.Update(timeStep);
 			OnUpdate(timeStep);
 
-			if (staticActionsToDispatch != null)
-			{
-				lock (staticActionsToDispatch)
-					foreach (var action in staticActionsToDispatch)
-						action();
-				staticActionsToDispatch = null;
-			}
-
-			if (actionsToDispatch.Count > 0)
-			{
-				lock (actionsToDispatch)
-				{
-					foreach (var action in actionsToDispatch)
-						action();
-					actionsToDispatch.Clear();
-				}
-			}
-
-			if (delayTasks != null)
-			{
-				for (int i = 0; i < delayTasks.Count; i++)
-				{
-					var task = delayTasks[i];
-					task.Duration -= timeStep;
-					if (task.Duration <= 0)
-					{
-						task.Task.TrySetResult(true);
-						delayTasks.RemoveAt(i);
-					}
-				}
-			}
+			MainLoopDispatcher.HandleUpdate(timeStep);
 		}
 
 		[MonoPInvokeCallback(typeof(ActionIntPtr))]
@@ -354,7 +283,7 @@ namespace Urho
 
 		public bool IsExiting => isExiting || Runtime.IsClosing || Engine.Exiting;
 
-		public bool IsActive => !IsClosed && !IsDeleted && !Engine.IsDeleted && !IsExiting;
+		public bool IsActive => !IsClosed && !IsDeleted && Engine != null && !Engine.IsDeleted && !IsExiting;
 
 		public async Task Exit()
 		{
