@@ -1,9 +1,9 @@
+#extension GL_OES_EGL_image_external : require
+
 #include "Uniforms.glsl"
 #include "Samplers.glsl"
 #include "Transform.glsl"
 #include "ScreenPos.glsl"
-
-#extension GL_OES_EGL_image_external : require
 
 varying highp vec2 vScreenPos;
 uniform float cCameraScale;
