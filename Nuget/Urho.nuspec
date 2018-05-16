@@ -7,8 +7,8 @@
        <authors>Xamarin,Microsoft</authors>
        <owners>Xamarin,Microsoft</owners>
        <copyright>© Microsoft Corporation. All rights reserved.</copyright>
-<licenseUrl>https://github.com/xamarin/urho/blob/master/LICENSE</licenseUrl>
-<projectUrl>http://developer.xamarin.com/guides/cross-platform/urho/</projectUrl>
+       <licenseUrl>https://github.com/xamarin/urho/blob/master/LICENSE</licenseUrl>
+       <projectUrl>http://developer.xamarin.com/guides/cross-platform/urho/</projectUrl>
        <iconUrl>http://developer.xamarin.com/guides/cross-platform/urho/introduction/Images/UrhoSharp_icon.png</iconUrl>
        <requireLicenseAcceptance>true</requireLicenseAcceptance>
        <summary>Cross Platform, 2D and 3D Game Engine for C# (Android, iOS, Windows, Mac).</summary>
@@ -23,6 +23,10 @@
      <!--PCL-->
      <file src="../Bin/Common/Urho.dll" target="lib/portable-net45+win8+monoandroid+monotouch+Xamarin.iOS10/Urho.dll" />
      <file src="../docs/Urho.XML" target="lib/portable-net45+win8+monoandroid+monotouch+Xamarin.iOS10/Urho.XML" />
+
+     <!--netstandard2.0-->
+     <file src="../Bin/netstandard2.0/Urho.dll" target="lib/netstandard2.0/Urho.dll" />
+     <file src="../docs/Urho.XML" target="lib/netstandard2.0/Urho.XML" />
    
      <!--Android-->
      <file src="../Nuget/Android/UrhoSharp.targets" target="build/MonoAndroid" />

@@ -1,4 +1,4 @@
-﻿#if !NETCOREAPP2_0
+﻿#if !(NETCOREAPP2_0 || NETSTANDARD2_0)
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;

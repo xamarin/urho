@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>Urho</AssemblyName>
+    <RootNamespace>Urho</RootNamespace>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <Copyright>Copyright © Xamarin 2015-2018</Copyright>
+    <Company />
+  </PropertyGroup>
+
+  <Import Project="..\Urho.Shared.projitems" Label="Shared" />
+
+</Project>
