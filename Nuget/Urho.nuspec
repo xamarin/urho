@@ -24,8 +24,8 @@
      <file src="../Bin/Common/Urho.dll" target="lib/portable-net45+win8+monoandroid+monotouch+Xamarin.iOS10/Urho.dll" />
      <file src="../docs/Urho.XML" target="lib/portable-net45+win8+monoandroid+monotouch+Xamarin.iOS10/Urho.XML" />
 
-     <!--netstandard2.0-->
-     <file src="../Bin/netstandard2.0/Urho.dll" target="lib/netstandard2.0/Urho.dll" />
+     <!--netstandard2.0 reference assembly-->
+     <file src="../Bin/netstandard2.0/ref/Urho.dll" target="lib/netstandard2.0/Urho.dll" />
      <file src="../docs/Urho.XML" target="lib/netstandard2.0/Urho.XML" />
    
      <!--Android-->
