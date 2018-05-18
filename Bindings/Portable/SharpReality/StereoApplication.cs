@@ -135,7 +135,8 @@ namespace Urho.SharpReality
 			Renderer.SetViewport(0, leftViewport);
 			Renderer.SetViewport(1, rightVp);
 
-			CullingCamera = leftCameraNode.CreateComponent<Camera>();
+			var cullingCameraNode = Scene.CreateChild();
+			CullingCamera = cullingCameraNode.CreateComponent<Camera>();
 			rightVp.CullCamera = CullingCamera;
 			leftViewport.CullCamera = CullingCamera;
 			rightVp.SetStereoMode(true);
