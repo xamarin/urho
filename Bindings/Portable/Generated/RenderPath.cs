@@ -230,7 +230,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void RenderPath_SetShaderParameter0 (IntPtr handle, string name, ref Vector3 value);
+		internal static extern void RenderPath_SetShaderParameter_0 (IntPtr handle, string name, ref Vector3 value);
 
 		/// <summary>
 		/// Set a shader parameter in all commands that define it.
@@ -238,11 +238,11 @@ namespace Urho
 		public void SetShaderParameter (string name, Vector3 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			RenderPath_SetShaderParameter0 (handle, name, ref value);
+			RenderPath_SetShaderParameter_0 (handle, name, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void RenderPath_SetShaderParameter1 (IntPtr handle, string name, ref IntRect value);
+		internal static extern void RenderPath_SetShaderParameter_1 (IntPtr handle, string name, ref IntRect value);
 
 		/// <summary>
 		/// Set a shader parameter in all commands that define it.
@@ -250,11 +250,11 @@ namespace Urho
 		public void SetShaderParameter (string name, IntRect value)
 		{
 			Runtime.ValidateRefCounted (this);
-			RenderPath_SetShaderParameter1 (handle, name, ref value);
+			RenderPath_SetShaderParameter_1 (handle, name, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void RenderPath_SetShaderParameter2 (IntPtr handle, string name, ref Color value);
+		internal static extern void RenderPath_SetShaderParameter_2 (IntPtr handle, string name, ref Color value);
 
 		/// <summary>
 		/// Set a shader parameter in all commands that define it.
@@ -262,11 +262,11 @@ namespace Urho
 		public void SetShaderParameter (string name, Color value)
 		{
 			Runtime.ValidateRefCounted (this);
-			RenderPath_SetShaderParameter2 (handle, name, ref value);
+			RenderPath_SetShaderParameter_2 (handle, name, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void RenderPath_SetShaderParameter3 (IntPtr handle, string name, ref Vector2 value);
+		internal static extern void RenderPath_SetShaderParameter_3 (IntPtr handle, string name, ref Vector2 value);
 
 		/// <summary>
 		/// Set a shader parameter in all commands that define it.
@@ -274,11 +274,11 @@ namespace Urho
 		public void SetShaderParameter (string name, Vector2 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			RenderPath_SetShaderParameter3 (handle, name, ref value);
+			RenderPath_SetShaderParameter_3 (handle, name, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void RenderPath_SetShaderParameter4 (IntPtr handle, string name, ref Vector4 value);
+		internal static extern void RenderPath_SetShaderParameter_4 (IntPtr handle, string name, ref Vector4 value);
 
 		/// <summary>
 		/// Set a shader parameter in all commands that define it.
@@ -286,11 +286,11 @@ namespace Urho
 		public void SetShaderParameter (string name, Vector4 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			RenderPath_SetShaderParameter4 (handle, name, ref value);
+			RenderPath_SetShaderParameter_4 (handle, name, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void RenderPath_SetShaderParameter5 (IntPtr handle, string name, ref IntVector2 value);
+		internal static extern void RenderPath_SetShaderParameter_5 (IntPtr handle, string name, ref IntVector2 value);
 
 		/// <summary>
 		/// Set a shader parameter in all commands that define it.
@@ -298,11 +298,11 @@ namespace Urho
 		public void SetShaderParameter (string name, IntVector2 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			RenderPath_SetShaderParameter5 (handle, name, ref value);
+			RenderPath_SetShaderParameter_5 (handle, name, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void RenderPath_SetShaderParameter6 (IntPtr handle, string name, ref Quaternion value);
+		internal static extern void RenderPath_SetShaderParameter_6 (IntPtr handle, string name, ref Quaternion value);
 
 		/// <summary>
 		/// Set a shader parameter in all commands that define it.
@@ -310,11 +310,11 @@ namespace Urho
 		public void SetShaderParameter (string name, Quaternion value)
 		{
 			Runtime.ValidateRefCounted (this);
-			RenderPath_SetShaderParameter6 (handle, name, ref value);
+			RenderPath_SetShaderParameter_6 (handle, name, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void RenderPath_SetShaderParameter7 (IntPtr handle, string name, ref Matrix4 value);
+		internal static extern void RenderPath_SetShaderParameter_7 (IntPtr handle, string name, ref Matrix4 value);
 
 		/// <summary>
 		/// Set a shader parameter in all commands that define it.
@@ -322,11 +322,11 @@ namespace Urho
 		public void SetShaderParameter (string name, Matrix4 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			RenderPath_SetShaderParameter7 (handle, name, ref value);
+			RenderPath_SetShaderParameter_7 (handle, name, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void RenderPath_SetShaderParameter8 (IntPtr handle, string name, ref Matrix3x4 value);
+		internal static extern void RenderPath_SetShaderParameter_8 (IntPtr handle, string name, ref Matrix3x4 value);
 
 		/// <summary>
 		/// Set a shader parameter in all commands that define it.
@@ -334,11 +334,11 @@ namespace Urho
 		public void SetShaderParameter (string name, Matrix3x4 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			RenderPath_SetShaderParameter8 (handle, name, ref value);
+			RenderPath_SetShaderParameter_8 (handle, name, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void RenderPath_SetShaderParameter9 (IntPtr handle, string name, int value);
+		internal static extern void RenderPath_SetShaderParameter_9 (IntPtr handle, string name, int value);
 
 		/// <summary>
 		/// Set a shader parameter in all commands that define it.
@@ -346,11 +346,11 @@ namespace Urho
 		public void SetShaderParameter (string name, int value)
 		{
 			Runtime.ValidateRefCounted (this);
-			RenderPath_SetShaderParameter9 (handle, name, value);
+			RenderPath_SetShaderParameter_9 (handle, name, value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void RenderPath_SetShaderParameter10 (IntPtr handle, string name, float value);
+		internal static extern void RenderPath_SetShaderParameter_10 (IntPtr handle, string name, float value);
 
 		/// <summary>
 		/// Set a shader parameter in all commands that define it.
@@ -358,11 +358,11 @@ namespace Urho
 		public void SetShaderParameter (string name, float value)
 		{
 			Runtime.ValidateRefCounted (this);
-			RenderPath_SetShaderParameter10 (handle, name, value);
+			RenderPath_SetShaderParameter_10 (handle, name, value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void RenderPath_SetShaderParameter11 (IntPtr handle, string name, string value);
+		internal static extern void RenderPath_SetShaderParameter_11 (IntPtr handle, string name, string value);
 
 		/// <summary>
 		/// Set a shader parameter in all commands that define it.
@@ -370,11 +370,11 @@ namespace Urho
 		public void SetShaderParameter (string name, string value)
 		{
 			Runtime.ValidateRefCounted (this);
-			RenderPath_SetShaderParameter11 (handle, name, value);
+			RenderPath_SetShaderParameter_11 (handle, name, value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void RenderPath_SetShaderParameter12 (IntPtr handle, string name, bool value);
+		internal static extern void RenderPath_SetShaderParameter_12 (IntPtr handle, string name, bool value);
 
 		/// <summary>
 		/// Set a shader parameter in all commands that define it.
@@ -382,7 +382,7 @@ namespace Urho
 		public void SetShaderParameter (string name, bool value)
 		{
 			Runtime.ValidateRefCounted (this);
-			RenderPath_SetShaderParameter12 (handle, name, value);
+			RenderPath_SetShaderParameter_12 (handle, name, value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

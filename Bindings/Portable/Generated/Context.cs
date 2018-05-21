@@ -158,7 +158,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Context_SetGlobalVar0 (IntPtr handle, int key, ref Vector3 value);
+		internal static extern void Context_SetGlobalVar_0 (IntPtr handle, int key, ref Vector3 value);
 
 		/// <summary>
 		/// Set global variable with the respective key and value
@@ -166,11 +166,11 @@ namespace Urho
 		public void SetGlobalVar (StringHash key, Vector3 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			Context_SetGlobalVar0 (handle, key.Code, ref value);
+			Context_SetGlobalVar_0 (handle, key.Code, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Context_SetGlobalVar1 (IntPtr handle, int key, ref IntRect value);
+		internal static extern void Context_SetGlobalVar_1 (IntPtr handle, int key, ref IntRect value);
 
 		/// <summary>
 		/// Set global variable with the respective key and value
@@ -178,11 +178,11 @@ namespace Urho
 		public void SetGlobalVar (StringHash key, IntRect value)
 		{
 			Runtime.ValidateRefCounted (this);
-			Context_SetGlobalVar1 (handle, key.Code, ref value);
+			Context_SetGlobalVar_1 (handle, key.Code, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Context_SetGlobalVar2 (IntPtr handle, int key, ref Color value);
+		internal static extern void Context_SetGlobalVar_2 (IntPtr handle, int key, ref Color value);
 
 		/// <summary>
 		/// Set global variable with the respective key and value
@@ -190,11 +190,11 @@ namespace Urho
 		public void SetGlobalVar (StringHash key, Color value)
 		{
 			Runtime.ValidateRefCounted (this);
-			Context_SetGlobalVar2 (handle, key.Code, ref value);
+			Context_SetGlobalVar_2 (handle, key.Code, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Context_SetGlobalVar3 (IntPtr handle, int key, ref Vector2 value);
+		internal static extern void Context_SetGlobalVar_3 (IntPtr handle, int key, ref Vector2 value);
 
 		/// <summary>
 		/// Set global variable with the respective key and value
@@ -202,11 +202,11 @@ namespace Urho
 		public void SetGlobalVar (StringHash key, Vector2 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			Context_SetGlobalVar3 (handle, key.Code, ref value);
+			Context_SetGlobalVar_3 (handle, key.Code, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Context_SetGlobalVar4 (IntPtr handle, int key, ref Vector4 value);
+		internal static extern void Context_SetGlobalVar_4 (IntPtr handle, int key, ref Vector4 value);
 
 		/// <summary>
 		/// Set global variable with the respective key and value
@@ -214,11 +214,11 @@ namespace Urho
 		public void SetGlobalVar (StringHash key, Vector4 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			Context_SetGlobalVar4 (handle, key.Code, ref value);
+			Context_SetGlobalVar_4 (handle, key.Code, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Context_SetGlobalVar5 (IntPtr handle, int key, ref IntVector2 value);
+		internal static extern void Context_SetGlobalVar_5 (IntPtr handle, int key, ref IntVector2 value);
 
 		/// <summary>
 		/// Set global variable with the respective key and value
@@ -226,11 +226,11 @@ namespace Urho
 		public void SetGlobalVar (StringHash key, IntVector2 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			Context_SetGlobalVar5 (handle, key.Code, ref value);
+			Context_SetGlobalVar_5 (handle, key.Code, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Context_SetGlobalVar6 (IntPtr handle, int key, ref Quaternion value);
+		internal static extern void Context_SetGlobalVar_6 (IntPtr handle, int key, ref Quaternion value);
 
 		/// <summary>
 		/// Set global variable with the respective key and value
@@ -238,11 +238,11 @@ namespace Urho
 		public void SetGlobalVar (StringHash key, Quaternion value)
 		{
 			Runtime.ValidateRefCounted (this);
-			Context_SetGlobalVar6 (handle, key.Code, ref value);
+			Context_SetGlobalVar_6 (handle, key.Code, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Context_SetGlobalVar7 (IntPtr handle, int key, ref Matrix4 value);
+		internal static extern void Context_SetGlobalVar_7 (IntPtr handle, int key, ref Matrix4 value);
 
 		/// <summary>
 		/// Set global variable with the respective key and value
@@ -250,11 +250,11 @@ namespace Urho
 		public void SetGlobalVar (StringHash key, Matrix4 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			Context_SetGlobalVar7 (handle, key.Code, ref value);
+			Context_SetGlobalVar_7 (handle, key.Code, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Context_SetGlobalVar8 (IntPtr handle, int key, ref Matrix3x4 value);
+		internal static extern void Context_SetGlobalVar_8 (IntPtr handle, int key, ref Matrix3x4 value);
 
 		/// <summary>
 		/// Set global variable with the respective key and value
@@ -262,11 +262,11 @@ namespace Urho
 		public void SetGlobalVar (StringHash key, Matrix3x4 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			Context_SetGlobalVar8 (handle, key.Code, ref value);
+			Context_SetGlobalVar_8 (handle, key.Code, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Context_SetGlobalVar9 (IntPtr handle, int key, int value);
+		internal static extern void Context_SetGlobalVar_9 (IntPtr handle, int key, int value);
 
 		/// <summary>
 		/// Set global variable with the respective key and value
@@ -274,11 +274,11 @@ namespace Urho
 		public void SetGlobalVar (StringHash key, int value)
 		{
 			Runtime.ValidateRefCounted (this);
-			Context_SetGlobalVar9 (handle, key.Code, value);
+			Context_SetGlobalVar_9 (handle, key.Code, value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Context_SetGlobalVar10 (IntPtr handle, int key, float value);
+		internal static extern void Context_SetGlobalVar_10 (IntPtr handle, int key, float value);
 
 		/// <summary>
 		/// Set global variable with the respective key and value
@@ -286,11 +286,11 @@ namespace Urho
 		public void SetGlobalVar (StringHash key, float value)
 		{
 			Runtime.ValidateRefCounted (this);
-			Context_SetGlobalVar10 (handle, key.Code, value);
+			Context_SetGlobalVar_10 (handle, key.Code, value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Context_SetGlobalVar11 (IntPtr handle, int key, string value);
+		internal static extern void Context_SetGlobalVar_11 (IntPtr handle, int key, string value);
 
 		/// <summary>
 		/// Set global variable with the respective key and value
@@ -298,11 +298,11 @@ namespace Urho
 		public void SetGlobalVar (StringHash key, string value)
 		{
 			Runtime.ValidateRefCounted (this);
-			Context_SetGlobalVar11 (handle, key.Code, value);
+			Context_SetGlobalVar_11 (handle, key.Code, value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void Context_SetGlobalVar12 (IntPtr handle, int key, bool value);
+		internal static extern void Context_SetGlobalVar_12 (IntPtr handle, int key, bool value);
 
 		/// <summary>
 		/// Set global variable with the respective key and value
@@ -310,7 +310,7 @@ namespace Urho
 		public void SetGlobalVar (StringHash key, bool value)
 		{
 			Runtime.ValidateRefCounted (this);
-			Context_SetGlobalVar12 (handle, key.Code, value);
+			Context_SetGlobalVar_12 (handle, key.Code, value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

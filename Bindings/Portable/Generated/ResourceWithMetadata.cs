@@ -91,7 +91,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void ResourceWithMetadata_AddMetadata0 (IntPtr handle, string name, ref Vector3 value);
+		internal static extern void ResourceWithMetadata_AddMetadata_0 (IntPtr handle, string name, ref Vector3 value);
 
 		/// <summary>
 		/// Add new metadata variable or overwrite old value.
@@ -99,11 +99,11 @@ namespace Urho
 		public void AddMetadata (string name, Vector3 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			ResourceWithMetadata_AddMetadata0 (handle, name, ref value);
+			ResourceWithMetadata_AddMetadata_0 (handle, name, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void ResourceWithMetadata_AddMetadata1 (IntPtr handle, string name, ref IntRect value);
+		internal static extern void ResourceWithMetadata_AddMetadata_1 (IntPtr handle, string name, ref IntRect value);
 
 		/// <summary>
 		/// Add new metadata variable or overwrite old value.
@@ -111,11 +111,11 @@ namespace Urho
 		public void AddMetadata (string name, IntRect value)
 		{
 			Runtime.ValidateRefCounted (this);
-			ResourceWithMetadata_AddMetadata1 (handle, name, ref value);
+			ResourceWithMetadata_AddMetadata_1 (handle, name, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void ResourceWithMetadata_AddMetadata2 (IntPtr handle, string name, ref Color value);
+		internal static extern void ResourceWithMetadata_AddMetadata_2 (IntPtr handle, string name, ref Color value);
 
 		/// <summary>
 		/// Add new metadata variable or overwrite old value.
@@ -123,11 +123,11 @@ namespace Urho
 		public void AddMetadata (string name, Color value)
 		{
 			Runtime.ValidateRefCounted (this);
-			ResourceWithMetadata_AddMetadata2 (handle, name, ref value);
+			ResourceWithMetadata_AddMetadata_2 (handle, name, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void ResourceWithMetadata_AddMetadata3 (IntPtr handle, string name, ref Vector2 value);
+		internal static extern void ResourceWithMetadata_AddMetadata_3 (IntPtr handle, string name, ref Vector2 value);
 
 		/// <summary>
 		/// Add new metadata variable or overwrite old value.
@@ -135,11 +135,11 @@ namespace Urho
 		public void AddMetadata (string name, Vector2 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			ResourceWithMetadata_AddMetadata3 (handle, name, ref value);
+			ResourceWithMetadata_AddMetadata_3 (handle, name, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void ResourceWithMetadata_AddMetadata4 (IntPtr handle, string name, ref Vector4 value);
+		internal static extern void ResourceWithMetadata_AddMetadata_4 (IntPtr handle, string name, ref Vector4 value);
 
 		/// <summary>
 		/// Add new metadata variable or overwrite old value.
@@ -147,11 +147,11 @@ namespace Urho
 		public void AddMetadata (string name, Vector4 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			ResourceWithMetadata_AddMetadata4 (handle, name, ref value);
+			ResourceWithMetadata_AddMetadata_4 (handle, name, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void ResourceWithMetadata_AddMetadata5 (IntPtr handle, string name, ref IntVector2 value);
+		internal static extern void ResourceWithMetadata_AddMetadata_5 (IntPtr handle, string name, ref IntVector2 value);
 
 		/// <summary>
 		/// Add new metadata variable or overwrite old value.
@@ -159,11 +159,11 @@ namespace Urho
 		public void AddMetadata (string name, IntVector2 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			ResourceWithMetadata_AddMetadata5 (handle, name, ref value);
+			ResourceWithMetadata_AddMetadata_5 (handle, name, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void ResourceWithMetadata_AddMetadata6 (IntPtr handle, string name, ref Quaternion value);
+		internal static extern void ResourceWithMetadata_AddMetadata_6 (IntPtr handle, string name, ref Quaternion value);
 
 		/// <summary>
 		/// Add new metadata variable or overwrite old value.
@@ -171,11 +171,11 @@ namespace Urho
 		public void AddMetadata (string name, Quaternion value)
 		{
 			Runtime.ValidateRefCounted (this);
-			ResourceWithMetadata_AddMetadata6 (handle, name, ref value);
+			ResourceWithMetadata_AddMetadata_6 (handle, name, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void ResourceWithMetadata_AddMetadata7 (IntPtr handle, string name, ref Matrix4 value);
+		internal static extern void ResourceWithMetadata_AddMetadata_7 (IntPtr handle, string name, ref Matrix4 value);
 
 		/// <summary>
 		/// Add new metadata variable or overwrite old value.
@@ -183,11 +183,11 @@ namespace Urho
 		public void AddMetadata (string name, Matrix4 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			ResourceWithMetadata_AddMetadata7 (handle, name, ref value);
+			ResourceWithMetadata_AddMetadata_7 (handle, name, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void ResourceWithMetadata_AddMetadata8 (IntPtr handle, string name, ref Matrix3x4 value);
+		internal static extern void ResourceWithMetadata_AddMetadata_8 (IntPtr handle, string name, ref Matrix3x4 value);
 
 		/// <summary>
 		/// Add new metadata variable or overwrite old value.
@@ -195,11 +195,11 @@ namespace Urho
 		public void AddMetadata (string name, Matrix3x4 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			ResourceWithMetadata_AddMetadata8 (handle, name, ref value);
+			ResourceWithMetadata_AddMetadata_8 (handle, name, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void ResourceWithMetadata_AddMetadata9 (IntPtr handle, string name, int value);
+		internal static extern void ResourceWithMetadata_AddMetadata_9 (IntPtr handle, string name, int value);
 
 		/// <summary>
 		/// Add new metadata variable or overwrite old value.
@@ -207,11 +207,11 @@ namespace Urho
 		public void AddMetadata (string name, int value)
 		{
 			Runtime.ValidateRefCounted (this);
-			ResourceWithMetadata_AddMetadata9 (handle, name, value);
+			ResourceWithMetadata_AddMetadata_9 (handle, name, value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void ResourceWithMetadata_AddMetadata10 (IntPtr handle, string name, float value);
+		internal static extern void ResourceWithMetadata_AddMetadata_10 (IntPtr handle, string name, float value);
 
 		/// <summary>
 		/// Add new metadata variable or overwrite old value.
@@ -219,11 +219,11 @@ namespace Urho
 		public void AddMetadata (string name, float value)
 		{
 			Runtime.ValidateRefCounted (this);
-			ResourceWithMetadata_AddMetadata10 (handle, name, value);
+			ResourceWithMetadata_AddMetadata_10 (handle, name, value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void ResourceWithMetadata_AddMetadata11 (IntPtr handle, string name, string value);
+		internal static extern void ResourceWithMetadata_AddMetadata_11 (IntPtr handle, string name, string value);
 
 		/// <summary>
 		/// Add new metadata variable or overwrite old value.
@@ -231,11 +231,11 @@ namespace Urho
 		public void AddMetadata (string name, string value)
 		{
 			Runtime.ValidateRefCounted (this);
-			ResourceWithMetadata_AddMetadata11 (handle, name, value);
+			ResourceWithMetadata_AddMetadata_11 (handle, name, value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void ResourceWithMetadata_AddMetadata12 (IntPtr handle, string name, bool value);
+		internal static extern void ResourceWithMetadata_AddMetadata_12 (IntPtr handle, string name, bool value);
 
 		/// <summary>
 		/// Add new metadata variable or overwrite old value.
@@ -243,7 +243,7 @@ namespace Urho
 		public void AddMetadata (string name, bool value)
 		{
 			Runtime.ValidateRefCounted (this);
-			ResourceWithMetadata_AddMetadata12 (handle, name, value);
+			ResourceWithMetadata_AddMetadata_12 (handle, name, value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

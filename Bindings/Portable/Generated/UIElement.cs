@@ -1333,7 +1333,7 @@ namespace Urho.Gui
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UIElement_SetVar0 (IntPtr handle, int key, ref Vector3 value);
+		internal static extern void UIElement_SetVar_0 (IntPtr handle, int key, ref Vector3 value);
 
 		/// <summary>
 		/// Set a user variable.
@@ -1341,11 +1341,11 @@ namespace Urho.Gui
 		public void SetVar (StringHash key, Vector3 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			UIElement_SetVar0 (handle, key.Code, ref value);
+			UIElement_SetVar_0 (handle, key.Code, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UIElement_SetVar1 (IntPtr handle, int key, ref IntRect value);
+		internal static extern void UIElement_SetVar_1 (IntPtr handle, int key, ref IntRect value);
 
 		/// <summary>
 		/// Set a user variable.
@@ -1353,11 +1353,11 @@ namespace Urho.Gui
 		public void SetVar (StringHash key, IntRect value)
 		{
 			Runtime.ValidateRefCounted (this);
-			UIElement_SetVar1 (handle, key.Code, ref value);
+			UIElement_SetVar_1 (handle, key.Code, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UIElement_SetVar2 (IntPtr handle, int key, ref Color value);
+		internal static extern void UIElement_SetVar_2 (IntPtr handle, int key, ref Color value);
 
 		/// <summary>
 		/// Set a user variable.
@@ -1365,11 +1365,11 @@ namespace Urho.Gui
 		public void SetVar (StringHash key, Color value)
 		{
 			Runtime.ValidateRefCounted (this);
-			UIElement_SetVar2 (handle, key.Code, ref value);
+			UIElement_SetVar_2 (handle, key.Code, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UIElement_SetVar3 (IntPtr handle, int key, ref Vector2 value);
+		internal static extern void UIElement_SetVar_3 (IntPtr handle, int key, ref Vector2 value);
 
 		/// <summary>
 		/// Set a user variable.
@@ -1377,11 +1377,11 @@ namespace Urho.Gui
 		public void SetVar (StringHash key, Vector2 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			UIElement_SetVar3 (handle, key.Code, ref value);
+			UIElement_SetVar_3 (handle, key.Code, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UIElement_SetVar4 (IntPtr handle, int key, ref Vector4 value);
+		internal static extern void UIElement_SetVar_4 (IntPtr handle, int key, ref Vector4 value);
 
 		/// <summary>
 		/// Set a user variable.
@@ -1389,11 +1389,11 @@ namespace Urho.Gui
 		public void SetVar (StringHash key, Vector4 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			UIElement_SetVar4 (handle, key.Code, ref value);
+			UIElement_SetVar_4 (handle, key.Code, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UIElement_SetVar5 (IntPtr handle, int key, ref IntVector2 value);
+		internal static extern void UIElement_SetVar_5 (IntPtr handle, int key, ref IntVector2 value);
 
 		/// <summary>
 		/// Set a user variable.
@@ -1401,11 +1401,11 @@ namespace Urho.Gui
 		public void SetVar (StringHash key, IntVector2 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			UIElement_SetVar5 (handle, key.Code, ref value);
+			UIElement_SetVar_5 (handle, key.Code, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UIElement_SetVar6 (IntPtr handle, int key, ref Quaternion value);
+		internal static extern void UIElement_SetVar_6 (IntPtr handle, int key, ref Quaternion value);
 
 		/// <summary>
 		/// Set a user variable.
@@ -1413,11 +1413,11 @@ namespace Urho.Gui
 		public void SetVar (StringHash key, Quaternion value)
 		{
 			Runtime.ValidateRefCounted (this);
-			UIElement_SetVar6 (handle, key.Code, ref value);
+			UIElement_SetVar_6 (handle, key.Code, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UIElement_SetVar7 (IntPtr handle, int key, ref Matrix4 value);
+		internal static extern void UIElement_SetVar_7 (IntPtr handle, int key, ref Matrix4 value);
 
 		/// <summary>
 		/// Set a user variable.
@@ -1425,11 +1425,11 @@ namespace Urho.Gui
 		public void SetVar (StringHash key, Matrix4 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			UIElement_SetVar7 (handle, key.Code, ref value);
+			UIElement_SetVar_7 (handle, key.Code, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UIElement_SetVar8 (IntPtr handle, int key, ref Matrix3x4 value);
+		internal static extern void UIElement_SetVar_8 (IntPtr handle, int key, ref Matrix3x4 value);
 
 		/// <summary>
 		/// Set a user variable.
@@ -1437,11 +1437,11 @@ namespace Urho.Gui
 		public void SetVar (StringHash key, Matrix3x4 value)
 		{
 			Runtime.ValidateRefCounted (this);
-			UIElement_SetVar8 (handle, key.Code, ref value);
+			UIElement_SetVar_8 (handle, key.Code, ref value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UIElement_SetVar9 (IntPtr handle, int key, int value);
+		internal static extern void UIElement_SetVar_9 (IntPtr handle, int key, int value);
 
 		/// <summary>
 		/// Set a user variable.
@@ -1449,11 +1449,11 @@ namespace Urho.Gui
 		public void SetVar (StringHash key, int value)
 		{
 			Runtime.ValidateRefCounted (this);
-			UIElement_SetVar9 (handle, key.Code, value);
+			UIElement_SetVar_9 (handle, key.Code, value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UIElement_SetVar10 (IntPtr handle, int key, float value);
+		internal static extern void UIElement_SetVar_10 (IntPtr handle, int key, float value);
 
 		/// <summary>
 		/// Set a user variable.
@@ -1461,11 +1461,11 @@ namespace Urho.Gui
 		public void SetVar (StringHash key, float value)
 		{
 			Runtime.ValidateRefCounted (this);
-			UIElement_SetVar10 (handle, key.Code, value);
+			UIElement_SetVar_10 (handle, key.Code, value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UIElement_SetVar11 (IntPtr handle, int key, string value);
+		internal static extern void UIElement_SetVar_11 (IntPtr handle, int key, string value);
 
 		/// <summary>
 		/// Set a user variable.
@@ -1473,11 +1473,11 @@ namespace Urho.Gui
 		public void SetVar (StringHash key, string value)
 		{
 			Runtime.ValidateRefCounted (this);
-			UIElement_SetVar11 (handle, key.Code, value);
+			UIElement_SetVar_11 (handle, key.Code, value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void UIElement_SetVar12 (IntPtr handle, int key, bool value);
+		internal static extern void UIElement_SetVar_12 (IntPtr handle, int key, bool value);
 
 		/// <summary>
 		/// Set a user variable.
@@ -1485,7 +1485,7 @@ namespace Urho.Gui
 		public void SetVar (StringHash key, bool value)
 		{
 			Runtime.ValidateRefCounted (this);
-			UIElement_SetVar12 (handle, key.Code, value);
+			UIElement_SetVar_12 (handle, key.Code, value);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
