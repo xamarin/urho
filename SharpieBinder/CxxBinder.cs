@@ -1,4 +1,4 @@
-﻿//
+//
 // CURRENTLY
 //    Generate base classes without a call to base
 //    Generate the standard idioms/patterns for init, dispose
@@ -247,11 +247,11 @@ namespace SharpieBinder
 			// but for now, this will do
 			var classesNotStructs = new[] {"String", "Skeleton", "XMLElement", "GPUObject", "Frustum", "Polyhedron"};
 			if (classesNotStructs.Contains(decl.Name))
-				if (!extraClasses.Contains(decl.Name))
-					return false;
+				return false;
 
 			if (decl.TagKind == TagDeclKind.Struct || !(decl.IsDerivedFrom(ScanBaseTypes.UrhoRefCounted) || decl == ScanBaseTypes.UrhoRefCounted))
-				return true;
+				if (!extraClasses.Contains(decl.Name))
+					return true;
 			
 			return false;
 		}
