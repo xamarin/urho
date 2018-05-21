@@ -38,7 +38,7 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void AttributeAccessor_Set0 (IntPtr handle, IntPtr ptr, ref Vector3 src);
+		internal static extern void AttributeAccessor_Set_0 (IntPtr handle, IntPtr ptr, ref Vector3 src);
 
 		/// <summary>
 		/// Set the attribute.
@@ -46,11 +46,11 @@ namespace Urho
 		public void Set (Serializable ptr, Vector3 src)
 		{
 			Runtime.ValidateRefCounted (this);
-			AttributeAccessor_Set0 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, ref src);
+			AttributeAccessor_Set_0 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, ref src);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void AttributeAccessor_Set1 (IntPtr handle, IntPtr ptr, ref IntRect src);
+		internal static extern void AttributeAccessor_Set_1 (IntPtr handle, IntPtr ptr, ref IntRect src);
 
 		/// <summary>
 		/// Set the attribute.
@@ -58,11 +58,11 @@ namespace Urho
 		public void Set (Serializable ptr, IntRect src)
 		{
 			Runtime.ValidateRefCounted (this);
-			AttributeAccessor_Set1 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, ref src);
+			AttributeAccessor_Set_1 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, ref src);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void AttributeAccessor_Set2 (IntPtr handle, IntPtr ptr, ref Color src);
+		internal static extern void AttributeAccessor_Set_2 (IntPtr handle, IntPtr ptr, ref Color src);
 
 		/// <summary>
 		/// Set the attribute.
@@ -70,11 +70,11 @@ namespace Urho
 		public void Set (Serializable ptr, Color src)
 		{
 			Runtime.ValidateRefCounted (this);
-			AttributeAccessor_Set2 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, ref src);
+			AttributeAccessor_Set_2 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, ref src);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void AttributeAccessor_Set3 (IntPtr handle, IntPtr ptr, ref Vector2 src);
+		internal static extern void AttributeAccessor_Set_3 (IntPtr handle, IntPtr ptr, ref Vector2 src);
 
 		/// <summary>
 		/// Set the attribute.
@@ -82,11 +82,11 @@ namespace Urho
 		public void Set (Serializable ptr, Vector2 src)
 		{
 			Runtime.ValidateRefCounted (this);
-			AttributeAccessor_Set3 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, ref src);
+			AttributeAccessor_Set_3 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, ref src);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void AttributeAccessor_Set4 (IntPtr handle, IntPtr ptr, ref Vector4 src);
+		internal static extern void AttributeAccessor_Set_4 (IntPtr handle, IntPtr ptr, ref Vector4 src);
 
 		/// <summary>
 		/// Set the attribute.
@@ -94,11 +94,11 @@ namespace Urho
 		public void Set (Serializable ptr, Vector4 src)
 		{
 			Runtime.ValidateRefCounted (this);
-			AttributeAccessor_Set4 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, ref src);
+			AttributeAccessor_Set_4 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, ref src);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void AttributeAccessor_Set5 (IntPtr handle, IntPtr ptr, ref IntVector2 src);
+		internal static extern void AttributeAccessor_Set_5 (IntPtr handle, IntPtr ptr, ref IntVector2 src);
 
 		/// <summary>
 		/// Set the attribute.
@@ -106,11 +106,11 @@ namespace Urho
 		public void Set (Serializable ptr, IntVector2 src)
 		{
 			Runtime.ValidateRefCounted (this);
-			AttributeAccessor_Set5 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, ref src);
+			AttributeAccessor_Set_5 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, ref src);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void AttributeAccessor_Set6 (IntPtr handle, IntPtr ptr, ref Quaternion src);
+		internal static extern void AttributeAccessor_Set_6 (IntPtr handle, IntPtr ptr, ref Quaternion src);
 
 		/// <summary>
 		/// Set the attribute.
@@ -118,11 +118,11 @@ namespace Urho
 		public void Set (Serializable ptr, Quaternion src)
 		{
 			Runtime.ValidateRefCounted (this);
-			AttributeAccessor_Set6 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, ref src);
+			AttributeAccessor_Set_6 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, ref src);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void AttributeAccessor_Set7 (IntPtr handle, IntPtr ptr, ref Matrix4 src);
+		internal static extern void AttributeAccessor_Set_7 (IntPtr handle, IntPtr ptr, ref Matrix4 src);
 
 		/// <summary>
 		/// Set the attribute.
@@ -130,11 +130,11 @@ namespace Urho
 		public void Set (Serializable ptr, Matrix4 src)
 		{
 			Runtime.ValidateRefCounted (this);
-			AttributeAccessor_Set7 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, ref src);
+			AttributeAccessor_Set_7 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, ref src);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void AttributeAccessor_Set8 (IntPtr handle, IntPtr ptr, ref Matrix3x4 src);
+		internal static extern void AttributeAccessor_Set_8 (IntPtr handle, IntPtr ptr, ref Matrix3x4 src);
 
 		/// <summary>
 		/// Set the attribute.
@@ -142,11 +142,11 @@ namespace Urho
 		public void Set (Serializable ptr, Matrix3x4 src)
 		{
 			Runtime.ValidateRefCounted (this);
-			AttributeAccessor_Set8 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, ref src);
+			AttributeAccessor_Set_8 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, ref src);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void AttributeAccessor_Set9 (IntPtr handle, IntPtr ptr, int src);
+		internal static extern void AttributeAccessor_Set_9 (IntPtr handle, IntPtr ptr, int src);
 
 		/// <summary>
 		/// Set the attribute.
@@ -154,11 +154,11 @@ namespace Urho
 		public void Set (Serializable ptr, int src)
 		{
 			Runtime.ValidateRefCounted (this);
-			AttributeAccessor_Set9 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, src);
+			AttributeAccessor_Set_9 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, src);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void AttributeAccessor_Set10 (IntPtr handle, IntPtr ptr, float src);
+		internal static extern void AttributeAccessor_Set_10 (IntPtr handle, IntPtr ptr, float src);
 
 		/// <summary>
 		/// Set the attribute.
@@ -166,11 +166,11 @@ namespace Urho
 		public void Set (Serializable ptr, float src)
 		{
 			Runtime.ValidateRefCounted (this);
-			AttributeAccessor_Set10 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, src);
+			AttributeAccessor_Set_10 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, src);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void AttributeAccessor_Set11 (IntPtr handle, IntPtr ptr, string src);
+		internal static extern void AttributeAccessor_Set_11 (IntPtr handle, IntPtr ptr, string src);
 
 		/// <summary>
 		/// Set the attribute.
@@ -178,11 +178,11 @@ namespace Urho
 		public void Set (Serializable ptr, string src)
 		{
 			Runtime.ValidateRefCounted (this);
-			AttributeAccessor_Set11 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, src);
+			AttributeAccessor_Set_11 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, src);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern void AttributeAccessor_Set12 (IntPtr handle, IntPtr ptr, bool src);
+		internal static extern void AttributeAccessor_Set_12 (IntPtr handle, IntPtr ptr, bool src);
 
 		/// <summary>
 		/// Set the attribute.
@@ -190,7 +190,7 @@ namespace Urho
 		public void Set (Serializable ptr, bool src)
 		{
 			Runtime.ValidateRefCounted (this);
-			AttributeAccessor_Set12 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, src);
+			AttributeAccessor_Set_12 (handle, (object)ptr == null ? IntPtr.Zero : ptr.Handle, src);
 		}
 	}
 }

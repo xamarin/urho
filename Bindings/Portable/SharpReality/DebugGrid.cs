@@ -43,7 +43,7 @@ namespace Urho.SharpReality
 
 			var origin = node.CreateChild();
 			origin.SetScale(0.05f);
-			origin.CreateComponent<Sphere>();
+			origin.CreateComponent<Urho.Shapes.Sphere>();
 
 			geom.Commit();
 			base.OnAttachedToNode(node);

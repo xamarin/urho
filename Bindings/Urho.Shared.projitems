@@ -453,5 +453,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Portable\External\IntVector3.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\UIComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\GImpactMeshData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\AreaAllocator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\SceneResolver.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\Sphere.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\Spline.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Portable\Generated\UIBatch.cs" />
   </ItemGroup>
 </Project>

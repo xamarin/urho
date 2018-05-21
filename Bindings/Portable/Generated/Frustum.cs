@@ -146,7 +146,31 @@ namespace Urho
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern Intersection Frustum_IsInside4 (IntPtr handle, ref Urho.BoundingBox box);
+		internal static extern Intersection Frustum_IsInside4 (IntPtr handle, IntPtr sphere);
+
+		/// <summary>
+		/// Test if a sphere is inside, outside or intersects.
+		/// </summary>
+		public Intersection IsInside (Sphere sphere)
+		{
+			Runtime.ValidateObject (this);
+			return Frustum_IsInside4 (handle, (object)sphere == null ? IntPtr.Zero : sphere.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern Intersection Frustum_IsInsideFast (IntPtr handle, IntPtr sphere);
+
+		/// <summary>
+		/// Test if a sphere if (partially) inside or outside.
+		/// </summary>
+		public Intersection IsInsideFast (Sphere sphere)
+		{
+			Runtime.ValidateObject (this);
+			return Frustum_IsInsideFast (handle, (object)sphere == null ? IntPtr.Zero : sphere.Handle);
+		}
+
+		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
+		internal static extern Intersection Frustum_IsInside5 (IntPtr handle, ref Urho.BoundingBox box);
 
 		/// <summary>
 		/// Test if a bounding box is inside, outside or intersects.
@@ -154,11 +178,11 @@ namespace Urho
 		public Intersection IsInside (Urho.BoundingBox box)
 		{
 			Runtime.ValidateObject (this);
-			return Frustum_IsInside4 (handle, ref box);
+			return Frustum_IsInside5 (handle, ref box);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]
-		internal static extern Intersection Frustum_IsInsideFast (IntPtr handle, ref Urho.BoundingBox box);
+		internal static extern Intersection Frustum_IsInsideFast6 (IntPtr handle, ref Urho.BoundingBox box);
 
 		/// <summary>
 		/// Test if a bounding box is (partially) inside or outside.
@@ -166,7 +190,7 @@ namespace Urho
 		public Intersection IsInsideFast (Urho.BoundingBox box)
 		{
 			Runtime.ValidateObject (this);
-			return Frustum_IsInsideFast (handle, ref box);
+			return Frustum_IsInsideFast6 (handle, ref box);
 		}
 
 		[DllImport (Consts.NativeImport, CallingConvention = CallingConvention.Cdecl)]

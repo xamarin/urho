@@ -355,79 +355,79 @@ UrhoString_ToHash (Urho3D::String *_target)
 
 // Urho3D::Variant overloads begin:
 DllExport void
-AttributeAccessor_Set0 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, const class Urho3D::Vector3 & src)
+AttributeAccessor_Set_0 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, const class Urho3D::Vector3 & src)
 {
 	_target->Set (ptr, (src));
 }
 
 DllExport void
-AttributeAccessor_Set1 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, const class Urho3D::IntRect & src)
+AttributeAccessor_Set_1 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, const class Urho3D::IntRect & src)
 {
 	_target->Set (ptr, (src));
 }
 
 DllExport void
-AttributeAccessor_Set2 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, const class Urho3D::Color & src)
+AttributeAccessor_Set_2 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, const class Urho3D::Color & src)
 {
 	_target->Set (ptr, (src));
 }
 
 DllExport void
-AttributeAccessor_Set3 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, const class Urho3D::Vector2 & src)
+AttributeAccessor_Set_3 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, const class Urho3D::Vector2 & src)
 {
 	_target->Set (ptr, (src));
 }
 
 DllExport void
-AttributeAccessor_Set4 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, const class Urho3D::Vector4 & src)
+AttributeAccessor_Set_4 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, const class Urho3D::Vector4 & src)
 {
 	_target->Set (ptr, (src));
 }
 
 DllExport void
-AttributeAccessor_Set5 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, const class Urho3D::IntVector2 & src)
+AttributeAccessor_Set_5 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, const class Urho3D::IntVector2 & src)
 {
 	_target->Set (ptr, (src));
 }
 
 DllExport void
-AttributeAccessor_Set6 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, const class Urho3D::Quaternion & src)
+AttributeAccessor_Set_6 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, const class Urho3D::Quaternion & src)
 {
 	_target->Set (ptr, (src));
 }
 
 DllExport void
-AttributeAccessor_Set7 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, const class Urho3D::Matrix4 & src)
+AttributeAccessor_Set_7 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, const class Urho3D::Matrix4 & src)
 {
 	_target->Set (ptr, (src));
 }
 
 DllExport void
-AttributeAccessor_Set8 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, const class Urho3D::Matrix3x4 & src)
+AttributeAccessor_Set_8 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, const class Urho3D::Matrix3x4 & src)
 {
 	_target->Set (ptr, (src));
 }
 
 DllExport void
-AttributeAccessor_Set9 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, int src)
+AttributeAccessor_Set_9 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, int src)
 {
 	_target->Set (ptr, (src));
 }
 
 DllExport void
-AttributeAccessor_Set10 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, float src)
+AttributeAccessor_Set_10 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, float src)
 {
 	_target->Set (ptr, (src));
 }
 
 DllExport void
-AttributeAccessor_Set11 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, const char * src)
+AttributeAccessor_Set_11 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, const char * src)
 {
 	_target->Set (ptr, Urho3D::String(src));
 }
 
 DllExport void
-AttributeAccessor_Set12 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, bool src)
+AttributeAccessor_Set_12 (Urho3D::AttributeAccessor *_target, Urho3D::Serializable * ptr, bool src)
 {
 	_target->Set (ptr, (src));
 }
@@ -533,79 +533,79 @@ UrhoObject_GetContext (Urho3D::Object *_target)
 
 // Urho3D::Variant overloads begin:
 DllExport Interop::Vector3
-UrhoObject_GetGlobalVar0 (Urho3D::Object *_target, int key)
+UrhoObject_GetGlobalVar_0 (Urho3D::Object *_target, int key)
 {
 	return *((Interop::Vector3 *) &(_target->GetGlobalVar (Urho3D::StringHash(key)).GetVector3()));
 }
 
 DllExport Interop::IntRect
-UrhoObject_GetGlobalVar1 (Urho3D::Object *_target, int key)
+UrhoObject_GetGlobalVar_1 (Urho3D::Object *_target, int key)
 {
 	return *((Interop::IntRect *) &(_target->GetGlobalVar (Urho3D::StringHash(key)).GetIntRect()));
 }
 
 DllExport Interop::Color
-UrhoObject_GetGlobalVar2 (Urho3D::Object *_target, int key)
+UrhoObject_GetGlobalVar_2 (Urho3D::Object *_target, int key)
 {
 	return *((Interop::Color *) &(_target->GetGlobalVar (Urho3D::StringHash(key)).GetColor()));
 }
 
 DllExport Interop::Vector2
-UrhoObject_GetGlobalVar3 (Urho3D::Object *_target, int key)
+UrhoObject_GetGlobalVar_3 (Urho3D::Object *_target, int key)
 {
 	return *((Interop::Vector2 *) &(_target->GetGlobalVar (Urho3D::StringHash(key)).GetVector2()));
 }
 
 DllExport Interop::Vector4
-UrhoObject_GetGlobalVar4 (Urho3D::Object *_target, int key)
+UrhoObject_GetGlobalVar_4 (Urho3D::Object *_target, int key)
 {
 	return *((Interop::Vector4 *) &(_target->GetGlobalVar (Urho3D::StringHash(key)).GetVector4()));
 }
 
 DllExport Interop::IntVector2
-UrhoObject_GetGlobalVar5 (Urho3D::Object *_target, int key)
+UrhoObject_GetGlobalVar_5 (Urho3D::Object *_target, int key)
 {
 	return *((Interop::IntVector2 *) &(_target->GetGlobalVar (Urho3D::StringHash(key)).GetIntVector2()));
 }
 
 DllExport Interop::Quaternion
-UrhoObject_GetGlobalVar6 (Urho3D::Object *_target, int key)
+UrhoObject_GetGlobalVar_6 (Urho3D::Object *_target, int key)
 {
 	return *((Interop::Quaternion *) &(_target->GetGlobalVar (Urho3D::StringHash(key)).GetQuaternion()));
 }
 
 DllExport Interop::Matrix4
-UrhoObject_GetGlobalVar7 (Urho3D::Object *_target, int key)
+UrhoObject_GetGlobalVar_7 (Urho3D::Object *_target, int key)
 {
 	return *((Interop::Matrix4 *) &(_target->GetGlobalVar (Urho3D::StringHash(key)).GetMatrix4()));
 }
 
 DllExport Interop::Matrix3x4
-UrhoObject_GetGlobalVar8 (Urho3D::Object *_target, int key)
+UrhoObject_GetGlobalVar_8 (Urho3D::Object *_target, int key)
 {
 	return *((Interop::Matrix3x4 *) &(_target->GetGlobalVar (Urho3D::StringHash(key)).GetMatrix3x4()));
 }
 
 DllExport int
-UrhoObject_GetGlobalVar9 (Urho3D::Object *_target, int key)
+UrhoObject_GetGlobalVar_9 (Urho3D::Object *_target, int key)
 {
 	return (_target->GetGlobalVar (Urho3D::StringHash(key)).GetInt());
 }
 
 DllExport float
-UrhoObject_GetGlobalVar10 (Urho3D::Object *_target, int key)
+UrhoObject_GetGlobalVar_10 (Urho3D::Object *_target, int key)
 {
 	return (_target->GetGlobalVar (Urho3D::StringHash(key)).GetFloat());
 }
 
 DllExport const char *
-UrhoObject_GetGlobalVar11 (Urho3D::Object *_target, int key)
+UrhoObject_GetGlobalVar_11 (Urho3D::Object *_target, int key)
 {
 	return stringdup(_target->GetGlobalVar (Urho3D::StringHash(key)).GetString().CString());
 }
 
 DllExport bool
-UrhoObject_GetGlobalVar12 (Urho3D::Object *_target, int key)
+UrhoObject_GetGlobalVar_12 (Urho3D::Object *_target, int key)
 {
 	return (_target->GetGlobalVar (Urho3D::StringHash(key)).GetBool());
 }
@@ -613,79 +613,79 @@ UrhoObject_GetGlobalVar12 (Urho3D::Object *_target, int key)
 // Urho3D::Variant overloads end.
 // Urho3D::Variant overloads begin:
 DllExport void
-UrhoObject_SetGlobalVar0 (Urho3D::Object *_target, int key, const class Urho3D::Vector3 & value)
+UrhoObject_SetGlobalVar_0 (Urho3D::Object *_target, int key, const class Urho3D::Vector3 & value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UrhoObject_SetGlobalVar1 (Urho3D::Object *_target, int key, const class Urho3D::IntRect & value)
+UrhoObject_SetGlobalVar_1 (Urho3D::Object *_target, int key, const class Urho3D::IntRect & value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UrhoObject_SetGlobalVar2 (Urho3D::Object *_target, int key, const class Urho3D::Color & value)
+UrhoObject_SetGlobalVar_2 (Urho3D::Object *_target, int key, const class Urho3D::Color & value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UrhoObject_SetGlobalVar3 (Urho3D::Object *_target, int key, const class Urho3D::Vector2 & value)
+UrhoObject_SetGlobalVar_3 (Urho3D::Object *_target, int key, const class Urho3D::Vector2 & value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UrhoObject_SetGlobalVar4 (Urho3D::Object *_target, int key, const class Urho3D::Vector4 & value)
+UrhoObject_SetGlobalVar_4 (Urho3D::Object *_target, int key, const class Urho3D::Vector4 & value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UrhoObject_SetGlobalVar5 (Urho3D::Object *_target, int key, const class Urho3D::IntVector2 & value)
+UrhoObject_SetGlobalVar_5 (Urho3D::Object *_target, int key, const class Urho3D::IntVector2 & value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UrhoObject_SetGlobalVar6 (Urho3D::Object *_target, int key, const class Urho3D::Quaternion & value)
+UrhoObject_SetGlobalVar_6 (Urho3D::Object *_target, int key, const class Urho3D::Quaternion & value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UrhoObject_SetGlobalVar7 (Urho3D::Object *_target, int key, const class Urho3D::Matrix4 & value)
+UrhoObject_SetGlobalVar_7 (Urho3D::Object *_target, int key, const class Urho3D::Matrix4 & value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UrhoObject_SetGlobalVar8 (Urho3D::Object *_target, int key, const class Urho3D::Matrix3x4 & value)
+UrhoObject_SetGlobalVar_8 (Urho3D::Object *_target, int key, const class Urho3D::Matrix3x4 & value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UrhoObject_SetGlobalVar9 (Urho3D::Object *_target, int key, int value)
+UrhoObject_SetGlobalVar_9 (Urho3D::Object *_target, int key, int value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UrhoObject_SetGlobalVar10 (Urho3D::Object *_target, int key, float value)
+UrhoObject_SetGlobalVar_10 (Urho3D::Object *_target, int key, float value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UrhoObject_SetGlobalVar11 (Urho3D::Object *_target, int key, const char * value)
+UrhoObject_SetGlobalVar_11 (Urho3D::Object *_target, int key, const char * value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), Urho3D::String(value));
 }
 
 DllExport void
-UrhoObject_SetGlobalVar12 (Urho3D::Object *_target, int key, bool value)
+UrhoObject_SetGlobalVar_12 (Urho3D::Object *_target, int key, bool value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
@@ -893,79 +893,79 @@ Serializable_MarkNetworkUpdate (Urho3D::Serializable *_target)
 
 // Urho3D::Variant overloads begin:
 DllExport int
-Serializable_SetAttribute0 (Urho3D::Serializable *_target, unsigned int index, const class Urho3D::Vector3 & value)
+Serializable_SetAttribute_0 (Urho3D::Serializable *_target, unsigned int index, const class Urho3D::Vector3 & value)
 {
 	return _target->SetAttribute (index, (value));
 }
 
 DllExport int
-Serializable_SetAttribute1 (Urho3D::Serializable *_target, unsigned int index, const class Urho3D::IntRect & value)
+Serializable_SetAttribute_1 (Urho3D::Serializable *_target, unsigned int index, const class Urho3D::IntRect & value)
 {
 	return _target->SetAttribute (index, (value));
 }
 
 DllExport int
-Serializable_SetAttribute2 (Urho3D::Serializable *_target, unsigned int index, const class Urho3D::Color & value)
+Serializable_SetAttribute_2 (Urho3D::Serializable *_target, unsigned int index, const class Urho3D::Color & value)
 {
 	return _target->SetAttribute (index, (value));
 }
 
 DllExport int
-Serializable_SetAttribute3 (Urho3D::Serializable *_target, unsigned int index, const class Urho3D::Vector2 & value)
+Serializable_SetAttribute_3 (Urho3D::Serializable *_target, unsigned int index, const class Urho3D::Vector2 & value)
 {
 	return _target->SetAttribute (index, (value));
 }
 
 DllExport int
-Serializable_SetAttribute4 (Urho3D::Serializable *_target, unsigned int index, const class Urho3D::Vector4 & value)
+Serializable_SetAttribute_4 (Urho3D::Serializable *_target, unsigned int index, const class Urho3D::Vector4 & value)
 {
 	return _target->SetAttribute (index, (value));
 }
 
 DllExport int
-Serializable_SetAttribute5 (Urho3D::Serializable *_target, unsigned int index, const class Urho3D::IntVector2 & value)
+Serializable_SetAttribute_5 (Urho3D::Serializable *_target, unsigned int index, const class Urho3D::IntVector2 & value)
 {
 	return _target->SetAttribute (index, (value));
 }
 
 DllExport int
-Serializable_SetAttribute6 (Urho3D::Serializable *_target, unsigned int index, const class Urho3D::Quaternion & value)
+Serializable_SetAttribute_6 (Urho3D::Serializable *_target, unsigned int index, const class Urho3D::Quaternion & value)
 {
 	return _target->SetAttribute (index, (value));
 }
 
 DllExport int
-Serializable_SetAttribute7 (Urho3D::Serializable *_target, unsigned int index, const class Urho3D::Matrix4 & value)
+Serializable_SetAttribute_7 (Urho3D::Serializable *_target, unsigned int index, const class Urho3D::Matrix4 & value)
 {
 	return _target->SetAttribute (index, (value));
 }
 
 DllExport int
-Serializable_SetAttribute8 (Urho3D::Serializable *_target, unsigned int index, const class Urho3D::Matrix3x4 & value)
+Serializable_SetAttribute_8 (Urho3D::Serializable *_target, unsigned int index, const class Urho3D::Matrix3x4 & value)
 {
 	return _target->SetAttribute (index, (value));
 }
 
 DllExport int
-Serializable_SetAttribute9 (Urho3D::Serializable *_target, unsigned int index, int value)
+Serializable_SetAttribute_9 (Urho3D::Serializable *_target, unsigned int index, int value)
 {
 	return _target->SetAttribute (index, (value));
 }
 
 DllExport int
-Serializable_SetAttribute10 (Urho3D::Serializable *_target, unsigned int index, float value)
+Serializable_SetAttribute_10 (Urho3D::Serializable *_target, unsigned int index, float value)
 {
 	return _target->SetAttribute (index, (value));
 }
 
 DllExport int
-Serializable_SetAttribute11 (Urho3D::Serializable *_target, unsigned int index, const char * value)
+Serializable_SetAttribute_11 (Urho3D::Serializable *_target, unsigned int index, const char * value)
 {
 	return _target->SetAttribute (index, Urho3D::String(value));
 }
 
 DllExport int
-Serializable_SetAttribute12 (Urho3D::Serializable *_target, unsigned int index, bool value)
+Serializable_SetAttribute_12 (Urho3D::Serializable *_target, unsigned int index, bool value)
 {
 	return _target->SetAttribute (index, (value));
 }
@@ -973,79 +973,79 @@ Serializable_SetAttribute12 (Urho3D::Serializable *_target, unsigned int index, 
 // Urho3D::Variant overloads end.
 // Urho3D::Variant overloads begin:
 DllExport int
-Serializable_SetAttribute00 (Urho3D::Serializable *_target, const char * name, const class Urho3D::Vector3 & value)
+Serializable_SetAttribute0_0 (Urho3D::Serializable *_target, const char * name, const class Urho3D::Vector3 & value)
 {
 	return _target->SetAttribute (Urho3D::String(name), (value));
 }
 
 DllExport int
-Serializable_SetAttribute01 (Urho3D::Serializable *_target, const char * name, const class Urho3D::IntRect & value)
+Serializable_SetAttribute0_1 (Urho3D::Serializable *_target, const char * name, const class Urho3D::IntRect & value)
 {
 	return _target->SetAttribute (Urho3D::String(name), (value));
 }
 
 DllExport int
-Serializable_SetAttribute02 (Urho3D::Serializable *_target, const char * name, const class Urho3D::Color & value)
+Serializable_SetAttribute0_2 (Urho3D::Serializable *_target, const char * name, const class Urho3D::Color & value)
 {
 	return _target->SetAttribute (Urho3D::String(name), (value));
 }
 
 DllExport int
-Serializable_SetAttribute03 (Urho3D::Serializable *_target, const char * name, const class Urho3D::Vector2 & value)
+Serializable_SetAttribute0_3 (Urho3D::Serializable *_target, const char * name, const class Urho3D::Vector2 & value)
 {
 	return _target->SetAttribute (Urho3D::String(name), (value));
 }
 
 DllExport int
-Serializable_SetAttribute04 (Urho3D::Serializable *_target, const char * name, const class Urho3D::Vector4 & value)
+Serializable_SetAttribute0_4 (Urho3D::Serializable *_target, const char * name, const class Urho3D::Vector4 & value)
 {
 	return _target->SetAttribute (Urho3D::String(name), (value));
 }
 
 DllExport int
-Serializable_SetAttribute05 (Urho3D::Serializable *_target, const char * name, const class Urho3D::IntVector2 & value)
+Serializable_SetAttribute0_5 (Urho3D::Serializable *_target, const char * name, const class Urho3D::IntVector2 & value)
 {
 	return _target->SetAttribute (Urho3D::String(name), (value));
 }
 
 DllExport int
-Serializable_SetAttribute06 (Urho3D::Serializable *_target, const char * name, const class Urho3D::Quaternion & value)
+Serializable_SetAttribute0_6 (Urho3D::Serializable *_target, const char * name, const class Urho3D::Quaternion & value)
 {
 	return _target->SetAttribute (Urho3D::String(name), (value));
 }
 
 DllExport int
-Serializable_SetAttribute07 (Urho3D::Serializable *_target, const char * name, const class Urho3D::Matrix4 & value)
+Serializable_SetAttribute0_7 (Urho3D::Serializable *_target, const char * name, const class Urho3D::Matrix4 & value)
 {
 	return _target->SetAttribute (Urho3D::String(name), (value));
 }
 
 DllExport int
-Serializable_SetAttribute08 (Urho3D::Serializable *_target, const char * name, const class Urho3D::Matrix3x4 & value)
+Serializable_SetAttribute0_8 (Urho3D::Serializable *_target, const char * name, const class Urho3D::Matrix3x4 & value)
 {
 	return _target->SetAttribute (Urho3D::String(name), (value));
 }
 
 DllExport int
-Serializable_SetAttribute09 (Urho3D::Serializable *_target, const char * name, int value)
+Serializable_SetAttribute0_9 (Urho3D::Serializable *_target, const char * name, int value)
 {
 	return _target->SetAttribute (Urho3D::String(name), (value));
 }
 
 DllExport int
-Serializable_SetAttribute010 (Urho3D::Serializable *_target, const char * name, float value)
+Serializable_SetAttribute0_10 (Urho3D::Serializable *_target, const char * name, float value)
 {
 	return _target->SetAttribute (Urho3D::String(name), (value));
 }
 
 DllExport int
-Serializable_SetAttribute011 (Urho3D::Serializable *_target, const char * name, const char * value)
+Serializable_SetAttribute0_11 (Urho3D::Serializable *_target, const char * name, const char * value)
 {
 	return _target->SetAttribute (Urho3D::String(name), Urho3D::String(value));
 }
 
 DllExport int
-Serializable_SetAttribute012 (Urho3D::Serializable *_target, const char * name, bool value)
+Serializable_SetAttribute0_12 (Urho3D::Serializable *_target, const char * name, bool value)
 {
 	return _target->SetAttribute (Urho3D::String(name), (value));
 }
@@ -1914,79 +1914,79 @@ ResourceWithMetadata_ResourceWithMetadata (Urho3D::Context * context)
 
 // Urho3D::Variant overloads begin:
 DllExport void
-ResourceWithMetadata_AddMetadata0 (Urho3D::ResourceWithMetadata *_target, const char * name, const class Urho3D::Vector3 & value)
+ResourceWithMetadata_AddMetadata_0 (Urho3D::ResourceWithMetadata *_target, const char * name, const class Urho3D::Vector3 & value)
 {
 	_target->AddMetadata (Urho3D::String(name), (value));
 }
 
 DllExport void
-ResourceWithMetadata_AddMetadata1 (Urho3D::ResourceWithMetadata *_target, const char * name, const class Urho3D::IntRect & value)
+ResourceWithMetadata_AddMetadata_1 (Urho3D::ResourceWithMetadata *_target, const char * name, const class Urho3D::IntRect & value)
 {
 	_target->AddMetadata (Urho3D::String(name), (value));
 }
 
 DllExport void
-ResourceWithMetadata_AddMetadata2 (Urho3D::ResourceWithMetadata *_target, const char * name, const class Urho3D::Color & value)
+ResourceWithMetadata_AddMetadata_2 (Urho3D::ResourceWithMetadata *_target, const char * name, const class Urho3D::Color & value)
 {
 	_target->AddMetadata (Urho3D::String(name), (value));
 }
 
 DllExport void
-ResourceWithMetadata_AddMetadata3 (Urho3D::ResourceWithMetadata *_target, const char * name, const class Urho3D::Vector2 & value)
+ResourceWithMetadata_AddMetadata_3 (Urho3D::ResourceWithMetadata *_target, const char * name, const class Urho3D::Vector2 & value)
 {
 	_target->AddMetadata (Urho3D::String(name), (value));
 }
 
 DllExport void
-ResourceWithMetadata_AddMetadata4 (Urho3D::ResourceWithMetadata *_target, const char * name, const class Urho3D::Vector4 & value)
+ResourceWithMetadata_AddMetadata_4 (Urho3D::ResourceWithMetadata *_target, const char * name, const class Urho3D::Vector4 & value)
 {
 	_target->AddMetadata (Urho3D::String(name), (value));
 }
 
 DllExport void
-ResourceWithMetadata_AddMetadata5 (Urho3D::ResourceWithMetadata *_target, const char * name, const class Urho3D::IntVector2 & value)
+ResourceWithMetadata_AddMetadata_5 (Urho3D::ResourceWithMetadata *_target, const char * name, const class Urho3D::IntVector2 & value)
 {
 	_target->AddMetadata (Urho3D::String(name), (value));
 }
 
 DllExport void
-ResourceWithMetadata_AddMetadata6 (Urho3D::ResourceWithMetadata *_target, const char * name, const class Urho3D::Quaternion & value)
+ResourceWithMetadata_AddMetadata_6 (Urho3D::ResourceWithMetadata *_target, const char * name, const class Urho3D::Quaternion & value)
 {
 	_target->AddMetadata (Urho3D::String(name), (value));
 }
 
 DllExport void
-ResourceWithMetadata_AddMetadata7 (Urho3D::ResourceWithMetadata *_target, const char * name, const class Urho3D::Matrix4 & value)
+ResourceWithMetadata_AddMetadata_7 (Urho3D::ResourceWithMetadata *_target, const char * name, const class Urho3D::Matrix4 & value)
 {
 	_target->AddMetadata (Urho3D::String(name), (value));
 }
 
 DllExport void
-ResourceWithMetadata_AddMetadata8 (Urho3D::ResourceWithMetadata *_target, const char * name, const class Urho3D::Matrix3x4 & value)
+ResourceWithMetadata_AddMetadata_8 (Urho3D::ResourceWithMetadata *_target, const char * name, const class Urho3D::Matrix3x4 & value)
 {
 	_target->AddMetadata (Urho3D::String(name), (value));
 }
 
 DllExport void
-ResourceWithMetadata_AddMetadata9 (Urho3D::ResourceWithMetadata *_target, const char * name, int value)
+ResourceWithMetadata_AddMetadata_9 (Urho3D::ResourceWithMetadata *_target, const char * name, int value)
 {
 	_target->AddMetadata (Urho3D::String(name), (value));
 }
 
 DllExport void
-ResourceWithMetadata_AddMetadata10 (Urho3D::ResourceWithMetadata *_target, const char * name, float value)
+ResourceWithMetadata_AddMetadata_10 (Urho3D::ResourceWithMetadata *_target, const char * name, float value)
 {
 	_target->AddMetadata (Urho3D::String(name), (value));
 }
 
 DllExport void
-ResourceWithMetadata_AddMetadata11 (Urho3D::ResourceWithMetadata *_target, const char * name, const char * value)
+ResourceWithMetadata_AddMetadata_11 (Urho3D::ResourceWithMetadata *_target, const char * name, const char * value)
 {
 	_target->AddMetadata (Urho3D::String(name), Urho3D::String(value));
 }
 
 DllExport void
-ResourceWithMetadata_AddMetadata12 (Urho3D::ResourceWithMetadata *_target, const char * name, bool value)
+ResourceWithMetadata_AddMetadata_12 (Urho3D::ResourceWithMetadata *_target, const char * name, bool value)
 {
 	_target->AddMetadata (Urho3D::String(name), (value));
 }
@@ -2008,79 +2008,79 @@ ResourceWithMetadata_RemoveAllMetadata (Urho3D::ResourceWithMetadata *_target)
 
 // Urho3D::Variant overloads begin:
 DllExport Interop::Vector3
-ResourceWithMetadata_GetMetadata0 (Urho3D::ResourceWithMetadata *_target, const char * name)
+ResourceWithMetadata_GetMetadata_0 (Urho3D::ResourceWithMetadata *_target, const char * name)
 {
 	return *((Interop::Vector3 *) &(_target->GetMetadata (Urho3D::String(name)).GetVector3()));
 }
 
 DllExport Interop::IntRect
-ResourceWithMetadata_GetMetadata1 (Urho3D::ResourceWithMetadata *_target, const char * name)
+ResourceWithMetadata_GetMetadata_1 (Urho3D::ResourceWithMetadata *_target, const char * name)
 {
 	return *((Interop::IntRect *) &(_target->GetMetadata (Urho3D::String(name)).GetIntRect()));
 }
 
 DllExport Interop::Color
-ResourceWithMetadata_GetMetadata2 (Urho3D::ResourceWithMetadata *_target, const char * name)
+ResourceWithMetadata_GetMetadata_2 (Urho3D::ResourceWithMetadata *_target, const char * name)
 {
 	return *((Interop::Color *) &(_target->GetMetadata (Urho3D::String(name)).GetColor()));
 }
 
 DllExport Interop::Vector2
-ResourceWithMetadata_GetMetadata3 (Urho3D::ResourceWithMetadata *_target, const char * name)
+ResourceWithMetadata_GetMetadata_3 (Urho3D::ResourceWithMetadata *_target, const char * name)
 {
 	return *((Interop::Vector2 *) &(_target->GetMetadata (Urho3D::String(name)).GetVector2()));
 }
 
 DllExport Interop::Vector4
-ResourceWithMetadata_GetMetadata4 (Urho3D::ResourceWithMetadata *_target, const char * name)
+ResourceWithMetadata_GetMetadata_4 (Urho3D::ResourceWithMetadata *_target, const char * name)
 {
 	return *((Interop::Vector4 *) &(_target->GetMetadata (Urho3D::String(name)).GetVector4()));
 }
 
 DllExport Interop::IntVector2
-ResourceWithMetadata_GetMetadata5 (Urho3D::ResourceWithMetadata *_target, const char * name)
+ResourceWithMetadata_GetMetadata_5 (Urho3D::ResourceWithMetadata *_target, const char * name)
 {
 	return *((Interop::IntVector2 *) &(_target->GetMetadata (Urho3D::String(name)).GetIntVector2()));
 }
 
 DllExport Interop::Quaternion
-ResourceWithMetadata_GetMetadata6 (Urho3D::ResourceWithMetadata *_target, const char * name)
+ResourceWithMetadata_GetMetadata_6 (Urho3D::ResourceWithMetadata *_target, const char * name)
 {
 	return *((Interop::Quaternion *) &(_target->GetMetadata (Urho3D::String(name)).GetQuaternion()));
 }
 
 DllExport Interop::Matrix4
-ResourceWithMetadata_GetMetadata7 (Urho3D::ResourceWithMetadata *_target, const char * name)
+ResourceWithMetadata_GetMetadata_7 (Urho3D::ResourceWithMetadata *_target, const char * name)
 {
 	return *((Interop::Matrix4 *) &(_target->GetMetadata (Urho3D::String(name)).GetMatrix4()));
 }
 
 DllExport Interop::Matrix3x4
-ResourceWithMetadata_GetMetadata8 (Urho3D::ResourceWithMetadata *_target, const char * name)
+ResourceWithMetadata_GetMetadata_8 (Urho3D::ResourceWithMetadata *_target, const char * name)
 {
 	return *((Interop::Matrix3x4 *) &(_target->GetMetadata (Urho3D::String(name)).GetMatrix3x4()));
 }
 
 DllExport int
-ResourceWithMetadata_GetMetadata9 (Urho3D::ResourceWithMetadata *_target, const char * name)
+ResourceWithMetadata_GetMetadata_9 (Urho3D::ResourceWithMetadata *_target, const char * name)
 {
 	return (_target->GetMetadata (Urho3D::String(name)).GetInt());
 }
 
 DllExport float
-ResourceWithMetadata_GetMetadata10 (Urho3D::ResourceWithMetadata *_target, const char * name)
+ResourceWithMetadata_GetMetadata_10 (Urho3D::ResourceWithMetadata *_target, const char * name)
 {
 	return (_target->GetMetadata (Urho3D::String(name)).GetFloat());
 }
 
 DllExport const char *
-ResourceWithMetadata_GetMetadata11 (Urho3D::ResourceWithMetadata *_target, const char * name)
+ResourceWithMetadata_GetMetadata_11 (Urho3D::ResourceWithMetadata *_target, const char * name)
 {
 	return stringdup(_target->GetMetadata (Urho3D::String(name)).GetString().CString());
 }
 
 DllExport bool
-ResourceWithMetadata_GetMetadata12 (Urho3D::ResourceWithMetadata *_target, const char * name)
+ResourceWithMetadata_GetMetadata_12 (Urho3D::ResourceWithMetadata *_target, const char * name)
 {
 	return (_target->GetMetadata (Urho3D::String(name)).GetBool());
 }
@@ -4035,79 +4035,79 @@ Context_GetSubsystem (Urho3D::Context *_target, int type)
 
 // Urho3D::Variant overloads begin:
 DllExport Interop::Vector3
-Context_GetGlobalVar0 (Urho3D::Context *_target, int key)
+Context_GetGlobalVar_0 (Urho3D::Context *_target, int key)
 {
 	return *((Interop::Vector3 *) &(_target->GetGlobalVar (Urho3D::StringHash(key)).GetVector3()));
 }
 
 DllExport Interop::IntRect
-Context_GetGlobalVar1 (Urho3D::Context *_target, int key)
+Context_GetGlobalVar_1 (Urho3D::Context *_target, int key)
 {
 	return *((Interop::IntRect *) &(_target->GetGlobalVar (Urho3D::StringHash(key)).GetIntRect()));
 }
 
 DllExport Interop::Color
-Context_GetGlobalVar2 (Urho3D::Context *_target, int key)
+Context_GetGlobalVar_2 (Urho3D::Context *_target, int key)
 {
 	return *((Interop::Color *) &(_target->GetGlobalVar (Urho3D::StringHash(key)).GetColor()));
 }
 
 DllExport Interop::Vector2
-Context_GetGlobalVar3 (Urho3D::Context *_target, int key)
+Context_GetGlobalVar_3 (Urho3D::Context *_target, int key)
 {
 	return *((Interop::Vector2 *) &(_target->GetGlobalVar (Urho3D::StringHash(key)).GetVector2()));
 }
 
 DllExport Interop::Vector4
-Context_GetGlobalVar4 (Urho3D::Context *_target, int key)
+Context_GetGlobalVar_4 (Urho3D::Context *_target, int key)
 {
 	return *((Interop::Vector4 *) &(_target->GetGlobalVar (Urho3D::StringHash(key)).GetVector4()));
 }
 
 DllExport Interop::IntVector2
-Context_GetGlobalVar5 (Urho3D::Context *_target, int key)
+Context_GetGlobalVar_5 (Urho3D::Context *_target, int key)
 {
 	return *((Interop::IntVector2 *) &(_target->GetGlobalVar (Urho3D::StringHash(key)).GetIntVector2()));
 }
 
 DllExport Interop::Quaternion
-Context_GetGlobalVar6 (Urho3D::Context *_target, int key)
+Context_GetGlobalVar_6 (Urho3D::Context *_target, int key)
 {
 	return *((Interop::Quaternion *) &(_target->GetGlobalVar (Urho3D::StringHash(key)).GetQuaternion()));
 }
 
 DllExport Interop::Matrix4
-Context_GetGlobalVar7 (Urho3D::Context *_target, int key)
+Context_GetGlobalVar_7 (Urho3D::Context *_target, int key)
 {
 	return *((Interop::Matrix4 *) &(_target->GetGlobalVar (Urho3D::StringHash(key)).GetMatrix4()));
 }
 
 DllExport Interop::Matrix3x4
-Context_GetGlobalVar8 (Urho3D::Context *_target, int key)
+Context_GetGlobalVar_8 (Urho3D::Context *_target, int key)
 {
 	return *((Interop::Matrix3x4 *) &(_target->GetGlobalVar (Urho3D::StringHash(key)).GetMatrix3x4()));
 }
 
 DllExport int
-Context_GetGlobalVar9 (Urho3D::Context *_target, int key)
+Context_GetGlobalVar_9 (Urho3D::Context *_target, int key)
 {
 	return (_target->GetGlobalVar (Urho3D::StringHash(key)).GetInt());
 }
 
 DllExport float
-Context_GetGlobalVar10 (Urho3D::Context *_target, int key)
+Context_GetGlobalVar_10 (Urho3D::Context *_target, int key)
 {
 	return (_target->GetGlobalVar (Urho3D::StringHash(key)).GetFloat());
 }
 
 DllExport const char *
-Context_GetGlobalVar11 (Urho3D::Context *_target, int key)
+Context_GetGlobalVar_11 (Urho3D::Context *_target, int key)
 {
 	return stringdup(_target->GetGlobalVar (Urho3D::StringHash(key)).GetString().CString());
 }
 
 DllExport bool
-Context_GetGlobalVar12 (Urho3D::Context *_target, int key)
+Context_GetGlobalVar_12 (Urho3D::Context *_target, int key)
 {
 	return (_target->GetGlobalVar (Urho3D::StringHash(key)).GetBool());
 }
@@ -4115,79 +4115,79 @@ Context_GetGlobalVar12 (Urho3D::Context *_target, int key)
 // Urho3D::Variant overloads end.
 // Urho3D::Variant overloads begin:
 DllExport void
-Context_SetGlobalVar0 (Urho3D::Context *_target, int key, const class Urho3D::Vector3 & value)
+Context_SetGlobalVar_0 (Urho3D::Context *_target, int key, const class Urho3D::Vector3 & value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Context_SetGlobalVar1 (Urho3D::Context *_target, int key, const class Urho3D::IntRect & value)
+Context_SetGlobalVar_1 (Urho3D::Context *_target, int key, const class Urho3D::IntRect & value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Context_SetGlobalVar2 (Urho3D::Context *_target, int key, const class Urho3D::Color & value)
+Context_SetGlobalVar_2 (Urho3D::Context *_target, int key, const class Urho3D::Color & value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Context_SetGlobalVar3 (Urho3D::Context *_target, int key, const class Urho3D::Vector2 & value)
+Context_SetGlobalVar_3 (Urho3D::Context *_target, int key, const class Urho3D::Vector2 & value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Context_SetGlobalVar4 (Urho3D::Context *_target, int key, const class Urho3D::Vector4 & value)
+Context_SetGlobalVar_4 (Urho3D::Context *_target, int key, const class Urho3D::Vector4 & value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Context_SetGlobalVar5 (Urho3D::Context *_target, int key, const class Urho3D::IntVector2 & value)
+Context_SetGlobalVar_5 (Urho3D::Context *_target, int key, const class Urho3D::IntVector2 & value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Context_SetGlobalVar6 (Urho3D::Context *_target, int key, const class Urho3D::Quaternion & value)
+Context_SetGlobalVar_6 (Urho3D::Context *_target, int key, const class Urho3D::Quaternion & value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Context_SetGlobalVar7 (Urho3D::Context *_target, int key, const class Urho3D::Matrix4 & value)
+Context_SetGlobalVar_7 (Urho3D::Context *_target, int key, const class Urho3D::Matrix4 & value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Context_SetGlobalVar8 (Urho3D::Context *_target, int key, const class Urho3D::Matrix3x4 & value)
+Context_SetGlobalVar_8 (Urho3D::Context *_target, int key, const class Urho3D::Matrix3x4 & value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Context_SetGlobalVar9 (Urho3D::Context *_target, int key, int value)
+Context_SetGlobalVar_9 (Urho3D::Context *_target, int key, int value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Context_SetGlobalVar10 (Urho3D::Context *_target, int key, float value)
+Context_SetGlobalVar_10 (Urho3D::Context *_target, int key, float value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Context_SetGlobalVar11 (Urho3D::Context *_target, int key, const char * value)
+Context_SetGlobalVar_11 (Urho3D::Context *_target, int key, const char * value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), Urho3D::String(value));
 }
 
 DllExport void
-Context_SetGlobalVar12 (Urho3D::Context *_target, int key, bool value)
+Context_SetGlobalVar_12 (Urho3D::Context *_target, int key, bool value)
 {
 	_target->SetGlobalVar (Urho3D::StringHash(key), (value));
 }
@@ -4309,6 +4309,309 @@ DllExport const class Urho3D::ProfilerBlock *
 Profiler_GetRootBlock (Urho3D::Profiler *_target)
 {
 	return _target->GetRootBlock ();
+}
+
+
+DllExport void *
+Spline_Spline ()
+{
+	return new Spline();
+}
+
+
+DllExport void *
+Spline_Spline0 (enum Urho3D::InterpolationMode mode)
+{
+	return new Spline(mode);
+}
+
+
+DllExport enum Urho3D::InterpolationMode
+Spline_GetInterpolationMode (Urho3D::Spline *_target)
+{
+	return _target->GetInterpolationMode ();
+}
+
+
+DllExport Urho3D::Variant
+Spline_GetKnot (Urho3D::Spline *_target, unsigned int index)
+{
+	return _target->GetKnot (index);
+}
+
+
+DllExport Urho3D::Variant
+Spline_GetPoint (Urho3D::Spline *_target, float f)
+{
+	return _target->GetPoint (f);
+}
+
+
+DllExport void
+Spline_SetInterpolationMode (Urho3D::Spline *_target, enum Urho3D::InterpolationMode interpolationMode)
+{
+	_target->SetInterpolationMode (interpolationMode);
+}
+
+
+// Urho3D::Variant overloads begin:
+DllExport void
+Spline_SetKnot_0 (Urho3D::Spline *_target, const class Urho3D::Vector3 & knot, unsigned int index)
+{
+	_target->SetKnot ((knot), index);
+}
+
+DllExport void
+Spline_SetKnot_1 (Urho3D::Spline *_target, const class Urho3D::IntRect & knot, unsigned int index)
+{
+	_target->SetKnot ((knot), index);
+}
+
+DllExport void
+Spline_SetKnot_2 (Urho3D::Spline *_target, const class Urho3D::Color & knot, unsigned int index)
+{
+	_target->SetKnot ((knot), index);
+}
+
+DllExport void
+Spline_SetKnot_3 (Urho3D::Spline *_target, const class Urho3D::Vector2 & knot, unsigned int index)
+{
+	_target->SetKnot ((knot), index);
+}
+
+DllExport void
+Spline_SetKnot_4 (Urho3D::Spline *_target, const class Urho3D::Vector4 & knot, unsigned int index)
+{
+	_target->SetKnot ((knot), index);
+}
+
+DllExport void
+Spline_SetKnot_5 (Urho3D::Spline *_target, const class Urho3D::IntVector2 & knot, unsigned int index)
+{
+	_target->SetKnot ((knot), index);
+}
+
+DllExport void
+Spline_SetKnot_6 (Urho3D::Spline *_target, const class Urho3D::Quaternion & knot, unsigned int index)
+{
+	_target->SetKnot ((knot), index);
+}
+
+DllExport void
+Spline_SetKnot_7 (Urho3D::Spline *_target, const class Urho3D::Matrix4 & knot, unsigned int index)
+{
+	_target->SetKnot ((knot), index);
+}
+
+DllExport void
+Spline_SetKnot_8 (Urho3D::Spline *_target, const class Urho3D::Matrix3x4 & knot, unsigned int index)
+{
+	_target->SetKnot ((knot), index);
+}
+
+DllExport void
+Spline_SetKnot_9 (Urho3D::Spline *_target, int knot, unsigned int index)
+{
+	_target->SetKnot ((knot), index);
+}
+
+DllExport void
+Spline_SetKnot_10 (Urho3D::Spline *_target, float knot, unsigned int index)
+{
+	_target->SetKnot ((knot), index);
+}
+
+DllExport void
+Spline_SetKnot_11 (Urho3D::Spline *_target, const char * knot, unsigned int index)
+{
+	_target->SetKnot (Urho3D::String(knot), index);
+}
+
+DllExport void
+Spline_SetKnot_12 (Urho3D::Spline *_target, bool knot, unsigned int index)
+{
+	_target->SetKnot ((knot), index);
+}
+
+// Urho3D::Variant overloads end.
+// Urho3D::Variant overloads begin:
+DllExport void
+Spline_AddKnot_0 (Urho3D::Spline *_target, const class Urho3D::Vector3 & knot)
+{
+	_target->AddKnot ((knot));
+}
+
+DllExport void
+Spline_AddKnot_1 (Urho3D::Spline *_target, const class Urho3D::IntRect & knot)
+{
+	_target->AddKnot ((knot));
+}
+
+DllExport void
+Spline_AddKnot_2 (Urho3D::Spline *_target, const class Urho3D::Color & knot)
+{
+	_target->AddKnot ((knot));
+}
+
+DllExport void
+Spline_AddKnot_3 (Urho3D::Spline *_target, const class Urho3D::Vector2 & knot)
+{
+	_target->AddKnot ((knot));
+}
+
+DllExport void
+Spline_AddKnot_4 (Urho3D::Spline *_target, const class Urho3D::Vector4 & knot)
+{
+	_target->AddKnot ((knot));
+}
+
+DllExport void
+Spline_AddKnot_5 (Urho3D::Spline *_target, const class Urho3D::IntVector2 & knot)
+{
+	_target->AddKnot ((knot));
+}
+
+DllExport void
+Spline_AddKnot_6 (Urho3D::Spline *_target, const class Urho3D::Quaternion & knot)
+{
+	_target->AddKnot ((knot));
+}
+
+DllExport void
+Spline_AddKnot_7 (Urho3D::Spline *_target, const class Urho3D::Matrix4 & knot)
+{
+	_target->AddKnot ((knot));
+}
+
+DllExport void
+Spline_AddKnot_8 (Urho3D::Spline *_target, const class Urho3D::Matrix3x4 & knot)
+{
+	_target->AddKnot ((knot));
+}
+
+DllExport void
+Spline_AddKnot_9 (Urho3D::Spline *_target, int knot)
+{
+	_target->AddKnot ((knot));
+}
+
+DllExport void
+Spline_AddKnot_10 (Urho3D::Spline *_target, float knot)
+{
+	_target->AddKnot ((knot));
+}
+
+DllExport void
+Spline_AddKnot_11 (Urho3D::Spline *_target, const char * knot)
+{
+	_target->AddKnot (Urho3D::String(knot));
+}
+
+DllExport void
+Spline_AddKnot_12 (Urho3D::Spline *_target, bool knot)
+{
+	_target->AddKnot ((knot));
+}
+
+// Urho3D::Variant overloads end.
+// Urho3D::Variant overloads begin:
+DllExport void
+Spline_AddKnot1_0 (Urho3D::Spline *_target, const class Urho3D::Vector3 & knot, unsigned int index)
+{
+	_target->AddKnot ((knot), index);
+}
+
+DllExport void
+Spline_AddKnot1_1 (Urho3D::Spline *_target, const class Urho3D::IntRect & knot, unsigned int index)
+{
+	_target->AddKnot ((knot), index);
+}
+
+DllExport void
+Spline_AddKnot1_2 (Urho3D::Spline *_target, const class Urho3D::Color & knot, unsigned int index)
+{
+	_target->AddKnot ((knot), index);
+}
+
+DllExport void
+Spline_AddKnot1_3 (Urho3D::Spline *_target, const class Urho3D::Vector2 & knot, unsigned int index)
+{
+	_target->AddKnot ((knot), index);
+}
+
+DllExport void
+Spline_AddKnot1_4 (Urho3D::Spline *_target, const class Urho3D::Vector4 & knot, unsigned int index)
+{
+	_target->AddKnot ((knot), index);
+}
+
+DllExport void
+Spline_AddKnot1_5 (Urho3D::Spline *_target, const class Urho3D::IntVector2 & knot, unsigned int index)
+{
+	_target->AddKnot ((knot), index);
+}
+
+DllExport void
+Spline_AddKnot1_6 (Urho3D::Spline *_target, const class Urho3D::Quaternion & knot, unsigned int index)
+{
+	_target->AddKnot ((knot), index);
+}
+
+DllExport void
+Spline_AddKnot1_7 (Urho3D::Spline *_target, const class Urho3D::Matrix4 & knot, unsigned int index)
+{
+	_target->AddKnot ((knot), index);
+}
+
+DllExport void
+Spline_AddKnot1_8 (Urho3D::Spline *_target, const class Urho3D::Matrix3x4 & knot, unsigned int index)
+{
+	_target->AddKnot ((knot), index);
+}
+
+DllExport void
+Spline_AddKnot1_9 (Urho3D::Spline *_target, int knot, unsigned int index)
+{
+	_target->AddKnot ((knot), index);
+}
+
+DllExport void
+Spline_AddKnot1_10 (Urho3D::Spline *_target, float knot, unsigned int index)
+{
+	_target->AddKnot ((knot), index);
+}
+
+DllExport void
+Spline_AddKnot1_11 (Urho3D::Spline *_target, const char * knot, unsigned int index)
+{
+	_target->AddKnot (Urho3D::String(knot), index);
+}
+
+DllExport void
+Spline_AddKnot1_12 (Urho3D::Spline *_target, bool knot, unsigned int index)
+{
+	_target->AddKnot ((knot), index);
+}
+
+// Urho3D::Variant overloads end.
+DllExport void
+Spline_RemoveKnot (Urho3D::Spline *_target)
+{
+	_target->RemoveKnot ();
+}
+
+
+DllExport void
+Spline_RemoveKnot2 (Urho3D::Spline *_target, unsigned int index)
+{
+	_target->RemoveKnot (index);
+}
+
+
+DllExport void
+Spline_Clear (Urho3D::Spline *_target)
+{
+	_target->Clear ();
 }
 
 
@@ -5767,79 +6070,79 @@ Node_SetParent (Urho3D::Node *_target, Urho3D::Node * parent)
 
 // Urho3D::Variant overloads begin:
 DllExport void
-Node_SetVar0 (Urho3D::Node *_target, int key, const class Urho3D::Vector3 & value)
+Node_SetVar_0 (Urho3D::Node *_target, int key, const class Urho3D::Vector3 & value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Node_SetVar1 (Urho3D::Node *_target, int key, const class Urho3D::IntRect & value)
+Node_SetVar_1 (Urho3D::Node *_target, int key, const class Urho3D::IntRect & value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Node_SetVar2 (Urho3D::Node *_target, int key, const class Urho3D::Color & value)
+Node_SetVar_2 (Urho3D::Node *_target, int key, const class Urho3D::Color & value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Node_SetVar3 (Urho3D::Node *_target, int key, const class Urho3D::Vector2 & value)
+Node_SetVar_3 (Urho3D::Node *_target, int key, const class Urho3D::Vector2 & value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Node_SetVar4 (Urho3D::Node *_target, int key, const class Urho3D::Vector4 & value)
+Node_SetVar_4 (Urho3D::Node *_target, int key, const class Urho3D::Vector4 & value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Node_SetVar5 (Urho3D::Node *_target, int key, const class Urho3D::IntVector2 & value)
+Node_SetVar_5 (Urho3D::Node *_target, int key, const class Urho3D::IntVector2 & value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Node_SetVar6 (Urho3D::Node *_target, int key, const class Urho3D::Quaternion & value)
+Node_SetVar_6 (Urho3D::Node *_target, int key, const class Urho3D::Quaternion & value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Node_SetVar7 (Urho3D::Node *_target, int key, const class Urho3D::Matrix4 & value)
+Node_SetVar_7 (Urho3D::Node *_target, int key, const class Urho3D::Matrix4 & value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Node_SetVar8 (Urho3D::Node *_target, int key, const class Urho3D::Matrix3x4 & value)
+Node_SetVar_8 (Urho3D::Node *_target, int key, const class Urho3D::Matrix3x4 & value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Node_SetVar9 (Urho3D::Node *_target, int key, int value)
+Node_SetVar_9 (Urho3D::Node *_target, int key, int value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Node_SetVar10 (Urho3D::Node *_target, int key, float value)
+Node_SetVar_10 (Urho3D::Node *_target, int key, float value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-Node_SetVar11 (Urho3D::Node *_target, int key, const char * value)
+Node_SetVar_11 (Urho3D::Node *_target, int key, const char * value)
 {
 	_target->SetVar (Urho3D::StringHash(key), Urho3D::String(value));
 }
 
 DllExport void
-Node_SetVar12 (Urho3D::Node *_target, int key, bool value)
+Node_SetVar_12 (Urho3D::Node *_target, int key, bool value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
@@ -6204,79 +6507,79 @@ Node_HasComponent (Urho3D::Node *_target, int type)
 
 // Urho3D::Variant overloads begin:
 DllExport Interop::Vector3
-Node_GetVar0 (Urho3D::Node *_target, int key)
+Node_GetVar_0 (Urho3D::Node *_target, int key)
 {
 	return *((Interop::Vector3 *) &(_target->GetVar (Urho3D::StringHash(key)).GetVector3()));
 }
 
 DllExport Interop::IntRect
-Node_GetVar1 (Urho3D::Node *_target, int key)
+Node_GetVar_1 (Urho3D::Node *_target, int key)
 {
 	return *((Interop::IntRect *) &(_target->GetVar (Urho3D::StringHash(key)).GetIntRect()));
 }
 
 DllExport Interop::Color
-Node_GetVar2 (Urho3D::Node *_target, int key)
+Node_GetVar_2 (Urho3D::Node *_target, int key)
 {
 	return *((Interop::Color *) &(_target->GetVar (Urho3D::StringHash(key)).GetColor()));
 }
 
 DllExport Interop::Vector2
-Node_GetVar3 (Urho3D::Node *_target, int key)
+Node_GetVar_3 (Urho3D::Node *_target, int key)
 {
 	return *((Interop::Vector2 *) &(_target->GetVar (Urho3D::StringHash(key)).GetVector2()));
 }
 
 DllExport Interop::Vector4
-Node_GetVar4 (Urho3D::Node *_target, int key)
+Node_GetVar_4 (Urho3D::Node *_target, int key)
 {
 	return *((Interop::Vector4 *) &(_target->GetVar (Urho3D::StringHash(key)).GetVector4()));
 }
 
 DllExport Interop::IntVector2
-Node_GetVar5 (Urho3D::Node *_target, int key)
+Node_GetVar_5 (Urho3D::Node *_target, int key)
 {
 	return *((Interop::IntVector2 *) &(_target->GetVar (Urho3D::StringHash(key)).GetIntVector2()));
 }
 
 DllExport Interop::Quaternion
-Node_GetVar6 (Urho3D::Node *_target, int key)
+Node_GetVar_6 (Urho3D::Node *_target, int key)
 {
 	return *((Interop::Quaternion *) &(_target->GetVar (Urho3D::StringHash(key)).GetQuaternion()));
 }
 
 DllExport Interop::Matrix4
-Node_GetVar7 (Urho3D::Node *_target, int key)
+Node_GetVar_7 (Urho3D::Node *_target, int key)
 {
 	return *((Interop::Matrix4 *) &(_target->GetVar (Urho3D::StringHash(key)).GetMatrix4()));
 }
 
 DllExport Interop::Matrix3x4
-Node_GetVar8 (Urho3D::Node *_target, int key)
+Node_GetVar_8 (Urho3D::Node *_target, int key)
 {
 	return *((Interop::Matrix3x4 *) &(_target->GetVar (Urho3D::StringHash(key)).GetMatrix3x4()));
 }
 
 DllExport int
-Node_GetVar9 (Urho3D::Node *_target, int key)
+Node_GetVar_9 (Urho3D::Node *_target, int key)
 {
 	return (_target->GetVar (Urho3D::StringHash(key)).GetInt());
 }
 
 DllExport float
-Node_GetVar10 (Urho3D::Node *_target, int key)
+Node_GetVar_10 (Urho3D::Node *_target, int key)
 {
 	return (_target->GetVar (Urho3D::StringHash(key)).GetFloat());
 }
 
 DllExport const char *
-Node_GetVar11 (Urho3D::Node *_target, int key)
+Node_GetVar_11 (Urho3D::Node *_target, int key)
 {
 	return stringdup(_target->GetVar (Urho3D::StringHash(key)).GetString().CString());
 }
 
 DllExport bool
-Node_GetVar12 (Urho3D::Node *_target, int key)
+Node_GetVar_12 (Urho3D::Node *_target, int key)
 {
 	return (_target->GetVar (Urho3D::StringHash(key)).GetBool());
 }
@@ -7653,79 +7956,79 @@ Animation_RemoveAllTracks (Urho3D::Animation *_target)
 
 // Urho3D::Variant overloads begin:
 DllExport void
-Animation_AddTrigger0 (Urho3D::Animation *_target, float time, bool timeIsNormalized, const class Urho3D::Vector3 & data)
+Animation_AddTrigger_0 (Urho3D::Animation *_target, float time, bool timeIsNormalized, const class Urho3D::Vector3 & data)
 {
 	_target->AddTrigger (time, timeIsNormalized, (data));
 }
 
 DllExport void
-Animation_AddTrigger1 (Urho3D::Animation *_target, float time, bool timeIsNormalized, const class Urho3D::IntRect & data)
+Animation_AddTrigger_1 (Urho3D::Animation *_target, float time, bool timeIsNormalized, const class Urho3D::IntRect & data)
 {
 	_target->AddTrigger (time, timeIsNormalized, (data));
 }
 
 DllExport void
-Animation_AddTrigger2 (Urho3D::Animation *_target, float time, bool timeIsNormalized, const class Urho3D::Color & data)
+Animation_AddTrigger_2 (Urho3D::Animation *_target, float time, bool timeIsNormalized, const class Urho3D::Color & data)
 {
 	_target->AddTrigger (time, timeIsNormalized, (data));
 }
 
 DllExport void
-Animation_AddTrigger3 (Urho3D::Animation *_target, float time, bool timeIsNormalized, const class Urho3D::Vector2 & data)
+Animation_AddTrigger_3 (Urho3D::Animation *_target, float time, bool timeIsNormalized, const class Urho3D::Vector2 & data)
 {
 	_target->AddTrigger (time, timeIsNormalized, (data));
 }
 
 DllExport void
-Animation_AddTrigger4 (Urho3D::Animation *_target, float time, bool timeIsNormalized, const class Urho3D::Vector4 & data)
+Animation_AddTrigger_4 (Urho3D::Animation *_target, float time, bool timeIsNormalized, const class Urho3D::Vector4 & data)
 {
 	_target->AddTrigger (time, timeIsNormalized, (data));
 }
 
 DllExport void
-Animation_AddTrigger5 (Urho3D::Animation *_target, float time, bool timeIsNormalized, const class Urho3D::IntVector2 & data)
+Animation_AddTrigger_5 (Urho3D::Animation *_target, float time, bool timeIsNormalized, const class Urho3D::IntVector2 & data)
 {
 	_target->AddTrigger (time, timeIsNormalized, (data));
 }
 
 DllExport void
-Animation_AddTrigger6 (Urho3D::Animation *_target, float time, bool timeIsNormalized, const class Urho3D::Quaternion & data)
+Animation_AddTrigger_6 (Urho3D::Animation *_target, float time, bool timeIsNormalized, const class Urho3D::Quaternion & data)
 {
 	_target->AddTrigger (time, timeIsNormalized, (data));
 }
 
 DllExport void
-Animation_AddTrigger7 (Urho3D::Animation *_target, float time, bool timeIsNormalized, const class Urho3D::Matrix4 & data)
+Animation_AddTrigger_7 (Urho3D::Animation *_target, float time, bool timeIsNormalized, const class Urho3D::Matrix4 & data)
 {
 	_target->AddTrigger (time, timeIsNormalized, (data));
 }
 
 DllExport void
-Animation_AddTrigger8 (Urho3D::Animation *_target, float time, bool timeIsNormalized, const class Urho3D::Matrix3x4 & data)
+Animation_AddTrigger_8 (Urho3D::Animation *_target, float time, bool timeIsNormalized, const class Urho3D::Matrix3x4 & data)
 {
 	_target->AddTrigger (time, timeIsNormalized, (data));
 }
 
 DllExport void
-Animation_AddTrigger9 (Urho3D::Animation *_target, float time, bool timeIsNormalized, int data)
+Animation_AddTrigger_9 (Urho3D::Animation *_target, float time, bool timeIsNormalized, int data)
 {
 	_target->AddTrigger (time, timeIsNormalized, (data));
 }
 
 DllExport void
-Animation_AddTrigger10 (Urho3D::Animation *_target, float time, bool timeIsNormalized, float data)
+Animation_AddTrigger_10 (Urho3D::Animation *_target, float time, bool timeIsNormalized, float data)
 {
 	_target->AddTrigger (time, timeIsNormalized, (data));
 }
 
 DllExport void
-Animation_AddTrigger11 (Urho3D::Animation *_target, float time, bool timeIsNormalized, const char * data)
+Animation_AddTrigger_11 (Urho3D::Animation *_target, float time, bool timeIsNormalized, const char * data)
 {
 	_target->AddTrigger (time, timeIsNormalized, Urho3D::String(data));
 }
 
 DllExport void
-Animation_AddTrigger12 (Urho3D::Animation *_target, float time, bool timeIsNormalized, bool data)
+Animation_AddTrigger_12 (Urho3D::Animation *_target, float time, bool timeIsNormalized, bool data)
 {
 	_target->AddTrigger (time, timeIsNormalized, (data));
 }
@@ -8352,6 +8655,209 @@ AnimationController_GetAnimationState1 (Urho3D::AnimationController *_target, in
 
 
 DllExport void *
+Sphere_Sphere ()
+{
+	return new Sphere();
+}
+
+
+DllExport void *
+Sphere_Sphere0 (const class Urho3D::Sphere & sphere)
+{
+	return new Sphere(sphere);
+}
+
+
+DllExport void *
+Sphere_Sphere1 (const class Urho3D::Vector3 & center, float radius)
+{
+	return new Sphere(center, radius);
+}
+
+
+DllExport void *
+Sphere_Sphere2 (const class Urho3D::Vector3 * vertices, unsigned int count)
+{
+	return new Sphere(vertices, count);
+}
+
+
+DllExport void *
+Sphere_Sphere3 (const class Urho3D::BoundingBox & box)
+{
+	return new Sphere(box);
+}
+
+
+DllExport void *
+Sphere_Sphere4 (const class Urho3D::Frustum & frustum)
+{
+	return new Sphere(frustum);
+}
+
+
+DllExport void *
+Sphere_Sphere5 (const class Urho3D::Polyhedron & poly)
+{
+	return new Sphere(poly);
+}
+
+
+DllExport void
+Sphere_Define (Urho3D::Sphere *_target, const class Urho3D::Sphere & sphere)
+{
+	_target->Define (sphere);
+}
+
+
+DllExport void
+Sphere_Define6 (Urho3D::Sphere *_target, const class Urho3D::Vector3 & center, float radius)
+{
+	_target->Define (center, radius);
+}
+
+
+DllExport void
+Sphere_Define7 (Urho3D::Sphere *_target, const class Urho3D::Vector3 * vertices, unsigned int count)
+{
+	_target->Define (vertices, count);
+}
+
+
+DllExport void
+Sphere_Define8 (Urho3D::Sphere *_target, const class Urho3D::BoundingBox & box)
+{
+	_target->Define (box);
+}
+
+
+DllExport void
+Sphere_Define9 (Urho3D::Sphere *_target, const class Urho3D::Frustum & frustum)
+{
+	_target->Define (frustum);
+}
+
+
+DllExport void
+Sphere_Define10 (Urho3D::Sphere *_target, const class Urho3D::Polyhedron & poly)
+{
+	_target->Define (poly);
+}
+
+
+DllExport void
+Sphere_Merge (Urho3D::Sphere *_target, const class Urho3D::Vector3 & point)
+{
+	_target->Merge (point);
+}
+
+
+DllExport void
+Sphere_Merge11 (Urho3D::Sphere *_target, const class Urho3D::Vector3 * vertices, unsigned int count)
+{
+	_target->Merge (vertices, count);
+}
+
+
+DllExport void
+Sphere_Merge12 (Urho3D::Sphere *_target, const class Urho3D::BoundingBox & box)
+{
+	_target->Merge (box);
+}
+
+
+DllExport void
+Sphere_Merge13 (Urho3D::Sphere *_target, const class Urho3D::Frustum & frustum)
+{
+	_target->Merge (frustum);
+}
+
+
+DllExport void
+Sphere_Merge14 (Urho3D::Sphere *_target, const class Urho3D::Polyhedron & poly)
+{
+	_target->Merge (poly);
+}
+
+
+DllExport void
+Sphere_Merge15 (Urho3D::Sphere *_target, const class Urho3D::Sphere & sphere)
+{
+	_target->Merge (sphere);
+}
+
+
+DllExport void
+Sphere_Clear (Urho3D::Sphere *_target)
+{
+	_target->Clear ();
+}
+
+
+DllExport int
+Sphere_Defined (Urho3D::Sphere *_target)
+{
+	return _target->Defined ();
+}
+
+
+DllExport enum Urho3D::Intersection
+Sphere_IsInside (Urho3D::Sphere *_target, const class Urho3D::Vector3 & point)
+{
+	return _target->IsInside (point);
+}
+
+
+DllExport enum Urho3D::Intersection
+Sphere_IsInside16 (Urho3D::Sphere *_target, const class Urho3D::Sphere & sphere)
+{
+	return _target->IsInside (sphere);
+}
+
+
+DllExport enum Urho3D::Intersection
+Sphere_IsInsideFast (Urho3D::Sphere *_target, const class Urho3D::Sphere & sphere)
+{
+	return _target->IsInsideFast (sphere);
+}
+
+
+DllExport enum Urho3D::Intersection
+Sphere_IsInside17 (Urho3D::Sphere *_target, const class Urho3D::BoundingBox & box)
+{
+	return _target->IsInside (box);
+}
+
+
+DllExport enum Urho3D::Intersection
+Sphere_IsInsideFast18 (Urho3D::Sphere *_target, const class Urho3D::BoundingBox & box)
+{
+	return _target->IsInsideFast (box);
+}
+
+
+DllExport float
+Sphere_Distance (Urho3D::Sphere *_target, const class Urho3D::Vector3 & point)
+{
+	return _target->Distance (point);
+}
+
+
+DllExport Interop::Vector3 
+Sphere_GetLocalPoint (Urho3D::Sphere *_target, float theta, float phi)
+{
+	return *((Interop::Vector3  *) &(_target->GetLocalPoint (theta, phi)));
+}
+
+
+DllExport Interop::Vector3 
+Sphere_GetPoint (Urho3D::Sphere *_target, float theta, float phi)
+{
+	return *((Interop::Vector3  *) &(_target->GetPoint (theta, phi)));
+}
+
+
+DllExport void *
 Frustum_Frustum ()
 {
 	return new Frustum();
@@ -8422,14 +8928,28 @@ Frustum_IsInside (Urho3D::Frustum *_target, const class Urho3D::Vector3 & point)
 
 
 DllExport enum Urho3D::Intersection
-Frustum_IsInside4 (Urho3D::Frustum *_target, const class Urho3D::BoundingBox & box)
+Frustum_IsInside4 (Urho3D::Frustum *_target, const class Urho3D::Sphere & sphere)
+{
+	return _target->IsInside (sphere);
+}
+
+
+DllExport enum Urho3D::Intersection
+Frustum_IsInsideFast (Urho3D::Frustum *_target, const class Urho3D::Sphere & sphere)
+{
+	return _target->IsInsideFast (sphere);
+}
+
+
+DllExport enum Urho3D::Intersection
+Frustum_IsInside5 (Urho3D::Frustum *_target, const class Urho3D::BoundingBox & box)
 {
 	return _target->IsInside (box);
 }
 
 
 DllExport enum Urho3D::Intersection
-Frustum_IsInsideFast (Urho3D::Frustum *_target, const class Urho3D::BoundingBox & box)
+Frustum_IsInsideFast6 (Urho3D::Frustum *_target, const class Urho3D::BoundingBox & box)
 {
 	return _target->IsInsideFast (box);
 }
@@ -9506,79 +10026,79 @@ Material_SetPixelShaderDefines (Urho3D::Material *_target, const char * defines)
 
 // Urho3D::Variant overloads begin:
 DllExport void
-Material_SetShaderParameter0 (Urho3D::Material *_target, const char * name, const class Urho3D::Vector3 & value)
+Material_SetShaderParameter_0 (Urho3D::Material *_target, const char * name, const class Urho3D::Vector3 & value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-Material_SetShaderParameter1 (Urho3D::Material *_target, const char * name, const class Urho3D::IntRect & value)
+Material_SetShaderParameter_1 (Urho3D::Material *_target, const char * name, const class Urho3D::IntRect & value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-Material_SetShaderParameter2 (Urho3D::Material *_target, const char * name, const class Urho3D::Color & value)
+Material_SetShaderParameter_2 (Urho3D::Material *_target, const char * name, const class Urho3D::Color & value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-Material_SetShaderParameter3 (Urho3D::Material *_target, const char * name, const class Urho3D::Vector2 & value)
+Material_SetShaderParameter_3 (Urho3D::Material *_target, const char * name, const class Urho3D::Vector2 & value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-Material_SetShaderParameter4 (Urho3D::Material *_target, const char * name, const class Urho3D::Vector4 & value)
+Material_SetShaderParameter_4 (Urho3D::Material *_target, const char * name, const class Urho3D::Vector4 & value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-Material_SetShaderParameter5 (Urho3D::Material *_target, const char * name, const class Urho3D::IntVector2 & value)
+Material_SetShaderParameter_5 (Urho3D::Material *_target, const char * name, const class Urho3D::IntVector2 & value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-Material_SetShaderParameter6 (Urho3D::Material *_target, const char * name, const class Urho3D::Quaternion & value)
+Material_SetShaderParameter_6 (Urho3D::Material *_target, const char * name, const class Urho3D::Quaternion & value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-Material_SetShaderParameter7 (Urho3D::Material *_target, const char * name, const class Urho3D::Matrix4 & value)
+Material_SetShaderParameter_7 (Urho3D::Material *_target, const char * name, const class Urho3D::Matrix4 & value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-Material_SetShaderParameter8 (Urho3D::Material *_target, const char * name, const class Urho3D::Matrix3x4 & value)
+Material_SetShaderParameter_8 (Urho3D::Material *_target, const char * name, const class Urho3D::Matrix3x4 & value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-Material_SetShaderParameter9 (Urho3D::Material *_target, const char * name, int value)
+Material_SetShaderParameter_9 (Urho3D::Material *_target, const char * name, int value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-Material_SetShaderParameter10 (Urho3D::Material *_target, const char * name, float value)
+Material_SetShaderParameter_10 (Urho3D::Material *_target, const char * name, float value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-Material_SetShaderParameter11 (Urho3D::Material *_target, const char * name, const char * value)
+Material_SetShaderParameter_11 (Urho3D::Material *_target, const char * name, const char * value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), Urho3D::String(value));
 }
 
 DllExport void
-Material_SetShaderParameter12 (Urho3D::Material *_target, const char * name, bool value)
+Material_SetShaderParameter_12 (Urho3D::Material *_target, const char * name, bool value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
@@ -9772,79 +10292,79 @@ Material_GetPixelShaderDefines (Urho3D::Material *_target)
 
 // Urho3D::Variant overloads begin:
 DllExport Interop::Vector3
-Material_GetShaderParameter0 (Urho3D::Material *_target, const char * name)
+Material_GetShaderParameter_0 (Urho3D::Material *_target, const char * name)
 {
 	return *((Interop::Vector3 *) &(_target->GetShaderParameter (Urho3D::String(name)).GetVector3()));
 }
 
 DllExport Interop::IntRect
-Material_GetShaderParameter1 (Urho3D::Material *_target, const char * name)
+Material_GetShaderParameter_1 (Urho3D::Material *_target, const char * name)
 {
 	return *((Interop::IntRect *) &(_target->GetShaderParameter (Urho3D::String(name)).GetIntRect()));
 }
 
 DllExport Interop::Color
-Material_GetShaderParameter2 (Urho3D::Material *_target, const char * name)
+Material_GetShaderParameter_2 (Urho3D::Material *_target, const char * name)
 {
 	return *((Interop::Color *) &(_target->GetShaderParameter (Urho3D::String(name)).GetColor()));
 }
 
 DllExport Interop::Vector2
-Material_GetShaderParameter3 (Urho3D::Material *_target, const char * name)
+Material_GetShaderParameter_3 (Urho3D::Material *_target, const char * name)
 {
 	return *((Interop::Vector2 *) &(_target->GetShaderParameter (Urho3D::String(name)).GetVector2()));
 }
 
 DllExport Interop::Vector4
-Material_GetShaderParameter4 (Urho3D::Material *_target, const char * name)
+Material_GetShaderParameter_4 (Urho3D::Material *_target, const char * name)
 {
 	return *((Interop::Vector4 *) &(_target->GetShaderParameter (Urho3D::String(name)).GetVector4()));
 }
 
 DllExport Interop::IntVector2
-Material_GetShaderParameter5 (Urho3D::Material *_target, const char * name)
+Material_GetShaderParameter_5 (Urho3D::Material *_target, const char * name)
 {
 	return *((Interop::IntVector2 *) &(_target->GetShaderParameter (Urho3D::String(name)).GetIntVector2()));
 }
 
 DllExport Interop::Quaternion
-Material_GetShaderParameter6 (Urho3D::Material *_target, const char * name)
+Material_GetShaderParameter_6 (Urho3D::Material *_target, const char * name)
 {
 	return *((Interop::Quaternion *) &(_target->GetShaderParameter (Urho3D::String(name)).GetQuaternion()));
 }
 
 DllExport Interop::Matrix4
-Material_GetShaderParameter7 (Urho3D::Material *_target, const char * name)
+Material_GetShaderParameter_7 (Urho3D::Material *_target, const char * name)
 {
 	return *((Interop::Matrix4 *) &(_target->GetShaderParameter (Urho3D::String(name)).GetMatrix4()));
 }
 
 DllExport Interop::Matrix3x4
-Material_GetShaderParameter8 (Urho3D::Material *_target, const char * name)
+Material_GetShaderParameter_8 (Urho3D::Material *_target, const char * name)
 {
 	return *((Interop::Matrix3x4 *) &(_target->GetShaderParameter (Urho3D::String(name)).GetMatrix3x4()));
 }
 
 DllExport int
-Material_GetShaderParameter9 (Urho3D::Material *_target, const char * name)
+Material_GetShaderParameter_9 (Urho3D::Material *_target, const char * name)
 {
 	return (_target->GetShaderParameter (Urho3D::String(name)).GetInt());
 }
 
 DllExport float
-Material_GetShaderParameter10 (Urho3D::Material *_target, const char * name)
+Material_GetShaderParameter_10 (Urho3D::Material *_target, const char * name)
 {
 	return (_target->GetShaderParameter (Urho3D::String(name)).GetFloat());
 }
 
 DllExport const char *
-Material_GetShaderParameter11 (Urho3D::Material *_target, const char * name)
+Material_GetShaderParameter_11 (Urho3D::Material *_target, const char * name)
 {
 	return stringdup(_target->GetShaderParameter (Urho3D::String(name)).GetString().CString());
 }
 
 DllExport bool
-Material_GetShaderParameter12 (Urho3D::Material *_target, const char * name)
+Material_GetShaderParameter_12 (Urho3D::Material *_target, const char * name)
 {
 	return (_target->GetShaderParameter (Urho3D::String(name)).GetBool());
 }
@@ -11070,6 +11590,20 @@ DllExport void
 DebugRenderer_AddPolyhedron (Urho3D::DebugRenderer *_target, const class Urho3D::Polyhedron & poly, const class Urho3D::Color & color, bool depthTest)
 {
 	_target->AddPolyhedron (poly, color, depthTest);
+}
+
+
+DllExport void
+DebugRenderer_AddSphere (Urho3D::DebugRenderer *_target, const class Urho3D::Sphere & sphere, const class Urho3D::Color & color, bool depthTest)
+{
+	_target->AddSphere (sphere, color, depthTest);
+}
+
+
+DllExport void
+DebugRenderer_AddSphereSector (Urho3D::DebugRenderer *_target, const class Urho3D::Sphere & sphere, const class Urho3D::Quaternion & rotation, float angle, bool drawLines, const class Urho3D::Color & color, bool depthTest)
+{
+	_target->AddSphereSector (sphere, rotation, angle, drawLines, color, depthTest);
 }
 
 
@@ -15211,79 +15745,79 @@ RenderPath_RemoveCommands (Urho3D::RenderPath *_target, const char * tag)
 
 // Urho3D::Variant overloads begin:
 DllExport void
-RenderPath_SetShaderParameter0 (Urho3D::RenderPath *_target, const char * name, const class Urho3D::Vector3 & value)
+RenderPath_SetShaderParameter_0 (Urho3D::RenderPath *_target, const char * name, const class Urho3D::Vector3 & value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-RenderPath_SetShaderParameter1 (Urho3D::RenderPath *_target, const char * name, const class Urho3D::IntRect & value)
+RenderPath_SetShaderParameter_1 (Urho3D::RenderPath *_target, const char * name, const class Urho3D::IntRect & value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-RenderPath_SetShaderParameter2 (Urho3D::RenderPath *_target, const char * name, const class Urho3D::Color & value)
+RenderPath_SetShaderParameter_2 (Urho3D::RenderPath *_target, const char * name, const class Urho3D::Color & value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-RenderPath_SetShaderParameter3 (Urho3D::RenderPath *_target, const char * name, const class Urho3D::Vector2 & value)
+RenderPath_SetShaderParameter_3 (Urho3D::RenderPath *_target, const char * name, const class Urho3D::Vector2 & value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-RenderPath_SetShaderParameter4 (Urho3D::RenderPath *_target, const char * name, const class Urho3D::Vector4 & value)
+RenderPath_SetShaderParameter_4 (Urho3D::RenderPath *_target, const char * name, const class Urho3D::Vector4 & value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-RenderPath_SetShaderParameter5 (Urho3D::RenderPath *_target, const char * name, const class Urho3D::IntVector2 & value)
+RenderPath_SetShaderParameter_5 (Urho3D::RenderPath *_target, const char * name, const class Urho3D::IntVector2 & value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-RenderPath_SetShaderParameter6 (Urho3D::RenderPath *_target, const char * name, const class Urho3D::Quaternion & value)
+RenderPath_SetShaderParameter_6 (Urho3D::RenderPath *_target, const char * name, const class Urho3D::Quaternion & value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-RenderPath_SetShaderParameter7 (Urho3D::RenderPath *_target, const char * name, const class Urho3D::Matrix4 & value)
+RenderPath_SetShaderParameter_7 (Urho3D::RenderPath *_target, const char * name, const class Urho3D::Matrix4 & value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-RenderPath_SetShaderParameter8 (Urho3D::RenderPath *_target, const char * name, const class Urho3D::Matrix3x4 & value)
+RenderPath_SetShaderParameter_8 (Urho3D::RenderPath *_target, const char * name, const class Urho3D::Matrix3x4 & value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-RenderPath_SetShaderParameter9 (Urho3D::RenderPath *_target, const char * name, int value)
+RenderPath_SetShaderParameter_9 (Urho3D::RenderPath *_target, const char * name, int value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-RenderPath_SetShaderParameter10 (Urho3D::RenderPath *_target, const char * name, float value)
+RenderPath_SetShaderParameter_10 (Urho3D::RenderPath *_target, const char * name, float value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
 
 DllExport void
-RenderPath_SetShaderParameter11 (Urho3D::RenderPath *_target, const char * name, const char * value)
+RenderPath_SetShaderParameter_11 (Urho3D::RenderPath *_target, const char * name, const char * value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), Urho3D::String(value));
 }
 
 DllExport void
-RenderPath_SetShaderParameter12 (Urho3D::RenderPath *_target, const char * name, bool value)
+RenderPath_SetShaderParameter_12 (Urho3D::RenderPath *_target, const char * name, bool value)
 {
 	_target->SetShaderParameter (Urho3D::String(name), (value));
 }
@@ -15312,79 +15846,79 @@ RenderPath_GetCommand (Urho3D::RenderPath *_target, unsigned int index)
 
 // Urho3D::Variant overloads begin:
 DllExport Interop::Vector3
-RenderPath_GetShaderParameter0 (Urho3D::RenderPath *_target, const char * name)
+RenderPath_GetShaderParameter_0 (Urho3D::RenderPath *_target, const char * name)
 {
 	return *((Interop::Vector3 *) &(_target->GetShaderParameter (Urho3D::String(name)).GetVector3()));
 }
 
 DllExport Interop::IntRect
-RenderPath_GetShaderParameter1 (Urho3D::RenderPath *_target, const char * name)
+RenderPath_GetShaderParameter_1 (Urho3D::RenderPath *_target, const char * name)
 {
 	return *((Interop::IntRect *) &(_target->GetShaderParameter (Urho3D::String(name)).GetIntRect()));
 }
 
 DllExport Interop::Color
-RenderPath_GetShaderParameter2 (Urho3D::RenderPath *_target, const char * name)
+RenderPath_GetShaderParameter_2 (Urho3D::RenderPath *_target, const char * name)
 {
 	return *((Interop::Color *) &(_target->GetShaderParameter (Urho3D::String(name)).GetColor()));
 }
 
 DllExport Interop::Vector2
-RenderPath_GetShaderParameter3 (Urho3D::RenderPath *_target, const char * name)
+RenderPath_GetShaderParameter_3 (Urho3D::RenderPath *_target, const char * name)
 {
 	return *((Interop::Vector2 *) &(_target->GetShaderParameter (Urho3D::String(name)).GetVector2()));
 }
 
 DllExport Interop::Vector4
-RenderPath_GetShaderParameter4 (Urho3D::RenderPath *_target, const char * name)
+RenderPath_GetShaderParameter_4 (Urho3D::RenderPath *_target, const char * name)
 {
 	return *((Interop::Vector4 *) &(_target->GetShaderParameter (Urho3D::String(name)).GetVector4()));
 }
 
 DllExport Interop::IntVector2
-RenderPath_GetShaderParameter5 (Urho3D::RenderPath *_target, const char * name)
+RenderPath_GetShaderParameter_5 (Urho3D::RenderPath *_target, const char * name)
 {
 	return *((Interop::IntVector2 *) &(_target->GetShaderParameter (Urho3D::String(name)).GetIntVector2()));
 }
 
 DllExport Interop::Quaternion
-RenderPath_GetShaderParameter6 (Urho3D::RenderPath *_target, const char * name)
+RenderPath_GetShaderParameter_6 (Urho3D::RenderPath *_target, const char * name)
 {
 	return *((Interop::Quaternion *) &(_target->GetShaderParameter (Urho3D::String(name)).GetQuaternion()));
 }
 
 DllExport Interop::Matrix4
-RenderPath_GetShaderParameter7 (Urho3D::RenderPath *_target, const char * name)
+RenderPath_GetShaderParameter_7 (Urho3D::RenderPath *_target, const char * name)
 {
 	return *((Interop::Matrix4 *) &(_target->GetShaderParameter (Urho3D::String(name)).GetMatrix4()));
 }
 
 DllExport Interop::Matrix3x4
-RenderPath_GetShaderParameter8 (Urho3D::RenderPath *_target, const char * name)
+RenderPath_GetShaderParameter_8 (Urho3D::RenderPath *_target, const char * name)
 {
 	return *((Interop::Matrix3x4 *) &(_target->GetShaderParameter (Urho3D::String(name)).GetMatrix3x4()));
 }
 
 DllExport int
-RenderPath_GetShaderParameter9 (Urho3D::RenderPath *_target, const char * name)
+RenderPath_GetShaderParameter_9 (Urho3D::RenderPath *_target, const char * name)
 {
 	return (_target->GetShaderParameter (Urho3D::String(name)).GetInt());
 }
 
 DllExport float
-RenderPath_GetShaderParameter10 (Urho3D::RenderPath *_target, const char * name)
+RenderPath_GetShaderParameter_10 (Urho3D::RenderPath *_target, const char * name)
 {
 	return (_target->GetShaderParameter (Urho3D::String(name)).GetFloat());
 }
 
 DllExport const char *
-RenderPath_GetShaderParameter11 (Urho3D::RenderPath *_target, const char * name)
+RenderPath_GetShaderParameter_11 (Urho3D::RenderPath *_target, const char * name)
 {
 	return stringdup(_target->GetShaderParameter (Urho3D::String(name)).GetString().CString());
 }
 
 DllExport bool
-RenderPath_GetShaderParameter12 (Urho3D::RenderPath *_target, const char * name)
+RenderPath_GetShaderParameter_12 (Urho3D::RenderPath *_target, const char * name)
 {
 	return (_target->GetShaderParameter (Urho3D::String(name)).GetBool());
 }
@@ -16631,79 +17165,79 @@ XmlElement_SetString (Urho3D::XMLElement *_target, const char * name, const char
 
 // Urho3D::Variant overloads begin:
 DllExport int
-XmlElement_SetVariant0 (Urho3D::XMLElement *_target, const class Urho3D::Vector3 & value)
+XmlElement_SetVariant_0 (Urho3D::XMLElement *_target, const class Urho3D::Vector3 & value)
 {
 	return _target->SetVariant ((value));
 }
 
 DllExport int
-XmlElement_SetVariant1 (Urho3D::XMLElement *_target, const class Urho3D::IntRect & value)
+XmlElement_SetVariant_1 (Urho3D::XMLElement *_target, const class Urho3D::IntRect & value)
 {
 	return _target->SetVariant ((value));
 }
 
 DllExport int
-XmlElement_SetVariant2 (Urho3D::XMLElement *_target, const class Urho3D::Color & value)
+XmlElement_SetVariant_2 (Urho3D::XMLElement *_target, const class Urho3D::Color & value)
 {
 	return _target->SetVariant ((value));
 }
 
 DllExport int
-XmlElement_SetVariant3 (Urho3D::XMLElement *_target, const class Urho3D::Vector2 & value)
+XmlElement_SetVariant_3 (Urho3D::XMLElement *_target, const class Urho3D::Vector2 & value)
 {
 	return _target->SetVariant ((value));
 }
 
 DllExport int
-XmlElement_SetVariant4 (Urho3D::XMLElement *_target, const class Urho3D::Vector4 & value)
+XmlElement_SetVariant_4 (Urho3D::XMLElement *_target, const class Urho3D::Vector4 & value)
 {
 	return _target->SetVariant ((value));
 }
 
 DllExport int
-XmlElement_SetVariant5 (Urho3D::XMLElement *_target, const class Urho3D::IntVector2 & value)
+XmlElement_SetVariant_5 (Urho3D::XMLElement *_target, const class Urho3D::IntVector2 & value)
 {
 	return _target->SetVariant ((value));
 }
 
 DllExport int
-XmlElement_SetVariant6 (Urho3D::XMLElement *_target, const class Urho3D::Quaternion & value)
+XmlElement_SetVariant_6 (Urho3D::XMLElement *_target, const class Urho3D::Quaternion & value)
 {
 	return _target->SetVariant ((value));
 }
 
 DllExport int
-XmlElement_SetVariant7 (Urho3D::XMLElement *_target, const class Urho3D::Matrix4 & value)
+XmlElement_SetVariant_7 (Urho3D::XMLElement *_target, const class Urho3D::Matrix4 & value)
 {
 	return _target->SetVariant ((value));
 }
 
 DllExport int
-XmlElement_SetVariant8 (Urho3D::XMLElement *_target, const class Urho3D::Matrix3x4 & value)
+XmlElement_SetVariant_8 (Urho3D::XMLElement *_target, const class Urho3D::Matrix3x4 & value)
 {
 	return _target->SetVariant ((value));
 }
 
 DllExport int
-XmlElement_SetVariant9 (Urho3D::XMLElement *_target, int value)
+XmlElement_SetVariant_9 (Urho3D::XMLElement *_target, int value)
 {
 	return _target->SetVariant ((value));
 }
 
 DllExport int
-XmlElement_SetVariant10 (Urho3D::XMLElement *_target, float value)
+XmlElement_SetVariant_10 (Urho3D::XMLElement *_target, float value)
 {
 	return _target->SetVariant ((value));
 }
 
 DllExport int
-XmlElement_SetVariant11 (Urho3D::XMLElement *_target, const char * value)
+XmlElement_SetVariant_11 (Urho3D::XMLElement *_target, const char * value)
 {
 	return _target->SetVariant (Urho3D::String(value));
 }
 
 DllExport int
-XmlElement_SetVariant12 (Urho3D::XMLElement *_target, bool value)
+XmlElement_SetVariant_12 (Urho3D::XMLElement *_target, bool value)
 {
 	return _target->SetVariant ((value));
 }
@@ -16711,79 +17245,79 @@ XmlElement_SetVariant12 (Urho3D::XMLElement *_target, bool value)
 // Urho3D::Variant overloads end.
 // Urho3D::Variant overloads begin:
 DllExport int
-XmlElement_SetVariantValue0 (Urho3D::XMLElement *_target, const class Urho3D::Vector3 & value)
+XmlElement_SetVariantValue_0 (Urho3D::XMLElement *_target, const class Urho3D::Vector3 & value)
 {
 	return _target->SetVariantValue ((value));
 }
 
 DllExport int
-XmlElement_SetVariantValue1 (Urho3D::XMLElement *_target, const class Urho3D::IntRect & value)
+XmlElement_SetVariantValue_1 (Urho3D::XMLElement *_target, const class Urho3D::IntRect & value)
 {
 	return _target->SetVariantValue ((value));
 }
 
 DllExport int
-XmlElement_SetVariantValue2 (Urho3D::XMLElement *_target, const class Urho3D::Color & value)
+XmlElement_SetVariantValue_2 (Urho3D::XMLElement *_target, const class Urho3D::Color & value)
 {
 	return _target->SetVariantValue ((value));
 }
 
 DllExport int
-XmlElement_SetVariantValue3 (Urho3D::XMLElement *_target, const class Urho3D::Vector2 & value)
+XmlElement_SetVariantValue_3 (Urho3D::XMLElement *_target, const class Urho3D::Vector2 & value)
 {
 	return _target->SetVariantValue ((value));
 }
 
 DllExport int
-XmlElement_SetVariantValue4 (Urho3D::XMLElement *_target, const class Urho3D::Vector4 & value)
+XmlElement_SetVariantValue_4 (Urho3D::XMLElement *_target, const class Urho3D::Vector4 & value)
 {
 	return _target->SetVariantValue ((value));
 }
 
 DllExport int
-XmlElement_SetVariantValue5 (Urho3D::XMLElement *_target, const class Urho3D::IntVector2 & value)
+XmlElement_SetVariantValue_5 (Urho3D::XMLElement *_target, const class Urho3D::IntVector2 & value)
 {
 	return _target->SetVariantValue ((value));
 }
 
 DllExport int
-XmlElement_SetVariantValue6 (Urho3D::XMLElement *_target, const class Urho3D::Quaternion & value)
+XmlElement_SetVariantValue_6 (Urho3D::XMLElement *_target, const class Urho3D::Quaternion & value)
 {
 	return _target->SetVariantValue ((value));
 }
 
 DllExport int
-XmlElement_SetVariantValue7 (Urho3D::XMLElement *_target, const class Urho3D::Matrix4 & value)
+XmlElement_SetVariantValue_7 (Urho3D::XMLElement *_target, const class Urho3D::Matrix4 & value)
 {
 	return _target->SetVariantValue ((value));
 }
 
 DllExport int
-XmlElement_SetVariantValue8 (Urho3D::XMLElement *_target, const class Urho3D::Matrix3x4 & value)
+XmlElement_SetVariantValue_8 (Urho3D::XMLElement *_target, const class Urho3D::Matrix3x4 & value)
 {
 	return _target->SetVariantValue ((value));
 }
 
 DllExport int
-XmlElement_SetVariantValue9 (Urho3D::XMLElement *_target, int value)
+XmlElement_SetVariantValue_9 (Urho3D::XMLElement *_target, int value)
 {
 	return _target->SetVariantValue ((value));
 }
 
 DllExport int
-XmlElement_SetVariantValue10 (Urho3D::XMLElement *_target, float value)
+XmlElement_SetVariantValue_10 (Urho3D::XMLElement *_target, float value)
 {
 	return _target->SetVariantValue ((value));
 }
 
 DllExport int
-XmlElement_SetVariantValue11 (Urho3D::XMLElement *_target, const char * value)
+XmlElement_SetVariantValue_11 (Urho3D::XMLElement *_target, const char * value)
 {
 	return _target->SetVariantValue (Urho3D::String(value));
 }
 
 DllExport int
-XmlElement_SetVariantValue12 (Urho3D::XMLElement *_target, bool value)
+XmlElement_SetVariantValue_12 (Urho3D::XMLElement *_target, bool value)
 {
 	return _target->SetVariantValue ((value));
 }
@@ -16812,79 +17346,79 @@ XmlElement_SetVector4 (Urho3D::XMLElement *_target, const char * name, const cla
 
 // Urho3D::Variant overloads begin:
 DllExport int
-XmlElement_SetVectorVariant0 (Urho3D::XMLElement *_target, const char * name, const class Urho3D::Vector3 & value)
+XmlElement_SetVectorVariant_0 (Urho3D::XMLElement *_target, const char * name, const class Urho3D::Vector3 & value)
 {
 	return _target->SetVectorVariant (Urho3D::String(name), (value));
 }
 
 DllExport int
-XmlElement_SetVectorVariant1 (Urho3D::XMLElement *_target, const char * name, const class Urho3D::IntRect & value)
+XmlElement_SetVectorVariant_1 (Urho3D::XMLElement *_target, const char * name, const class Urho3D::IntRect & value)
 {
 	return _target->SetVectorVariant (Urho3D::String(name), (value));
 }
 
 DllExport int
-XmlElement_SetVectorVariant2 (Urho3D::XMLElement *_target, const char * name, const class Urho3D::Color & value)
+XmlElement_SetVectorVariant_2 (Urho3D::XMLElement *_target, const char * name, const class Urho3D::Color & value)
 {
 	return _target->SetVectorVariant (Urho3D::String(name), (value));
 }
 
 DllExport int
-XmlElement_SetVectorVariant3 (Urho3D::XMLElement *_target, const char * name, const class Urho3D::Vector2 & value)
+XmlElement_SetVectorVariant_3 (Urho3D::XMLElement *_target, const char * name, const class Urho3D::Vector2 & value)
 {
 	return _target->SetVectorVariant (Urho3D::String(name), (value));
 }
 
 DllExport int
-XmlElement_SetVectorVariant4 (Urho3D::XMLElement *_target, const char * name, const class Urho3D::Vector4 & value)
+XmlElement_SetVectorVariant_4 (Urho3D::XMLElement *_target, const char * name, const class Urho3D::Vector4 & value)
 {
 	return _target->SetVectorVariant (Urho3D::String(name), (value));
 }
 
 DllExport int
-XmlElement_SetVectorVariant5 (Urho3D::XMLElement *_target, const char * name, const class Urho3D::IntVector2 & value)
+XmlElement_SetVectorVariant_5 (Urho3D::XMLElement *_target, const char * name, const class Urho3D::IntVector2 & value)
 {
 	return _target->SetVectorVariant (Urho3D::String(name), (value));
 }
 
 DllExport int
-XmlElement_SetVectorVariant6 (Urho3D::XMLElement *_target, const char * name, const class Urho3D::Quaternion & value)
+XmlElement_SetVectorVariant_6 (Urho3D::XMLElement *_target, const char * name, const class Urho3D::Quaternion & value)
 {
 	return _target->SetVectorVariant (Urho3D::String(name), (value));
 }
 
 DllExport int
-XmlElement_SetVectorVariant7 (Urho3D::XMLElement *_target, const char * name, const class Urho3D::Matrix4 & value)
+XmlElement_SetVectorVariant_7 (Urho3D::XMLElement *_target, const char * name, const class Urho3D::Matrix4 & value)
 {
 	return _target->SetVectorVariant (Urho3D::String(name), (value));
 }
 
 DllExport int
-XmlElement_SetVectorVariant8 (Urho3D::XMLElement *_target, const char * name, const class Urho3D::Matrix3x4 & value)
+XmlElement_SetVectorVariant_8 (Urho3D::XMLElement *_target, const char * name, const class Urho3D::Matrix3x4 & value)
 {
 	return _target->SetVectorVariant (Urho3D::String(name), (value));
 }
 
 DllExport int
-XmlElement_SetVectorVariant9 (Urho3D::XMLElement *_target, const char * name, int value)
+XmlElement_SetVectorVariant_9 (Urho3D::XMLElement *_target, const char * name, int value)
 {
 	return _target->SetVectorVariant (Urho3D::String(name), (value));
 }
 
 DllExport int
-XmlElement_SetVectorVariant10 (Urho3D::XMLElement *_target, const char * name, float value)
+XmlElement_SetVectorVariant_10 (Urho3D::XMLElement *_target, const char * name, float value)
 {
 	return _target->SetVectorVariant (Urho3D::String(name), (value));
 }
 
 DllExport int
-XmlElement_SetVectorVariant11 (Urho3D::XMLElement *_target, const char * name, const char * value)
+XmlElement_SetVectorVariant_11 (Urho3D::XMLElement *_target, const char * name, const char * value)
 {
 	return _target->SetVectorVariant (Urho3D::String(name), Urho3D::String(value));
 }
 
 DllExport int
-XmlElement_SetVectorVariant12 (Urho3D::XMLElement *_target, const char * name, bool value)
+XmlElement_SetVectorVariant_12 (Urho3D::XMLElement *_target, const char * name, bool value)
 {
 	return _target->SetVectorVariant (Urho3D::String(name), (value));
 }
@@ -20407,6 +20941,69 @@ PackageFile_IsCompressed (Urho3D::PackageFile *_target)
 }
 
 
+DllExport void *
+UIBatch_UIBatch ()
+{
+	return new UIBatch();
+}
+
+
+DllExport void
+UIBatch_SetColor (Urho3D::UIBatch *_target, const class Urho3D::Color & color, bool overrideAlpha)
+{
+	_target->SetColor (color, overrideAlpha);
+}
+
+
+DllExport void
+UIBatch_SetDefaultColor (Urho3D::UIBatch *_target)
+{
+	_target->SetDefaultColor ();
+}
+
+
+DllExport void
+UIBatch_AddQuad (Urho3D::UIBatch *_target, float x, float y, float width, float height, int texOffsetX, int texOffsetY, int texWidth, int texHeight)
+{
+	_target->AddQuad (x, y, width, height, texOffsetX, texOffsetY, texWidth, texHeight);
+}
+
+
+DllExport void
+UIBatch_AddQuad0 (Urho3D::UIBatch *_target, const class Urho3D::Matrix3x4 & transform, int x, int y, int width, int height, int texOffsetX, int texOffsetY, int texWidth, int texHeight)
+{
+	_target->AddQuad (transform, x, y, width, height, texOffsetX, texOffsetY, texWidth, texHeight);
+}
+
+
+DllExport void
+UIBatch_AddQuad1 (Urho3D::UIBatch *_target, int x, int y, int width, int height, int texOffsetX, int texOffsetY, int texWidth, int texHeight, bool tiled)
+{
+	_target->AddQuad (x, y, width, height, texOffsetX, texOffsetY, texWidth, texHeight, tiled);
+}
+
+
+DllExport void
+UIBatch_AddQuad2 (Urho3D::UIBatch *_target, const class Urho3D::Matrix3x4 & transform, const class Urho3D::IntVector2 & a, const class Urho3D::IntVector2 & b, const class Urho3D::IntVector2 & c, const class Urho3D::IntVector2 & d, const class Urho3D::IntVector2 & texA, const class Urho3D::IntVector2 & texB, const class Urho3D::IntVector2 & texC, const class Urho3D::IntVector2 & texD)
+{
+	_target->AddQuad (transform, a, b, c, d, texA, texB, texC, texD);
+}
+
+
+DllExport void
+UIBatch_AddQuad3 (Urho3D::UIBatch *_target, const class Urho3D::Matrix3x4 & transform, const class Urho3D::IntVector2 & a, const class Urho3D::IntVector2 & b, const class Urho3D::IntVector2 & c, const class Urho3D::IntVector2 & d, const class Urho3D::IntVector2 & texA, const class Urho3D::IntVector2 & texB, const class Urho3D::IntVector2 & texC, const class Urho3D::IntVector2 & texD, const class Urho3D::Color & colA, const class Urho3D::Color & colB, const class Urho3D::Color & colC, const class Urho3D::Color & colD)
+{
+	_target->AddQuad (transform, a, b, c, d, texA, texB, texC, texD, colA, colB, colC, colD);
+}
+
+
+DllExport unsigned int
+UIBatch_GetInterpolatedColor (Urho3D::UIBatch *_target, float x, float y)
+{
+	return _target->GetInterpolatedColor (x, y);
+}
+
+
 DllExport int
 UIElement_GetType (Urho3D::UIElement *_target)
 {
@@ -21165,79 +21762,79 @@ UIElement_SetParent (Urho3D::UIElement *_target, Urho3D::UIElement * parent, uns
 
 // Urho3D::Variant overloads begin:
 DllExport void
-UIElement_SetVar0 (Urho3D::UIElement *_target, int key, const class Urho3D::Vector3 & value)
+UIElement_SetVar_0 (Urho3D::UIElement *_target, int key, const class Urho3D::Vector3 & value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UIElement_SetVar1 (Urho3D::UIElement *_target, int key, const class Urho3D::IntRect & value)
+UIElement_SetVar_1 (Urho3D::UIElement *_target, int key, const class Urho3D::IntRect & value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UIElement_SetVar2 (Urho3D::UIElement *_target, int key, const class Urho3D::Color & value)
+UIElement_SetVar_2 (Urho3D::UIElement *_target, int key, const class Urho3D::Color & value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UIElement_SetVar3 (Urho3D::UIElement *_target, int key, const class Urho3D::Vector2 & value)
+UIElement_SetVar_3 (Urho3D::UIElement *_target, int key, const class Urho3D::Vector2 & value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UIElement_SetVar4 (Urho3D::UIElement *_target, int key, const class Urho3D::Vector4 & value)
+UIElement_SetVar_4 (Urho3D::UIElement *_target, int key, const class Urho3D::Vector4 & value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UIElement_SetVar5 (Urho3D::UIElement *_target, int key, const class Urho3D::IntVector2 & value)
+UIElement_SetVar_5 (Urho3D::UIElement *_target, int key, const class Urho3D::IntVector2 & value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UIElement_SetVar6 (Urho3D::UIElement *_target, int key, const class Urho3D::Quaternion & value)
+UIElement_SetVar_6 (Urho3D::UIElement *_target, int key, const class Urho3D::Quaternion & value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UIElement_SetVar7 (Urho3D::UIElement *_target, int key, const class Urho3D::Matrix4 & value)
+UIElement_SetVar_7 (Urho3D::UIElement *_target, int key, const class Urho3D::Matrix4 & value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UIElement_SetVar8 (Urho3D::UIElement *_target, int key, const class Urho3D::Matrix3x4 & value)
+UIElement_SetVar_8 (Urho3D::UIElement *_target, int key, const class Urho3D::Matrix3x4 & value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UIElement_SetVar9 (Urho3D::UIElement *_target, int key, int value)
+UIElement_SetVar_9 (Urho3D::UIElement *_target, int key, int value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UIElement_SetVar10 (Urho3D::UIElement *_target, int key, float value)
+UIElement_SetVar_10 (Urho3D::UIElement *_target, int key, float value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
 
 DllExport void
-UIElement_SetVar11 (Urho3D::UIElement *_target, int key, const char * value)
+UIElement_SetVar_11 (Urho3D::UIElement *_target, int key, const char * value)
 {
 	_target->SetVar (Urho3D::StringHash(key), Urho3D::String(value));
 }
 
 DllExport void
-UIElement_SetVar12 (Urho3D::UIElement *_target, int key, bool value)
+UIElement_SetVar_12 (Urho3D::UIElement *_target, int key, bool value)
 {
 	_target->SetVar (Urho3D::StringHash(key), (value));
 }
@@ -22563,6 +23160,62 @@ DllExport int
 Input_IsMinimized (Urho3D::Input *_target)
 {
 	return _target->IsMinimized ();
+}
+
+
+DllExport void *
+AreaAllocator_AreaAllocator ()
+{
+	return new AreaAllocator();
+}
+
+
+DllExport void *
+AreaAllocator_AreaAllocator0 (int width, int height, bool fastMode)
+{
+	return new AreaAllocator(width, height, fastMode);
+}
+
+
+DllExport void *
+AreaAllocator_AreaAllocator1 (int width, int height, int maxWidth, int maxHeight, bool fastMode)
+{
+	return new AreaAllocator(width, height, maxWidth, maxHeight, fastMode);
+}
+
+
+DllExport void
+AreaAllocator_Reset (Urho3D::AreaAllocator *_target, int width, int height, int maxWidth, int maxHeight, bool fastMode)
+{
+	_target->Reset (width, height, maxWidth, maxHeight, fastMode);
+}
+
+
+DllExport int
+AreaAllocator_Allocate (Urho3D::AreaAllocator *_target, int width, int height, int & x, int & y)
+{
+	return _target->Allocate (width, height, x, y);
+}
+
+
+DllExport int
+AreaAllocator_GetWidth (Urho3D::AreaAllocator *_target)
+{
+	return _target->GetWidth ();
+}
+
+
+DllExport int
+AreaAllocator_GetHeight (Urho3D::AreaAllocator *_target)
+{
+	return _target->GetHeight ();
+}
+
+
+DllExport int
+AreaAllocator_GetFastMode (Urho3D::AreaAllocator *_target)
+{
+	return _target->GetFastMode ();
 }
 
 
@@ -27075,6 +27728,41 @@ ObjectAnimation_GetAttributeAnimationInfo (Urho3D::ObjectAnimation *_target, con
 }
 
 
+DllExport void *
+SceneResolver_SceneResolver ()
+{
+	return new SceneResolver();
+}
+
+
+DllExport void
+SceneResolver_Reset (Urho3D::SceneResolver *_target)
+{
+	_target->Reset ();
+}
+
+
+DllExport void
+SceneResolver_AddNode (Urho3D::SceneResolver *_target, unsigned int oldID, Urho3D::Node * node)
+{
+	_target->AddNode (oldID, node);
+}
+
+
+DllExport void
+SceneResolver_AddComponent (Urho3D::SceneResolver *_target, unsigned int oldID, Urho3D::Component * component)
+{
+	_target->AddComponent (oldID, component);
+}
+
+
+DllExport void
+SceneResolver_Resolve (Urho3D::SceneResolver *_target)
+{
+	_target->Resolve ();
+}
+
+
 DllExport int
 Scene_GetType (Urho3D::Scene *_target)
 {
@@ -28113,79 +28801,79 @@ ValueAnimation_SetValueType (Urho3D::ValueAnimation *_target, enum Urho3D::Varia
 
 // Urho3D::Variant overloads begin:
 DllExport int
-ValueAnimation_SetKeyFrame0 (Urho3D::ValueAnimation *_target, float time, const class Urho3D::Vector3 & value)
+ValueAnimation_SetKeyFrame_0 (Urho3D::ValueAnimation *_target, float time, const class Urho3D::Vector3 & value)
 {
 	return _target->SetKeyFrame (time, (value));
 }
 
 DllExport int
-ValueAnimation_SetKeyFrame1 (Urho3D::ValueAnimation *_target, float time, const class Urho3D::IntRect & value)
+ValueAnimation_SetKeyFrame_1 (Urho3D::ValueAnimation *_target, float time, const class Urho3D::IntRect & value)
 {
 	return _target->SetKeyFrame (time, (value));
 }
 
 DllExport int
-ValueAnimation_SetKeyFrame2 (Urho3D::ValueAnimation *_target, float time, const class Urho3D::Color & value)
+ValueAnimation_SetKeyFrame_2 (Urho3D::ValueAnimation *_target, float time, const class Urho3D::Color & value)
 {
 	return _target->SetKeyFrame (time, (value));
 }
 
 DllExport int
-ValueAnimation_SetKeyFrame3 (Urho3D::ValueAnimation *_target, float time, const class Urho3D::Vector2 & value)
+ValueAnimation_SetKeyFrame_3 (Urho3D::ValueAnimation *_target, float time, const class Urho3D::Vector2 & value)
 {
 	return _target->SetKeyFrame (time, (value));
 }
 
 DllExport int
-ValueAnimation_SetKeyFrame4 (Urho3D::ValueAnimation *_target, float time, const class Urho3D::Vector4 & value)
+ValueAnimation_SetKeyFrame_4 (Urho3D::ValueAnimation *_target, float time, const class Urho3D::Vector4 & value)
 {
 	return _target->SetKeyFrame (time, (value));
 }
 
 DllExport int
-ValueAnimation_SetKeyFrame5 (Urho3D::ValueAnimation *_target, float time, const class Urho3D::IntVector2 & value)
+ValueAnimation_SetKeyFrame_5 (Urho3D::ValueAnimation *_target, float time, const class Urho3D::IntVector2 & value)
 {
 	return _target->SetKeyFrame (time, (value));
 }
 
 DllExport int
-ValueAnimation_SetKeyFrame6 (Urho3D::ValueAnimation *_target, float time, const class Urho3D::Quaternion & value)
+ValueAnimation_SetKeyFrame_6 (Urho3D::ValueAnimation *_target, float time, const class Urho3D::Quaternion & value)
 {
 	return _target->SetKeyFrame (time, (value));
 }
 
 DllExport int
-ValueAnimation_SetKeyFrame7 (Urho3D::ValueAnimation *_target, float time, const class Urho3D::Matrix4 & value)
+ValueAnimation_SetKeyFrame_7 (Urho3D::ValueAnimation *_target, float time, const class Urho3D::Matrix4 & value)
 {
 	return _target->SetKeyFrame (time, (value));
 }
 
 DllExport int
-ValueAnimation_SetKeyFrame8 (Urho3D::ValueAnimation *_target, float time, const class Urho3D::Matrix3x4 & value)
+ValueAnimation_SetKeyFrame_8 (Urho3D::ValueAnimation *_target, float time, const class Urho3D::Matrix3x4 & value)
 {
 	return _target->SetKeyFrame (time, (value));
 }
 
 DllExport int
-ValueAnimation_SetKeyFrame9 (Urho3D::ValueAnimation *_target, float time, int value)
+ValueAnimation_SetKeyFrame_9 (Urho3D::ValueAnimation *_target, float time, int value)
 {
 	return _target->SetKeyFrame (time, (value));
 }
 
 DllExport int
-ValueAnimation_SetKeyFrame10 (Urho3D::ValueAnimation *_target, float time, float value)
+ValueAnimation_SetKeyFrame_10 (Urho3D::ValueAnimation *_target, float time, float value)
 {
 	return _target->SetKeyFrame (time, (value));
 }
 
 DllExport int
-ValueAnimation_SetKeyFrame11 (Urho3D::ValueAnimation *_target, float time, const char * value)
+ValueAnimation_SetKeyFrame_11 (Urho3D::ValueAnimation *_target, float time, const char * value)
 {
 	return _target->SetKeyFrame (time, Urho3D::String(value));
 }
 
 DllExport int
-ValueAnimation_SetKeyFrame12 (Urho3D::ValueAnimation *_target, float time, bool value)
+ValueAnimation_SetKeyFrame_12 (Urho3D::ValueAnimation *_target, float time, bool value)
 {
 	return _target->SetKeyFrame (time, (value));
 }
