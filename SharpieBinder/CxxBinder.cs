@@ -110,13 +110,13 @@ namespace SharpieBinder
 			pn("extern \"C\" {");
 
 			extraClasses = new List<string>
-            {
-                "AreaAllocator",
-                "Spline",
-                "Sphere",
-                "SceneResolver",
-                "UIBatch"
-            };
+			{
+				"AreaAllocator",
+				"Spline",
+				"Sphere",
+				"SceneResolver",
+				"UIBatch"
+			};
 		}
 
 		public void Close()
@@ -227,14 +227,14 @@ namespace SharpieBinder
 				}
 			}
 			
-            // Some of the api are not inherited from anything
-            // They should be start with Urho3D and we should skip Variants         
-            if (decl.Attrs.Any(a=> a.Kind == AttrKind.Visibility) && 
-                decl.QualifiedName.StartsWith("Urho3D::", StringComparison.CurrentCulture) &&
-                decl.Bases.Count() < 1 &&
-                extraClasses.Contains(decl.Name))
+			// Some of the api are not inherited from anything
+			// They should be start with Urho3D and we should skip Variants         
+			if (decl.Attrs.Any(a=> a.Kind == AttrKind.Visibility) && 
+				decl.QualifiedName.StartsWith("Urho3D::", StringComparison.CurrentCulture) &&
+				decl.Bases.Count() < 1 &&
+				extraClasses.Contains(decl.Name))
                 
-                new BaseNodeType(Bind).Bind(decl);
+				new BaseNodeType(Bind).Bind(decl);
 		}
 
 		//
@@ -277,31 +277,31 @@ namespace SharpieBinder
 				Modifiers = modifiers
 			}, StringUtil.GetTypeComments(decl));
 
-            if (extraClasses.Contains(decl.Name) && !decl.Bases.Any())
-            {
-                //Extra classes who have no any base should contains handle field and property
-                var handleField = new FieldDeclaration()
-                {
-                    Modifiers = Modifiers.Private,
-                    ReturnType = AstType.Create("IntPtr")
-                };
-                handleField.Variables.Add(new VariableInitializer("handle"));
-                currentType.Members.Add(handleField);
+			if (extraClasses.Contains(decl.Name) && !decl.Bases.Any())
+			{
+				//Extra classes who have no any base should contains handle field and property
+				var handleField = new FieldDeclaration()
+				{
+					Modifiers = Modifiers.Private,
+					ReturnType = AstType.Create("IntPtr")
+				};
+				handleField.Variables.Add(new VariableInitializer("handle"));
+				currentType.Members.Add(handleField);
 
-                var handleProp = new PropertyDeclaration()
-                {
-                    Modifiers = Modifiers.Public,
-                    ReturnType = AstType.Create("IntPtr"),
-                    Name = "Handle",
-                    Getter = new Accessor()
-                    {
-                        Body = new BlockStatement() {
-                            new ReturnStatement (new IdentifierExpression("handle"))
-                        }
-                    }
-                };
-                currentType.Members.Add(handleProp);
-            }
+				var handleProp = new PropertyDeclaration()
+				{
+					Modifiers = Modifiers.Public,
+					ReturnType = AstType.Create("IntPtr"),
+					Name = "Handle",
+					Getter = new Accessor()
+					{
+						Body = new BlockStatement() {
+							new ReturnStatement (new IdentifierExpression("handle"))
+						}
+					}
+				};
+				currentType.Members.Add(handleProp);
+			}
 
 			if (baseDecl != null) {
 				foreach (var baseType in decl.Bases) {
@@ -474,8 +474,8 @@ namespace SharpieBinder
 			case "class Urho3D::Frustum &":
 			case "class Urho3D::Frustum":
 			case "const class Urho3D::Sphere &":
-            case "class Urho3D::Sphere &":
-            case "class Urho3D::Sphere":
+			case "class Urho3D::Sphere &":
+			case "class Urho3D::Sphere":
 			case "const class Urho3D::Polyhedron &":
 			case "class Urho3D::Polyhedron &":
 			case "class Urho3D::Polyhedron":
@@ -662,7 +662,7 @@ namespace SharpieBinder
 			case "Frustum":
 			case "Frustum &":
 			case "Sphere":
-            case "Sphere &":
+			case "Sphere &":
 				highLevel = new SimpleType(typeName.RemapAcronyms().DropConstAndReference());
 				lowLevel = new SimpleType (nameof(IntPtr));
 				wrapKind = WrapKind.SimpleObject;
@@ -1612,23 +1612,23 @@ namespace SharpieBinder
 							{
 								if (!isPrimitive)
 								{
-                                    //for multiple argument we should keep the ordering that why we need to copy all arguments once then add them one by one
-                                    //we don't have Insert method in ie.Arguments because it's ICollection 
-                                    //ex: Spline.cs , Spline_SetKnot_0 (handle, ref knot, index);
-                                    var arguments = ie.Arguments.ToList();
-                                    ie.Arguments.Clear();
+									//for multiple argument we should keep the ordering that why we need to copy all arguments once then add them one by one
+									//we don't have Insert method in ie.Arguments because it's ICollection 
+									//ex: Spline.cs , Spline_SetKnot_0 (handle, ref knot, index);
+									var arguments = ie.Arguments.ToList();
+									ie.Arguments.Clear();
                             
-                                    foreach (var argument in arguments) {
-                                        if (argument is IdentifierExpression idnArgument && idnArgument.Identifier == variantParam.Name)
-                                        {
-                                            //non-primitive types should be marked with 'ref' keyword
-                                            ie.Arguments.Add(new DirectionExpression(FieldDirection.Ref, argument));
-                                        }
-                                        else
-                                        {
-                                            ie.Arguments.Add(argument);
-                                        }
-                                    }
+									foreach (var argument in arguments) {
+										if (argument is IdentifierExpression idnArgument && idnArgument.Identifier == variantParam.Name)
+										{
+											//non-primitive types should be marked with 'ref' keyword
+											ie.Arguments.Add(new DirectionExpression(FieldDirection.Ref, argument));
+										}
+										else
+										{
+											ie.Arguments.Add(argument);
+										}
+									}
 								}
 
 								var exp = (IdentifierExpression)ie.Target;
