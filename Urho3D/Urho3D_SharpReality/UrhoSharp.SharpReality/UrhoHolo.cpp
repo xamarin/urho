@@ -124,7 +124,6 @@ extern "C"
 	{
 		float nearClip = projection.m32_ / projection.m22_; //0.1
 		float farClip = projection.m32_ / (projection.m22_ + 1); //20
-		float fovHorizontal = 360 * atanf(1 / projection.m00_) / M_PI; //29.7
 		float fovVertical = 360 * atanf(1 / projection.m11_) / M_PI; //17.1
 		float aspect = projection.m11_ / projection.m00_; //1.76
 
@@ -152,12 +151,31 @@ extern "C"
 	{
 		Camera_SetHoloProjection(leftEyeCamera, leftView, leftProjection);
 		Camera_SetHoloProjection(rightEyeCamera, rightView, rightProjection);
-		//TODO: calculate extended Culling area:
+
 		if (cullingCamera)
 		{
+			auto leftCameraNode = leftEyeCamera->GetNode();
+			auto rightCameraNode = rightEyeCamera->GetNode();
+			
+			auto leftToRightVec = (rightCameraNode->GetWorldPosition() - leftCameraNode->GetWorldPosition());
+			float separation = leftToRightVec.Length();
+
+			// Note: atanf and tanf cancel, as does reciprocal
+			// float fovHorizontal = 360 * atanf(1 / projection.m00_) / M_PI;
+			// float fovHorizontalHalfedRad = atanf(1 / leftProjection.m00_);
+			// float cullEyePullback = (0.5f * separation) / tanf(fovHorizontalHalfedRad);
+			float cullEyePullback = (0.5f * separation) * leftProjection.m00_;
+
+			// Move cull camera between eyes and pull back
+			auto cullCameraPosition = (leftCameraNode->GetWorldPosition() + (0.5f * leftToRightVec)) - (leftCameraNode->GetWorldDirection().Normalized() * cullEyePullback);
+			
+			// Copy projection and rotation from left camera and set the position
 			Camera_SetHoloProjection(cullingCamera, leftView, leftProjection);
-			// extend culling camera FOV by 60%
-			cullingCamera->SetFov(cullingCamera->GetFov() * 1.6f);
+			cullingCamera->GetNode()->SetWorldPosition(cullCameraPosition);
+			
+			// Move culling camera's near and far planes ahead to match that of the eye cameras
+			cullingCamera->SetNearClip(cullingCamera->GetNearClip() + cullEyePullback);
+			cullingCamera->SetFarClip(cullingCamera->GetFarClip() + cullEyePullback);
 		}
 	}
 
