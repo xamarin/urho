@@ -1,5 +1,7 @@
 ﻿# ![](http://developer.xamarin.com/guides/cross-platform/urho/introduction/Images/UrhoSharp_icon.png) UrhoSharp
 
+[![Join the chat at https://gitter.im/xamarin/urho](https://badges.gitter.im/xamarin/urho.svg)](https://gitter.im/xamarin/urho?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 UrhoSharp is a lightweight Game Engine suitable for using with C# and
 F# to create games and 3D applications. The game engine is available 
 as a **portable class library**, allowing your game code to be written 
