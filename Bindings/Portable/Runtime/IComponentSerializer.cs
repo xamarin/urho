@@ -26,6 +26,9 @@ namespace Urho.Resources
 
 		public void Serialize(string key, object value)
 		{
+			if (value == null)
+				return;
+
 			if (value is string)
 				xmlElement.SetString(key, (string)value);
 			else if (value is Vector2)
