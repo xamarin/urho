@@ -48,8 +48,6 @@ namespace Urho.Desktop
 			var rootFolder = Path.GetDirectoryName(typeof(DesktopUrhoInitializer).Assembly.Location);
 			var relativePathToLib = Path.Combine($@"Win{(IntPtr.Size == 8 ? "64" : "32")}_{(isD3D ? "DirectX" : "OpenGL")}", $"{Consts.NativeImport}.dll");
 			var file = Path.Combine(rootFolder, relativePathToLib);
-			if (!File.Exists(file))
-				throw new InvalidOperationException("Native lib was not found at " + file);
 
 			LoadLibrary(file);
 		}
