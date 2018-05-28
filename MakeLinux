@@ -20,17 +20,17 @@ libmono-urho.so: MakeBinDirectory libUrho3D.a binding.o glue.o events.o Applicat
 MakeBinDirectory:
 	mkdir -p $(OUTPUT_DIR)
 
-binding.o: $(OUTPUT_DIR)/binding.o
+binding.o:
 	g++ -g -c $(CXXFLAGS) -o $(OUTPUT_DIR)/binding.o Bindings/Portable/Generated/binding.cpp
 
-glue.o: $(OUTPUT_DIR)/glue.o
+glue.o:
 	g++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/glue.o Bindings/Native/glue.cpp
 
-vector.o: $(OUTPUT_DIR)/vector.o
+vector.o:
 	g++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/vector.o Bindings/Native/vector.cpp
 
-events.o: $(OUTPUT_DIR)/events.o
+events.o:
 	g++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/events.o Bindings/Portable/Generated/events.cpp
 
-ApplicationProxy.o: $(OUTPUT_DIR)/ApplicationProxy.o
+ApplicationProxy.o:
 	g++ -c $(CXXFLAGS) -o $(OUTPUT_DIR)/ApplicationProxy.o Bindings/Native/ApplicationProxy.cpp
