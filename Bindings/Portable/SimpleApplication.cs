@@ -170,11 +170,11 @@ namespace Urho
 			Renderer.SetViewport(0, Viewport);
 			Viewport.SetClearColor(new Color(0.88f, 0.88f, 0.88f));
 
-			if (Platform.IsMobile())
+			if (Platform == Platforms.Android || Platform == Platforms.iOS)
 			{
 				Viewport.RenderPath.Append(CoreAssets.PostProcess.FXAA2);
 			}
-			else if (Platform != Platforms.UWP && Platform != Platforms.SharpReality)
+			else if (Platform == Platforms.Windows || Platform == Platforms.MacOSX)
 			{
 				ResourceCache.AutoReloadResources = true;
 				Renderer.HDRRendering = true;
