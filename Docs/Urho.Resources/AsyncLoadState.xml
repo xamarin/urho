@@ -26,7 +26,7 @@
         <ReturnType>Urho.Resources.AsyncLoadState</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>No async operation in progress.</summary>
       </Docs>
     </Member>
     <Member MemberName="Fail">
@@ -40,7 +40,7 @@
         <ReturnType>Urho.Resources.AsyncLoadState</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>BeginLoad() failed.</summary>
       </Docs>
     </Member>
     <Member MemberName="Loading">
@@ -54,7 +54,7 @@
         <ReturnType>Urho.Resources.AsyncLoadState</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>In progress of calling BeginLoad() in a worker thread.</summary>
       </Docs>
     </Member>
     <Member MemberName="Queued">
@@ -68,7 +68,7 @@
         <ReturnType>Urho.Resources.AsyncLoadState</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Queued for asynchronous loading.</summary>
       </Docs>
     </Member>
     <Member MemberName="Success">
@@ -82,7 +82,7 @@
         <ReturnType>Urho.Resources.AsyncLoadState</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>BeginLoad() succeeded. EndLoad() can be called in the main thread.</summary>
       </Docs>
     </Member>
   </Members>
