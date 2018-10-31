@@ -15,7 +15,7 @@ namespace Urho
 		{
 			if (level < LogLevel)
 				return;
-#if ANDROID
+#if __ANDROID__
 			Android.Util.LogPriority logPriority = Android.Util.LogPriority.Verbose;
 			switch (level)
 			{

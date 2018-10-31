@@ -2,7 +2,7 @@
 {
 	unsafe partial class RenderPath
 	{
-#if !WINDOWS_UWP && !UWP_HOLO
+#if !__UWP__ && !UWP_HOLO
 		public RenderPathCommand*[] Commands
 		{
 			get

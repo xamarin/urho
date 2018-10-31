@@ -87,7 +87,7 @@ namespace Urho
 			startCallback = ProxyStart;
 			stopCallback = ProxyStop;
 
-#if !ANDROID
+#if !__ANDROID__
 			if (context.Refs() < 1)
 				context.AddRef();
 #endif
@@ -188,14 +188,14 @@ namespace Urho
 			Runtime.Start();
 			Current = GetApp(h);
 			Current.SubscribeToAppEvents();
-#if WINDOWS_UWP
+#if __UWP__
 			// UWP temp workaround:
 			var text = new Text();
 			text.SetFont(CoreAssets.Fonts.AnonymousPro, 1);
 			text.Value = " ";
 			Current.UI.Root.AddChild(text);
 #endif
-			Current.Start();
+            Current.Start();
 			Started?.Invoke();
 		}
 
@@ -245,21 +245,21 @@ namespace Urho
 			if (current == null || !current.IsActive)
 				return;
 
-#if ANDROID
+#if __ANDROID__
 			current.WaitFrameEnd();
 			Org.Libsdl.App.SDLActivity.OnDestroy();
 			return;
 #endif
-			Current.Input.Enabled = false;
+            Current.Input.Enabled = false;
 			isExiting = true;
-#if IOS
+#if __IOS__
 			iOS.UrhoSurface.StopRendering(current);
 #endif
 
-#if WINDOWS_UWP && !UWP_HOLO
+#if __UWP__ && !UWP_HOLO
 			UWP.UrhoSurface.StopRendering().Wait();
 #endif
-			LogSharp.Debug($"StopCurrent: Current.IsFrameRendering={Current.IsFrameRendering}");
+            LogSharp.Debug($"StopCurrent: Current.IsFrameRendering={Current.IsFrameRendering}");
 			if (Current.IsFrameRendering)// && !Current.Engine.PauseMinimized)
 			{
 				waitFrameEndTaskSource = new TaskCompletionSource<bool>();
@@ -271,10 +271,10 @@ namespace Urho
 
 			Current.Engine.Exit();
 
-#if DESKTOP
+#if NET46
 			if (Current.Options.DelayedStart)
 #endif
-			ProxyStop(Current.Handle);
+            ProxyStop(Current.Handle);
 
 			GC.Collect();
 			GC.WaitForPendingFinalizers();
@@ -339,16 +339,16 @@ namespace Urho
 		{
 			get
 			{
-#if ANDROID // avoid redundant pinvoke for iOS and Android
+#if __ANDROID__ // avoid redundant pinvoke for iOS and Android
 				return Platforms.Android;
-#elif IOS
+#elif __IOS__
 				return Platforms.iOS;
 #elif UWP_HOLO
 				return Platforms.SharpReality;
-#elif WINDOWS_UWP
+#elif __UWP__
 				return Platforms.UWP;
 #endif
-				Runtime.Validate(typeof(Application));
+                Runtime.Validate(typeof(Application));
 				if (platform == Platforms.Unknown)
 					platform = PlatformsMap.FromString(Marshal.PtrToStringAnsi(GetPlatform()));
 				return platform;
@@ -564,14 +564,14 @@ namespace Urho
 				string assetDir = msg.Remove(0, msg.IndexOf('\'') + 1);
 
 				msg +=
-#if ANDROID
+#if __ANDROID__
 							$"\n Assets must be located in '/Assets/{assetDir}' with 'AndroidAsset' Build Action.";
-#elif iOS
+#elif __iOS__
 							$"\n Assets must be located in '/Resources/{assetDir}' with 'BundleResource' Build Action.";
-#elif WINDOWS_UWP || UWP_HOLO
+#elif __UWP__ || UWP_HOLO
 							$"\n Assets must be located in '/{assetDir}' with 'Content' Build Action"; 
 #else
-							$"\n Assets must be located in '/{assetDir}'";
+                            $"\n Assets must be located in '/{assetDir}'";
 #endif
 				exc = new Exception(msg);
 			}

@@ -5,9 +5,9 @@ namespace Urho
 {
 	internal static class Consts
 	{
-#if IOS
+#if __IOS__
 		public const string NativeImport = "@rpath/Urho.framework/Urho";
-#elif UWP_HOLO
+#elif __UWP__
 		public const string NativeImport = "mono-holourho";
 #else
 		public const string NativeImport = "mono-urho";

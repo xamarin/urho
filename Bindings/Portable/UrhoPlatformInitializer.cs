@@ -15,17 +15,17 @@ namespace Urho
 			if (Initialized)
 				return;
 
-#if DESKTOP
+#if NET46
 			Desktop.DesktopUrhoInitializer.OnInited();
-#elif IOS
+#elif __IOS__
 			iOS.IosUrhoInitializer.OnInited();
-#elif ANDROID
+#elif __ANDROID__
 			Droid.DroidPlatformInitializer.OnInited();
 #elif UWP_HOLO
 			//Do nothing.
-#elif WINDOWS_UWP
+#elif __UWP__
 			UWP.UwpUrhoInitializer.OnInited();
-#elif NETCOREAPP2_0
+#elif NETCOREAPP2_1
 			NetCore.NetCoreUrhoInitializer.OnInited();
 #else
 			throw new Exception("Implementation assembly (iOS, Android or Desktop) is not referenced");

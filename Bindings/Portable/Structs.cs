@@ -805,7 +805,7 @@ namespace Urho {
 		public UrhoString TextureName6;
 		public UrhoString TextureName7;
 
-#if !IOS && !ANDROID
+#if !__IOS__ && !__ANDROID__
 		public UrhoString TextureName8;
 		public UrhoString TextureName9;
 		public UrhoString TextureName10;
@@ -841,7 +841,7 @@ namespace Urho {
 			TextureName5 = default(UrhoString);
 			TextureName6 = default(UrhoString);
 			TextureName7 = default(UrhoString);
-#if !IOS && !ANDROID
+#if !__IOS__ && !__ANDROID__
 			TextureName8 = default(UrhoString);
 			TextureName9 = default(UrhoString);
 			TextureName10 = default(UrhoString);
@@ -894,7 +894,7 @@ namespace Urho {
 					TextureName7 = nameStr;
 					break;
 
-#if !IOS && !ANDROID
+#if !__IOS__ && !__ANDROID__
 				case TextureUnit.Lightramp:
 					TextureName8 = nameStr;
 					break;
