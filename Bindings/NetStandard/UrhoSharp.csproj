@@ -1,7 +1,7 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras/1.6.55">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;MonoAndroid71;Xamarin.iOS10;uap10.0.16299;net45;</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;MonoAndroid71;Xamarin.iOS10;uap10.0.16299;net45;netcoreapp2.1</TargetFrameworks>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
     <DefineConstants>$(DefineConstants);</DefineConstants>
     <RootNamespace>Urho</RootNamespace>

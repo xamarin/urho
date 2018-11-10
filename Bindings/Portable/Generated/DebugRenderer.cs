@@ -264,7 +264,7 @@ namespace Urho
 		/// <summary>
 		/// Add a sphere.
 		/// </summary>
-		public void AddSphere (Sphere sphere, Urho.Color color, bool depthTest = true)
+		public void AddSphere (SphereShape sphere, Urho.Color color, bool depthTest = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			DebugRenderer_AddSphere (handle, (object)sphere == null ? IntPtr.Zero : sphere.Handle, ref color, depthTest);
@@ -276,7 +276,7 @@ namespace Urho
 		/// <summary>
 		/// Add a sphere sector.
 		/// </summary>
-		public void AddSphereSector (Sphere sphere, Urho.Quaternion rotation, float angle, bool drawLines, Urho.Color color, bool depthTest = true)
+		public void AddSphereSector (SphereShape sphere, Urho.Quaternion rotation, float angle, bool drawLines, Urho.Color color, bool depthTest = true)
 		{
 			Runtime.ValidateRefCounted (this);
 			DebugRenderer_AddSphereSector (handle, (object)sphere == null ? IntPtr.Zero : sphere.Handle, ref rotation, angle, drawLines, ref color, depthTest);

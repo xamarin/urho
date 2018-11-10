@@ -98,9 +98,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\bindings\Desktop\Urho.Desktop.csproj">
-      <Project>{f0359d5e-d6d4-47d3-a9f0-5a97c31dc476}</Project>
-      <Name>Urho.Desktop</Name>
+    <ProjectReference Include="..\..\..\Bindings\NetStandard\UrhoSharp.csproj">
+      <Project>{c25a3fe0-5781-4546-bdb2-bb65ed73b165}</Project>
+      <Name>UrhoSharp</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Extensions\Urho.Extensions.Wpf\Urho.Extensions.Wpf.csproj">
       <Project>{f7842d6a-5603-47d3-b0fa-8a7a4ec8105f}</Project>
