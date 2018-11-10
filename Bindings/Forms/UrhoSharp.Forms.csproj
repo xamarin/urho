@@ -31,10 +31,10 @@
 
   <!-- iOS -->
   <ItemGroup Condition="$(TargetFramework.StartsWith('Xamarin.iOS'))">
-    <BundleResource Include="..\..\Urho3D\CoreData.pak">
+    <!--BundleResource Include="..\..\Urho3D\CoreData.pak">
       <Link>CoreData.pak</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </BundleResource>
+    </BundleResource-->
     <None Include="..\..\Bin\iOS\Urho.framework.zip" Condition="Exists('..\..\Bin\iOS\Urho.framework.zip')">
       <Link>Urho.framework.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -61,4 +61,5 @@
   </ItemGroup>
 
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+  <Import Condition="$(TargetFramework.StartsWith('Xamarin.iOS'))" Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>
