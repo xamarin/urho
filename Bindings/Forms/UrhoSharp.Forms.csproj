@@ -1,7 +1,8 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras/1.6.55">
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;MonoAndroid81;Xamarin.iOS10;uap10.0.16299;portable-net45+win8+wpa81</TargetFrameworks>
+    <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">netstandard2.0;MonoAndroid81;Xamarin.iOS10;uap10.0.16299;portable-net45+win8+wpa81</TargetFrameworks>
+    <TargetFrameworks Condition=" '$(OS)' != 'Windows_NT' ">netstandard2.0;MonoAndroid81;Xamarin.iOS10;portable-net45+win8+wpa81</TargetFrameworks>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
     <DefineConstants>$(DefineConstants);XFORMS</DefineConstants>
     <RootNamespace>Urho.Forms</RootNamespace>
@@ -14,6 +15,7 @@
   <Import Project="..\Urho.Shared.projitems" Label="Shared" />
 
   <ItemGroup>
+    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.6.55" PrivateAssets="All" />
     <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
     <Compile Include="..\Forms\UrhoSurface.cs" />
   </ItemGroup>
@@ -37,6 +39,7 @@
       <Link>Urho.framework.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <ObjcBindingNativeFramework Include="..\..\Bin\iOS\Urho.framework" />
     <ObjcBindingApiDefinition Include="..\Forms.iOS\ApiDefinition.cs" />
     <ObjcBindingCoreSource Include="..\Forms.iOS\StructsAndEnums.cs" />
     <Compile Include="..\iOS\ARKitComponent.cs" />
@@ -57,4 +60,5 @@
     <Compile Include="..\Forms.UWP\UwpSurfaceRenderer.cs" />
   </ItemGroup>
 
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>
