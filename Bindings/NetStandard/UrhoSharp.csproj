@@ -1,7 +1,7 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras/1.6.55">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;MonoAndroid71;Xamarin.iOS10;uap10.0.16299;net45;netcoreapp2.1</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;MonoAndroid71;Xamarin.iOS10;uap10.0.16299;net45;netcoreapp2.1;portable-net45+win8+wpa81</TargetFrameworks>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
     <DefineConstants>$(DefineConstants);</DefineConstants>
     <RootNamespace>Urho</RootNamespace>
@@ -11,9 +11,7 @@
     <NoWarn>1701;1702;1591;3021;1572;1573;1570;108;618;649;1587;660;661;219;4014;</NoWarn>
   </PropertyGroup>
 
-
   <Import Project="..\Urho.Shared.projitems" Label="Shared" />
-
 
   <!-- Android -->
   <ItemGroup Condition="$(TargetFramework.StartsWith('MonoAndroid'))">
@@ -51,9 +49,14 @@
     <Compile Include="..\UWP\UwpUrhoInitializer.cs" />
   </ItemGroup>
 
-  <!-- NETFX -->
+  <!-- .NET 4.x -->
   <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
     <Compile Include="..\Desktop\DesktopUrhoInitializer.cs" />
+  </ItemGroup>
+
+  <!-- .NET Core -->
+  <ItemGroup Condition="$(TargetFramework.StartsWith('netcoreapp'))">
+    <Compile Include="..\NetCore\NetCoreUrhoInitializer.cs" />
   </ItemGroup>
 
 </Project>

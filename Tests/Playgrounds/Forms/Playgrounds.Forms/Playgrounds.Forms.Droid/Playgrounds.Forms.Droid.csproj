@@ -17,8 +17,8 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
     <AndroidStoreUncompressedFileExtensions />
     <MandroidI18n />
@@ -199,9 +199,9 @@
     <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\bindings\Forms.Droid\Urho.Forms.Droid.csproj">
-      <Project>{8bae491b-46f0-4a51-a456-d7a3b332bdc4}</Project>
-      <Name>Urho.Forms.Droid</Name>
+    <ProjectReference Include="..\..\..\..\..\Bindings\Forms\UrhoSharp.Forms.csproj">
+      <Project>{81abcf29-29af-4c8d-bdc0-7e7214618104}</Project>
+      <Name>UrhoSharp.Forms</Name>
     </ProjectReference>
     <ProjectReference Include="..\Playgrounds.Forms\Playgrounds.Forms.csproj">
       <Project>{258f64d6-bdfb-48e7-93cc-b96c57fec2fe}</Project>

@@ -71,7 +71,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Playgrounds.NetCoreApp", "T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UrhoSharp", "Bindings\NetStandard\UrhoSharp.csproj", "{C25A3FE0-5781-4546-BDB2-BB65ED73B165}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UrhoSharp.Forms", "Bindings\NetStandard\UrhoSharp.Forms.csproj", "{81ABCF29-29AF-4C8D-BDC0-7E7214618104}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UrhoSharp.Forms", "Bindings\Forms\UrhoSharp.Forms.csproj", "{81ABCF29-29AF-4C8D-BDC0-7E7214618104}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution

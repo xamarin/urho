@@ -93,9 +93,9 @@
     <InterfaceDefinition Include="Main.storyboard" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\bindings\Desktop\Urho.Desktop.csproj">
-      <Project>{F0359D5E-D6D4-47D3-A9F0-5A97C31DC476}</Project>
-      <Name>Urho.Desktop</Name>
+    <ProjectReference Include="..\..\..\Bindings\NetStandard\UrhoSharp.csproj">
+      <Project>{c25a3fe0-5781-4546-bdb2-bb65ed73b165}</Project>
+      <Name>UrhoSharp</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Extensions\Urho.Extensions.Cocoa\Urho.Extensions.Cocoa.csproj">
       <Project>{0703D797-E1A2-48A9-AB21-ABCDC46D4E7F}</Project>

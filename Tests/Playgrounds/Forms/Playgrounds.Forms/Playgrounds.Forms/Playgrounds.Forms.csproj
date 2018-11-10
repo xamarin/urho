@@ -38,12 +38,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\bindings\Forms\Urho.Forms.csproj">
-      <Project>{d599c47f-b9e0-4a58-82e8-6286e0442e8f}</Project>
-      <Name>Urho.Forms</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\..\packages\Xamarin.Forms.2.5.0.280555\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
@@ -56,6 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Bindings\Forms\UrhoSharp.Forms.csproj">
+      <Project>{81abcf29-29af-4c8d-bdc0-7e7214618104}</Project>
+      <Name>UrhoSharp.Forms</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="Playgrounds.Forms.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
