@@ -46,15 +46,15 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\bindings\Desktop\Urho.Desktop.csproj">
-      <Project>{f0359d5e-d6d4-47d3-a9f0-5a97c31dc476}</Project>
-      <Name>Urho.Desktop</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="UrhoSurface.resx">
       <DependentUpon>UrhoSurface.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Bindings\NetStandard\UrhoSharp.csproj">
+      <Project>{c25a3fe0-5781-4546-bdb2-bb65ed73b165}</Project>
+      <Name>UrhoSharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,13 +1,16 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras/1.6.55">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;MonoAndroid71;Xamarin.iOS10;uap10.0.16299;net46;</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;MonoAndroid71;Xamarin.iOS10;uap10.0.16299;net45;</TargetFrameworks>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
     <DefineConstants>$(DefineConstants);</DefineConstants>
     <RootNamespace>Urho</RootNamespace>
     <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <OutputPath>..\..\Bin\UrhoSharp</OutputPath>
+    <NoWarn>1701;1702;1591;3021;1572;1573;1570;108;618;649;1587;660;661;219;4014;</NoWarn>
   </PropertyGroup>
+
 
   <Import Project="..\Urho.Shared.projitems" Label="Shared" />
 
@@ -26,7 +29,7 @@
       <Link>CoreData.pak</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
-    <None Include="..\Bin\iOS\Urho.framework.zip"  Condition="Exists('..\Bin\iOS\Urho.framework.zip')">
+    <None Include="..\Bin\iOS\Urho.framework.zip" Condition="Exists('..\Bin\iOS\Urho.framework.zip')">
       <Link>Urho.framework.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
