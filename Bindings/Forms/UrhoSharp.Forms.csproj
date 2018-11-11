@@ -61,5 +61,5 @@
   </ItemGroup>
 
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
-  <Import Condition="$(TargetFramework.StartsWith('Xamarin.iOS'))" Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+  <Import Condition="$(TargetFramework.StartsWith('Xamarin.iOS')) AND '$(OS)' != 'Windows_NT'" Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>
