@@ -1,9 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
 
   <PropertyGroup>
-    <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">netstandard2.0;MonoAndroid81;Xamarin.iOS10;uap10.0.16299;portable-net45+win8+wpa81</TargetFrameworks>
+    <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">netstandard2.0;MonoAndroid81;uap10.0.16299;portable-net45+win8+wpa81</TargetFrameworks>
     <TargetFrameworks Condition=" '$(OS)' != 'Windows_NT' ">netstandard2.0;MonoAndroid81;Xamarin.iOS10;portable-net45+win8+wpa81</TargetFrameworks>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
+    
     <DefineConstants>$(DefineConstants);XFORMS</DefineConstants>
     <RootNamespace>Urho.Forms</RootNamespace>
     <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>

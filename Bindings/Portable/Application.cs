@@ -195,7 +195,7 @@ namespace Urho
 			text.Value = " ";
 			Current.UI.Root.AddChild(text);
 #endif
-            Current.Start();
+			Current.Start();
 			Started?.Invoke();
 		}
 
@@ -250,7 +250,7 @@ namespace Urho
 			Org.Libsdl.App.SDLActivity.OnDestroy();
 			return;
 #endif
-            Current.Input.Enabled = false;
+			Current.Input.Enabled = false;
 			isExiting = true;
 #if __IOS__
 			iOS.UrhoSurface.StopRendering(current);
@@ -259,7 +259,7 @@ namespace Urho
 #if __UWP__ && !UWP_HOLO
 			UWP.UrhoSurface.StopRendering().Wait();
 #endif
-            LogSharp.Debug($"StopCurrent: Current.IsFrameRendering={Current.IsFrameRendering}");
+			LogSharp.Debug($"StopCurrent: Current.IsFrameRendering={Current.IsFrameRendering}");
 			if (Current.IsFrameRendering)// && !Current.Engine.PauseMinimized)
 			{
 				waitFrameEndTaskSource = new TaskCompletionSource<bool>();
@@ -274,7 +274,7 @@ namespace Urho
 #if NET46
 			if (Current.Options.DelayedStart)
 #endif
-            ProxyStop(Current.Handle);
+			ProxyStop(Current.Handle);
 
 			GC.Collect();
 			GC.WaitForPendingFinalizers();
@@ -348,7 +348,7 @@ namespace Urho
 #elif __UWP__
 				return Platforms.UWP;
 #endif
-                Runtime.Validate(typeof(Application));
+				Runtime.Validate(typeof(Application));
 				if (platform == Platforms.Unknown)
 					platform = PlatformsMap.FromString(Marshal.PtrToStringAnsi(GetPlatform()));
 				return platform;
@@ -571,7 +571,7 @@ namespace Urho
 #elif __UWP__ || UWP_HOLO
 							$"\n Assets must be located in '/{assetDir}' with 'Content' Build Action"; 
 #else
-                            $"\n Assets must be located in '/{assetDir}'";
+							$"\n Assets must be located in '/{assetDir}'";
 #endif
 				exc = new Exception(msg);
 			}

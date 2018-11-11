@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
-       <id>UrhoSharp</id>
-       <version>1.8</version>
-       <title>UrhoSharp</title>
+       <id>UrhoSharp-ns2-preview</id>
+       <version>2.0.2</version>
+       <title>UrhoSharp-ns2-preview</title>
        <authors>Xamarin,Microsoft</authors>
        <owners>Xamarin,Microsoft</owners>
        <copyright>© Microsoft Corporation. All rights reserved.</copyright>
-<licenseUrl>https://github.com/xamarin/urho/blob/master/LICENSE</licenseUrl>
-<projectUrl>http://developer.xamarin.com/guides/cross-platform/urho/</projectUrl>
+       <licenseUrl>https://github.com/xamarin/urho/blob/master/LICENSE</licenseUrl>
+       <projectUrl>http://developer.xamarin.com/guides/cross-platform/urho/</projectUrl>
        <iconUrl>http://developer.xamarin.com/guides/cross-platform/urho/introduction/Images/UrhoSharp_icon.png</iconUrl>
        <requireLicenseAcceptance>true</requireLicenseAcceptance>
        <summary>Cross Platform, 2D and 3D Game Engine for C# (Android, iOS, Windows, Mac).</summary>
@@ -21,15 +21,19 @@
      <file src="../Urho3D/CoreData.pak" target="native/CoreData.pak" />
 
      <!--PCL-->
-     <file src="../Bin/Common/Urho.dll" target="lib/portable-net45+win8+monoandroid+monotouch+Xamarin.iOS10/Urho.dll" />
-     <file src="../docs/Urho.XML" target="lib/portable-net45+win8+monoandroid+monotouch+Xamarin.iOS10/Urho.XML" />
+     <file src="../Bin/UrhoSharp/portable-net45+win8+wpa81/UrhoSharp.dll" target="lib/portable-net45+win8+wpa81/UrhoSharp.dll" />
+     <file src="../docs/Urho.XML" target="lib/portable-net45+win8+wpa81/UrhoSharp.XML" />
    
+     <!--NETStandard 2.0-->
+     <file src="../Bin/UrhoSharp/netstandard2.0/UrhoSharp.dll" target="lib/netstandard2.0/UrhoSharp.dll" />
+     <file src="../docs/Urho.XML" target="lib/netstandard2.0/UrhoSharp.XML" />
+
      <!--Android-->
-     <file src="../Nuget/Android/UrhoSharp.targets" target="build/MonoAndroid" />
-     <file src="../Bin/Android/Urho.dll" target="lib/MonoAndroid/Urho.dll" />
-     <file src="../Bin/Android/Urho.Droid.SdlBinding.dll" target="lib/MonoAndroid/Urho.Droid.SdlBinding.dll" />
-     <!--file src="../Bin/Android/Urho.Droid.GoogleVR.dll" target="lib/MonoAndroid/Urho.Droid.GoogleVR.dll" /-->
-     <file src="../docs/Urho.XML" target="lib/MonoAndroid/Urho.XML" />
+     <file src="../Nuget/Android/UrhoSharp-ns2-preview.targets" target="build/monoandroid81" />
+     <file src="../Bin/UrhoSharp/monoandroid81/UrhoSharp.dll" target="lib/monoandroid81/UrhoSharp.dll" />
+     <file src="../Bin/UrhoSharp/monoandroid81/Urho.Droid.SdlBinding.dll" target="lib/monoandroid81/Urho.Droid.SdlBinding.dll" />
+     <!--file src="../Bin/UrhoSharp/monoandroid81/Urho.Droid.GoogleVR.dll" target="lib/monoandroid81/Urho.Droid.GoogleVR.dll" /-->
+     <file src="../docs/Urho.XML" target="lib/monoandroid81/UrhoSharp.XML" />
 
      <file src="../Bin/Android/x86_64/libmono-urho.so" target="native/Android/x86_64/libmono-urho.so" />
      <file src="../Bin/Android/arm64-v8a/libmono-urho.so" target="native/Android/arm64-v8a/libmono-urho.so" />
@@ -38,24 +42,29 @@
      <file src="../Bin/Android/armeabi/libmono-urho.so" target="native/Android/armeabi/libmono-urho.so" />
 
      <!--iOS-->
-     <file src="../Bin/iOS/Urho.dll" target="lib/Xamarin.iOS10/Urho.dll" />
-     <file src="../docs/Urho.XML" target="lib/Xamarin.iOS10/Urho.XML" />
+     <file src="../Bin/UrhoSharp/UrhoSharp.dll" target="lib/Xamarin.iOS10/UrhoSharp.dll" />
+     <file src="../docs/Urho.XML" target="lib/Xamarin.iOS10/UrhoSharp.XML" />
 
      <!--Windows+Mac-->
-     <file src="../Nuget/Desktop/UrhoSharp.targets" target="build/net45" />
-     <file src="../Bin/Desktop/Urho.dll" target="lib/net45/Urho.dll" />
-     <file src="../docs/Urho.XML" target="lib/net45/Urho.XML" />
+     <file src="../Nuget/Desktop/UrhoSharp-ns2-preview.targets" target="build/net45" />
+     <file src="../Bin/UrhoSharp/net45/UrhoSharp.dll" target="lib/net45/UrhoSharp.dll" />
+     <file src="../docs/Urho.XML" target="lib/net45/UrhoSharp.XML" />
      <file src="../Bin/Desktop/Win64_OpenGL/mono-urho.dll" target="native/Win64_OpenGL/mono-urho.dll" />
      <file src="../Bin/Desktop/Win32_OpenGL/mono-urho.dll" target="native/Win32_OpenGL/mono-urho.dll" />
      <file src="../Bin/Desktop/Win64_DirectX/mono-urho.dll" target="native/Win64_DirectX/mono-urho.dll" />
      <file src="../Bin/Desktop/Win32_DirectX/mono-urho.dll" target="native/Win32_DirectX/mono-urho.dll" />
      <!--file src="../Bin/Desktop/Linux/libmono-urho.so" target="native/Linux/libmono-urho.so" /-->
      <file src="../Bin/Desktop/libmono-urho.dylib" target="native/Mac/libmono-urho.dylib" />
-	 
-	 <!--UWP-->
-     <file src="../Nuget/UWP/UrhoSharp.targets" target="build/uap10.0" />
-     <file src="../docs/Urho.XML" target="lib/uap10.0/Urho.XML" />
-     <file src="../Bin/UWP/Urho.dll" target="lib/uap10.0/Urho.dll" />
+
+     <!--.NET Core 2.1-->
+     <file src="../Nuget/Desktop/UrhoSharp-ns2-preview.targets" target="build/netcoreapp2.1" />
+     <file src="../docs/Urho.XML" target="lib/netcoreapp2.1/UrhoSharp.XML" />
+     <file src="../Bin/UrhoSharp/netcoreapp2.1/UrhoSharp.dll" target="lib/netcoreapp2.1/UrhoSharp.dll" />
+
+     <!--UWP-->
+     <file src="../Nuget/UWP/UrhoSharp-ns2-preview.targets" target="build/uap10.0.16299" />
+     <file src="../docs/Urho.XML" target="lib/uap10.0.16299/UrhoSharp.XML" />
+     <file src="../Bin/UrhoSharp/uap10.0.16299/UrhoSharp.dll" target="lib/uap10.0.16299/UrhoSharp.dll" />
      <file src="../Bin/UWP/Win32/UrhoSharp.UWP/mono-urho.dll" target="runtimes\win10-x86\native\mono-urho.dll" />
      <file src="../Bin/UWP/x64/UrhoSharp.UWP/mono-urho.dll" target="runtimes\win10-x64\native\mono-urho.dll" />
    </files>
