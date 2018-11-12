@@ -15,6 +15,7 @@ if "%VSVER%" == "" echo ERROR: VS_VER is not set, example of usage: "MakeUWP.bat
 if "%VSVER%" == "2015" set "VS_VER=14"
 if "%VSVER%" == "2017" set "VS_VER=15"
 if "%PLATFORM%" == "x64" (set "TARGET=Visual Studio %VS_VER% Win64") else (set "TARGET=Visual Studio %VS_VER%")
+if "%CONFIG%" == "Debug" set "LIB_PREFIX=_d"
 
 del Urho3D\Urho3D_UWP\CMakeCache.txt 2>NUL
 cd Urho3D/Source
@@ -25,6 +26,7 @@ cmake -E chdir ../Urho3D_UWP cmake -G "%TARGET%" ../Urho3D_UWP -DURHO3D_D3D11=1 
 cd ../Urho3D_UWP
 xcopy MonoUrho.UWP\SdlStub\SDL include\Urho3D\ThirdParty\SDL\* /Y
 cmake --build . --target Urho3D --config %CONFIG%
+copy lib/Urho3D%LIB_PREFIX%.lib lib/Urho3D%LIB_PREFIX%_%PLATFORM%.lib /Y
 cd ../../
 
 :: msbuild Urho3D\Urho3D_UWP\MonoUrho.UWP\MonoUrho.UWP.vcxproj /p:Configuration=%CONFIG% /p:Platform=%PLATFORM%

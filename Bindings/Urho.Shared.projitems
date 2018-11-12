@@ -9,6 +9,7 @@
     <Import_RootNamespace>Urho</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Properties\AssemblyInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Actions\Instants\Callfunc\TaskSourceAction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Actions\Intervals\GenericShaderParameterFromTo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Camera.cs" />
@@ -37,7 +38,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Runtime\IntPtrEqualityComparer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Runtime\PreserveAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\WirePlane.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Properties\AssemblyInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Actions\ActionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Actions\Base\Action.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Portable\Actions\Base\AmplitudeAction.cs" />

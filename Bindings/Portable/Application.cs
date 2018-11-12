@@ -87,7 +87,7 @@ namespace Urho
 			startCallback = ProxyStart;
 			stopCallback = ProxyStop;
 
-#if !ANDROID
+#if !__ANDROID__
 			if (context.Refs() < 1)
 				context.AddRef();
 #endif
@@ -245,14 +245,14 @@ namespace Urho
 			if (current == null || !current.IsActive)
 				return;
 
-#if ANDROID
+#if __ANDROID__
 			current.WaitFrameEnd();
 			Org.Libsdl.App.SDLActivity.OnDestroy();
 			return;
 #endif
 			Current.Input.Enabled = false;
 			isExiting = true;
-#if IOS
+#if __IOS__
 			iOS.UrhoSurface.StopRendering(current);
 #endif
 
@@ -271,7 +271,7 @@ namespace Urho
 
 			Current.Engine.Exit();
 
-#if DESKTOP
+#if NET46
 			if (Current.Options.DelayedStart)
 #endif
 			ProxyStop(Current.Handle);
@@ -339,9 +339,9 @@ namespace Urho
 		{
 			get
 			{
-#if ANDROID // avoid redundant pinvoke for iOS and Android
+#if __ANDROID__ // avoid redundant pinvoke for iOS and Android
 				return Platforms.Android;
-#elif IOS
+#elif __IOS__
 				return Platforms.iOS;
 #elif UWP_HOLO
 				return Platforms.SharpReality;
@@ -564,9 +564,9 @@ namespace Urho
 				string assetDir = msg.Remove(0, msg.IndexOf('\'') + 1);
 
 				msg +=
-#if ANDROID
+#if __ANDROID__
 							$"\n Assets must be located in '/Assets/{assetDir}' with 'AndroidAsset' Build Action.";
-#elif iOS
+#elif __iOS__
 							$"\n Assets must be located in '/Resources/{assetDir}' with 'BundleResource' Build Action.";
 #elif WINDOWS_UWP || UWP_HOLO
 							$"\n Assets must be located in '/{assetDir}' with 'Content' Build Action"; 

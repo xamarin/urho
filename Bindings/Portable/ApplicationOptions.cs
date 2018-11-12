@@ -63,7 +63,7 @@ namespace Urho
 		/// iOS & Android only
 		/// </summary>
 		public OrientationType Orientation { get; set; }
-#if IOS && !XFORMS
+#if __IOS__ && !XFORMS
 			= OrientationType.Landscape;
 #else
 			= OrientationType.LandscapeAndPortrait;
@@ -125,7 +125,7 @@ namespace Urho
 			StringBuilder builder = new StringBuilder();
 			builder.Append("args");//it will be skipped by Urho;
 
-#if !IOS //always use -w on iOS
+#if !__IOS__ //always use -w on iOS
 			if (WindowedMode)
 #endif
 				builder.Append(" -w");
@@ -145,7 +145,7 @@ namespace Urho
 			if (Multisampling > 0)
 				builder.AppendFormat(" -m {0}", Multisampling);
 
-#if !IOS //always use -s on iOS
+#if !__IOS__ //always use -s on iOS
 			if (ResizableWindow)
 #endif
 				builder.Append(" -s");
@@ -159,7 +159,7 @@ namespace Urho
 				builder.AppendFormat(" -pf \"{0}\"", string.Join(";", ResourcePackagesPaths));
 
 			string[] resourcePrefixPaths = ResourcePrefixPaths;
-#if DESKTOP
+#if NET45
 			var urhoDllFolder = System.IO.Path.GetDirectoryName(typeof(SimpleApplication).Assembly.Location);
 			var possibleCoreDataDirectories = new[]
 				{

@@ -42,12 +42,6 @@
     <Compile Include="ShapesTests.cs" />
     <Compile Include="StringHash.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\bindings\Desktop\Urho.Desktop.csproj">
-      <Project>{F0359D5E-D6D4-47D3-A9F0-5A97C31DC476}</Project>
-      <Name>Urho.Desktop</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup Condition="Exists('..\..\Bin\Desktop\Win32\mono-urho.dll')">
     <Content Include="..\..\Bin\Desktop\Win32\mono-urho.dll">
       <Link>mono-urho.dll</Link>
@@ -60,6 +54,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Bindings\NetStandard\UrhoSharp.csproj">
+      <Project>{c25a3fe0-5781-4546-bdb2-bb65ed73b165}</Project>
+      <Name>UrhoSharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

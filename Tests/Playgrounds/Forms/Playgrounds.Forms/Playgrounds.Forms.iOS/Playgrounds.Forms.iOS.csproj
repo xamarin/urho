@@ -138,9 +138,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\bindings\Forms.iOS\Urho.Forms.iOS.csproj">
-      <Project>{8F3352BA-BF6A-49F8-81D6-58D54B3EA72B}</Project>
-      <Name>Urho.Forms.iOS</Name>
+    <ProjectReference Include="..\..\..\..\..\Bindings\Forms\UrhoSharp.Forms.csproj">
+      <Project>{81abcf29-29af-4c8d-bdc0-7e7214618104}</Project>
+      <Name>UrhoSharp.Forms</Name>
     </ProjectReference>
     <ProjectReference Include="..\Playgrounds.Forms\Playgrounds.Forms.csproj">
       <Project>{258f64d6-bdfb-48e7-93cc-b96c57fec2fe}</Project>

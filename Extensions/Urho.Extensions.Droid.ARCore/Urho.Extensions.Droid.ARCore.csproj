@@ -58,9 +58,9 @@
       <Project>{b29babd8-a0d8-460d-9179-f2eb2a5b2daa}</Project>
       <Name>Urho.Droid.CoreAR</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\bindings\Android\Urho.Droid.csproj">
-      <Project>{f0c1189b-75f7-4bd8-b394-a23d5b03eff6}</Project>
-      <Name>Urho.Droid</Name>
+    <ProjectReference Include="..\..\Bindings\NetStandard\UrhoSharp.csproj">
+      <Project>{c25a3fe0-5781-4546-bdb2-bb65ed73b165}</Project>
+      <Name>UrhoSharp</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

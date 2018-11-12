@@ -22,7 +22,7 @@ namespace Urho.Forms
 			return (TUrhoApplication)await runner(typeof (TUrhoApplication), options);
 		}
 
-#if IOS
+#if __IOS__
 		public static void OnPause()
 		{
 			Urho.iOS.UrhoSurface.Pause();
@@ -38,7 +38,7 @@ namespace Urho.Forms
 			if (Urho.Application.HasCurrent && Urho.Application.Current.IsActive)
 				Urho.Application.Current.Exit();
 		}
-#elif ANDROID
+#elif __ANDROID__
 		public static void OnPause()
 		{
 			Urho.Droid.UrhoSurface.OnPause();

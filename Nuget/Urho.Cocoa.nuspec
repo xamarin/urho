@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="2.8.1">
        <id>UrhoSharp.Cocoa</id>
-       <version>1.8</version>
+       <version>1.9</version>
        <title>UrhoSharp.Cocoa</title>
        <authors>Xamarin,Microsoft</authors>
        <owners>Xamarin,Microsoft</owners>
@@ -16,7 +16,7 @@
        <releaseNotes>Release notes: https://github.com/xamarin/urho/releases</releaseNotes>
        <tags>Urho Urho3D Cocoa UrhoSharp Xamarin 2D 3D games engine</tags>
        <dependencies>
-         <dependency id="UrhoSharp" version="1.8" />
+         <dependency id="UrhoSharp" version="1.9" />
        </dependencies>
    </metadata>
    <files>

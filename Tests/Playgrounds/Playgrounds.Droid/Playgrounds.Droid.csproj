@@ -15,8 +15,7 @@
     <AndroidApplication>true</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -32,14 +31,8 @@
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
     <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
-    <BundleAssemblies>false</BundleAssemblies>
-    <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
     <AndroidSupportedAbis>armeabi;armeabi-v7a;x86;arm64-v8a</AndroidSupportedAbis>
     <Debugger>.Net (Xamarin)</Debugger>
-    <AotAssemblies>false</AotAssemblies>
-    <EnableLLVM>false</EnableLLVM>
-    <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
-    <EnableProguard>False</EnableProguard>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -52,9 +45,6 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
-    <AotAssemblies>false</AotAssemblies>
-    <EnableLLVM>false</EnableLLVM>
-    <BundleAssemblies>false</BundleAssemblies>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -151,9 +141,9 @@
       <Project>{68a19c58-7eba-4af4-be15-f5d7a13b6c97}</Project>
       <Name>Urho.Droid.SdlBinding</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\bindings\Android\Urho.Droid.csproj">
-      <Project>{f0c1189b-75f7-4bd8-b394-a23d5b03eff6}</Project>
-      <Name>Urho.Droid</Name>
+    <ProjectReference Include="..\..\..\Bindings\NetStandard\UrhoSharp.csproj">
+      <Project>{c25a3fe0-5781-4546-bdb2-bb65ed73b165}</Project>
+      <Name>UrhoSharp</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Extensions\Urho.Extensions.Droid.ARCore\Urho.Extensions.Droid.ARCore.csproj">
       <Project>{8fbe882f-926b-4822-8ccb-035d6544ce31}</Project>

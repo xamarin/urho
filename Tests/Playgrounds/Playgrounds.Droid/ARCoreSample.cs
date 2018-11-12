@@ -41,6 +41,7 @@ namespace Playgrounds.Droid
 			hud.Show(Color.Green, 40);
 
 			Input.TouchEnd += Input_TouchEnd;
+
 			await arCore.Run(Camera);
 		}
 

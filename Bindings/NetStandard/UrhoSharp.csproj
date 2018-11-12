@@ -1,0 +1,92 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+
+  <PropertyGroup>
+    <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">netstandard2.0;monoandroid81;uap10.0.16299;net45;netcoreapp2.1;portable-net45+win8+wpa81</TargetFrameworks>
+    <TargetFrameworks Condition=" '$(OS)' != 'Windows_NT' ">netstandard2.0;monoandroid81;xamarin.ios10;net45;netcoreapp2.1;portable-net45+win8+wpa81</TargetFrameworks>
+    <Product>$(AssemblyName) ($(TargetFramework))</Product>
+    <DefineConstants>$(DefineConstants);</DefineConstants>
+    <RootNamespace>Urho</RootNamespace>
+    <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <OutputPath>..\..\Bin\UrhoSharp</OutputPath>
+    <NoWarn>1701;1702;1591;3021;1572;1573;1570;108;618;649;1587;660;661;219;4014;</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.6.55" PrivateAssets="All" />
+  </ItemGroup>
+
+  <!-- Android -->
+  <ItemGroup Condition="$(TargetFramework) == 'monoandroid81'">
+    <ProjectReference Include="..\Android\Urho.Droid.SdlBinding\Urho.Droid.SdlBinding.csproj" />
+    <Compile Include="..\Android\DroidPlatformInitializer.cs" />
+    <Compile Include="..\Android\FullscreenUrhoActivity.cs" />
+    <Compile Include="..\Android\UrhoSurface.cs" />
+
+    <EmbeddedNativeLibrary Include="..\..\Bin\Android\x86_64\libmono-urho.so">
+      <Link>Libs\x86_64\libmono-urho.so</Link>
+    </EmbeddedNativeLibrary>
+    <EmbeddedNativeLibrary Include="..\..\Bin\Android\arm64-v8a\libmono-urho.so">
+      <Link>Libs\arm64-v8a\libmono-urho.so</Link>
+    </EmbeddedNativeLibrary>
+    <EmbeddedNativeLibrary Include="..\..\Bin\Android\armeabi-v7a\libmono-urho.so">
+      <Link>Libs\armeabi-v7a\libmono-urho.so</Link>
+    </EmbeddedNativeLibrary>
+    <EmbeddedNativeLibrary Include="..\..\Bin\Android\armeabi\libmono-urho.so">
+      <Link>Libs\armeabi\libmono-urho.so</Link>
+    </EmbeddedNativeLibrary>
+    <EmbeddedNativeLibrary Include="..\..\Bin\Android\x86\libmono-urho.so">
+      <Link>Libs\x86\libmono-urho.so</Link>
+    </EmbeddedNativeLibrary>
+    <AndroidAsset Include="..\..\Urho3D\CoreData.pak">
+      <Link>Assets\CoreData.pak</Link>
+    </AndroidAsset>
+
+  </ItemGroup>
+
+  <!-- iOS -->
+  <ItemGroup Condition="$(TargetFramework) == 'xamarin.ios10'">
+    <None Include="..\..\Bin\iOS\Urho.framework.zip">
+      <Link>Urho.framework.zip</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <ObjcBindingApiDefinition Include="..\iOS\ApiDefinition.cs" />
+    <ObjcBindingCoreSource Include="..\iOS\StructsAndEnums.cs" />
+    <Compile Include="..\iOS\ARKitComponent.cs" />
+    <Compile Include="..\iOS\IosPlatformInitializer.cs" />
+    <Compile Include="..\iOS\UrhoSurface.cs" />
+    <Compile Include="..\iOS\Urho.framework.linkwith.cs" />
+    <ObjcBindingNativeFramework Include="..\..\Bin\iOS\Urho.framework" />
+    <BundleResource Update="..\..\Urho3D\CoreData.pak">
+      <Link>Resources\CoreData.pak</Link>
+    </BundleResource>
+  </ItemGroup>
+
+  <!-- UWP -->
+  <ItemGroup Condition="$(TargetFramework) == 'uap10.0.16299'">
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.5" />
+    <SDKReference Include="WindowsMobile, Version=10.0.16299.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
+    </SDKReference>
+    <EmbeddedResource Include="..\..\Urho3D\CoreData.pak">
+      <Link>CoreData.pak</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Compile Include="..\UWP\UrhoSurface.cs" />
+    <Compile Include="..\UWP\UwpUrhoInitializer.cs" />
+  </ItemGroup>
+
+  <!-- .NET 4.x -->
+  <ItemGroup Condition="$(TargetFramework) == 'net45'">
+    <Compile Include="..\Desktop\DesktopUrhoInitializer.cs" />
+  </ItemGroup>
+
+  <!-- .NET Core -->
+  <ItemGroup Condition="$(TargetFramework) == 'netcoreapp2.1'">
+    <Compile Include="..\NetCore\NetCoreUrhoInitializer.cs" />
+  </ItemGroup>
+
+  <Import Project="..\Urho.Shared.projitems" Label="Shared" />
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+  <Import Condition="$(TargetFramework) == 'xamarin.ios10' AND '$(OS)' != 'Windows_NT'" Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+</Project>
