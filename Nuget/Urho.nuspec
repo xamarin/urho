@@ -29,7 +29,6 @@
      <file src="../docs/Urho.XML" target="lib/netstandard2.0/UrhoSharp.XML" />
 
      <!--Android-->
-     <file src="../Nuget/Android/UrhoSharp-ns2-preview.targets" target="build/monoandroid81" />
      <file src="../Bin/UrhoSharp/monoandroid81/UrhoSharp.dll" target="lib/monoandroid81/UrhoSharp.dll" />
      <file src="../Bin/UrhoSharp/monoandroid81/Urho.Droid.SdlBinding.dll" target="lib/monoandroid81/Urho.Droid.SdlBinding.dll" />
      <file src="../docs/Urho.XML" target="lib/monoandroid81/UrhoSharp.XML" />

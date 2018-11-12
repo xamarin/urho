@@ -34,10 +34,8 @@
      <file src="../docs/Urho.XML" target="lib/netstandard2.0/UrhoSharp.Forms.XML" />
 
      <!--Android-->
-     <file src="../Nuget/Android/UrhoSharp.Forms-ns2-preview.targets" target="build/monoandroid81" />
      <file src="../Bin/UrhoSharp.Forms/monoandroid81/UrhoSharp.Forms.dll" target="lib/monoandroid81/UrhoSharp.Forms.dll" />
      <file src="../Bin/UrhoSharp.Forms/monoandroid81/Urho.Droid.SdlBinding.dll" target="lib/monoandroid81/Urho.Droid.SdlBinding.dll" />
-
      <file src="../docs/Urho.XML" target="lib/monoandroid81/UrhoSharp.Forms.XML" />
 
      <file src="../Bin/Android/x86_64/libmono-urho.so" target="native/Android/x86_64/libmono-urho.so" />
