@@ -16,7 +16,7 @@
        <releaseNotes>Release notes: https://github.com/xamarin/urho/releases</releaseNotes>
        <tags>Urho Urho3D WinForms UrhoSharp Xamarin 2D 3D games engine</tags>
        <dependencies>
-         <dependency id="UrhoSharp" version="1.8" />
+         <dependency id="UrhoSharp" version="1.9" />
        </dependencies>
    </metadata>
    <files>
