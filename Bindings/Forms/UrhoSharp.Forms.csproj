@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
 
   <PropertyGroup>
-    <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">netstandard2.0;MonoAndroid81;uap10.0.16299;portable-net45+win8+wpa81</TargetFrameworks>
-    <TargetFrameworks Condition=" '$(OS)' != 'Windows_NT' ">netstandard2.0;MonoAndroid81;Xamarin.iOS10;portable-net45+win8+wpa81</TargetFrameworks>
+    <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">netstandard2.0;monoandroid81;uap10.0.16299;portable-net45+win8+wpa81</TargetFrameworks>
+    <TargetFrameworks Condition=" '$(OS)' != 'Windows_NT' ">netstandard2.0;monoandroid81;xamarin.ios10;portable-net45+win8+wpa81</TargetFrameworks>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
     
     <DefineConstants>$(DefineConstants);XFORMS</DefineConstants>
@@ -22,16 +22,35 @@
   </ItemGroup>
 
   <!-- Android -->
-  <ItemGroup Condition="$(TargetFramework.StartsWith('MonoAndroid'))">
+  <ItemGroup Condition="$(TargetFramework) == 'monoandroid81'">
     <ProjectReference Include="..\Android\Urho.Droid.SdlBinding\Urho.Droid.SdlBinding.csproj" />
     <Compile Include="..\Android\DroidPlatformInitializer.cs" />
     <Compile Include="..\Android\FullscreenUrhoActivity.cs" />
     <Compile Include="..\Android\UrhoSurface.cs" />
     <Compile Include="..\Forms.Droid\AndroidSurfaceRenderer.cs" />
+
+    <EmbeddedNativeLibrary Include="..\..\Bin\Android\x86_64\libmono-urho.so">
+      <Link>Libs\x86_64\libmono-urho.so</Link>
+    </EmbeddedNativeLibrary>
+    <EmbeddedNativeLibrary Include="..\..\Bin\Android\arm64-v8a\libmono-urho.so">
+      <Link>Libs\arm64-v8a\libmono-urho.so</Link>
+    </EmbeddedNativeLibrary>
+    <EmbeddedNativeLibrary Include="..\..\Bin\Android\armeabi-v7a\libmono-urho.so">
+      <Link>Libs\armeabi-v7a\libmono-urho.so</Link>
+    </EmbeddedNativeLibrary>
+    <EmbeddedNativeLibrary Include="..\..\Bin\Android\armeabi\libmono-urho.so">
+      <Link>Libs\armeabi\libmono-urho.so</Link>
+    </EmbeddedNativeLibrary>
+    <EmbeddedNativeLibrary Include="..\..\Bin\Android\x86\libmono-urho.so">
+      <Link>Libs\x86\libmono-urho.so</Link>
+    </EmbeddedNativeLibrary>
+    <AndroidAsset Include="..\..\Urho3D\CoreData.pak">
+      <Link>Assets\CoreData.pak</Link>
+    </AndroidAsset>
   </ItemGroup>
 
   <!-- iOS -->
-  <ItemGroup Condition="$(TargetFramework.StartsWith('Xamarin.iOS'))">
+  <ItemGroup Condition="$(TargetFramework) == 'xamarin.ios10'">
     <!--BundleResource Include="..\..\Urho3D\CoreData.pak">
       <Link>CoreData.pak</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -51,7 +70,11 @@
   </ItemGroup>
 
   <!-- UWP -->
-  <ItemGroup Condition="$(TargetFramework.StartsWith('uap10.0'))">
+  <ItemGroup Condition="$(TargetFramework) == 'uap10.0.16299'">
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.5" />
+    <SDKReference Include="WindowsMobile, Version=10.0.16299.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
+    </SDKReference>
     <EmbeddedResource Include="..\..\Urho3D\CoreData.pak">
       <Link>CoreData.pak</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

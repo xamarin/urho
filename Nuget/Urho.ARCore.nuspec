@@ -20,7 +20,7 @@
        </dependencies>
    </metadata>
    <files>
-     <file src="../Bin/Extensions/ARCore/Urho.Extensions.Droid.ARCore.dll" target="lib/monoandroid80/Urho.Extensions.Droid.ARCore.dll" />
-     <file src="../Bin/Extensions/ARCore/Urho.Droid.CoreAR.dll" target="lib/monoandroid80/Urho.Droid.CoreAR.dll" />
+     <file src="../Bin/Extensions/ARCore/Urho.Extensions.Droid.ARCore.dll" target="lib/monoandroid81/Urho.Extensions.Droid.ARCore.dll" />
+     <file src="../Bin/Extensions/ARCore/Urho.Droid.CoreAR.dll" target="lib/monoandroid81/Urho.Droid.CoreAR.dll" />
    </files>
 </package>

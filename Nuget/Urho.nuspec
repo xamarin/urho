@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-   <metadata minClientVersion="2.8.1">
+   <metadata minClientVersion="3.0">
        <id>UrhoSharp-ns2-preview</id>
-       <version>2.0.2</version>
+       <version>2.0.5</version>
        <title>UrhoSharp-ns2-preview</title>
        <authors>Xamarin,Microsoft</authors>
        <owners>Xamarin,Microsoft</owners>
@@ -32,7 +32,6 @@
      <file src="../Nuget/Android/UrhoSharp-ns2-preview.targets" target="build/monoandroid81" />
      <file src="../Bin/UrhoSharp/monoandroid81/UrhoSharp.dll" target="lib/monoandroid81/UrhoSharp.dll" />
      <file src="../Bin/UrhoSharp/monoandroid81/Urho.Droid.SdlBinding.dll" target="lib/monoandroid81/Urho.Droid.SdlBinding.dll" />
-     <!--file src="../Bin/UrhoSharp/monoandroid81/Urho.Droid.GoogleVR.dll" target="lib/monoandroid81/Urho.Droid.GoogleVR.dll" /-->
      <file src="../docs/Urho.XML" target="lib/monoandroid81/UrhoSharp.XML" />
 
      <file src="../Bin/Android/x86_64/libmono-urho.so" target="native/Android/x86_64/libmono-urho.so" />
