@@ -78,7 +78,7 @@ namespace Urho
 		/// </summary>
 		public string[] ResourcePackagesPaths { get; set; } = null;
 
-#if __UWP__
+#if WINDOWS_UWP
 		public bool TouchEmulation { get { return true; } set {} }
 #else
 		/// <summary>
@@ -181,7 +181,7 @@ namespace Urho
 			if (resourcePrefixPaths?.Length > 0)
 				builder.AppendFormat(" -pp \"{0}\"", string.Join(";", resourcePrefixPaths));
 
-#if !__UWP__
+#if !WINDOWS_UWP
 			if (TouchEmulation)
 #endif
 			builder.Append(" -touch");

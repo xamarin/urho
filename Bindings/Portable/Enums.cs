@@ -90,7 +90,7 @@ namespace Urho {
 			}
 #if UWP_HOLO
 			return Platforms.SharpReality;
-#elif __UWP__
+#elif WINDOWS_UWP
 			return Platforms.UWP;
 #endif
 			return Platforms.Unknown;

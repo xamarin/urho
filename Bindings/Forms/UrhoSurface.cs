@@ -53,7 +53,7 @@ namespace Urho.Forms
 		{
 			Urho.Droid.UrhoSurface.OnDestroy();
 		}
-#elif __UWP__
+#elif WINDOWS_UWP
 		public static void OnPause()
 		{
 			Urho.UWP.UrhoSurface.Pause();

@@ -23,7 +23,7 @@ namespace Urho
 			Droid.DroidPlatformInitializer.OnInited();
 #elif UWP_HOLO
 			//Do nothing.
-#elif __UWP__
+#elif WINDOWS_UWP
 			UWP.UwpUrhoInitializer.OnInited();
 #elif NETCOREAPP2_1
 			NetCore.NetCoreUrhoInitializer.OnInited();

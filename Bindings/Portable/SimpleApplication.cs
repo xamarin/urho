@@ -40,7 +40,7 @@ namespace Urho
 			if (!string.IsNullOrEmpty(dataDir))
 				Directory.CreateDirectory("Data");
 #endif
-#if !__IOS__ && !__UWP__
+#if !__IOS__ && !WINDOWS_UWP
 			var taskSource = new TaskCompletionSource<SimpleApplication>();
 			Action callback = null;
 			callback = () => {

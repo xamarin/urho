@@ -188,7 +188,7 @@ namespace Urho
 			Runtime.Start();
 			Current = GetApp(h);
 			Current.SubscribeToAppEvents();
-#if __UWP__
+#if WINDOWS_UWP
 			// UWP temp workaround:
 			var text = new Text();
 			text.SetFont(CoreAssets.Fonts.AnonymousPro, 1);
@@ -256,7 +256,7 @@ namespace Urho
 			iOS.UrhoSurface.StopRendering(current);
 #endif
 
-#if __UWP__ && !UWP_HOLO
+#if WINDOWS_UWP && !UWP_HOLO
 			UWP.UrhoSurface.StopRendering().Wait();
 #endif
 			LogSharp.Debug($"StopCurrent: Current.IsFrameRendering={Current.IsFrameRendering}");
@@ -345,7 +345,7 @@ namespace Urho
 				return Platforms.iOS;
 #elif UWP_HOLO
 				return Platforms.SharpReality;
-#elif __UWP__
+#elif WINDOWS_UWP
 				return Platforms.UWP;
 #endif
 				Runtime.Validate(typeof(Application));
@@ -568,7 +568,7 @@ namespace Urho
 							$"\n Assets must be located in '/Assets/{assetDir}' with 'AndroidAsset' Build Action.";
 #elif __iOS__
 							$"\n Assets must be located in '/Resources/{assetDir}' with 'BundleResource' Build Action.";
-#elif __UWP__ || UWP_HOLO
+#elif WINDOWS_UWP || UWP_HOLO
 							$"\n Assets must be located in '/{assetDir}' with 'Content' Build Action"; 
 #else
 							$"\n Assets must be located in '/{assetDir}'";
