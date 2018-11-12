@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
    <metadata minClientVersion="3.0">
-       <id>UrhoSharp-ns2-preview</id>
-       <version>2.0.5</version>
-       <title>UrhoSharp-ns2-preview</title>
+       <id>UrhoSharp</id>
+       <version>1.9</version>
+       <title>UrhoSharp</title>
        <authors>Xamarin,Microsoft</authors>
        <owners>Xamarin,Microsoft</owners>
        <copyright>© Microsoft Corporation. All rights reserved.</copyright>
@@ -44,7 +44,7 @@
      <file src="../docs/Urho.XML" target="lib/Xamarin.iOS10/UrhoSharp.XML" />
 
      <!--Windows+Mac-->
-     <file src="../Nuget/Desktop/UrhoSharp-ns2-preview.targets" target="build/net45" />
+     <file src="../Nuget/Desktop/UrhoSharp.targets" target="build/net45" />
      <file src="../Bin/UrhoSharp/net45/UrhoSharp.dll" target="lib/net45/UrhoSharp.dll" />
      <file src="../docs/Urho.XML" target="lib/net45/UrhoSharp.XML" />
      <file src="../Bin/Desktop/Win64_OpenGL/mono-urho.dll" target="native/Win64_OpenGL/mono-urho.dll" />
@@ -55,12 +55,12 @@
      <file src="../Bin/Desktop/libmono-urho.dylib" target="native/Mac/libmono-urho.dylib" />
 
      <!--.NET Core 2.1-->
-     <file src="../Nuget/Desktop/UrhoSharp-ns2-preview.targets" target="build/netcoreapp2.1" />
+     <file src="../Nuget/Desktop/UrhoSharp.targets" target="build/netcoreapp2.1" />
      <file src="../docs/Urho.XML" target="lib/netcoreapp2.1/UrhoSharp.XML" />
      <file src="../Bin/UrhoSharp/netcoreapp2.1/UrhoSharp.dll" target="lib/netcoreapp2.1/UrhoSharp.dll" />
 
      <!--UWP-->
-     <file src="../Nuget/UWP/UrhoSharp-ns2-preview.targets" target="build/uap10.0.16299" />
+     <file src="../Nuget/UWP/UrhoSharp.targets" target="build/uap10.0.16299" />
      <file src="../docs/Urho.XML" target="lib/uap10.0.16299/UrhoSharp.XML" />
      <file src="../Bin/UrhoSharp/uap10.0.16299/UrhoSharp.dll" target="lib/uap10.0.16299/UrhoSharp.dll" />
      <file src="../Bin/UWP/Win32/UrhoSharp.UWP/mono-urho.dll" target="runtimes\win10-x86\native\mono-urho.dll" />
