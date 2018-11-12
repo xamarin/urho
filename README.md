@@ -4,7 +4,7 @@
 
 UrhoSharp is a lightweight Game Engine suitable for using with C# and
 F# to create games and 3D applications. The game engine is available 
-as a **portable class library**, allowing your game code to be written 
+as a **NETStandard 2.0** library, allowing your game code to be written 
 once and shared across all platforms. UrhoSharp is powered by [Urho3D](http://urho3d.github.io/),
 a game engine that has been under development for more than a decade.
 More information can be found in the [UrhoSharp
@@ -21,11 +21,11 @@ on the LICENSE file.
 - Simple code-first approach (however, it still supports native Urho3D editor)
 
 **Supported platforms:**
-- Windows, WPF, WinForms
-- iOS, tvOS
-- macOS
-- Android
-- UWP
+- Windows, WPF, WinForms (net45)
+- iOS (xamarin.ios10)
+- macOS 
+- Android (monodroid81)
+- UWP (uap10.0.16299)
 - **AR: HoloLens, ARKit, ARCore**
 - Mixed Reality
 - Xamarin.Forms (iOS, Android, UWP)
@@ -84,6 +84,9 @@ You will need:
 - CMake (`brew install cmake`)
 - Command Line tools (`xcode-select --install`)
 - Android NDK + ANDROID_NDK_HOME environment variable
+NOTE: `UrhoSharp.csproj` and `UrhoSharp.Forms.csproj` are SDK-style NETStandard2.0 projects with multi-targeting, 
+unfortunately Visual Studio for Mac currently doesn't fully support such projects so you have to compile
+them using `msbuild` CLI, e.g. `cd Bindings/Forms && msbuild /restore UrhoSharp.Forms.csproj /p:Configuration=Release /p:Platform=AnyCpu`
 
 **1. Clone the repository including submodules**
 
@@ -106,11 +109,11 @@ make Generated
 ```
 make Mac
 ```
-it takes 5-10 minutes.
+it usually takes 5-10 minutes.
 
 **4. Compile UrhoSharp for iOS (fat dylib: i386, x86_64, armv7, arm64)**
 ```
-make iOS SDK_VER=11.2
+make iOS SDK_VER=12.1
 ```
 
 **5. Compile UrhoSharp for Android (armeabi, armeabi-v7a, arm64, x86, x86_64)** 
