@@ -46,4 +46,4 @@ copy lib\Urho3D%CONFIG_SUFFIX%.lib lib\Urho3D%CONFIG_SUFFIX%_%PLATFORM_SUFFIX%_%
 
 cd ../..
 
-msbuild Urho3D\Urho3D_Windows\MonoUrho.Windows\MonoUrho.Windows%MONOURHO_SUFFIX%.vcxproj /p:Configuration=%CONFIG% /p:Platform=%MONOURHO_PLATFORM%
+:: msbuild Urho3D\Urho3D_Windows\MonoUrho.Windows\MonoUrho.Windows%MONOURHO_SUFFIX%.vcxproj /p:Configuration=%CONFIG% /p:Platform=%MONOURHO_PLATFORM%
