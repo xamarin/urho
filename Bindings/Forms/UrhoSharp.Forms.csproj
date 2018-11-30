@@ -45,7 +45,7 @@
       <Link>Libs\x86\libmono-urho.so</Link>
     </EmbeddedNativeLibrary>
     <AndroidAsset Include="..\..\Urho3D\CoreData.pak">
-      <Link>Assets\CoreData.pak</Link>
+      <Link>CoreData.pak</Link>
     </AndroidAsset>
   </ItemGroup>
 
