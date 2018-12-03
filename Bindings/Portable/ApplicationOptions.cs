@@ -150,7 +150,14 @@ namespace Urho
 #endif
 				builder.Append(" -s");
 
-			string[] resourcePathes = new[] { "CoreData" }.Concat(ResourcePaths ?? new string[0]).ToArray();
+			string[] resourcePathes =
+#if __ANDROID__
+				new[] { "Assets/CoreData" } // CoreData on Android is embedded into the lib now
+#else
+				new[] { "CoreData" }
+#endif
+					.Concat(ResourcePaths ?? new string[0]).ToArray();
+
 			if (!AutoloadCoreData)
 				resourcePathes = ResourcePaths ?? new string[0];
 			builder.AppendFormat(" -p \"{0}\"", string.Join(";", resourcePathes.Distinct()));
