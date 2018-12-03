@@ -51,10 +51,6 @@
 
   <!-- iOS -->
   <ItemGroup Condition="$(TargetFramework) == 'xamarin.ios10'">
-    <BundleResource Update="..\..\Urho3D\CoreData.pak">
-      <Link>CoreData.pak</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </BundleResource>
     <None Include="..\..\Bin\iOS\Urho.framework.zip">
       <Link>Urho.framework.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -57,9 +57,6 @@
     <Compile Include="..\iOS\UrhoSurface.cs" />
     <Compile Include="..\iOS\Urho.framework.linkwith.cs" />
     <ObjcBindingNativeFramework Include="..\..\Bin\iOS\Urho.framework" />
-    <BundleResource Update="..\..\Urho3D\CoreData.pak">
-      <Link>Resources\CoreData.pak</Link>
-    </BundleResource>
   </ItemGroup>
 
   <!-- UWP -->

@@ -45,6 +45,7 @@
      <file src="../Bin/Android/armeabi/libmono-urho.so" target="native/Android/armeabi/libmono-urho.so" />
 
      <!--iOS-->
+     <file src="../Nuget/iOS/UrhoSharp.Forms.targets" target="build/xamarin.ios10" />
      <file src="../Bin/UrhoSharp.Forms/UrhoSharp.Forms.dll" target="lib/Xamarin.iOS10/UrhoSharp.Forms.dll" />
      <file src="../docs/Urho.XML" target="lib/Xamarin.iOS10/UrhoSharp.Forms.XML" />
 	 

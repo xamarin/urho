@@ -1,0 +1,7 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<BundleResource Include="$(MSBuildThisFileDirectory)\..\..\native\CoreData.pak">
+			<Link>Resources\CoreData.pak</Link>
+		</BundleResource>
+	</ItemGroup>
+</Project>
