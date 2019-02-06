@@ -81,12 +81,16 @@ Windows and OS X environment.  Please follow these steps:
 You will need:
 - XCode
 - Visual Studio for Mac
+- Homebrew (`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)`)
 - CMake (`brew install cmake`)
 - Command Line tools (`xcode-select --install`)
 - Android NDK + ANDROID_NDK_HOME environment variable
+
 NOTE: `UrhoSharp.csproj` and `UrhoSharp.Forms.csproj` are SDK-style NETStandard2.0 projects with multi-targeting, 
 unfortunately Visual Studio for Mac currently doesn't fully support such projects so you have to compile
 them using `msbuild` CLI, e.g. `cd Bindings/Forms && msbuild /restore UrhoSharp.Forms.csproj /p:Configuration=Release /p:Platform=AnyCpu`
+
+If you have an error message `tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance` during compilation try to switch developer directory like this `sudo xcode-select -s /Applications/Xcode.app/Contents/Developer`
 
 **1. Clone the repository including submodules**
 
