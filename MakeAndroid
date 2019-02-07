@@ -91,7 +91,7 @@ libUrho3D.a: Urho3D_Android
 	cd $(URHO3D_ANDROID_DIR) && make Urho3D
 	
 MakeBinDirectory:
-	mkdir -p $(OUTPUT_DIR)
+	$(MKDIR_CMD) "$(OUTPUT_DIR)"
 	
 objects: MakeBinDirectory ApplicationProxy.o Glue.o Vector.o Binding.o Events.o SDL.o
 
